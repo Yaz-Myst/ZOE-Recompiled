@@ -110,4 +110,11 @@ More detail: [building and debug switches](ZOE-Recompiled/docs/05-build-and-run.
   ELFIO, rabbitizer, libdwarf, FFmpeg.
 - Zone of the Enders is © Konami. This project is not affiliated with or endorsed by Konami.
 
-Licensed under the **GNU General Public License v3** (see [PS2Recomp/LICENSE](PS2Recomp/LICENSE)).
+Licensed under the **GNU General Public License v3** (see [LICENSE](LICENSE)).
+
+## Support
+
+ZOE-Recompiled is free and stays free. If you enjoy it and want to support more work like this, there is a
+Ko-fi: **https://ko-fi.com/yz_games**. It helps with what comes next: controller support in the menus and the
+remaining freezes. Bug reports on the [Issues](https://github.com/Yaz-Myst/ZOE-Recompiled/issues) page help just
+as much.
