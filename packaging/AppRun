@@ -1,0 +1,7 @@
+#!/bin/sh
+# AppImage launcher: run the native binary with the bundled libraries and keep the
+# user's XDG data (settings, extracted game files, saves) outside the read-only AppDir.
+HERE=$(dirname "$(readlink -f "$0")")
+export LD_LIBRARY_PATH="$HERE/usr/lib:$HERE/usr/lib/x86_64-linux-gnu${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+# The front-end does not need a terminal; raylib/SDL pick the desktop backend.
+exec "$HERE/usr/bin/zoe-recompiled" "$@"
