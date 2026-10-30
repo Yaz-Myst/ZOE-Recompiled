@@ -1,0 +1,25 @@
+# Headers the generated game code includes (directly or through ps2_runtime.h, ps2_syscalls.h, ps2_stubs.h,
+# ps2_log.h, ps2_runtime_macros.h). Changing any of them recompiles every generated file: a 35-40 minute rebuild.
+# build.ps1 stops before such a rebuild unless it is approved (games\edit-approved.txt, valid 3 hours) or
+# -AllowFullRebuild is passed. One path per line, relative to the repository root; '*' and '**' wildcards allowed.
+# Recompute after adding an #include to any of them (checked 2026-10-07: 19 headers, exact).
+PS2Recomp/ps2xRuntime/include/ps2_runtime.h
+PS2Recomp/ps2xRuntime/include/ps2_runtime_macros.h
+PS2Recomp/ps2xRuntime/include/ps2_syscalls.h
+PS2Recomp/ps2xRuntime/include/ps2_stubs.h
+PS2Recomp/ps2xRuntime/include/ps2_log.h
+PS2Recomp/ps2xRuntime/include/ps2_call_list.h
+PS2Recomp/ps2xRuntime/include/runtime/ps2_address.h
+PS2Recomp/ps2xRuntime/include/runtime/ps2_audio.h
+PS2Recomp/ps2xRuntime/include/runtime/ps2_memory.h
+PS2Recomp/ps2xRuntime/include/runtime/ps2_pad.h
+PS2Recomp/ps2xRuntime/include/runtime/ps2_rom_device.h
+PS2Recomp/ps2xRuntime/include/runtime/ps2_vfs.h
+PS2Recomp/ps2xRuntime/include/runtime/ps2_vu1.h
+PS2Recomp/ps2xRuntime/include/runtime/gs/gs_backend.h
+PS2Recomp/ps2xRuntime/include/runtime/gs/gs_frontend.h
+PS2Recomp/ps2xRuntime/include/runtime/gs/gs_types.h
+PS2Recomp/ps2xRuntime/include/runtime/gs/ps2_gif_arbiter.h
+PS2Recomp/ps2xIOP/include/ps2x/iop/iop_types.h
+PS2Recomp/ps2xIOP/include/ps2x/iop/ps2_path.h
+**/ps2_recompiled_*.h

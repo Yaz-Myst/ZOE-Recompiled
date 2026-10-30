@@ -1,0 +1,1 @@
+lright@t74134+0.14,lleft@t74162+0.16,lup@t74206+0.14,lleft@t74205+0.16,lright@t74243+0.11,lup@t74240+0.21,lup@t74276+0.11,lup@t74303+0.10,lleft@t74303+0.11,lright@t74385+0.13,lleft@t74415+0.13,lright@t74498+0.15

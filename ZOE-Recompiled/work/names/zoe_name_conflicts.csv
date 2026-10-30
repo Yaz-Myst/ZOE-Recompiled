@@ -1,0 +1,4 @@
+address,kind,name_a,source_a,name_b,source_b,detail
+0x00424160,same_name_multiple_addresses,ExecOSD,sce_scanner,ExecOSD,signature,"reference ExecOSD (0x0014C180, 4 insns) is unique; body similarity 0.00 here vs 1.00 at 0x004896C0 (signature); row dropped from names.csv"
+0x00466E00,anchor_vs_signature,_InitSys,sce_scanner,InitKglobal,signature,"exact match from reference 0x00100778 (InitKglobal), conf 0.59; scanner name kept"
+0x0046A9A0,short_window_twins,sceVif0PkAddCode,short_window,"sceVif1PkAddCode,sceVif1PkAddUpkData32",short_window,identical short bodies wanted the same address; left unnamed

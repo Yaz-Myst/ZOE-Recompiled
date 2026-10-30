@@ -1,0 +1,20 @@
+# Game data and anything derived from it never goes into this repository.
+*.iso
+*.bin
+*.p2s
+ZOE-Recompiled/game/*
+!ZOE-Recompiled/game/README.txt
+ZOE-Recompiled/work/output/
+ZOE-Recompiled/work/regen_tmp/
+ZOE-Recompiled/work/play_bin/
+ZOE-Recompiled/work/states/
+ZOE-Recompiled/work/diag/
+ZOE-Recompiled/work/*.log
+ZOE-Recompiled/work/*_frames.csv
+ZOE-Recompiled/work/scripts/ExportPS2Functions.properties
+# Build output
+ZOE-Recompiled/build/
+PS2Recomp/out/
+__pycache__/
+# Local approval for a full rebuild (written by the developer, never committed)
+games/edit-approved.txt

@@ -1,0 +1,2 @@
+address,name,why
+0x00446010,scePadExitPressMode,"Wrong match (signature 0.71). It is ZOE's own 7-instruction wrapper FUN_00445d88(a0,a1,0), the collision query behind the ground probe; as a stub the floor collision and scenery destruction silently broke. Removed from zoe_names.csv 2026-10-06."

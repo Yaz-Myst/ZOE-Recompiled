@@ -1,0 +1,1521 @@
+address,name,source,confidence,kind,note
+0x00201ED0,__tf5pause,rtti_pattern,0.92,function,
+0x002025F8,__tf6grdrip,rtti_pattern,0.92,function,
+0x002035F0,__tf7dasheff,rtti_pattern,0.92,function,
+0x00204620,__tf6jehlit,rtti_pattern,0.92,function,
+0x00206420,__tf7jehvern,rtti_pattern,0.92,function,
+0x002068B0,__tf6jehaim,rtti_pattern,0.92,function,
+0x00207088,__tf7lineeff,rtti_pattern,0.92,function,
+0x002078B8,__tf6stream,rtti_pattern,0.92,function,
+0x00207A48,__tf5delay,rtti_pattern,0.92,function,
+0x00207BD0,__tf6scnact,rtti_pattern,0.92,function,
+0x00208370,__tf5vsman,rtti_pattern,0.92,function,
+0x00208738,__tf6scntrg,rtti_pattern,0.92,function,
+0x00208958,__tf5shman,rtti_pattern,0.92,function,
+0x00209980,__tf3ada,rtti_pattern,0.92,function,
+0x00209F48,__tf4trap,rtti_pattern,0.92,function,
+0x0020AEA8,__tf6horizn,rtti_pattern,0.92,function,
+0x0020B9E8,__tf8advsmoke,rtti_pattern,0.92,function,
+0x0020C840,__tf7CR_EDGE,rtti_pattern,0.92,function,
+0x0020D248,__tf11risingsmoke,rtti_pattern,0.92,function,
+0x0020D870,__tf5atmos,rtti_pattern,0.92,function,
+0x0020E1A8,__tf8bgsphere,rtti_pattern,0.92,function,
+0x0020F0A8,__tf9WAIT_LOAD,rtti_pattern,0.92,function,
+0x0020F0F8,__tf10STARTSTAGE,rtti_pattern,0.92,function,
+0x0020F190,__tf7SDXLOAD,rtti_pattern,0.92,function,
+0x0020F600,__tf11SOUNDSTREAM,rtti_pattern,0.92,function,
+0x0020F9B8,__tf8tempdemo,rtti_pattern,0.92,function,
+0x0020FE60,__tf7tempobj,rtti_pattern,0.92,function,
+0x00210150,__tf9softreset,rtti_pattern,0.92,function,
+0x00210D78,__tf9highstage,rtti_pattern,0.92,function,
+0x00211868,__tf9highblock,rtti_pattern,0.92,function,
+0x00211CB8,__tf12CR_VIBRATION,rtti_pattern,0.92,function,
+0x00213298,__tf9waterside,rtti_pattern,0.92,function,
+0x002132E8,__tf5water,rtti_pattern,0.92,function,
+0x00213500,__tf9copyframe,rtti_pattern,0.92,function,
+0x00213750,__tf7stealth,rtti_pattern,0.92,function,
+0x0021B528,__tf3map,rtti_pattern,0.92,function,
+0x0021B8F0,__tf8rotstage,rtti_pattern,0.92,function,
+0x0021BA68,__tf8tmpstage,rtti_pattern,0.92,function,
+0x0021BF58,__tf7cderror,rtti_pattern,0.92,function,
+0x0021C308,__tf6stgsub,rtti_pattern,0.92,function,
+0x0021C7C8,__tf8bootload,rtti_pattern,0.92,function,
+0x0021C8C0,__tf11AN_ANNOUNCE,rtti_pattern,0.92,function,
+0x0021CC08,__tf12AN_PLAYVOICE,rtti_pattern,0.92,function,
+0x0021DD40,__tf11ENE_MANAGER,rtti_pattern,0.92,function,
+0x0021F590,__tf9ENE_PARTY,rtti_pattern,0.92,function,
+0x002370E8,__tf10FRM_OBJECT,rtti_pattern,0.92,function,
+0x00242C88,__tf10RescueRate,rtti_pattern,0.92,function,
+0x00243C70,__tf6rapbld,rtti_pattern,0.92,function,
+0x00243EA0,__tf6gndeff,rtti_pattern,0.92,function,
+0x00244DF0,__tf8gndspark,rtti_pattern,0.92,function,
+0x00247AB0,__tf10rapbldline,rtti_pattern,0.92,function,
+0x00249218,__tf7gndline,rtti_pattern,0.92,function,
+0x00249C60,__tf5steam,rtti_pattern,0.92,function,
+0x0024A958,__tf9wtrpillar,rtti_pattern,0.92,function,
+0x0024C9D0,__tf6shadow,rtti_pattern,0.92,function,
+0x0024D8D0,__tf13ring_particle,rtti_pattern,0.92,function,
+0x0024E020,__tf13tyrant_vulcan,rtti_pattern,0.92,function,
+0x0025BF08,__tf6TYRANT,rtti_pattern,0.92,function,
+0x0025C960,__tf12tyrant_probe,rtti_pattern,0.92,function,
+0x0025E980,__tf13tyrant_charge,rtti_pattern,0.92,function,
+0x0025FB18,__tf16tyrant_megalaser,rtti_pattern,0.92,function,
+0x00260EE0,__tf14tyrant_missile,rtti_pattern,0.92,function,
+0x002642D8,__tf11ring_effect,rtti_pattern,0.92,function,
+0x00264D88,__tf15tyrnt_msl_smoke,rtti_pattern,0.92,function,
+0x00265208,__tf20tyrant_vulcan_effect,rtti_pattern,0.92,function,
+0x00265EF8,__tf12tyrant_laser,rtti_pattern,0.92,function,
+0x00267170,__tf13tyrant_laser2,rtti_pattern,0.92,function,
+0x002676C8,__tf6jehbld,rtti_pattern,0.92,function,
+0x002693A0,__tf10jehbldline,rtti_pattern,0.92,function,
+0x0026B290,__tf7cycfist,rtti_pattern,0.92,function,
+0x0026BC28,__tf11jehbldline2,rtti_pattern,0.92,function,
+0x0026C098,__tf17tyrant_megalaser2,rtti_pattern,0.92,function,
+0x0026D448,__tf10cycfisteff,rtti_pattern,0.92,function,
+0x0026F378,__tf13jeh_barms_eff,rtti_pattern,0.92,function,
+0x00270180,__tf7windeff,rtti_pattern,0.92,function,
+0x002710F0,__tf10cannonline,rtti_pattern,0.92,function,
+0x00272770,__tf11cannonspark,rtti_pattern,0.92,function,
+0x00272ED0,__tf13tyrant_ripple,rtti_pattern,0.92,function,
+0x002744A8,__tf17tyrant_flashlaser,rtti_pattern,0.92,function,
+0x00275578,__tf11stage_smoke,rtti_pattern,0.92,function,
+0x00275CA8,__tf4hole,rtti_pattern,0.92,function,
+0x00276860,__tf6grdeff,rtti_pattern,0.92,function,
+0x00279E60,__tf7GlbMark,rtti_pattern,0.92,function,
+0x0027BFD8,__tf8MapRadar,rtti_pattern,0.92,function,
+0x0027DD28,__tf16tyrant_locklaser,rtti_pattern,0.92,function,
+0x0027F9E0,__tf12party_circle,rtti_pattern,0.92,function,
+0x00280378,__tf10dest_rader,rtti_pattern,0.92,function,
+0x00280A48,__tf8mn_pause,rtti_pattern,0.92,function,
+0x002812B8,__tf12item_pointer,rtti_pattern,0.92,function,
+0x002828C0,__tf4wave,rtti_pattern,0.92,function,
+0x002834C8,__tf10GetProgram,rtti_pattern,0.92,function,
+0x00283DE0,__tf10GetItemBox,rtti_pattern,0.92,function,
+0x002847C8,__tf7GetItem,rtti_pattern,0.92,function,
+0x0028CAB8,__tf4menu,rtti_pattern,0.92,function,
+0x0028F9F8,__tf12LockonCursor,rtti_pattern,0.92,function,
+0x0028FFE0,__tf10ItemCursor,rtti_pattern,0.92,function,
+0x00291800,__tf14LockableCursor,rtti_pattern,0.92,function,
+0x00292A90,__tf12TargetCursor,rtti_pattern,0.92,function,
+0x002933D8,__tf8PartyCur,rtti_pattern,0.92,function,
+0x00293D68,__tf15PartyLockCursor,rtti_pattern,0.92,function,
+0x002943E8,__tf14PartyTrgCursor,rtti_pattern,0.92,function,
+0x00298B18,__tf7Monitor,rtti_pattern,0.92,function,
+0x00299DB8,__tf5Guage,rtti_pattern,0.92,function,
+0x0029B370,__tf4site,rtti_pattern,0.92,function,
+0x002A0258,__tf9JogWepCus,rtti_pattern,0.92,function,
+0x002A1B68,__tf10EscapeView,rtti_pattern,0.92,function,
+0x002A4528,__tf6Window,rtti_pattern,0.92,function,
+0x002A4B68,__tf8navigate,rtti_pattern,0.92,function,
+0x002A5A00,__tf10dust_smoke,rtti_pattern,0.92,function,
+0x002A60D8,__tf13scratch_water,rtti_pattern,0.92,function,
+0x002A65F8,__tf12water_ripple,rtti_pattern,0.92,function,
+0x002A6A80,__tf9water_fog,rtti_pattern,0.92,function,
+0x002A8020,__tf12cannonspark2,rtti_pattern,0.92,function,
+0x002AA4A8,__tf5probe,rtti_pattern,0.92,function,
+0x002AABA0,__tf6spread,rtti_pattern,0.92,function,
+0x002AB370,__tf9reduction,rtti_pattern,0.92,function,
+0x002AB9F0,__tf11missile_exp,rtti_pattern,0.92,function,
+0x002AD5F0,__tf7glb_map,rtti_pattern,0.92,function,
+0x002ADFF0,__tf16tyrant_mainlaser,rtti_pattern,0.92,function,
+0x002B30B0,__tf11save_window,rtti_pattern,0.92,function,
+0x002B3AB8,__tf13nebula_cursor,rtti_pattern,0.92,function,
+0x002B4158,__tf14stealth_cursor,rtti_pattern,0.92,function,
+0x002B51A0,__tf16tyrant_demolaser,rtti_pattern,0.92,function,
+0x002B7530,__tf6Lockon,rtti_pattern,0.92,function,
+0x002BB1E8,__tf4Bomb,rtti_pattern,0.92,function,
+0x002BC080,__tf7Baggage,rtti_pattern,0.92,function,
+0x002BC940,__tf6Bomber,rtti_pattern,0.92,function,
+0x002BCE00,__tf9bomb_ctrl,rtti_pattern,0.92,function,
+0x002BD3B0,__tf13SuitcasePiece,rtti_pattern,0.92,function,
+0x002BE1C0,__tf12neith_cursor,rtti_pattern,0.92,function,
+0x002BE7E0,__tf8bomb_exp,rtti_pattern,0.92,function,
+0x002BEFF8,__tf10virus_view,rtti_pattern,0.92,function,
+0x002C2BF8,__tf10vs_monitor,rtti_pattern,0.92,function,
+0x002C52E0,__tf13rescue_window,rtti_pattern,0.92,function,
+0x002C60E8,__tf12stage_smoke2,rtti_pattern,0.92,function,
+0x002C75B0,__tf11BindTailEff,rtti_pattern,0.92,function,
+0x002C81A8,__tf10boss_steam,rtti_pattern,0.92,function,
+0x002CDDB8,__tf12save_window2,rtti_pattern,0.92,function,
+0x002CE168,__tf11fail_window,rtti_pattern,0.92,function,
+0x002CE730,__tf8helpcall,rtti_pattern,0.92,function,
+0x002CFB50,__tf11damagespark,rtti_pattern,0.92,function,
+0x002D5058,__tf7JehShot,rtti_pattern,0.92,function,
+0x002D6D60,__tf8JehLaser,rtti_pattern,0.92,function,
+0x002DCB00,__tf9JehCannon,rtti_pattern,0.92,function,
+0x002DF718,__tf7Javelin,rtti_pattern,0.92,function,
+0x002E40D0,__tf6Geyser,rtti_pattern,0.92,function,
+0x002E7910,__tf7Bounder,rtti_pattern,0.92,function,
+0x002E8A30,__tf7Phalanx,rtti_pattern,0.92,function,
+0x002EDB30,__tf7Halberd,rtti_pattern,0.92,function,
+0x002F0508,__tf8JehComet,rtti_pattern,0.92,function,
+0x002F3620,__tf8MumComet,rtti_pattern,0.92,function,
+0x002F4B90,__tf8Gauntlet,rtti_pattern,0.92,function,
+0x002F6098,__tf6Sniper,rtti_pattern,0.92,function,
+0x002F7B88,__tf10MummyShell,rtti_pattern,0.92,function,
+0x002F8468,__tf5Decoy,rtti_pattern,0.92,function,
+0x002F8CE8,__tf4Shot,rtti_pattern,0.92,function,
+0x002FA098,__tf9ShotFlash,rtti_pattern,0.92,function,
+0x002FB0F0,__tf11JehLsrFlash,rtti_pattern,0.92,function,
+0x002FC468,__tf10CanonFlash,rtti_pattern,0.92,function,
+0x002FD520,__tf12JehRapSammon,rtti_pattern,0.92,function,
+0x002FE150,__tf12JehMumCannon,rtti_pattern,0.92,function,
+0x002FE808,__tf10JehUssfGun,rtti_pattern,0.92,function,
+0x002FF1C0,__tf12MumShotFlash,rtti_pattern,0.92,function,
+0x00300B68,__tf11MumShotWarn,rtti_pattern,0.92,function,
+0x00302600,__tf13MumBurstFlash,rtti_pattern,0.92,function,
+0x00303358,__tf10CaptureEff,rtti_pattern,0.92,function,
+0x003071F8,__tf10JehHoldEff,rtti_pattern,0.92,function,
+0x0030B1D8,__tf10RapHoldEff,rtti_pattern,0.92,function,
+0x0030F250,__tf10CycHoldEff,rtti_pattern,0.92,function,
+0x00313118,__tf12NeithHoldEff,rtti_pattern,0.92,function,
+0x00317090,__tf18RebornNeithHoldEff,rtti_pattern,0.92,function,
+0x003187E0,__tf7saveeff,rtti_pattern,0.92,function,
+0x0031A030,__tf8HoldAura,rtti_pattern,0.92,function,
+0x0031C0A8,__tf4Aura,rtti_pattern,0.92,function,
+0x0031CA28,__tf8GndSmoke,rtti_pattern,0.92,function,
+0x0031CFF8,__tf9CartBlast,rtti_pattern,0.92,function,
+0x0031DDB8,__tf7BigBang,rtti_pattern,0.92,function,
+0x0031F060,__tf9ShotBlast,rtti_pattern,0.92,function,
+0x0031FDB0,__tf13GauntletBlast,rtti_pattern,0.92,function,
+0x00320928,__tf11FireCracker,rtti_pattern,0.92,function,
+0x003213A0,__tf8HighFire,rtti_pattern,0.92,function,
+0x00322240,__tf14AppendHighFire,rtti_pattern,0.92,function,
+0x00322C58,__tf10RingEffect,rtti_pattern,0.92,function,
+0x00323620,__tf7rapvern,rtti_pattern,0.92,function,
+0x00323828,__tf6mumcan,rtti_pattern,0.92,function,
+0x00323B48,__tf9BackLight,rtti_pattern,0.92,function,
+0x003243D8,__tf7Thunder,rtti_pattern,0.92,function,
+0x00324BF8,__tf9PartyShot,rtti_pattern,0.92,function,
+0x00325E00,__tf11MONITOR_EFF,rtti_pattern,0.92,function,
+0x00326FE0,__tf10MumDashEff,rtti_pattern,0.92,function,
+0x00328050,__tf9MumGrdEff,rtti_pattern,0.92,function,
+0x00329290,__tf9MumSldEff,rtti_pattern,0.92,function,
+0x003297D0,__tf7tmpFlip,rtti_pattern,0.92,function,
+0x0032F570,__tf8Tempest1,rtti_pattern,0.92,function,
+0x003382A8,__tf8Tempest2,rtti_pattern,0.92,function,
+0x00338B10,__tf11DemoTmpFire,rtti_pattern,0.92,function,
+0x00339138,__tf10TmpAirWave,rtti_pattern,0.92,function,
+0x00339F08,__tf7tmpbeam,rtti_pattern,0.92,function,
+0x0033A8A8,__tf7tmpshot,rtti_pattern,0.92,function,
+0x0033BF70,__tf13TempestMeteor,rtti_pattern,0.92,function,
+0x0033CA88,__tf6tmpstr,rtti_pattern,0.92,function,
+0x0033DC70,__tf15TempestFireWall,rtti_pattern,0.92,function,
+0x0033ECB0,__tf7burning,rtti_pattern,0.92,function,
+0x0033EFB0,__tf10tmpranding,rtti_pattern,0.92,function,
+0x0033FA90,__tf10BlowImpact,rtti_pattern,0.92,function,
+0x00340EE8,__tf7neivern,rtti_pattern,0.92,function,
+0x00342D60,__tf10FLYSQR_SWD,rtti_pattern,0.92,function,
+0x00343940,__tf16FlySqr_Excursion,rtti_pattern,0.92,function,
+0x00345330,__tf10FlySqrShot,rtti_pattern,0.92,function,
+0x00346710,__tf14FlySqrDashShot,rtti_pattern,0.92,function,
+0x00347F30,__tf15FlySqrBurstShot,rtti_pattern,0.92,function,
+0x00348960,__tf9NeithBind,rtti_pattern,0.92,function,
+0x00349B10,__tf13FlyBShotFlash,rtti_pattern,0.92,function,
+0x0034C948,__tf12RebNeiFlySqr,rtti_pattern,0.92,function,
+0x0034D8C8,__tf10Neith2Aura,rtti_pattern,0.92,function,
+0x0034FA90,__tf14RebSqrDashShot,rtti_pattern,0.92,function,
+0x003529E0,__tf14RebFlySqrLaser,rtti_pattern,0.92,function,
+0x00355B90,__tf15RebFlySqrCannon,rtti_pattern,0.92,function,
+0x003567A0,__tf7RebBomb,rtti_pattern,0.92,function,
+0x0035AEB8,__tf6Anubis,rtti_pattern,0.92,function,
+0x0035B430,__tf8Spectrum,rtti_pattern,0.92,function,
+0x0035BDC8,__tf17AnubisCrashEffect,rtti_pattern,0.92,function,
+0x0035C708,__tf10AnubisBind,rtti_pattern,0.92,function,
+0x0035C9F0,__tf9Resonance,rtti_pattern,0.92,function,
+0x0035D2E8,__tf11AnubisBurst,rtti_pattern,0.92,function,
+0x0035DB28,__tf8AnbsAura,rtti_pattern,0.92,function,
+0x0035E4E0,__tf15AnubisRodEffect,rtti_pattern,0.92,function,
+0x0035E660,__tf12DM_ANBS_LINE,rtti_pattern,0.92,function,
+0x0035F4C0,__tf12DemoAnbsVern,rtti_pattern,0.92,function,
+0x0035FCD8,__tf12DM_ANBS_AURA,rtti_pattern,0.92,function,
+0x00360680,__tf10VR_MANAGER,rtti_pattern,0.92,function,
+0x00364B18,__tf6VRMove,rtti_pattern,0.92,function,
+0x003650E8,__tf6VRDash,rtti_pattern,0.92,function,
+0x00365778,__tf5VRAtc,rtti_pattern,0.92,function,
+0x00365F38,__tf6VRDAtc,rtti_pattern,0.92,function,
+0x003665A8,__tf10VRBurstAtc,rtti_pattern,0.92,function,
+0x00366C70,__tf7VRGuard,rtti_pattern,0.92,function,
+0x003672A0,__tf6VRHold,rtti_pattern,0.92,function,
+0x00367760,__tf6VRLock,rtti_pattern,0.92,function,
+0x00367B88,__tf8VREscape,rtti_pattern,0.92,function,
+0x00368438,__tf8VRCamera,rtti_pattern,0.92,function,
+0x00368B58,__tf10VrAnnounce,rtti_pattern,0.92,function,
+0x0036AC00,__tf7itembox,rtti_pattern,0.92,function,
+0x0036DCA8,__tf8terminal,rtti_pattern,0.92,function,
+0x0036F5E0,__tf6Porter,rtti_pattern,0.92,function,
+0x00370138,__tf11EnergyField,rtti_pattern,0.92,function,
+0x00371798,__tf10SoulEffect,rtti_pattern,0.92,function,
+0x00372678,__tf10AlphaClear,rtti_pattern,0.92,function,
+0x00375AE8,__tf8GAMEOVER,rtti_pattern,0.92,function,
+0x00378690,__tf7Cockpit,rtti_pattern,0.92,function,
+0x0037B7C0,__tf13CkpCommWindow,rtti_pattern,0.92,function,
+0x0037CE90,__tf7ckpnavi,rtti_pattern,0.92,function,
+0x0037DD50,__tf12ckpindicator,rtti_pattern,0.92,function,
+0x0037EA60,__tf11ckpflowline,rtti_pattern,0.92,function,
+0x0037F630,__tf9ckpcircle,rtti_pattern,0.92,function,
+0x0037FC28,__tf4Fade,rtti_pattern,0.92,function,
+0x003816F8,__tf13EnergyShutter,rtti_pattern,0.92,function,
+0x00381E00,__tf10CA1Shutter,rtti_pattern,0.92,function,
+0x00383680,__tf10stealthtrg,rtti_pattern,0.92,function,
+0x00383C88,__tf10ChapEffect,rtti_pattern,0.92,function,
+0x00383EE0,__tf10AdaRecover,rtti_pattern,0.92,function,
+0x00384548,__tf6BadEnd,rtti_pattern,0.92,function,
+0x00384BF0,__tf14FlowLineEffect,rtti_pattern,0.92,function,
+0x00385948,__tf9BossGauge,rtti_pattern,0.92,function,
+0x00385FC0,__tf8BombScan,rtti_pattern,0.92,function,
+0x003864C0,__tf8BombFade,rtti_pattern,0.92,function,
+0x003880A0,__tf5Kanji,rtti_pattern,0.92,function,
+0x0038B2C8,__tf12Null_Pos_Get,rtti_pattern,0.92,function,
+0x0038C6D0,__tf4flit,rtti_pattern,0.92,function,
+0x0038D3C0,__tf4plit,rtti_pattern,0.92,function,
+0x0038DF30,__tf7beamlit,rtti_pattern,0.92,function,
+0x0038E788,__tf10cablebreak,rtti_pattern,0.92,function,
+0x0038EFA8,__tf9pipebreak,rtti_pattern,0.92,function,
+0x0038F2C8,__tf10scnnulleff,rtti_pattern,0.92,function,
+0x0038F8A0,__tf13scnradarwatch,rtti_pattern,0.92,function,
+0x0038F8F0,__tf11scnradareff,rtti_pattern,0.92,function,
+0x003901A0,__tf7vreffbg,rtti_pattern,0.92,function,
+0x00390990,__tf9vreffgrnd,rtti_pattern,0.92,function,
+0x00391060,__tf9vrbeehive,rtti_pattern,0.92,function,
+0x00391398,__tf10vrbeehive2,rtti_pattern,0.92,function,
+0x00391DB0,__tf13stagelimiteff,rtti_pattern,0.92,function,
+0x003923A8,__tf7sleline,rtti_pattern,0.92,function,
+0x00392A10,__tf15scnbsrunninglit,rtti_pattern,0.92,function,
+0x00392A60,__tf15newbsrunninglit,rtti_pattern,0.92,function,
+0x00393068,__tf13scnbsflowline,rtti_pattern,0.92,function,
+0x003930B8,__tf13newbsflowline,rtti_pattern,0.92,function,
+0x00393558,__tf10fa2windrot,rtti_pattern,0.92,function,
+0x00394A40,__tf14scnca1flowline,rtti_pattern,0.92,function,
+0x00394A90,__tf14newca1flowline,rtti_pattern,0.92,function,
+0x00394CB8,__tf10programHzd,rtti_pattern,0.92,function,
+0x00395148,__tf9rmotorrot,rtti_pattern,0.92,function,
+0x00396020,__tf10ca1engtree,rtti_pattern,0.92,function,
+0x003977B8,__tf9tst_flash,rtti_pattern,0.92,function,
+0x00398788,__tf9burnsmoke,rtti_pattern,0.92,function,
+0x0039AD98,__tf11tst_hahen_3,rtti_pattern,0.92,function,
+0x0039B958,__tf12scnDustDebri,rtti_pattern,0.92,function,
+0x0039C430,__tf8scnSpark,rtti_pattern,0.92,function,
+0x0039C790,__tf11scneffsound,rtti_pattern,0.92,function,
+0x0039C998,__tf12scnmodelswap,rtti_pattern,0.92,function,
+0x0039CC48,__tf12scnbrosbreak,rtti_pattern,0.92,function,
+0x0039F290,__tf12scnexplosion,rtti_pattern,0.92,function,
+0x003A0178,__tf11scnfrmbreak,rtti_pattern,0.92,function,
+0x003A1AC0,__tf14scnneith1break,rtti_pattern,0.92,function,
+0x003A1B10,__tf6CHARA2,rtti_pattern,0.92,function,
+0x003A2E08,__tf12scnprtcelExp,rtti_pattern,0.92,function,
+0x003A4108,__tf13scnprtceExp_2,rtti_pattern,0.92,function,
+0x003A5A90,__tf12scnshockwave,rtti_pattern,0.92,function,
+0x003A6F90,__tf11scnfireWake,rtti_pattern,0.92,function,
+0x003A70A8,__tf7scnfire,rtti_pattern,0.92,function,
+0x003A7940,__tf7motbomb,rtti_pattern,0.92,function,
+0x003A7990,__tf9motorbomb,rtti_pattern,0.92,function,
+0x003A7ED0,__tf11scnrapbreak,rtti_pattern,0.92,function,
+0x003A8398,__tf11scnposjudge,rtti_pattern,0.92,function,
+0x003A8798,__tf11scnbrkwatch,rtti_pattern,0.92,function,
+0x003A9300,__tf10scnshutter,rtti_pattern,0.92,function,
+0x003AA1B8,__tf6scnesp,rtti_pattern,0.92,function,
+0x003ABCB8,__tf13neweps_ripple,rtti_pattern,0.92,function,
+0x003ABD08,__tf9scnepseff,rtti_pattern,0.92,function,
+0x003AC8D0,__tf9scnshaftd,rtti_pattern,0.92,function,
+0x003ACB28,__tf14scnbswallbreak,rtti_pattern,0.92,function,
+0x003ACCD8,__tf13scnrgenewatch,rtti_pattern,0.92,function,
+0x003AD100,__tf12scnbsshutter,rtti_pattern,0.92,function,
+0x003AEA18,__tf10glbsmkunit,rtti_pattern,0.92,function,
+0x003AEA68,__tf6glbsmk,rtti_pattern,0.92,function,
+0x003AEAB8,__tf8blast_gl,rtti_pattern,0.92,function,
+0x003AEB08,__tf6glbexp,rtti_pattern,0.92,function,
+0x003B06B0,__tf8armblast,rtti_pattern,0.92,function,
+0x003B15F0,__tf9bumpblast,rtti_pattern,0.92,function,
+0x003B1670,__tf15MY_SMOKE_FIELD2,rtti_pattern,0.92,function,
+0x003B16C0,__tf9EFF_FIELD,rtti_pattern,0.92,function,
+0x003B1CD0,__tf9blast_one,rtti_pattern,0.92,function,
+0x003B28C0,__tf9backblast,rtti_pattern,0.92,function,
+0x003B3B48,__tf12scnradarbomb,rtti_pattern,0.92,function,
+0x003B4BA0,__tf5RSC_B,rtti_pattern,0.92,function,
+0x003B4E58,__tf11rscfieldeff,rtti_pattern,0.92,function,
+0x003B5228,__tf8breakobj,rtti_pattern,0.92,function,
+0x003B55C8,__tf11scnobjphang,rtti_pattern,0.92,function,
+0x003B6978,__tf9treeobj_a,rtti_pattern,0.92,function,
+0x003B7CD8,__tf9treeobj_b,rtti_pattern,0.92,function,
+0x003B8AE8,__tf9treeobj_c,rtti_pattern,0.92,function,
+0x003B8DC8,__tf7scnblur,rtti_pattern,0.92,function,
+0x003B9A80,__tf14brk_fa1tekkotu,rtti_pattern,0.92,function,
+0x003BA828,__tf16brk_fa1allhanger,rtti_pattern,0.92,function,
+0x003BB2C0,__tf13brk_s02ithead,rtti_pattern,0.92,function,
+0x003BCA30,__tf13brk_s02itbase,rtti_pattern,0.92,function,
+0x003BD570,__tf11brk_fasouko,rtti_pattern,0.92,function,
+0x003BEAB0,__tf12brk_fatank_2,rtti_pattern,0.92,function,
+0x003BF3C8,__tf14brk_fabillbase,rtti_pattern,0.92,function,
+0x003C0098,__tf14brk_fabillbill,rtti_pattern,0.92,function,
+0x003C0A30,__tf12brk_faf_wing,rtti_pattern,0.92,function,
+0x003C1440,__tf14brk_faf_pillar,rtti_pattern,0.92,function,
+0x003C2B18,__tf11brkfakrbase,rtti_pattern,0.92,function,
+0x003C3878,__tf10brkfakrarm,rtti_pattern,0.92,function,
+0x003C4160,__tf11brkfakrhand,rtti_pattern,0.92,function,
+0x003C5348,__tf7brk_car,rtti_pattern,0.92,function,
+0x003C6058,__tf14brk_fballbreak,rtti_pattern,0.92,function,
+0x003C6950,__tf13brk_tamansion,rtti_pattern,0.92,function,
+0x003C72B0,__tf13brk_tahodokyo,rtti_pattern,0.92,function,
+0x003C8330,__tf11brk_tazosan,rtti_pattern,0.92,function,
+0x003C83B0,__tf14MY_SMOKE_FIELD,rtti_pattern,0.92,function,
+0x003C8400,__tf9EFF_FIELD,rtti_pattern,0.92,function,
+0x003C8D50,__tf9brk_taubl,rtti_pattern,0.92,function,
+0x003C9638,__tf12brk_tashingo,rtti_pattern,0.92,function,
+0x003CA120,__tf12brktcpiramid,rtti_pattern,0.92,function,
+0x003CAAE0,__tf10brktcspira,rtti_pattern,0.92,function,
+0x003CB7A8,__tf9brktccbld,rtti_pattern,0.92,function,
+0x003CC480,__tf9brktcmaru,rtti_pattern,0.92,function,
+0x003CCC48,__tf13brk_takyoukai,rtti_pattern,0.92,function,
+0x003CDFB8,__tf13brk_s13bridge,rtti_pattern,0.92,function,
+0x003CEB50,__tf15brk_s13rockwall,rtti_pattern,0.92,function,
+0x003CF9F0,__tf13brk_pkwallpbj,rtti_pattern,0.92,function,
+0x003D06C0,__tf12brk_pkboxobj,rtti_pattern,0.92,function,
+0x003D1100,__tf13brk_stkontena,rtti_pattern,0.92,function,
+0x003D1BF0,__tf11movekontena,rtti_pattern,0.92,function,
+0x003D1C40,__tf14scnmovekontena,rtti_pattern,0.92,function,
+0x003D2B90,__tf11brk_cbglass,rtti_pattern,0.92,function,
+0x003D3770,__tf11brk_cashaft,rtti_pattern,0.92,function,
+0x003D43D0,__tf10brk_rbwall,rtti_pattern,0.92,function,
+0x003D6260,__tf16scnseteventhindd,rtti_pattern,0.92,function,
+0x003D62B0,__tf8scnhindd,rtti_pattern,0.92,function,
+0x003D6B40,__tf9blackmask,rtti_pattern,0.92,function,
+0x003D7660,__tf9dmdisplay,rtti_pattern,0.92,function,
+0x003D7F88,__tf13dmd02_1_spark,rtti_pattern,0.92,function,
+0x003D8AB8,__tf13dmd02_1_steam,rtti_pattern,0.92,function,
+0x003DA400,__tf12dmd02_1_smog,rtti_pattern,0.92,function,
+0x003DA818,__tf17dmd02_1_landsmoke,rtti_pattern,0.92,function,
+0x003DAC80,__tf13dmd02_1_hahen,rtti_pattern,0.92,function,
+0x003DB7B0,__tf13dmtb0456_smog,rtti_pattern,0.92,function,
+0x003DEEF0,__tf8test_lit,rtti_pattern,0.92,function,
+0x003DEF40,__tf12dm_pkrap_lit,rtti_pattern,0.92,function,
+0x003DEF90,__tf12dm_stnei_spk,rtti_pattern,0.92,function,
+0x003DEFE0,__tf12dm_fa2vrnleg,rtti_pattern,0.92,function,
+0x003DFD90,__tf18dmst0646_mangaline,rtti_pattern,0.92,function,
+0x003E0998,__tf13dmst0646_smog,rtti_pattern,0.92,function,
+0x003E1008,__tf12dmst0646_oil,rtti_pattern,0.92,function,
+0x003E1458,__tf15dmsh0704_lfloar,rtti_pattern,0.92,function,
+0x003E24D0,__tf18dmsh0704_mangaline,rtti_pattern,0.92,function,
+0x003E4028,__tf13dm_bs0732_lit,rtti_pattern,0.92,function,
+0x003E4078,__tf13dm_bs0732_bmb,rtti_pattern,0.92,function,
+0x003E40C8,__tf13dm_bs0732_lsr,rtti_pattern,0.92,function,
+0x003E4118,__tf13dm_bs0732_fsh,rtti_pattern,0.92,function,
+0x003E4168,__tf13dm_bs0714_obj,rtti_pattern,0.92,function,
+0x003E53D8,__tf10dmbsneiprt,rtti_pattern,0.92,function,
+0x003E5428,__tf11dmbsneiburn,rtti_pattern,0.92,function,
+0x003E58C0,__tf8mt1stage,rtti_pattern,0.92,function,
+0x003E5910,__tf5stage,rtti_pattern,0.92,function,
+0x003E5CA8,__tf13AREA_TRAP_MAN,rtti_pattern,0.92,function,
+0x003E5F50,__tf10DoContinue,rtti_pattern,0.92,function,
+0x003E61B8,__tf6DoExit,rtti_pattern,0.92,function,
+0x003E64F0,__tf8viewflow,rtti_pattern,0.92,function,
+0x003E8080,__tf6Nebula,rtti_pattern,0.92,function,
+0x003EC100,__tf11FannelLaser,rtti_pattern,0.92,function,
+0x003EC150,__tf12NebulaFannel,rtti_pattern,0.92,function,
+0x003ED900,__tf10MultiLaser,rtti_pattern,0.92,function,
+0x003EE488,__tf10TAITOLaser,rtti_pattern,0.92,function,
+0x003EE9C0,__tf12MicroMissile,rtti_pattern,0.92,function,
+0x003EF1E8,__tf13MotherMissile,rtti_pattern,0.92,function,
+0x003F0168,__tf16HighSpeedMissile,rtti_pattern,0.92,function,
+0x003F75C0,__tf13HomingMissile,rtti_pattern,0.92,function,
+0x003F80F8,__tf11AAMM_Mother,rtti_pattern,0.92,function,
+0x003F89E0,__tf10AAMM_Child,rtti_pattern,0.92,function,
+0x003F9708,__tf9S_Missile,rtti_pattern,0.92,function,
+0x003F9760,__tf12SplitMissile,rtti_pattern,0.92,function,
+0x003FB178,__tf14HighpowerLaser,rtti_pattern,0.92,function,
+0x003FC658,__tf11SplitCannon,rtti_pattern,0.92,function,
+0x003FDB90,__tf8FireWait,rtti_pattern,0.92,function,
+0x003FDFC8,__tf10CannonBall,rtti_pattern,0.92,function,
+0x003FE770,__tf12Nebulaspread,rtti_pattern,0.92,function,
+0x00403738,__tf12HPL_Particle,rtti_pattern,0.92,function,
+0x00403790,__tf5CHARA,rtti_pattern,0.92,function,
+0x00404028,__tf12WhiteCensend,rtti_pattern,0.92,function,
+0x00404B90,__tf8HPL_Demo,rtti_pattern,0.92,function,
+0x00404BE0,__tf15NebulaLaserDemo,rtti_pattern,0.92,function,
+0x00409958,__tf8LoadAnim,rtti_pattern,0.92,function,
+0x0040A620,__tf16AppearanceFannel,rtti_pattern,0.92,function,
+0x0040ABB8,__tf15SlasterParticle,rtti_pattern,0.92,function,
+0x0040B758,__tf11NebulaSteam,rtti_pattern,0.92,function,
+0x0040BB50,__tf13NebulaCaution,rtti_pattern,0.92,function,
+0x0040DBA8,__tf5cloud,rtti_pattern,0.92,function,
+0x0040ED88,__tf5falls,rtti_pattern,0.92,function,
+0x00411230,__tf13decode_stream,rtti_pattern,0.92,function,
+0x004120D0,__tf9StaffRoll,rtti_pattern,0.92,function,
+0x00413F40,__tf14SaveSystemFile,rtti_pattern,0.92,function,
+0x00415920,__tf5title,rtti_pattern,0.92,function,
+0x0041BDF8,__tf14TitleLDControl,rtti_pattern,0.92,function,
+0x0042B770,__tf14TitleVSControl,rtti_pattern,0.92,function,
+0x0042CD68,__tf14TitleBgControl,rtti_pattern,0.92,function,
+0x0042CDB8,__tf16TitleFadeControl,rtti_pattern,0.92,function,
+0x0042E578,__tf10DispResult,rtti_pattern,0.92,function,
+0x0042E9B0,__tf13HiddenCommand,rtti_pattern,0.92,function,
+0x0042EE78,__tf9DispOmake,rtti_pattern,0.92,function,
+0x0042FD50,__tf18TitleKONAMIControl,rtti_pattern,0.92,function,
+0x00430B30,__tf6lightn,rtti_pattern,0.92,function,
+0x00431158,__tf6impact,rtti_pattern,0.92,function,
+0x00431790,__tf6strike,rtti_pattern,0.92,function,
+0x00432410,__tf4dust,rtti_pattern,0.92,function,
+0x00433008,__tf5spark,rtti_pattern,0.92,function,
+0x00433BD0,__tf5debri,rtti_pattern,0.92,function,
+0x00434460,__tf5blast,rtti_pattern,0.92,function,
+0x00434B78,__tf11impactColor,rtti_pattern,0.92,function,
+0x00435470,__tf13STRM_STREAMER,rtti_pattern,0.92,function,
+0x00436DD0,__tf13STRM_PLAYMPEG,rtti_pattern,0.92,function,
+0x00437570,__tf15STRM_PLAYJIMAKU,rtti_pattern,0.92,function,
+0x00437C10,__tf12STRM_PLAYPCM,rtti_pattern,0.92,function,
+0x00439258,__tf6pssman,rtti_pattern,0.92,function,
+0x00439358,__tf6EV_JOB,rtti_pattern,0.92,function,
+0x004393C8,__tf16STRM_RING_BUFFER,rtti_pattern,0.92,function,
+0x0043A0E0,__tf9EV_DAEMON,rtti_pattern,0.92,function,
+0x0043A150,__tf6EV_JOB,rtti_pattern,0.92,function,
+0x0043ABD0,__tf10EV_SIT_MAN,rtti_pattern,0.92,function,
+0x0043B7A0,__tf10multitrack,rtti_pattern,0.92,function,
+0x0043EF88,__tf7memstrm,rtti_pattern,0.92,function,
+0x0043FE68,__tf9motionact,rtti_pattern,0.92,function,
+0x0043FEB8,__tf11DM_RECFRAME,rtti_pattern,0.92,function,
+0x00441D70,__tf8DM_FRAME,rtti_pattern,0.92,function,
+0x004420A0,__tf11DM_POLYDEMO,rtti_pattern,0.92,function,
+0x004423F0,__tf13DM_SCN_STREAM,rtti_pattern,0.92,function,
+0x00442908,__tf10DM_DMXSTRM,rtti_pattern,0.92,function,
+0x004451C0,__tf10TRG_DAEMON,rtti_pattern,0.92,function,
+0x0044CD98,__tf10DG_DAEMON2,rtti_pattern,0.92,function,
+0x0044CDF0,__tf10DG_DAEMON1,rtti_pattern,0.92,function,
+0x004568C0,__tf6DG_DBG,rtti_pattern,0.92,function,
+0x0045A248,__tf19DG_MDL_FLOWLINEDATA,rtti_pattern,0.92,function,
+0x0045A3F8,__tf17DG_MDL_ENVMAPDATA,rtti_pattern,0.92,function,
+0x0045A808,__tf18DG_MDL_REFRACTDATA,rtti_pattern,0.92,function,
+0x0045A860,__tf18DG_MDL_SPECIALDATA,rtti_pattern,0.92,function,
+0x0045BE00,__tf17DG_MDL_EFIELDDATA,rtti_pattern,0.92,function,
+0x0045BE58,__tf18DG_MDL_SPECIALDATA,rtti_pattern,0.92,function,
+0x0045FBB0,__tf9FS_LOADER,rtti_pattern,0.92,function,
+0x00460228,__tf14FS_LOAD_CDFILE,rtti_pattern,0.92,function,
+0x004608B0,__tf8GV_ACTOR,rtti_pattern,0.92,function,
+0x00460A60,__tf9GV_DAEMON,rtti_pattern,0.92,function,
+0x004637E0,__tf10MC_DAEMON2,rtti_pattern,0.92,function,
+0x00463830,__tf9MC_DAEMON,rtti_pattern,0.92,function,
+0x00485D28,__tf13bad_exception,rtti_pattern,0.92,function,
+0x00485DC0,__tf9exception,rtti_pattern,0.92,function,
+0x00487A80,__rtti_class,rtti_pattern,0.70,function,8 __tf callers
+0x00487AA8,__rtti_si,rtti_pattern,0.70,function,486 __tf callers
+0x00487AC8,__rtti_user,rtti_pattern,0.70,function,10 __tf callers
+0x00487DA8,__tf17__class_type_info,rtti_pattern,0.92,function,
+0x00487E38,__tf14__si_type_info,rtti_pattern,0.92,function,
+0x00487EC0,__tf16__user_type_info,rtti_pattern,0.92,function,
+0x00487F78,__tf10bad_typeid,rtti_pattern,0.92,function,
+0x00488010,__tf8bad_cast,rtti_pattern,0.92,function,
+0x004880A0,__tf9type_info,rtti_pattern,0.92,function,
+0x00488B50,__tf17__array_type_info,rtti_pattern,0.92,function,
+0x00488BC0,__tf16__ptmd_type_info,rtti_pattern,0.92,function,
+0x00488C30,__tf16__ptmf_type_info,rtti_pattern,0.92,function,
+0x00488CA0,__tf16__func_type_info,rtti_pattern,0.92,function,
+0x00488D10,__tf19__builtin_type_info,rtti_pattern,0.92,function,
+0x00488D80,__tf16__attr_type_info,rtti_pattern,0.92,function,
+0x00488DF0,__tf19__pointer_type_info,rtti_pattern,0.92,function,
+0x004B1510,__vt_5pause,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00201ED0)
+0x004B1570,__vt_6grdrip,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002025F8)
+0x004B15D0,__vt_7dasheff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002035F0)
+0x004B1638,__vt_6jehlit,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00204620)
+0x004B16E0,__vt_7jehvern,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00206420)
+0x004B1738,__vt_6jehaim,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002068B0)
+0x004B1788,__vt_7lineeff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00207088)
+0x004B17F0,__vt_6stream,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002078B8)
+0x004B1840,__vt_5delay,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00207A48)
+0x004B1890,__vt_6scnact,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00207BD0)
+0x004B18E0,__vt_5vsman,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00208370)
+0x004B1960,__vt_6scntrg,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00208738)
+0x004B19B8,__vt_5shman,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00208958)
+0x004B1C88,__vt_3ada,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00209980)
+0x004B1CE0,__vt_4trap,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00209F48)
+0x004B1D38,__vt_6horizn,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020AEA8)
+0x004B1DC8,__vt_8advsmoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020B9E8)
+0x004B1E28,__vt_7CR_EDGE,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020C840)
+0x004B1E80,__vt_11risingsmoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020D248)
+0x004B1F28,__vt_5atmos,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020D870)
+0x004B1FE8,__vt_8bgsphere,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020E1A8)
+0x004B2568,__vt_9WAIT_LOAD,rtti_pattern,0.80,vtable,9 entries (slot 0 = __tf getter 0x0020F0A8)
+0x004B2580,__vt_10STARTSTAGE,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x0020F0F8)
+0x004B2598,__vt_7SDXLOAD,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020F190)
+0x004B2610,__vt_11SOUNDSTREAM,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020F600)
+0x004B2668,__vt_8tempdemo,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020F9B8)
+0x004B26E0,__vt_7tempobj,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0020FE60)
+0x004B2740,__vt_9softreset,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00210150)
+0x004B27D8,__vt_9highstage,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00210D78)
+0x004B2888,__vt_9highblock,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00211868)
+0x004B2900,__vt_12CR_VIBRATION,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00211CB8)
+0x004B29C0,__vt_9waterside,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00213298)
+0x004B29D8,__vt_5water,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002132E8)
+0x004B2A38,__vt_9copyframe,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00213500)
+0x004B2A90,__vt_7stealth,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00213750)
+0x004B2F08,__vt_3map,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021B528)
+0x004B2F58,__vt_8rotstage,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021B8F0)
+0x004B2FB0,__vt_8tmpstage,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021BA68)
+0x004B3028,__vt_7cderror,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021BF58)
+0x004B3088,__vt_6stgsub,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021C308)
+0x004B3108,__vt_8bootload,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021C7C8)
+0x004B3160,__vt_11AN_ANNOUNCE,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x0021C8C0)
+0x004B31E8,__vt_12AN_PLAYVOICE,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021CC08)
+0x004B3248,__vt_11ENE_MANAGER,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021DD40)
+0x004B32F0,__vt_9ENE_PARTY,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0021F590)
+0x004B4558,__vt_10FRM_OBJECT,rtti_pattern,0.80,vtable,5 entries (slot 0 = __tf getter 0x002370E8)
+0x004B49A0,__vt_10RescueRate,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00242C88)
+0x004B4A18,__vt_6rapbld,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00243C70)
+0x004B4A68,__vt_6gndeff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00243EA0)
+0x004B4AD8,__vt_8gndspark,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00244DF0)
+0x004B4BD8,__vt_10rapbldline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00247AB0)
+0x004B4C80,__vt_7gndline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00249218)
+0x004B4CD8,__vt_5steam,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00249C60)
+0x004B4D70,__vt_9wtrpillar,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0024A958)
+0x004B4DE0,__vt_6shadow,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0024C9D0)
+0x004B4E48,__vt_13ring_particle,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0024D8D0)
+0x004B4EB0,__vt_13tyrant_vulcan,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0024E020)
+0x004B5178,__vt_6TYRANT,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0025BF08)
+0x004B51F8,__vt_12tyrant_probe,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0025C960)
+0x004B5270,__vt_13tyrant_charge,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0025E980)
+0x004B5308,__vt_16tyrant_megalaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0025FB18)
+0x004B53D0,__vt_14tyrant_missile,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00260EE0)
+0x004B5488,__vt_11ring_effect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002642D8)
+0x004B54E0,__vt_15tyrnt_msl_smoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00264D88)
+0x004B5550,__vt_20tyrant_vulcan_effect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00265208)
+0x004B55C0,__vt_12tyrant_laser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00265EF8)
+0x004B5648,__vt_13tyrant_laser2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00267170)
+0x004B56F8,__vt_6jehbld,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002676C8)
+0x004B5798,__vt_10jehbldline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002693A0)
+0x004B5878,__vt_7cycfist,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0026B290)
+0x004B58E0,__vt_11jehbldline2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0026BC28)
+0x004B5940,__vt_17tyrant_megalaser2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0026C098)
+0x004B59E8,__vt_10cycfisteff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0026D448)
+0x004B5A60,__vt_13jeh_barms_eff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0026F378)
+0x004B5AE8,__vt_7windeff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00270180)
+0x004B5B50,__vt_10cannonline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002710F0)
+0x004B5BC8,__vt_11cannonspark,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00272770)
+0x004B5C30,__vt_13tyrant_ripple,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00272ED0)
+0x004B5CA8,__vt_17tyrant_flashlaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002744A8)
+0x004B5D28,__vt_11stage_smoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00275578)
+0x004B5DA8,__vt_4hole,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00275CA8)
+0x004B5E48,__vt_6grdeff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00276860)
+0x004B6128,__vt_7GlbMark,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00279E60)
+0x004B61D0,__vt_8MapRadar,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0027BFD8)
+0x004B62C8,__vt_16tyrant_locklaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0027DD28)
+0x004B6360,__vt_12party_circle,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0027F9E0)
+0x004B63C8,__vt_10dest_rader,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00280378)
+0x004B6470,__vt_8mn_pause,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00280A48)
+0x004B64F8,__vt_12item_pointer,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002812B8)
+0x004B65D0,__vt_4wave,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002828C0)
+0x004B6790,__vt_10GetProgram,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002834C8)
+0x004B6860,__vt_10GetItemBox,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00283DE0)
+0x004B6B20,__vt_7GetItem,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002847C8)
+0x004BFFC8,__vt_4menu,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0028CAB8)
+0x004C0088,__vt_12LockonCursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0028F9F8)
+0x004C00E8,__vt_10ItemCursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0028FFE0)
+0x004C01B0,__vt_14LockableCursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00291800)
+0x004C0260,__vt_12TargetCursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00292A90)
+0x004C02C8,__vt_8PartyCur,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002933D8)
+0x004C0328,__vt_15PartyLockCursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00293D68)
+0x004C03C0,__vt_14PartyTrgCursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002943E8)
+0x004C06E0,__vt_7Monitor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00298B18)
+0x004C0798,__vt_5Guage,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00299DB8)
+0x004C0820,__vt_4site,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0029B370)
+0x004C0A40,__vt_9JogWepCus,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A0258)
+0x004C0AE8,__vt_10EscapeView,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A1B68)
+0x004C0B70,__vt_6Window,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A4528)
+0x004C0BD8,__vt_8navigate,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A4B68)
+0x004C0CE0,__vt_10dust_smoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A5A00)
+0x004C0D70,__vt_13scratch_water,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A60D8)
+0x004C0E10,__vt_12water_ripple,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A65F8)
+0x004C0E78,__vt_9water_fog,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A6A80)
+0x004C0F00,__vt_12cannonspark2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002A8020)
+0x004C0FA8,__vt_5probe,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002AA4A8)
+0x004C1008,__vt_6spread,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002AABA0)
+0x004C1068,__vt_9reduction,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002AB370)
+0x004C10F0,__vt_11missile_exp,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002AB9F0)
+0x004C11A8,__vt_7glb_map,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002AD5F0)
+0x004C1230,__vt_16tyrant_mainlaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002ADFF0)
+0x004C23A0,__vt_11save_window,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002B30B0)
+0x004C2408,__vt_13nebula_cursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002B3AB8)
+0x004C2470,__vt_14stealth_cursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002B4158)
+0x004C2520,__vt_16tyrant_demolaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002B51A0)
+0x004C25A0,__vt_6Lockon,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002B7530)
+0x004C2730,__vt_4Bomb,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BB1E8)
+0x004C27E8,__vt_7Baggage,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BC080)
+0x004C2878,__vt_6Bomber,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BC940)
+0x004C2988,__vt_9bomb_ctrl,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BCE00)
+0x004C2A00,__vt_13SuitcasePiece,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BD3B0)
+0x004C2A78,__vt_12neith_cursor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BE1C0)
+0x004C2B00,__vt_8bomb_exp,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BE7E0)
+0x004C2B70,__vt_10virus_view,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002BEFF8)
+0x004C2D38,__vt_10vs_monitor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002C2BF8)
+0x004C2F90,__vt_13rescue_window,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002C52E0)
+0x004C3008,__vt_12stage_smoke2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002C60E8)
+0x004C3070,__vt_11BindTailEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002C75B0)
+0x004C30D8,__vt_10boss_steam,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002C81A8)
+0x004C32C0,__vt_12save_window2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002CDDB8)
+0x004C3338,__vt_11fail_window,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002CE168)
+0x004C33A8,__vt_8helpcall,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002CE730)
+0x004C3430,__vt_11damagespark,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002CFB50)
+0x004C3828,__vt_7JehShot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002D5058)
+0x004C38A8,__vt_8JehLaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002D6D60)
+0x004C3978,__vt_9JehCannon,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002DCB00)
+0x004C3A40,__vt_7Javelin,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002DF718)
+0x004C3B58,__vt_6Geyser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002E40D0)
+0x004C3C30,__vt_7Bounder,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002E7910)
+0x004C3C98,__vt_7Phalanx,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002E8A30)
+0x004C3D48,__vt_7Halberd,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002EDB30)
+0x004C3E00,__vt_8JehComet,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002F0508)
+0x004C3EA8,__vt_8MumComet,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002F3620)
+0x004C3F40,__vt_8Gauntlet,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002F4B90)
+0x004C3FF0,__vt_6Sniper,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002F6098)
+0x004C4078,__vt_10MummyShell,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002F7B88)
+0x004C40E0,__vt_5Decoy,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002F8468)
+0x004C4140,__vt_4Shot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002F8CE8)
+0x004C41B0,__vt_9ShotFlash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002FA098)
+0x004C4238,__vt_11JehLsrFlash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002FB0F0)
+0x004C42C0,__vt_10CanonFlash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002FC468)
+0x004C4328,__vt_12JehRapSammon,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002FD520)
+0x004C43A0,__vt_12JehMumCannon,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002FE150)
+0x004C4408,__vt_10JehUssfGun,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002FE808)
+0x004C4470,__vt_12MumShotFlash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x002FF1C0)
+0x004C44F0,__vt_11MumShotWarn,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00300B68)
+0x004C4570,__vt_13MumBurstFlash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00302600)
+0x004C45D8,__vt_10CaptureEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00303358)
+0x004C4688,__vt_10JehHoldEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003071F8)
+0x004C4738,__vt_10RapHoldEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0030B1D8)
+0x004C47E8,__vt_10CycHoldEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0030F250)
+0x004C4898,__vt_12NeithHoldEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00313118)
+0x004C4948,__vt_18RebornNeithHoldEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00317090)
+0x004C49E0,__vt_7saveeff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003187E0)
+0x004C4A48,__vt_8HoldAura,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0031A030)
+0x004C4AD0,__vt_4Aura,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0031C0A8)
+0x004C4B20,__vt_8GndSmoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0031CA28)
+0x004C4B88,__vt_9CartBlast,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0031CFF8)
+0x004C4C00,__vt_7BigBang,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0031DDB8)
+0x004C4C78,__vt_9ShotBlast,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0031F060)
+0x004C4CE0,__vt_13GauntletBlast,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0031FDB0)
+0x004C4D58,__vt_11FireCracker,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00320928)
+0x004C4DB0,__vt_8HighFire,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003213A0)
+0x004C4E60,__vt_14AppendHighFire,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00322240)
+0x004C4EC0,__vt_10RingEffect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00322C58)
+0x004C4F60,__vt_7rapvern,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00323620)
+0x004C4FB8,__vt_6mumcan,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00323828)
+0x004C5008,__vt_9BackLight,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00323B48)
+0x004C5060,__vt_7Thunder,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003243D8)
+0x004C50C8,__vt_9PartyShot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00324BF8)
+0x004C5128,__vt_11MONITOR_EFF,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00325E00)
+0x004C51A0,__vt_10MumDashEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00326FE0)
+0x004C5208,__vt_9MumGrdEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00328050)
+0x004C5270,__vt_9MumSldEff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00329290)
+0x004C52D8,__vt_7tmpFlip,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003297D0)
+0x004C5568,__vt_8Tempest1,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0032F570)
+0x004C5890,__vt_8Tempest2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003382A8)
+0x004C58F8,__vt_11DemoTmpFire,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00338B10)
+0x004C5970,__vt_10TmpAirWave,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00339138)
+0x004C5A20,__vt_7tmpbeam,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00339F08)
+0x004C5AC8,__vt_7tmpshot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0033A8A8)
+0x004C5B50,__vt_13TempestMeteor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0033BF70)
+0x004C5BA8,__vt_6tmpstr,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0033CA88)
+0x004C5C08,__vt_15TempestFireWall,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0033DC70)
+0x004C5C78,__vt_7burning,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0033ECB0)
+0x004C5CD0,__vt_10tmpranding,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0033EFB0)
+0x004C5D30,__vt_10BlowImpact,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0033FA90)
+0x004C5DE0,__vt_7neivern,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00340EE8)
+0x004C5E78,__vt_10FLYSQR_SWD,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00342D60)
+0x004C5ED8,__vt_16FlySqr_Excursion,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00343940)
+0x004C5F78,__vt_10FlySqrShot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00345330)
+0x004C6028,__vt_14FlySqrDashShot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00346710)
+0x004C60B8,__vt_15FlySqrBurstShot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00347F30)
+0x004C6148,__vt_9NeithBind,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00348960)
+0x004C61B0,__vt_13FlyBShotFlash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00349B10)
+0x004C6258,__vt_12RebNeiFlySqr,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0034C948)
+0x004C62C0,__vt_10Neith2Aura,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0034D8C8)
+0x004C6388,__vt_14RebSqrDashShot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0034FA90)
+0x004C6478,__vt_14RebFlySqrLaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003529E0)
+0x004C6538,__vt_15RebFlySqrCannon,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00355B90)
+0x004C65C8,__vt_7RebBomb,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003567A0)
+0x004C6788,__vt_6Anubis,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035AEB8)
+0x004C67D8,__vt_8Spectrum,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035B430)
+0x004C6840,__vt_17AnubisCrashEffect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035BDC8)
+0x004C68D0,__vt_10AnubisBind,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035C708)
+0x004C6938,__vt_9Resonance,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035C9F0)
+0x004C69B0,__vt_11AnubisBurst,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035D2E8)
+0x004C6A18,__vt_8AnbsAura,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035DB28)
+0x004C6A80,__vt_15AnubisRodEffect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035E4E0)
+0x004C6AE0,__vt_12DM_ANBS_LINE,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035E660)
+0x004C6B78,__vt_12DemoAnbsVern,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035F4C0)
+0x004C6BE0,__vt_12DM_ANBS_AURA,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0035FCD8)
+0x004C6C38,__vt_10VR_MANAGER,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00360680)
+0x004C7010,__vt_6VRMove,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00364B18)
+0x004C7088,__vt_6VRDash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003650E8)
+0x004C7108,__vt_5VRAtc,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00365778)
+0x004C7188,__vt_6VRDAtc,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00365F38)
+0x004C71E0,__vt_10VRBurstAtc,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003665A8)
+0x004C7240,__vt_7VRGuard,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00366C70)
+0x004C72A0,__vt_6VRHold,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003672A0)
+0x004C72F8,__vt_6VRLock,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00367760)
+0x004C7378,__vt_8VREscape,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00367B88)
+0x004C73D8,__vt_8VRCamera,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00368438)
+0x004C74A8,__vt_10VrAnnounce,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00368B58)
+0x004C7540,__vt_7itembox,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0036AC00)
+0x004C7708,__vt_8terminal,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0036DCA8)
+0x004C7810,__vt_6Porter,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0036F5E0)
+0x004C7878,__vt_11EnergyField,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00370138)
+0x004C78F0,__vt_10SoulEffect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00371798)
+0x004C7950,__vt_10AlphaClear,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00372678)
+0x004C7C40,__vt_8GAMEOVER,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00375AE8)
+0x004C7D00,__vt_7Cockpit,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00378690)
+0x004C7DF8,__vt_13CkpCommWindow,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0037B7C0)
+0x004C7F80,__vt_7ckpnavi,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0037CE90)
+0x004C7FE8,__vt_12ckpindicator,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0037DD50)
+0x004C8050,__vt_11ckpflowline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0037EA60)
+0x004C80C0,__vt_9ckpcircle,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0037F630)
+0x004C8120,__vt_4Fade,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0037FC28)
+0x004C8200,__vt_13EnergyShutter,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003816F8)
+0x004C8278,__vt_10CA1Shutter,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00381E00)
+0x004C8318,__vt_10stealthtrg,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00383680)
+0x004C8370,__vt_10ChapEffect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00383C88)
+0x004C83C8,__vt_10AdaRecover,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00383EE0)
+0x004C8468,__vt_6BadEnd,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00384548)
+0x004C84B8,__vt_14FlowLineEffect,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00384BF0)
+0x004C8610,__vt_9BossGauge,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00385948)
+0x004C8688,__vt_8BombScan,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00385FC0)
+0x004C86E8,__vt_8BombFade,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003864C0)
+0x004C87D8,__vt_5Kanji,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003880A0)
+0x004C8A40,__vt_12Null_Pos_Get,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038B2C8)
+0x004C8C00,__vt_4flit,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038C6D0)
+0x004C8CE8,__vt_4plit,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038D3C0)
+0x004C8D58,__vt_7beamlit,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038DF30)
+0x004C8DD0,__vt_10cablebreak,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038E788)
+0x004C8E38,__vt_9pipebreak,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038EFA8)
+0x004C8E90,__vt_10scnnulleff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038F2C8)
+0x004C8F08,__vt_13scnradarwatch,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x0038F8A0)
+0x004C8F20,__vt_11scnradareff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0038F8F0)
+0x004C8F98,__vt_7vreffbg,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003901A0)
+0x004C8FF0,__vt_9vreffgrnd,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00390990)
+0x004C9100,__vt_9vrbeehive,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00391060)
+0x004C91B0,__vt_10vrbeehive2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00391398)
+0x004C9218,__vt_13stagelimiteff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00391DB0)
+0x004C9280,__vt_7sleline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003923A8)
+0x004C92E8,__vt_15scnbsrunninglit,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00392A10)
+0x004C9300,__vt_15newbsrunninglit,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00392A60)
+0x004C93E8,__vt_13scnbsflowline,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00393068)
+0x004C9400,__vt_13newbsflowline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003930B8)
+0x004C9468,__vt_10fa2windrot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00393558)
+0x004C9538,__vt_14scnca1flowline,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00394A40)
+0x004C9550,__vt_14newca1flowline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00394A90)
+0x004C95E0,__vt_10programHzd,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00394CB8)
+0x004C9638,__vt_9rmotorrot,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00395148)
+0x004C9700,__vt_10ca1engtree,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00396020)
+0x004C9768,__vt_9tst_flash,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003977B8)
+0x004C97D0,__vt_9burnsmoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00398788)
+0x004C9828,__vt_11tst_hahen_3,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0039AD98)
+0x004C9958,__vt_12scnDustDebri,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0039B958)
+0x004C99B0,__vt_8scnSpark,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0039C430)
+0x004C9A08,__vt_11scneffsound,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0039C790)
+0x004C9A60,__vt_12scnmodelswap,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0039C998)
+0x004C9AB8,__vt_12scnbrosbreak,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0039CC48)
+0x004C9B58,__vt_12scnexplosion,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0039F290)
+0x004C9BF0,__vt_11scnfrmbreak,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A0178)
+0x004C9C98,__vt_14scnneith1break,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003A1AC0)
+0x004C9CB0,__vt_6CHARA2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A1B10)
+0x004C9D18,__vt_12scnprtcelExp,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A2E08)
+0x004C9E48,__vt_13scnprtceExp_2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A4108)
+0x004C9F78,__vt_12scnshockwave,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A5A90)
+0x004CA000,__vt_11scnfireWake,rtti_pattern,0.80,vtable,9 entries (slot 0 = __tf getter 0x003A6F90)
+0x004CA030,__vt_7scnfire,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A70A8)
+0x004CA0B8,__vt_7motbomb,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003A7940)
+0x004CA0D0,__vt_9motorbomb,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A7990)
+0x004CA180,__vt_11scnrapbreak,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A7ED0)
+0x004CA1E0,__vt_11scnposjudge,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A8398)
+0x004CA238,__vt_11scnbrkwatch,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A8798)
+0x004CA2E0,__vt_10scnshutter,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003A9300)
+0x004CA3C0,__vt_6scnesp,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003AA1B8)
+0x004CA478,__vt_13neweps_ripple,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003ABCB8)
+0x004CA490,__vt_9scnepseff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003ABD08)
+0x004CA5D8,__vt_9scnshaftd,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003AC8D0)
+0x004CA630,__vt_14scnbswallbreak,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003ACB28)
+0x004CA698,__vt_13scnrgenewatch,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003ACCD8)
+0x004CA710,__vt_12scnbsshutter,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003AD100)
+0x004CA7A8,__vt_10glbsmkunit,rtti_pattern,0.80,vtable,12 entries (slot 0 = __tf getter 0x003AEA18)
+0x004CA7C0,__vt_6glbsmk,rtti_pattern,0.80,vtable,9 entries (slot 0 = __tf getter 0x003AEA68)
+0x004CA7D8,__vt_8blast_gl,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003AEAB8)
+0x004CA7F0,__vt_6glbexp,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003AEB08)
+0x004CA8F8,__vt_8armblast,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B06B0)
+0x004CA980,__vt_9bumpblast,rtti_pattern,0.80,vtable,5 entries (slot 0 = __tf getter 0x003B15F0)
+0x004CA998,__vt_15MY_SMOKE_FIELD2,rtti_pattern,0.80,vtable,2 entries (slot 0 = __tf getter 0x003B1670)
+0x004CAA00,__vt_9blast_one,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B1CD0)
+0x004CAA78,__vt_9backblast,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B28C0)
+0x004CAB40,__vt_12scnradarbomb,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B3B48)
+0x004CABE0,__vt_5RSC_B,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B4BA0)
+0x004CAC30,__vt_11rscfieldeff,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B4E58)
+0x004CACB8,__vt_8breakobj,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B5228)
+0x004CAD40,__vt_11scnobjphang,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B55C8)
+0x004CADE8,__vt_9treeobj_a,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B6978)
+0x004CAE70,__vt_9treeobj_b,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B7CD8)
+0x004CAEE8,__vt_9treeobj_c,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B8AE8)
+0x004CAF40,__vt_7scnblur,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B8DC8)
+0x004CAFC8,__vt_14brk_fa1tekkotu,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003B9A80)
+0x004CB098,__vt_16brk_fa1allhanger,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003BA828)
+0x004CB100,__vt_13brk_s02ithead,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003BB2C0)
+0x004CB158,__vt_13brk_s02itbase,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003BCA30)
+0x004CB1C8,__vt_11brk_fasouko,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003BD570)
+0x004CB250,__vt_12brk_fatank_2,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003BEAB0)
+0x004CB2B0,__vt_14brk_fabillbase,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003BF3C8)
+0x004CB310,__vt_14brk_fabillbill,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C0098)
+0x004CB370,__vt_12brk_faf_wing,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C0A30)
+0x004CB3C8,__vt_14brk_faf_pillar,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C1440)
+0x004CB428,__vt_11brkfakrbase,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C2B18)
+0x004CB480,__vt_10brkfakrarm,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C3878)
+0x004CB4D8,__vt_11brkfakrhand,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C4160)
+0x004CB550,__vt_7brk_car,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C5348)
+0x004CB5A8,__vt_14brk_fballbreak,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C6058)
+0x004CB610,__vt_13brk_tamansion,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C6950)
+0x004CB668,__vt_13brk_tahodokyo,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C72B0)
+0x004CB6C0,__vt_11brk_tazosan,rtti_pattern,0.80,vtable,5 entries (slot 0 = __tf getter 0x003C8330)
+0x004CB6D8,__vt_14MY_SMOKE_FIELD,rtti_pattern,0.80,vtable,2 entries (slot 0 = __tf getter 0x003C83B0)
+0x004CB740,__vt_9brk_taubl,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C8D50)
+0x004CB798,__vt_12brk_tashingo,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003C9638)
+0x004CB808,__vt_12brktcpiramid,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CA120)
+0x004CB898,__vt_10brktcspira,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CAAE0)
+0x004CB900,__vt_9brktccbld,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CB7A8)
+0x004CB968,__vt_9brktcmaru,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CC480)
+0x004CB9D0,__vt_13brk_takyoukai,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CCC48)
+0x004CBA28,__vt_13brk_s13bridge,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CDFB8)
+0x004CBA80,__vt_15brk_s13rockwall,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CEB50)
+0x004CBB60,__vt_13brk_pkwallpbj,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003CF9F0)
+0x004CBBB8,__vt_12brk_pkboxobj,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D06C0)
+0x004CBC10,__vt_13brk_stkontena,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D1100)
+0x004CBCC8,__vt_11movekontena,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003D1BF0)
+0x004CBCE0,__vt_14scnmovekontena,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D1C40)
+0x004CBD68,__vt_11brk_cbglass,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D2B90)
+0x004CBE98,__vt_11brk_cashaft,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D3770)
+0x004CBEF0,__vt_10brk_rbwall,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D43D0)
+0x004CBF88,__vt_16scnseteventhindd,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003D6260)
+0x004CBFA0,__vt_8scnhindd,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D62B0)
+0x004CC018,__vt_9blackmask,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D6B40)
+0x004CC0B8,__vt_9dmdisplay,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D7660)
+0x004CC130,__vt_13dmd02_1_spark,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D7F88)
+0x004CC1A8,__vt_13dmd02_1_steam,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003D8AB8)
+0x004CC210,__vt_12dmd02_1_smog,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003DA400)
+0x004CC278,__vt_17dmd02_1_landsmoke,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003DA818)
+0x004CC2E8,__vt_13dmd02_1_hahen,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003DAC80)
+0x004CC350,__vt_13dmtb0456_smog,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003DB7B0)
+0x004CC3D8,__vt_8test_lit,rtti_pattern,0.80,vtable,12 entries (slot 0 = __tf getter 0x003DEEF0)
+0x004CC3F0,__vt_12dm_pkrap_lit,rtti_pattern,0.80,vtable,9 entries (slot 0 = __tf getter 0x003DEF40)
+0x004CC408,__vt_12dm_stnei_spk,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003DEF90)
+0x004CC420,__vt_12dm_fa2vrnleg,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003DEFE0)
+0x004CC4B8,__vt_18dmst0646_mangaline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003DFD90)
+0x004CC528,__vt_13dmst0646_smog,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E0998)
+0x004CC590,__vt_12dmst0646_oil,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E1008)
+0x004CC5F8,__vt_15dmsh0704_lfloar,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E1458)
+0x004CC678,__vt_18dmsh0704_mangaline,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E24D0)
+0x004CC710,__vt_13dm_bs0732_lit,rtti_pattern,0.80,vtable,15 entries (slot 0 = __tf getter 0x003E4028)
+0x004CC728,__vt_13dm_bs0732_bmb,rtti_pattern,0.80,vtable,12 entries (slot 0 = __tf getter 0x003E4078)
+0x004CC740,__vt_13dm_bs0732_lsr,rtti_pattern,0.80,vtable,9 entries (slot 0 = __tf getter 0x003E40C8)
+0x004CC758,__vt_13dm_bs0732_fsh,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003E4118)
+0x004CC770,__vt_13dm_bs0714_obj,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E4168)
+0x004CC828,__vt_10dmbsneiprt,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003E53D8)
+0x004CC840,__vt_11dmbsneiburn,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E5428)
+0x004CC8A8,__vt_8mt1stage,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003E58C0)
+0x004CC8C0,__vt_5stage,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E5910)
+0x004CC920,__vt_13AREA_TRAP_MAN,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E5CA8)
+0x004CC9A8,__vt_10DoContinue,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E5F50)
+0x004CCA08,__vt_6DoExit,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E61B8)
+0x004CCA58,__vt_8viewflow,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E64F0)
+0x004CCC08,__vt_6Nebula,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003E8080)
+0x004CCE20,__vt_11FannelLaser,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003EC100)
+0x004CCE38,__vt_12NebulaFannel,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003EC150)
+0x004CCEF8,__vt_10MultiLaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003ED900)
+0x004CCF70,__vt_10TAITOLaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003EE488)
+0x004CCFE8,__vt_12MicroMissile,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003EE9C0)
+0x004CD088,__vt_13MotherMissile,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003EF1E8)
+0x004CD168,__vt_16HighSpeedMissile,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003F0168)
+0x004CD478,__vt_13HomingMissile,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003F75C0)
+0x004CD528,__vt_11AAMM_Mother,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003F80F8)
+0x004CD5B0,__vt_10AAMM_Child,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003F89E0)
+0x004CD658,__vt_9S_Missile,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x003F9708)
+0x004CD670,__vt_12SplitMissile,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003F9760)
+0x004CD758,__vt_14HighpowerLaser,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003FB178)
+0x004CD7F8,__vt_11SplitCannon,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003FC658)
+0x004CD868,__vt_8FireWait,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003FDB90)
+0x004CD8D8,__vt_10CannonBall,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003FDFC8)
+0x004CD948,__vt_12Nebulaspread,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x003FE770)
+0x004CDB40,__vt_12HPL_Particle,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00403738)
+0x004CDB58,__vt_5CHARA,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00403790)
+0x004CDBD0,__vt_12WhiteCensend,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00404028)
+0x004CDCB0,__vt_8HPL_Demo,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00404B90)
+0x004CDCC8,__vt_15NebulaLaserDemo,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00404BE0)
+0x004CDFC0,__vt_8LoadAnim,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00409958)
+0x004CE028,__vt_16AppearanceFannel,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0040A620)
+0x004CE098,__vt_15SlasterParticle,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0040ABB8)
+0x004CE108,__vt_11NebulaSteam,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0040B758)
+0x004CE1A8,__vt_13NebulaCaution,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0040BB50)
+0x004CE2D0,__vt_5cloud,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0040DBA8)
+0x004CE348,__vt_5falls,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0040ED88)
+0x004CE440,__vt_13decode_stream,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00411230)
+0x004CE7F0,__vt_9StaffRoll,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x004120D0)
+0x004D05A0,__vt_14SaveSystemFile,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00413F40)
+0x004D06B8,__vt_5title,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00415920)
+0x004D0CE8,__vt_14TitleLDControl,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0041BDF8)
+0x004D1C58,__vt_14TitleVSControl,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0042B770)
+0x004D1E68,__vt_14TitleBgControl,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x0042CD68)
+0x004D1E80,__vt_16TitleFadeControl,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0042CDB8)
+0x004D20F8,__vt_10DispResult,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0042E578)
+0x004D2190,__vt_13HiddenCommand,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0042E9B0)
+0x004D2228,__vt_9DispOmake,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0042EE78)
+0x004D26C0,__vt_18TitleKONAMIControl,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0042FD50)
+0x004D2720,__vt_6lightn,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00430B30)
+0x004D2770,__vt_6impact,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00431158)
+0x004D27C0,__vt_6strike,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00431790)
+0x004D2858,__vt_4dust,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00432410)
+0x004D28A8,__vt_5spark,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00433008)
+0x004D28F8,__vt_5debri,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00433BD0)
+0x004D2948,__vt_5blast,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00434460)
+0x004D2998,__vt_11impactColor,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00434B78)
+0x004D2A88,__vt_13STRM_STREAMER,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00435470)
+0x004D2B60,__vt_13STRM_PLAYMPEG,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x00436DD0)
+0x004D2C00,__vt_15STRM_PLAYJIMAKU,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x00437570)
+0x004D2CB8,__vt_12STRM_PLAYPCM,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x00437C10)
+0x004D2E98,__vt_6pssman,rtti_pattern,0.80,vtable,7 entries (slot 0 = __tf getter 0x00439258)
+0x004D3088,__vt_9EV_DAEMON,rtti_pattern,0.80,vtable,7 entries (slot 0 = __tf getter 0x0043A0E0)
+0x004D3110,__vt_10EV_SIT_MAN,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0043ABD0)
+0x004D3168,__vt_10multitrack,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0043B7A0)
+0x004D3398,__vt_7memstrm,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0043EF88)
+0x004D33E0,__vt_9motionact,rtti_pattern,0.80,vtable,8 entries (slot 0 = __tf getter 0x0043FE68)
+0x004D33F8,__vt_11DM_RECFRAME,rtti_pattern,0.80,vtable,5 entries (slot 0 = __tf getter 0x0043FEB8)
+0x004D34A0,__vt_8DM_FRAME,rtti_pattern,0.80,vtable,5 entries (slot 0 = __tf getter 0x00441D70)
+0x004D3510,__vt_11DM_POLYDEMO,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x004420A0)
+0x004D35C8,__vt_13DM_SCN_STREAM,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x004423F0)
+0x004D3648,__vt_10DM_DMXSTRM,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x00442908)
+0x004D3738,__vt_10TRG_DAEMON,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x004451C0)
+0x004D3A60,__vt_10DG_DAEMON2,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x0044CD98)
+0x004D3A78,__vt_10DG_DAEMON1,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0044CDF0)
+0x004D3E18,__vt_6DG_DBG,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x004568C0)
+0x004D4038,__vt_19DG_MDL_FLOWLINEDATA,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x0045A248)
+0x004D4090,__vt_17DG_MDL_ENVMAPDATA,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x0045A3F8)
+0x004D4140,__vt_18DG_MDL_REFRACTDATA,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x0045A808)
+0x004D4288,__vt_17DG_MDL_EFIELDDATA,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x0045BE00)
+0x004D43E8,__vt_9FS_LOADER,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x0045FBB0)
+0x004D44C8,__vt_14FS_LOAD_CDFILE,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00460228)
+0x004D4528,__vt_8GV_ACTOR,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x004608B0)
+0x004D4568,__vt_9GV_DAEMON,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00460A60)
+0x004D4888,__vt_10MC_DAEMON2,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x004637E0)
+0x004D48A0,__vt_9MC_DAEMON,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00463830)
+0x004D69B8,__vt_13bad_exception,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00485D28)
+0x004D69D0,__vt_9exception,rtti_pattern,0.80,vtable,3 entries (slot 0 = __tf getter 0x00485DC0)
+0x004D6AF0,__vt_17__class_type_info,rtti_pattern,0.80,vtable,17 entries (slot 0 = __tf getter 0x00487DA8)
+0x004D6B08,__vt_14__si_type_info,rtti_pattern,0.80,vtable,14 entries (slot 0 = __tf getter 0x00487E38)
+0x004D6B20,__vt_16__user_type_info,rtti_pattern,0.80,vtable,11 entries (slot 0 = __tf getter 0x00487EC0)
+0x004D6B38,__vt_10bad_typeid,rtti_pattern,0.80,vtable,8 entries (slot 0 = __tf getter 0x00487F78)
+0x004D6B50,__vt_8bad_cast,rtti_pattern,0.80,vtable,5 entries (slot 0 = __tf getter 0x00488010)
+0x004D6B68,__vt_9type_info,rtti_pattern,0.80,vtable,2 entries (slot 0 = __tf getter 0x004880A0)
+0x004D6C88,__vt_17__array_type_info,rtti_pattern,0.80,vtable,14 entries (slot 0 = __tf getter 0x00488B50)
+0x004D6C98,__vt_16__ptmd_type_info,rtti_pattern,0.80,vtable,12 entries (slot 0 = __tf getter 0x00488BC0)
+0x004D6CA8,__vt_16__ptmf_type_info,rtti_pattern,0.80,vtable,10 entries (slot 0 = __tf getter 0x00488C30)
+0x004D6CB8,__vt_16__func_type_info,rtti_pattern,0.80,vtable,8 entries (slot 0 = __tf getter 0x00488CA0)
+0x004D6CC8,__vt_19__builtin_type_info,rtti_pattern,0.80,vtable,6 entries (slot 0 = __tf getter 0x00488D10)
+0x004D6CD8,__vt_16__attr_type_info,rtti_pattern,0.80,vtable,4 entries (slot 0 = __tf getter 0x00488D80)
+0x004D6CE8,__vt_19__pointer_type_info,rtti_pattern,0.80,vtable,2 entries (slot 0 = __tf getter 0x00488DF0)
+0x004D7300,__ti6EV_JOB,rtti_pattern,0.75,data,
+0x004D7308,__ti9EFF_FIELD,rtti_pattern,0.75,data,
+0x004D7310,__ti18DG_MDL_SPECIALDATA,rtti_pattern,0.75,data,
+0x004D7318,__ti16STRM_RING_BUFFER,rtti_pattern,0.75,data,
+0x004D7320,__ti8GV_ACTOR,rtti_pattern,0.75,data,
+0x004D7330,__ti9exception,rtti_pattern,0.75,data,
+0x004D7338,__ti9type_info,rtti_pattern,0.75,data,
+0x004E6610,__ti5pause,rtti_pattern,0.75,data,
+0x004E6620,__ti6grdrip,rtti_pattern,0.75,data,
+0x004E6630,__ti7dasheff,rtti_pattern,0.75,data,
+0x004E6640,__ti6jehlit,rtti_pattern,0.75,data,
+0x004E6650,__ti7jehvern,rtti_pattern,0.75,data,
+0x004E6660,__ti6jehaim,rtti_pattern,0.75,data,
+0x004E6670,__ti7lineeff,rtti_pattern,0.75,data,
+0x004E6680,__ti6stream,rtti_pattern,0.75,data,
+0x004E6690,__ti5delay,rtti_pattern,0.75,data,
+0x004E66A0,__ti6scnact,rtti_pattern,0.75,data,
+0x004E66B0,__ti5vsman,rtti_pattern,0.75,data,
+0x004E66C0,__ti6scntrg,rtti_pattern,0.75,data,
+0x004E66D0,__ti5shman,rtti_pattern,0.75,data,
+0x004E66E0,__ti3ada,rtti_pattern,0.75,data,
+0x004E66F0,__ti4trap,rtti_pattern,0.75,data,
+0x004E6700,__ti6horizn,rtti_pattern,0.75,data,
+0x004E6710,__ti8advsmoke,rtti_pattern,0.75,data,
+0x004E6720,__ti7CR_EDGE,rtti_pattern,0.75,data,
+0x004E6730,__ti11risingsmoke,rtti_pattern,0.75,data,
+0x004E6740,__ti5atmos,rtti_pattern,0.75,data,
+0x004E6750,__ti8bgsphere,rtti_pattern,0.75,data,
+0x004E6760,__ti9WAIT_LOAD,rtti_pattern,0.75,data,
+0x004E6770,__ti7SDXLOAD,rtti_pattern,0.75,data,
+0x004E6780,__ti10STARTSTAGE,rtti_pattern,0.75,data,
+0x004E6790,__ti11SOUNDSTREAM,rtti_pattern,0.75,data,
+0x004E67A0,__ti8tempdemo,rtti_pattern,0.75,data,
+0x004E67B0,__ti7tempobj,rtti_pattern,0.75,data,
+0x004E67C0,__ti9softreset,rtti_pattern,0.75,data,
+0x004E67D0,__ti9highstage,rtti_pattern,0.75,data,
+0x004E67E0,__ti9highblock,rtti_pattern,0.75,data,
+0x004E67F0,__ti12CR_VIBRATION,rtti_pattern,0.75,data,
+0x004E6800,__ti5water,rtti_pattern,0.75,data,
+0x004E6810,__ti9waterside,rtti_pattern,0.75,data,
+0x004E6820,__ti9copyframe,rtti_pattern,0.75,data,
+0x004E6830,__ti7stealth,rtti_pattern,0.75,data,
+0x004E6840,__ti3map,rtti_pattern,0.75,data,
+0x004E6850,__ti8rotstage,rtti_pattern,0.75,data,
+0x004E6860,__ti8tmpstage,rtti_pattern,0.75,data,
+0x004E6870,__ti7cderror,rtti_pattern,0.75,data,
+0x004E6880,__ti6stgsub,rtti_pattern,0.75,data,
+0x004E6890,__ti8bootload,rtti_pattern,0.75,data,
+0x004E68A0,__ti11AN_ANNOUNCE,rtti_pattern,0.75,data,
+0x004E68B0,__ti12AN_PLAYVOICE,rtti_pattern,0.75,data,
+0x004E68C0,__ti11ENE_MANAGER,rtti_pattern,0.75,data,
+0x004E68D0,__ti9ENE_PARTY,rtti_pattern,0.75,data,
+0x004E68E0,__ti10FRM_OBJECT,rtti_pattern,0.75,data,
+0x004E68F0,__ti10RescueRate,rtti_pattern,0.75,data,
+0x004E6900,__ti6rapbld,rtti_pattern,0.75,data,
+0x004E6910,__ti6gndeff,rtti_pattern,0.75,data,
+0x004E6920,__ti8gndspark,rtti_pattern,0.75,data,
+0x004E6930,__ti10rapbldline,rtti_pattern,0.75,data,
+0x004E6940,__ti7gndline,rtti_pattern,0.75,data,
+0x004E6950,__ti5steam,rtti_pattern,0.75,data,
+0x004E6960,__ti9wtrpillar,rtti_pattern,0.75,data,
+0x004E6970,__ti6shadow,rtti_pattern,0.75,data,
+0x004E6980,__ti13ring_particle,rtti_pattern,0.75,data,
+0x004E6990,__ti13tyrant_vulcan,rtti_pattern,0.75,data,
+0x004E69A0,__ti6TYRANT,rtti_pattern,0.75,data,
+0x004E69B0,__ti12tyrant_probe,rtti_pattern,0.75,data,
+0x004E69C0,__ti13tyrant_charge,rtti_pattern,0.75,data,
+0x004E69D0,__ti16tyrant_megalaser,rtti_pattern,0.75,data,
+0x004E69E0,__ti14tyrant_missile,rtti_pattern,0.75,data,
+0x004E69F0,__ti11ring_effect,rtti_pattern,0.75,data,
+0x004E6A00,__ti15tyrnt_msl_smoke,rtti_pattern,0.75,data,
+0x004E6A10,__ti20tyrant_vulcan_effect,rtti_pattern,0.75,data,
+0x004E6A20,__ti12tyrant_laser,rtti_pattern,0.75,data,
+0x004E6A30,__ti13tyrant_laser2,rtti_pattern,0.75,data,
+0x004E6A40,__ti6jehbld,rtti_pattern,0.75,data,
+0x004E6A50,__ti10jehbldline,rtti_pattern,0.75,data,
+0x004E6A60,__ti7cycfist,rtti_pattern,0.75,data,
+0x004E6A70,__ti11jehbldline2,rtti_pattern,0.75,data,
+0x004E6A80,__ti17tyrant_megalaser2,rtti_pattern,0.75,data,
+0x004E6A90,__ti10cycfisteff,rtti_pattern,0.75,data,
+0x004E6AA0,__ti13jeh_barms_eff,rtti_pattern,0.75,data,
+0x004E6AB0,__ti7windeff,rtti_pattern,0.75,data,
+0x004E6AC0,__ti10cannonline,rtti_pattern,0.75,data,
+0x004E6AD0,__ti11cannonspark,rtti_pattern,0.75,data,
+0x004E6AE0,__ti13tyrant_ripple,rtti_pattern,0.75,data,
+0x004E6AF0,__ti17tyrant_flashlaser,rtti_pattern,0.75,data,
+0x004E6B00,__ti11stage_smoke,rtti_pattern,0.75,data,
+0x004E6B10,__ti4hole,rtti_pattern,0.75,data,
+0x004E6B20,__ti6grdeff,rtti_pattern,0.75,data,
+0x004E6B30,__ti7GlbMark,rtti_pattern,0.75,data,
+0x004E6B40,__ti8MapRadar,rtti_pattern,0.75,data,
+0x004E6B50,__ti16tyrant_locklaser,rtti_pattern,0.75,data,
+0x004E6B60,__ti12party_circle,rtti_pattern,0.75,data,
+0x004E6B70,__ti10dest_rader,rtti_pattern,0.75,data,
+0x004E6B80,__ti8mn_pause,rtti_pattern,0.75,data,
+0x004E6B90,__ti12item_pointer,rtti_pattern,0.75,data,
+0x004E6BA0,__ti4wave,rtti_pattern,0.75,data,
+0x004E6BB0,__ti10GetProgram,rtti_pattern,0.75,data,
+0x004E6BC0,__ti10GetItemBox,rtti_pattern,0.75,data,
+0x004E6BD0,__ti7GetItem,rtti_pattern,0.75,data,
+0x004E6BE0,__ti4menu,rtti_pattern,0.75,data,
+0x004E6BF0,__ti12LockonCursor,rtti_pattern,0.75,data,
+0x004E6C00,__ti10ItemCursor,rtti_pattern,0.75,data,
+0x004E6C10,__ti14LockableCursor,rtti_pattern,0.75,data,
+0x004E6C20,__ti12TargetCursor,rtti_pattern,0.75,data,
+0x004E6C30,__ti8PartyCur,rtti_pattern,0.75,data,
+0x004E6C40,__ti15PartyLockCursor,rtti_pattern,0.75,data,
+0x004E6C50,__ti14PartyTrgCursor,rtti_pattern,0.75,data,
+0x004E6C70,__ti7Monitor,rtti_pattern,0.75,data,
+0x004E6C80,__ti5Guage,rtti_pattern,0.75,data,
+0x004E6C90,__ti4site,rtti_pattern,0.75,data,
+0x004E6CA0,__ti9JogWepCus,rtti_pattern,0.75,data,
+0x004E6CB0,__ti10EscapeView,rtti_pattern,0.75,data,
+0x004E6CC0,__ti6Window,rtti_pattern,0.75,data,
+0x004E6CD0,__ti8navigate,rtti_pattern,0.75,data,
+0x004E6CE0,__ti10dust_smoke,rtti_pattern,0.75,data,
+0x004E6CF0,__ti13scratch_water,rtti_pattern,0.75,data,
+0x004E6D00,__ti12water_ripple,rtti_pattern,0.75,data,
+0x004E6D10,__ti9water_fog,rtti_pattern,0.75,data,
+0x004E6D20,__ti12cannonspark2,rtti_pattern,0.75,data,
+0x004E6D30,__ti5probe,rtti_pattern,0.75,data,
+0x004E6D40,__ti6spread,rtti_pattern,0.75,data,
+0x004E6D50,__ti9reduction,rtti_pattern,0.75,data,
+0x004E6D60,__ti11missile_exp,rtti_pattern,0.75,data,
+0x004E6D70,__ti7glb_map,rtti_pattern,0.75,data,
+0x004E6D80,__ti16tyrant_mainlaser,rtti_pattern,0.75,data,
+0x004E6D90,__ti11save_window,rtti_pattern,0.75,data,
+0x004E6DA0,__ti13nebula_cursor,rtti_pattern,0.75,data,
+0x004E6DB0,__ti14stealth_cursor,rtti_pattern,0.75,data,
+0x004E6DC0,__ti16tyrant_demolaser,rtti_pattern,0.75,data,
+0x004E6DD0,__ti6Lockon,rtti_pattern,0.75,data,
+0x004E6DE0,__ti4Bomb,rtti_pattern,0.75,data,
+0x004E6DF0,__ti7Baggage,rtti_pattern,0.75,data,
+0x004E6E00,__ti6Bomber,rtti_pattern,0.75,data,
+0x004E6E10,__ti9bomb_ctrl,rtti_pattern,0.75,data,
+0x004E6E20,__ti13SuitcasePiece,rtti_pattern,0.75,data,
+0x004E6E30,__ti12neith_cursor,rtti_pattern,0.75,data,
+0x004E6E40,__ti8bomb_exp,rtti_pattern,0.75,data,
+0x004E6E50,__ti10virus_view,rtti_pattern,0.75,data,
+0x004E6E60,__ti10vs_monitor,rtti_pattern,0.75,data,
+0x004E6E80,__ti13rescue_window,rtti_pattern,0.75,data,
+0x004E6E90,__ti12stage_smoke2,rtti_pattern,0.75,data,
+0x004E6EA0,__ti11BindTailEff,rtti_pattern,0.75,data,
+0x004E6EB0,__ti10boss_steam,rtti_pattern,0.75,data,
+0x004E6EC0,__ti12save_window2,rtti_pattern,0.75,data,
+0x004E6ED0,__ti11fail_window,rtti_pattern,0.75,data,
+0x004E6EE0,__ti8helpcall,rtti_pattern,0.75,data,
+0x004E6EF0,__ti11damagespark,rtti_pattern,0.75,data,
+0x004E6F00,__ti7JehShot,rtti_pattern,0.75,data,
+0x004E6F10,__ti8JehLaser,rtti_pattern,0.75,data,
+0x004E6F20,__ti9JehCannon,rtti_pattern,0.75,data,
+0x004E6F30,__ti7Javelin,rtti_pattern,0.75,data,
+0x004E6F40,__ti6Geyser,rtti_pattern,0.75,data,
+0x004E6F50,__ti7Bounder,rtti_pattern,0.75,data,
+0x004E6F60,__ti7Phalanx,rtti_pattern,0.75,data,
+0x004E6F70,__ti7Halberd,rtti_pattern,0.75,data,
+0x004E6F80,__ti8JehComet,rtti_pattern,0.75,data,
+0x004E6F90,__ti8MumComet,rtti_pattern,0.75,data,
+0x004E6FA0,__ti8Gauntlet,rtti_pattern,0.75,data,
+0x004E6FB0,__ti6Sniper,rtti_pattern,0.75,data,
+0x004E6FC0,__ti10MummyShell,rtti_pattern,0.75,data,
+0x004E6FD0,__ti5Decoy,rtti_pattern,0.75,data,
+0x004E6FE0,__ti4Shot,rtti_pattern,0.75,data,
+0x004E6FF0,__ti9ShotFlash,rtti_pattern,0.75,data,
+0x004E7000,__ti11JehLsrFlash,rtti_pattern,0.75,data,
+0x004E7010,__ti10CanonFlash,rtti_pattern,0.75,data,
+0x004E7020,__ti12JehRapSammon,rtti_pattern,0.75,data,
+0x004E7030,__ti12JehMumCannon,rtti_pattern,0.75,data,
+0x004E7040,__ti10JehUssfGun,rtti_pattern,0.75,data,
+0x004E7050,__ti12MumShotFlash,rtti_pattern,0.75,data,
+0x004E7060,__ti11MumShotWarn,rtti_pattern,0.75,data,
+0x004E7070,__ti13MumBurstFlash,rtti_pattern,0.75,data,
+0x004E7080,__ti10CaptureEff,rtti_pattern,0.75,data,
+0x004E7090,__ti10JehHoldEff,rtti_pattern,0.75,data,
+0x004E70A0,__ti10RapHoldEff,rtti_pattern,0.75,data,
+0x004E70B0,__ti10CycHoldEff,rtti_pattern,0.75,data,
+0x004E70C0,__ti12NeithHoldEff,rtti_pattern,0.75,data,
+0x004E70D0,__ti18RebornNeithHoldEff,rtti_pattern,0.75,data,
+0x004E70E0,__ti7saveeff,rtti_pattern,0.75,data,
+0x004E70F0,__ti8HoldAura,rtti_pattern,0.75,data,
+0x004E7100,__ti4Aura,rtti_pattern,0.75,data,
+0x004E7110,__ti8GndSmoke,rtti_pattern,0.75,data,
+0x004E7120,__ti9CartBlast,rtti_pattern,0.75,data,
+0x004E7130,__ti7BigBang,rtti_pattern,0.75,data,
+0x004E7140,__ti9ShotBlast,rtti_pattern,0.75,data,
+0x004E7150,__ti13GauntletBlast,rtti_pattern,0.75,data,
+0x004E7160,__ti11FireCracker,rtti_pattern,0.75,data,
+0x004E7170,__ti8HighFire,rtti_pattern,0.75,data,
+0x004E7190,__ti14AppendHighFire,rtti_pattern,0.75,data,
+0x004E71A0,__ti10RingEffect,rtti_pattern,0.75,data,
+0x004E71B0,__ti7rapvern,rtti_pattern,0.75,data,
+0x004E71C0,__ti6mumcan,rtti_pattern,0.75,data,
+0x004E71D0,__ti9BackLight,rtti_pattern,0.75,data,
+0x004E71E0,__ti7Thunder,rtti_pattern,0.75,data,
+0x004E71F0,__ti9PartyShot,rtti_pattern,0.75,data,
+0x004E7200,__ti11MONITOR_EFF,rtti_pattern,0.75,data,
+0x004E7210,__ti10MumDashEff,rtti_pattern,0.75,data,
+0x004E7220,__ti9MumGrdEff,rtti_pattern,0.75,data,
+0x004E7230,__ti9MumSldEff,rtti_pattern,0.75,data,
+0x004E7240,__ti7tmpFlip,rtti_pattern,0.75,data,
+0x004E7250,__ti8Tempest1,rtti_pattern,0.75,data,
+0x004E7260,__ti8Tempest2,rtti_pattern,0.75,data,
+0x004E7270,__ti11DemoTmpFire,rtti_pattern,0.75,data,
+0x004E7280,__ti10TmpAirWave,rtti_pattern,0.75,data,
+0x004E7290,__ti7tmpbeam,rtti_pattern,0.75,data,
+0x004E72A0,__ti7tmpshot,rtti_pattern,0.75,data,
+0x004E72B0,__ti13TempestMeteor,rtti_pattern,0.75,data,
+0x004E72C0,__ti6tmpstr,rtti_pattern,0.75,data,
+0x004E72D0,__ti15TempestFireWall,rtti_pattern,0.75,data,
+0x004E72E0,__ti7burning,rtti_pattern,0.75,data,
+0x004E72F0,__ti10tmpranding,rtti_pattern,0.75,data,
+0x004E7300,__ti10BlowImpact,rtti_pattern,0.75,data,
+0x004E7310,__ti7neivern,rtti_pattern,0.75,data,
+0x004E7320,__ti10FLYSQR_SWD,rtti_pattern,0.75,data,
+0x004E7330,__ti16FlySqr_Excursion,rtti_pattern,0.75,data,
+0x004E7340,__ti10FlySqrShot,rtti_pattern,0.75,data,
+0x004E7350,__ti14FlySqrDashShot,rtti_pattern,0.75,data,
+0x004E7360,__ti15FlySqrBurstShot,rtti_pattern,0.75,data,
+0x004E7370,__ti9NeithBind,rtti_pattern,0.75,data,
+0x004E7380,__ti13FlyBShotFlash,rtti_pattern,0.75,data,
+0x004E7390,__ti12RebNeiFlySqr,rtti_pattern,0.75,data,
+0x004E73A0,__ti10Neith2Aura,rtti_pattern,0.75,data,
+0x004E73B0,__ti14RebSqrDashShot,rtti_pattern,0.75,data,
+0x004E73C0,__ti14RebFlySqrLaser,rtti_pattern,0.75,data,
+0x004E73D0,__ti15RebFlySqrCannon,rtti_pattern,0.75,data,
+0x004E73E0,__ti7RebBomb,rtti_pattern,0.75,data,
+0x004E73F0,__ti6Anubis,rtti_pattern,0.75,data,
+0x004E7400,__ti8Spectrum,rtti_pattern,0.75,data,
+0x004E7410,__ti17AnubisCrashEffect,rtti_pattern,0.75,data,
+0x004E7420,__ti10AnubisBind,rtti_pattern,0.75,data,
+0x004E7430,__ti9Resonance,rtti_pattern,0.75,data,
+0x004E7440,__ti11AnubisBurst,rtti_pattern,0.75,data,
+0x004E7450,__ti8AnbsAura,rtti_pattern,0.75,data,
+0x004E7460,__ti15AnubisRodEffect,rtti_pattern,0.75,data,
+0x004E7470,__ti12DM_ANBS_LINE,rtti_pattern,0.75,data,
+0x004E7480,__ti12DemoAnbsVern,rtti_pattern,0.75,data,
+0x004E7490,__ti12DM_ANBS_AURA,rtti_pattern,0.75,data,
+0x004E74A0,__ti10VR_MANAGER,rtti_pattern,0.75,data,
+0x004E74C0,__ti6VRMove,rtti_pattern,0.75,data,
+0x004E74D0,__ti6VRDash,rtti_pattern,0.75,data,
+0x004E74E0,__ti5VRAtc,rtti_pattern,0.75,data,
+0x004E74F0,__ti6VRDAtc,rtti_pattern,0.75,data,
+0x004E7500,__ti10VRBurstAtc,rtti_pattern,0.75,data,
+0x004E7510,__ti7VRGuard,rtti_pattern,0.75,data,
+0x004E7520,__ti6VRHold,rtti_pattern,0.75,data,
+0x004E7530,__ti6VRLock,rtti_pattern,0.75,data,
+0x004E7540,__ti8VREscape,rtti_pattern,0.75,data,
+0x004E7550,__ti8VRCamera,rtti_pattern,0.75,data,
+0x004E7560,__ti10VrAnnounce,rtti_pattern,0.75,data,
+0x004E7570,__ti7itembox,rtti_pattern,0.75,data,
+0x004E7580,__ti8terminal,rtti_pattern,0.75,data,
+0x004E7590,__ti6Porter,rtti_pattern,0.75,data,
+0x004E75A0,__ti11EnergyField,rtti_pattern,0.75,data,
+0x004E75B0,__ti10SoulEffect,rtti_pattern,0.75,data,
+0x004E75D0,__ti10AlphaClear,rtti_pattern,0.75,data,
+0x004E75E0,__ti8GAMEOVER,rtti_pattern,0.75,data,
+0x004E75F0,__ti7Cockpit,rtti_pattern,0.75,data,
+0x004E7600,__ti13CkpCommWindow,rtti_pattern,0.75,data,
+0x004E7610,__ti7ckpnavi,rtti_pattern,0.75,data,
+0x004E7620,__ti12ckpindicator,rtti_pattern,0.75,data,
+0x004E7630,__ti11ckpflowline,rtti_pattern,0.75,data,
+0x004E7640,__ti9ckpcircle,rtti_pattern,0.75,data,
+0x004E7650,__ti4Fade,rtti_pattern,0.75,data,
+0x004E7660,__ti13EnergyShutter,rtti_pattern,0.75,data,
+0x004E7670,__ti10CA1Shutter,rtti_pattern,0.75,data,
+0x004E7680,__ti10stealthtrg,rtti_pattern,0.75,data,
+0x004E7690,__ti10ChapEffect,rtti_pattern,0.75,data,
+0x004E76A0,__ti10AdaRecover,rtti_pattern,0.75,data,
+0x004E76B0,__ti6BadEnd,rtti_pattern,0.75,data,
+0x004E76C0,__ti14FlowLineEffect,rtti_pattern,0.75,data,
+0x004E76D0,__ti9BossGauge,rtti_pattern,0.75,data,
+0x004E76E0,__ti8BombScan,rtti_pattern,0.75,data,
+0x004E76F0,__ti8BombFade,rtti_pattern,0.75,data,
+0x004E7700,__ti5Kanji,rtti_pattern,0.75,data,
+0x004E7720,__ti12Null_Pos_Get,rtti_pattern,0.75,data,
+0x004E7730,__ti4flit,rtti_pattern,0.75,data,
+0x004E7740,__ti4plit,rtti_pattern,0.75,data,
+0x004E7750,__ti7beamlit,rtti_pattern,0.75,data,
+0x004E7760,__ti10cablebreak,rtti_pattern,0.75,data,
+0x004E7770,__ti9pipebreak,rtti_pattern,0.75,data,
+0x004E7780,__ti10scnnulleff,rtti_pattern,0.75,data,
+0x004E7790,__ti13scnradarwatch,rtti_pattern,0.75,data,
+0x004E77A0,__ti11scnradareff,rtti_pattern,0.75,data,
+0x004E77B0,__ti7vreffbg,rtti_pattern,0.75,data,
+0x004E77C0,__ti9vreffgrnd,rtti_pattern,0.75,data,
+0x004E77D0,__ti9vrbeehive,rtti_pattern,0.75,data,
+0x004E77E0,__ti10vrbeehive2,rtti_pattern,0.75,data,
+0x004E77F0,__ti13stagelimiteff,rtti_pattern,0.75,data,
+0x004E7800,__ti7sleline,rtti_pattern,0.75,data,
+0x004E7810,__ti15scnbsrunninglit,rtti_pattern,0.75,data,
+0x004E7820,__ti15newbsrunninglit,rtti_pattern,0.75,data,
+0x004E7830,__ti13scnbsflowline,rtti_pattern,0.75,data,
+0x004E7840,__ti13newbsflowline,rtti_pattern,0.75,data,
+0x004E7850,__ti10fa2windrot,rtti_pattern,0.75,data,
+0x004E7860,__ti14newca1flowline,rtti_pattern,0.75,data,
+0x004E7870,__ti14scnca1flowline,rtti_pattern,0.75,data,
+0x004E7880,__ti10programHzd,rtti_pattern,0.75,data,
+0x004E7890,__ti9rmotorrot,rtti_pattern,0.75,data,
+0x004E78A0,__ti10ca1engtree,rtti_pattern,0.75,data,
+0x004E78B0,__ti9tst_flash,rtti_pattern,0.75,data,
+0x004E78C0,__ti9burnsmoke,rtti_pattern,0.75,data,
+0x004E78D0,__ti11tst_hahen_3,rtti_pattern,0.75,data,
+0x004E78E0,__ti12scnDustDebri,rtti_pattern,0.75,data,
+0x004E78F0,__ti8scnSpark,rtti_pattern,0.75,data,
+0x004E7900,__ti11scneffsound,rtti_pattern,0.75,data,
+0x004E7910,__ti12scnmodelswap,rtti_pattern,0.75,data,
+0x004E7920,__ti12scnbrosbreak,rtti_pattern,0.75,data,
+0x004E7930,__ti12scnexplosion,rtti_pattern,0.75,data,
+0x004E7940,__ti11scnfrmbreak,rtti_pattern,0.75,data,
+0x004E7950,__ti14scnneith1break,rtti_pattern,0.75,data,
+0x004E7960,__ti6CHARA2,rtti_pattern,0.75,data,
+0x004E7970,__ti12scnprtcelExp,rtti_pattern,0.75,data,
+0x004E7980,__ti13scnprtceExp_2,rtti_pattern,0.75,data,
+0x004E7990,__ti12scnshockwave,rtti_pattern,0.75,data,
+0x004E79B0,__ti7scnfire,rtti_pattern,0.75,data,
+0x004E79C0,__ti11scnfireWake,rtti_pattern,0.75,data,
+0x004E79D0,__ti9motorbomb,rtti_pattern,0.75,data,
+0x004E79E0,__ti7motbomb,rtti_pattern,0.75,data,
+0x004E79F0,__ti11scnrapbreak,rtti_pattern,0.75,data,
+0x004E7A00,__ti11scnposjudge,rtti_pattern,0.75,data,
+0x004E7A10,__ti11scnbrkwatch,rtti_pattern,0.75,data,
+0x004E7A20,__ti10scnshutter,rtti_pattern,0.75,data,
+0x004E7A30,__ti6scnesp,rtti_pattern,0.75,data,
+0x004E7A40,__ti13neweps_ripple,rtti_pattern,0.75,data,
+0x004E7A50,__ti9scnepseff,rtti_pattern,0.75,data,
+0x004E7A60,__ti9scnshaftd,rtti_pattern,0.75,data,
+0x004E7A70,__ti14scnbswallbreak,rtti_pattern,0.75,data,
+0x004E7A80,__ti13scnrgenewatch,rtti_pattern,0.75,data,
+0x004E7A90,__ti12scnbsshutter,rtti_pattern,0.75,data,
+0x004E7AA0,__ti6glbsmk,rtti_pattern,0.75,data,
+0x004E7AB0,__ti6glbexp,rtti_pattern,0.75,data,
+0x004E7AC0,__ti8blast_gl,rtti_pattern,0.75,data,
+0x004E7AD0,__ti10glbsmkunit,rtti_pattern,0.75,data,
+0x004E7AE0,__ti8armblast,rtti_pattern,0.75,data,
+0x004E7AF0,__ti9bumpblast,rtti_pattern,0.75,data,
+0x004E7B00,__ti15MY_SMOKE_FIELD2,rtti_pattern,0.75,data,
+0x004E7B10,__ti9blast_one,rtti_pattern,0.75,data,
+0x004E7B20,__ti9backblast,rtti_pattern,0.75,data,
+0x004E7B30,__ti12scnradarbomb,rtti_pattern,0.75,data,
+0x004E7B40,__ti5RSC_B,rtti_pattern,0.75,data,
+0x004E7B50,__ti11rscfieldeff,rtti_pattern,0.75,data,
+0x004E7B60,__ti8breakobj,rtti_pattern,0.75,data,
+0x004E7B70,__ti11scnobjphang,rtti_pattern,0.75,data,
+0x004E7B80,__ti9treeobj_a,rtti_pattern,0.75,data,
+0x004E7B90,__ti9treeobj_b,rtti_pattern,0.75,data,
+0x004E7BA0,__ti9treeobj_c,rtti_pattern,0.75,data,
+0x004E7BB0,__ti7scnblur,rtti_pattern,0.75,data,
+0x004E7BC0,__ti14brk_fa1tekkotu,rtti_pattern,0.75,data,
+0x004E7BD0,__ti16brk_fa1allhanger,rtti_pattern,0.75,data,
+0x004E7BE0,__ti13brk_s02ithead,rtti_pattern,0.75,data,
+0x004E7BF0,__ti13brk_s02itbase,rtti_pattern,0.75,data,
+0x004E7C00,__ti11brk_fasouko,rtti_pattern,0.75,data,
+0x004E7C10,__ti12brk_fatank_2,rtti_pattern,0.75,data,
+0x004E7C20,__ti14brk_fabillbase,rtti_pattern,0.75,data,
+0x004E7C30,__ti14brk_fabillbill,rtti_pattern,0.75,data,
+0x004E7C40,__ti12brk_faf_wing,rtti_pattern,0.75,data,
+0x004E7C50,__ti14brk_faf_pillar,rtti_pattern,0.75,data,
+0x004E7C60,__ti11brkfakrbase,rtti_pattern,0.75,data,
+0x004E7C70,__ti10brkfakrarm,rtti_pattern,0.75,data,
+0x004E7C80,__ti11brkfakrhand,rtti_pattern,0.75,data,
+0x004E7C90,__ti7brk_car,rtti_pattern,0.75,data,
+0x004E7CA0,__ti14brk_fballbreak,rtti_pattern,0.75,data,
+0x004E7CB0,__ti13brk_tamansion,rtti_pattern,0.75,data,
+0x004E7CC0,__ti13brk_tahodokyo,rtti_pattern,0.75,data,
+0x004E7CD0,__ti14MY_SMOKE_FIELD,rtti_pattern,0.75,data,
+0x004E7CE0,__ti11brk_tazosan,rtti_pattern,0.75,data,
+0x004E7CF0,__ti9brk_taubl,rtti_pattern,0.75,data,
+0x004E7D00,__ti12brk_tashingo,rtti_pattern,0.75,data,
+0x004E7D10,__ti12brktcpiramid,rtti_pattern,0.75,data,
+0x004E7D20,__ti10brktcspira,rtti_pattern,0.75,data,
+0x004E7D30,__ti9brktccbld,rtti_pattern,0.75,data,
+0x004E7D40,__ti9brktcmaru,rtti_pattern,0.75,data,
+0x004E7D50,__ti13brk_takyoukai,rtti_pattern,0.75,data,
+0x004E7D60,__ti13brk_s13bridge,rtti_pattern,0.75,data,
+0x004E7D70,__ti15brk_s13rockwall,rtti_pattern,0.75,data,
+0x004E7D80,__ti13brk_pkwallpbj,rtti_pattern,0.75,data,
+0x004E7D90,__ti12brk_pkboxobj,rtti_pattern,0.75,data,
+0x004E7DA0,__ti13brk_stkontena,rtti_pattern,0.75,data,
+0x004E7DB0,__ti14scnmovekontena,rtti_pattern,0.75,data,
+0x004E7DC0,__ti11movekontena,rtti_pattern,0.75,data,
+0x004E7DD0,__ti11brk_cbglass,rtti_pattern,0.75,data,
+0x004E7DE0,__ti11brk_cashaft,rtti_pattern,0.75,data,
+0x004E7DF0,__ti10brk_rbwall,rtti_pattern,0.75,data,
+0x004E7E00,__ti8scnhindd,rtti_pattern,0.75,data,
+0x004E7E10,__ti16scnseteventhindd,rtti_pattern,0.75,data,
+0x004E7E20,__ti9blackmask,rtti_pattern,0.75,data,
+0x004E7E30,__ti9dmdisplay,rtti_pattern,0.75,data,
+0x004E7E40,__ti13dmd02_1_spark,rtti_pattern,0.75,data,
+0x004E7E50,__ti13dmd02_1_steam,rtti_pattern,0.75,data,
+0x004E7E60,__ti12dmd02_1_smog,rtti_pattern,0.75,data,
+0x004E7E70,__ti17dmd02_1_landsmoke,rtti_pattern,0.75,data,
+0x004E7E80,__ti13dmd02_1_hahen,rtti_pattern,0.75,data,
+0x004E7E90,__ti13dmtb0456_smog,rtti_pattern,0.75,data,
+0x004E7EA0,__ti12dm_fa2vrnleg,rtti_pattern,0.75,data,
+0x004E7EB0,__ti8test_lit,rtti_pattern,0.75,data,
+0x004E7EC0,__ti12dm_pkrap_lit,rtti_pattern,0.75,data,
+0x004E7ED0,__ti12dm_stnei_spk,rtti_pattern,0.75,data,
+0x004E7EE0,__ti18dmst0646_mangaline,rtti_pattern,0.75,data,
+0x004E7EF0,__ti13dmst0646_smog,rtti_pattern,0.75,data,
+0x004E7F00,__ti12dmst0646_oil,rtti_pattern,0.75,data,
+0x004E7F10,__ti15dmsh0704_lfloar,rtti_pattern,0.75,data,
+0x004E7F20,__ti18dmsh0704_mangaline,rtti_pattern,0.75,data,
+0x004E7F30,__ti13dm_bs0732_lit,rtti_pattern,0.75,data,
+0x004E7F40,__ti13dm_bs0732_bmb,rtti_pattern,0.75,data,
+0x004E7F50,__ti13dm_bs0732_fsh,rtti_pattern,0.75,data,
+0x004E7F60,__ti13dm_bs0732_lsr,rtti_pattern,0.75,data,
+0x004E7F70,__ti13dm_bs0714_obj,rtti_pattern,0.75,data,
+0x004E7F80,__ti11dmbsneiburn,rtti_pattern,0.75,data,
+0x004E7F90,__ti10dmbsneiprt,rtti_pattern,0.75,data,
+0x004E7FA0,__ti8mt1stage,rtti_pattern,0.75,data,
+0x004E7FB0,__ti5stage,rtti_pattern,0.75,data,
+0x004E7FC0,__ti13AREA_TRAP_MAN,rtti_pattern,0.75,data,
+0x004E7FD0,__ti10DoContinue,rtti_pattern,0.75,data,
+0x004E7FE0,__ti6DoExit,rtti_pattern,0.75,data,
+0x004E7FF0,__ti8viewflow,rtti_pattern,0.75,data,
+0x004E8000,__ti6Nebula,rtti_pattern,0.75,data,
+0x004E8010,__ti11FannelLaser,rtti_pattern,0.75,data,
+0x004E8020,__ti12NebulaFannel,rtti_pattern,0.75,data,
+0x004E8030,__ti10MultiLaser,rtti_pattern,0.75,data,
+0x004E8040,__ti10TAITOLaser,rtti_pattern,0.75,data,
+0x004E8050,__ti12MicroMissile,rtti_pattern,0.75,data,
+0x004E8060,__ti13MotherMissile,rtti_pattern,0.75,data,
+0x004E8070,__ti16HighSpeedMissile,rtti_pattern,0.75,data,
+0x004E8080,__ti13HomingMissile,rtti_pattern,0.75,data,
+0x004E8090,__ti11AAMM_Mother,rtti_pattern,0.75,data,
+0x004E80A0,__ti10AAMM_Child,rtti_pattern,0.75,data,
+0x004E80B0,__ti9S_Missile,rtti_pattern,0.75,data,
+0x004E80C0,__ti12SplitMissile,rtti_pattern,0.75,data,
+0x004E80D0,__ti14HighpowerLaser,rtti_pattern,0.75,data,
+0x004E80E0,__ti11SplitCannon,rtti_pattern,0.75,data,
+0x004E80F0,__ti8FireWait,rtti_pattern,0.75,data,
+0x004E8100,__ti10CannonBall,rtti_pattern,0.75,data,
+0x004E8110,__ti12Nebulaspread,rtti_pattern,0.75,data,
+0x004E8120,__ti12HPL_Particle,rtti_pattern,0.75,data,
+0x004E8130,__ti5CHARA,rtti_pattern,0.75,data,
+0x004E8140,__ti12WhiteCensend,rtti_pattern,0.75,data,
+0x004E8150,__ti15NebulaLaserDemo,rtti_pattern,0.75,data,
+0x004E8160,__ti8HPL_Demo,rtti_pattern,0.75,data,
+0x004E8170,__ti8LoadAnim,rtti_pattern,0.75,data,
+0x004E8180,__ti16AppearanceFannel,rtti_pattern,0.75,data,
+0x004E8190,__ti15SlasterParticle,rtti_pattern,0.75,data,
+0x004E81A0,__ti11NebulaSteam,rtti_pattern,0.75,data,
+0x004E81B0,__ti13NebulaCaution,rtti_pattern,0.75,data,
+0x004E81D0,__ti5cloud,rtti_pattern,0.75,data,
+0x004E81E0,__ti5falls,rtti_pattern,0.75,data,
+0x004E81F0,__ti13decode_stream,rtti_pattern,0.75,data,
+0x004E8200,__ti9StaffRoll,rtti_pattern,0.75,data,
+0x004E8210,__ti14SaveSystemFile,rtti_pattern,0.75,data,
+0x004E8220,__ti5title,rtti_pattern,0.75,data,
+0x004E8230,__ti14TitleLDControl,rtti_pattern,0.75,data,
+0x004E8240,__ti14TitleVSControl,rtti_pattern,0.75,data,
+0x004E8250,__ti16TitleFadeControl,rtti_pattern,0.75,data,
+0x004E8260,__ti14TitleBgControl,rtti_pattern,0.75,data,
+0x004E8270,__ti10DispResult,rtti_pattern,0.75,data,
+0x004E8280,__ti13HiddenCommand,rtti_pattern,0.75,data,
+0x004E8290,__ti9DispOmake,rtti_pattern,0.75,data,
+0x004E82A0,__ti18TitleKONAMIControl,rtti_pattern,0.75,data,
+0x004E82B0,__ti6lightn,rtti_pattern,0.75,data,
+0x004E82C0,__ti6impact,rtti_pattern,0.75,data,
+0x004E82D0,__ti6strike,rtti_pattern,0.75,data,
+0x004E82E0,__ti4dust,rtti_pattern,0.75,data,
+0x004E82F0,__ti5spark,rtti_pattern,0.75,data,
+0x004E8300,__ti5debri,rtti_pattern,0.75,data,
+0x004E8310,__ti5blast,rtti_pattern,0.75,data,
+0x004E8320,__ti11impactColor,rtti_pattern,0.75,data,
+0x004E8330,__ti13STRM_STREAMER,rtti_pattern,0.75,data,
+0x004E8340,__ti13STRM_PLAYMPEG,rtti_pattern,0.75,data,
+0x004E8350,__ti15STRM_PLAYJIMAKU,rtti_pattern,0.75,data,
+0x004E8360,__ti12STRM_PLAYPCM,rtti_pattern,0.75,data,
+0x004E8370,__ti6pssman,rtti_pattern,0.75,data,
+0x004E8390,__ti9EV_DAEMON,rtti_pattern,0.75,data,
+0x004E83A0,__ti10EV_SIT_MAN,rtti_pattern,0.75,data,
+0x004E83B0,__ti10multitrack,rtti_pattern,0.75,data,
+0x004E83C0,__ti7memstrm,rtti_pattern,0.75,data,
+0x004E83D0,__ti11DM_RECFRAME,rtti_pattern,0.75,data,
+0x004E83E0,__ti9motionact,rtti_pattern,0.75,data,
+0x004E83F0,__ti8DM_FRAME,rtti_pattern,0.75,data,
+0x004E8400,__ti11DM_POLYDEMO,rtti_pattern,0.75,data,
+0x004E8410,__ti13DM_SCN_STREAM,rtti_pattern,0.75,data,
+0x004E8420,__ti10DM_DMXSTRM,rtti_pattern,0.75,data,
+0x004E8430,__ti10TRG_DAEMON,rtti_pattern,0.75,data,
+0x004E8440,__ti10DG_DAEMON1,rtti_pattern,0.75,data,
+0x004E8450,__ti10DG_DAEMON2,rtti_pattern,0.75,data,
+0x004E8460,__ti6DG_DBG,rtti_pattern,0.75,data,
+0x004E8470,__ti19DG_MDL_FLOWLINEDATA,rtti_pattern,0.75,data,
+0x004E8480,__ti17DG_MDL_ENVMAPDATA,rtti_pattern,0.75,data,
+0x004E84A0,__ti18DG_MDL_REFRACTDATA,rtti_pattern,0.75,data,
+0x004E84B0,__ti17DG_MDL_EFIELDDATA,rtti_pattern,0.75,data,
+0x004E84C0,__ti9FS_LOADER,rtti_pattern,0.75,data,
+0x004E84D0,__ti14FS_LOAD_CDFILE,rtti_pattern,0.75,data,
+0x004E84E0,__ti9GV_DAEMON,rtti_pattern,0.75,data,
+0x004E84F0,__ti10MC_DAEMON2,rtti_pattern,0.75,data,
+0x004E8500,__ti9MC_DAEMON,rtti_pattern,0.75,data,
+0x004E8510,__ti13bad_exception,rtti_pattern,0.75,data,
+0x004E8520,__ti10bad_typeid,rtti_pattern,0.75,data,
+0x004E8530,__ti8bad_cast,rtti_pattern,0.75,data,
+0x004E8540,__ti16__user_type_info,rtti_pattern,0.75,data,
+0x004E8550,__ti14__si_type_info,rtti_pattern,0.75,data,
+0x004E8560,__ti17__class_type_info,rtti_pattern,0.75,data,
+0x004E8570,__ti16__func_type_info,rtti_pattern,0.75,data,
+0x004E8580,__ti16__attr_type_info,rtti_pattern,0.75,data,
+0x004E8590,__ti16__ptmf_type_info,rtti_pattern,0.75,data,
+0x004E85A0,__ti17__array_type_info,rtti_pattern,0.75,data,
+0x004E85B0,__ti19__pointer_type_info,rtti_pattern,0.75,data,
+0x004E85C0,__ti16__ptmd_type_info,rtti_pattern,0.75,data,
+0x004E85D0,__ti19__builtin_type_info,rtti_pattern,0.75,data,

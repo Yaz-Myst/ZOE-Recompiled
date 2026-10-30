@@ -1,0 +1,42 @@
+func_start_est,func_words_est,tag_kind,tag,string,ref_insn,string_addr,current_name,current_source
+0x002046B8,454,source_file,jehvern.cc,--------------------- jehvern.cc error!!!,0x00204AD4,0x004B1690,,
+0x0020E390,60,source_file,scnfunc.cc,scnfunc.cc: can't find %s,0x0020E43C,0x004B2068,,
+0x00211A28,66,source_file,vibration.cc,vibration.cc:Invalid Data,0x00211A50,0x004B28E0,,
+0x0021C9C0,78,source_file,playvoice.cc,playvoice.cc:cancel,0x0021CAC4,0x004B3198,,
+0x0021CAF8,22,source_file,playvoice.cc,playvoice.cc:stopjob,0x0021CB10,0x004B31B0,,
+0x00267208,54,source_file,jehbld.cc,------------------------------------jehbld.cc error!!,0x00267280,0x004B56B0,,
+0x00275D40,354,source_file,grdeff.cc,------------------------------------grdeff.cc error!!,0x0027624C,0x004B5E10,,
+0x00322CF0,158,source_file,rapvern.cc,------------------------ memory error rapvern.cc ,0x00322E60,0x004C4F28,,
+0x0039F400,354,source_file,error_scnFrmBrake.cc,error_scnFrmBrake.cc===1,0x0039F81C,0x004C9BB0,,
+0x003A0290,318,source_file,error_scnFrmBrake.cc,error_scnFrmBrake.cc===1,0x003A0620,0x004C9C48,,
+0x003AEBC8,1116,source_file,armblast.cc,else Type cmd.ID() in armblast.cc,0x003AEE58,0x004CA8A0,,
+0x003B5670,634,source_file,TreeObj_A.cc,ERROR  TreeObj_A.cc====2,0x003B5A54,0x004CAD98,,
+0x003CA540,360,source_file,TCspira.cc,error===TCspira.cc=1----%d,0x003CA720,0x004CB878,,
+0x004353E8,22,source_file,stream.cc,stream.cc:int,0x0043540C,0x004D2A78,,
+0x00436078,488,source_file,mpeg2.cc,mpeg2.cc: too large size,0x00436124,0x004D2AC8,,
+0x00437F98,42,source_file,pssman.cc,pssman.cc:short of memory,0x00438008,0x004D2D58,,
+0x004383C8,478,source_file,pssman.cc,pssman.cc:data choking,0x004389D4,0x004D2DC8,,
+0x004383C8,478,source_file,pssman.cc,pssman.cc:short of memory (1),0x00438664,0x004D2DA8,,
+0x00438B40,20,source_file,pssman.cc,pssman.cc:stopjob,0x00438B58,0x004D2E00,,
+0x00438EE0,60,source_file,pssman.cc,pssman.cc:short of memory (3),0x00438F4C,0x004D2E18,,
+0x00438EE0,60,source_file,pssman.cc,pssman.cc:short of memory (4),0x00438F6C,0x004D2E38,,
+0x00439160,26,source_file,pssman.cc,pssman.cc: can't find data,0x004391B4,0x004D2E58,,
+0x00439418,48,source_file,regact.cc,regact.cc: demo actor list full,0x0043944C,0x004D2F48,,
+0x00439AE8,140,source_file,evd.cc,evd.cc:que full,0x00439B28,0x004D3030,,
+0x0043A1B8,250,source_file,situman.cc,situman.cc:buffer FULL,0x0043A500,0x004D30D8,,
+0x0043A9C8,60,source_file,situman.cc,situman.cc:Cond Buf Full,0x0043AA24,0x004D30F0,,
+0x004422C0,60,source_file,scnstrm.cc,scnstrm.cc: Too Many Commands,0x0044232C,0x004D35A8,,
+0x0044E510,30,source_file,dma_ctrl.cc,dma_ctrl.cc: too many DMA task,0x0044E570,0x004D3B70,,
+0x0044E878,14,source_file,chanl.cc,chanl.cc:dummy %x,0x0044E8AC,0x004D3BA8,,
+0x0045B710,92,source_file,font.cc,WARNING:font.cc: Old Fashioned Init,0x0045B82C,0x004D4238,,
+0x0046EA80,26,source_file,libscf.c,libscf.c,0x0046EAA0,0x004D56E8,tobcd,sce_scanner
+0x0046EAE8,22,source_file,libscf.c,libscf.c,0x0046EB08,0x004D56E8,frombcd,sce_scanner
+0x0046EB40,34,source_file,libscf.c,libscf.c,0x0046EB5C,0x004D56E8,convertfrombcd,sce_scanner
+0x0046EBC8,34,source_file,libscf.c,libscf.c,0x0046EBE4,0x004D56E8,converttobcd,sce_scanner
+0x0046EC50,58,source_file,libscf.c,libscf.c,0x0046EC98,0x004D56E8,adddate,sce_scanner
+0x0046ED38,54,source_file,libscf.c,libscf.c,0x0046ED80,0x004D56E8,subdate,sce_scanner
+0x0046EE10,28,source_file,libscf.c,libscf.c,0x0046EE2C,0x004D56E8,addhour,sce_scanner
+0x0046EE80,26,source_file,libscf.c,libscf.c,0x0046EE9C,0x004D56E8,subhour,sce_scanner
+0x0046EEE8,52,source_file,libscf.c,libscf.c,0x0046EF0C,0x004D56E8,AdjustTime,sce_scanner
+0x0046EFB8,18,source_file,libscf.c,libscf.c,0x0046EFD4,0x004D56E8,sceScfGetGMTfromRTC,sce_scanner
+0x0046F000,26,source_file,libscf.c,libscf.c,0x0046F03C,0x004D56E8,sceScfGetLocalTimefromRTC,sce_scanner

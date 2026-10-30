@@ -1,0 +1,840 @@
+address,name,source,confidence,method,ref_addr,ref_name,ref_srcfile,category,nwords,sim,edges_agree,edges_disagree,jal_callers,aliases,note,in_names_csv
+0x00200008,_start,signature,0.95,fuzzy,0x00100008,_start,/usr/local/sce/ee/lib/crt0.s,sdk,41,0.976,2,0,0,_start,sim=0.976,1
+0x002000B0,_exit,callgraph,0.95,callgraph,0x001000B0,_exit,/usr/local/sce/ee/lib/crt0.s,sdk,2,1.000,2,0,1,_exit,callers=1 sim=1.00,1
+0x002000B8,_root,short_window,0.70,short_window,0x001000B8,_root,/usr/local/sce/ee/lib/crt0.s,sdk,2,1.000,0,0,0,_root,unique in window 0x001FFF88-0x00200138 of crt0.s,1
+0x00200520,printf,signature,0.75,exact,0x001000F8,printf,src/main.c,game,10,1.000,0,0,348,printf,disambiguated among several hits,1
+0x00424160,ExecOSD,sce_scanner,0.30,anchor,0x0014C180,ExecOSD,klib.s,sdk,4,0.000,0,0,6,ExecOSD,,0
+0x00446010,scePadExitPressMode,signature,0.71,exact,0x00141FD8,scePadExitPressMode,libpad.c,sdk,7,1.000,0,0,1,scePadExitPressMode,disambiguated among several hits,1
+0x00466E00,_InitSys,sce_scanner,0.85,anchor,,,,,,1.000,0,0,0,_InitSys,,1
+0x00467AC0,sceGsResetGraph,sce_scanner,0.99,anchor,0x00130FD0,sceGsResetGraph,graphdev.c,sdk,68,1.000,5,0,2,sceGsResetGraph,,1
+0x00467BD0,sceGsGetGParam,callgraph,0.95,callgraph,0x001310E0,sceGsGetGParam,graphdev.c,sdk,3,1.000,4,0,4,sceGsGetGParam,callers=4 sim=1.00,1
+0x00467BE0,sceGsResetPath,sce_scanner,0.99,anchor,0x001310F0,sceGsResetPath,graphdev.c,sdk,26,1.000,0,0,3,sceGsResetPath,,1
+0x00467C48,sceGsSetDefDispEnv,sce_scanner,0.99,anchor,0x00132030,sceGsSetDefDispEnv,graphdev.c,sdk,156,0.994,1,0,1,sceGsSetDefDispEnv,,1
+0x00467EB8,sceGsSetDefDrawEnv,sce_scanner,0.99,anchor,0x00132368,sceGsSetDefDrawEnv,graphdev.c,sdk,121,1.000,2,0,2,sceGsSetDefDrawEnv,,1
+0x004680A0,sceGsSetDefClear,sce_scanner,0.99,anchor,0x00132550,sceGsSetDefClear,graphdev.c,sdk,65,1.000,0,0,1,sceGsSetDefClear,,1
+0x004681A8,sceGsSyncV,sce_scanner,0.99,anchor,0x001314B0,sceGsSyncV,graphdev.c,sdk,37,1.000,3,0,1,sceGsSyncV,,1
+0x00468240,sceGsSyncPath,sce_scanner,0.99,anchor,0x00131548,sceGsSyncPath,graphdev.c,sdk,197,1.000,0,0,1,sceGsSyncPath,,1
+0x00468558,sceGsSetDefAlphaEnv,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,sceGsSetDefAlphaEnv,,1
+0x004685B8,sceGsSetDefLoadImage,sce_scanner,0.97,anchor,,,,,,1.000,0,0,8,sceGsSetDefLoadImage,,1
+0x00468828,sceGsSetDefDrawEnv2,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,sceGsSetDefDrawEnv2,,1
+0x00468A90,sceGszbufaddr,sce_scanner,0.99,anchor,0x001322A0,sceGszbufaddr,graphdev.c,sdk,50,1.000,3,0,4,sceGszbufaddr,,1
+0x00468B58,memclr,sce_scanner,0.99,anchor,0x00132658,memclr,libdma.c,sdk,13,1.000,1,0,1,memclr,,1
+0x00468B90,sceDmaGetChan,sce_scanner,0.99,anchor,0x00132690,sceDmaGetChan,libdma.c,sdk,10,1.000,0,0,9,sceDmaGetChan,,1
+0x00468BB8,sceDmaReset,sce_scanner,0.99,anchor,0x001326B8,sceDmaReset,libdma.c,sdk,55,1.000,2,0,1,sceDmaReset,,1
+0x00468C98,sceDmaDebug,short_window,0.86,short_window,0x00132798,sceDmaDebug,libdma.c,sdk,4,1.000,0,0,0,sceDmaDebug,unique in window 0x00468AD8-0x00469658 of libdma.c; layout offset confirmed,1
+0x00468CA8,sceDmaPutEnv,sce_scanner,0.99,anchor,0x001327A8,sceDmaPutEnv,libdma.c,sdk,118,0.992,1,0,1,sceDmaPutEnv,,1
+0x00468E80,sceDmaGetEnv,sce_scanner,0.99,anchor,0x00132980,sceDmaGetEnv,libdma.c,sdk,14,1.000,0,0,0,sceDmaGetEnv,,1
+0x00468EB8,sceDmaPutStallAddr,sce_scanner,0.99,anchor,0x001329B8,sceDmaPutStallAddr,libdma.c,sdk,10,1.000,0,0,0,sceDmaPutStallAddr,,1
+0x00468EE0,sceDmaSend,sce_scanner,0.99,anchor,0x001329E0,sceDmaSend,libdma.c,sdk,54,1.000,0,0,10,sceDmaSend,,1
+0x00468FB8,sceDmaSendN,sce_scanner,0.99,anchor,0x00132AB8,sceDmaSendN,libdma.c,sdk,57,1.000,0,0,1,sceDmaSendN,,1
+0x004690A0,sceDmaSendI,sce_scanner,0.99,anchor,0x00132BA0,sceDmaSendI,libdma.c,sdk,57,1.000,0,0,0,sceDmaSendI,,1
+0x00469188,sceDmaRecv,sce_scanner,0.99,anchor,0x00132C88,sceDmaRecv,libdma.c,sdk,49,1.000,0,0,0,sceDmaRecv,,1
+0x00469250,sceDmaRecvN,sce_scanner,0.99,anchor,0x00132D50,sceDmaRecvN,libdma.c,sdk,59,1.000,0,0,1,sceDmaRecvN,,1
+0x00469340,sceDmaRecvI,sce_scanner,0.99,anchor,0x00132E40,sceDmaRecvI,libdma.c,sdk,60,1.000,0,0,0,sceDmaRecvI,,1
+0x00469440,sceDmaSync,sce_scanner,0.99,anchor,0x00132F40,sceDmaSync,libdma.c,sdk,49,1.000,0,0,10,sceDmaSync,,1
+0x00469508,sceDmaWatch,sce_scanner,0.99,anchor,0x00133008,sceDmaWatch,libdma.c,sdk,52,1.000,0,0,0,sceDmaWatch,,1
+0x00469678,sceDevVu0CheckBusy,callgraph,0.95,callgraph,0x00133178,sceDevVu0CheckBusy,devvu0.c,sdk,5,1.000,2,0,2,sceDevVu0CheckBusy,callers=2 sim=1.00,1
+0x00469690,sceDevVu0Reset,short_window,0.90,short_window,0x00133190,sceDevVu0Reset,devvu0.c,sdk,5,1.000,0,0,1,sceDevVu0Reset,unique in window 0x004695F8-0x00469B04 of devvu0.c; layout offset confirmed,1
+0x004696A8,sceDevVu0Pause,sce_scanner,0.99,anchor,0x001331A8,sceDevVu0Pause,devvu0.c,sdk,24,1.000,1,0,0,sceDevVu0Pause,,1
+0x00469708,sceDevVu0Continue,signature,0.97,exact,0x00133208,sceDevVu0Continue,devvu0.c,sdk,20,1.000,3,0,0,sceDevVu0Continue,shared/ambiguous signature resolved by callee names,1
+0x00469758,sceDevVu0PutDBit,sce_scanner,0.99,anchor,0x00133258,sceDevVu0PutDBit,devvu0.c,sdk,12,1.000,0,0,0,sceDevVu0PutDBit,,1
+0x00469788,sceDevVu0PutTBit,sce_scanner,0.99,anchor,0x00133288,sceDevVu0PutTBit,devvu0.c,sdk,12,1.000,0,0,0,sceDevVu0PutTBit,,1
+0x004697B8,sceDevVu0GetDBit,short_window,0.89,short_window,0x001332B8,sceDevVu0GetDBit,devvu0.c,sdk,4,1.000,0,0,0,sceDevVu0GetDBit,unique in window 0x004695F8-0x00469B04 of devvu0.c; layout offset confirmed,1
+0x004697C8,sceDevVu0GetTBit,short_window,0.89,short_window,0x001332C8,sceDevVu0GetTBit,devvu0.c,sdk,4,1.000,0,0,0,sceDevVu0GetTBit,unique in window 0x004695F8-0x00469B04 of devvu0.c; layout offset confirmed,1
+0x004697D8,sceDevVu0Sync,sce_scanner,0.99,anchor,0x001332D8,sceDevVu0Sync,devvu0.c,sdk,16,1.000,2,0,2,sceDevVu0Sync,,1
+0x00469818,sceDevVu0Exec,callgraph,0.86,callgraph,0x00133318,sceDevVu0Exec,devvu0.c,sdk,4,1.000,1,0,1,sceDevVu0Exec,callers=1 sim=1.00,1
+0x00469828,sceDevVu0GetTpc,callgraph,0.86,callgraph,0x00133328,sceDevVu0GetTpc,devvu0.c,sdk,3,1.000,1,0,1,sceDevVu0GetTpc,callers=1 sim=1.00,1
+0x00469838,sceDevVu0GetCnd,sce_scanner,0.99,anchor,0x00133338,sceDevVu0GetCnd,devvu0.c,sdk,56,1.000,1,0,0,sceDevVu0GetCnd,,1
+0x00469918,sceDevVu0PutCnd,sce_scanner,0.99,anchor,0x00133418,sceDevVu0PutCnd,devvu0.c,sdk,91,1.000,1,0,0,sceDevVu0PutCnd,,1
+0x00469A88,sceVuCheckBusy,sce_scanner,0.99,anchor,0x00133588,sceVuCheckBusy,devvu1.c,sdk,11,1.000,2,0,2,sceVuCheckBusy,,1
+0x00469AB8,sceVu0MemWriteQ,sce_scanner,0.99,anchor,0x001335B8,sceVu0MemWriteQ,devvu1.c,sdk,16,1.000,9,0,9,sceVu0MemWriteQ,,1
+0x00469AF8,sceVu0MemReadQ,sce_scanner,0.99,anchor,0x001335F8,sceVu0MemReadQ,devvu1.c,sdk,17,1.000,10,0,10,sceVu0MemReadQ,,1
+0x00469B40,sceDevVu1Reset,short_window,0.90,short_window,0x00133640,sceDevVu1Reset,devvu1.c,sdk,5,1.000,0,0,2,sceDevVu1Reset,unique in window 0x00469A08-0x0046A060 of devvu1.c; layout offset confirmed,1
+0x00469B58,sceDevVu1Pause,sce_scanner,0.99,anchor,0x00133658,sceDevVu1Pause,devvu1.c,sdk,24,1.000,1,0,0,sceDevVu1Pause,,1
+0x00469BB8,sceDevVu1Continue,signature,0.97,exact,0x001336B8,sceDevVu1Continue,devvu1.c,sdk,20,1.000,3,0,0,sceDevVu1Continue,shared/ambiguous signature resolved by callee names,1
+0x00469C08,sceDevVu1PutDBit,sce_scanner,0.99,anchor,0x00133708,sceDevVu1PutDBit,devvu1.c,sdk,12,1.000,0,0,0,sceDevVu1PutDBit,,1
+0x00469C38,sceDevVu1PutTBit,sce_scanner,0.99,anchor,0x00133738,sceDevVu1PutTBit,devvu1.c,sdk,12,1.000,0,0,0,sceDevVu1PutTBit,,1
+0x00469C68,sceDevVu1GetDBit,short_window,0.89,short_window,0x00133768,sceDevVu1GetDBit,devvu1.c,sdk,4,1.000,0,0,0,sceDevVu1GetDBit,unique in window 0x00469A08-0x0046A060 of devvu1.c; layout offset confirmed,1
+0x00469C78,sceDevVu1GetTBit,short_window,0.89,short_window,0x00133778,sceDevVu1GetTBit,devvu1.c,sdk,4,1.000,0,0,0,sceDevVu1GetTBit,unique in window 0x00469A08-0x0046A060 of devvu1.c; layout offset confirmed,1
+0x00469C88,sceDevVu1Sync,sce_scanner,0.99,anchor,0x00133788,sceDevVu1Sync,devvu1.c,sdk,18,1.000,2,0,2,sceDevVu1Sync,,1
+0x00469CD0,sceDevVu1Exec,callgraph,0.90,callgraph,0x001337D0,sceDevVu1Exec,devvu1.c,sdk,4,1.000,1,0,1,sceDevVu1Exec,callers=1 sim=1.00,1
+0x00469CE0,sceDevVu1GetTpc,sce_scanner,0.99,anchor,0x001337E0,sceDevVu1GetTpc,devvu1.c,sdk,9,1.000,2,0,1,sceDevVu1GetTpc,,1
+0x00469D08,sceDevVu1GetCnd,sce_scanner,0.99,anchor,0x00133808,sceDevVu1GetCnd,devvu1.c,sdk,99,1.000,10,0,0,sceDevVu1GetCnd,,1
+0x00469E98,sceDevVu1PutCnd,sce_scanner,0.99,anchor,0x00133998,sceDevVu1PutCnd,devvu1.c,sdk,82,1.000,10,0,0,sceDevVu1PutCnd,,1
+0x00469FE0,sceDevVif0Reset,sce_scanner,0.99,anchor,0x00133AE0,sceDevVif0Reset,devvif0.c,sdk,9,1.000,0,0,1,sceDevVif0Reset,,1
+0x0046A008,sceDevVif0Pause,sce_scanner,0.99,anchor,0x00133B08,sceDevVif0Pause,devvif0.c,sdk,26,1.000,1,0,0,sceDevVif0Pause,,1
+0x0046A070,sceDevVif0Continue,sce_scanner,0.99,anchor,0x00133B70,sceDevVif0Continue,devvif0.c,sdk,15,1.000,1,0,0,sceDevVif0Continue,,1
+0x0046A0B0,sceDevVif0PutErr,sce_scanner,0.99,anchor,0x00133BB0,sceDevVif0PutErr,devvif0.c,sdk,8,1.000,0,0,0,sceDevVif0PutErr,,1
+0x0046A0D0,sceDevVif0GetErr,short_window,0.89,short_window,0x00133BD0,sceDevVif0GetErr,devvif0.c,sdk,4,1.000,0,0,0,sceDevVif0GetErr,unique in window 0x00469F60-0x0046A38C of devvif0.c; layout offset confirmed,1
+0x0046A0E0,sceDevVif0Sync,sce_scanner,0.99,anchor,0x00133BE0,sceDevVif0Sync,devvif0.c,sdk,20,1.000,3,0,3,sceDevVif0Sync,,1
+0x0046A130,sceDevVif0GetCnd,sce_scanner,0.99,anchor,0x00133C30,sceDevVif0GetCnd,devvif0.c,sdk,96,1.000,1,0,0,sceDevVif0GetCnd,,1
+0x0046A2B0,sceDevVif0PutFifo,sce_scanner,0.99,anchor,0x00133DB0,sceDevVif0PutFifo,devvif0.c,sdk,23,1.000,0,0,0,sceDevVif0PutFifo,,1
+0x0046A310,sceDevVif1Reset,sce_scanner,0.99,anchor,0x00133E10,sceDevVif1Reset,devvif1.c,sdk,9,1.000,0,0,2,sceDevVif1Reset,,1
+0x0046A338,sceDevVif1Pause,sce_scanner,0.99,anchor,0x00133E38,sceDevVif1Pause,devvif1.c,sdk,26,1.000,1,0,0,sceDevVif1Pause,,1
+0x0046A3A0,sceDevVif1Continue,sce_scanner,0.99,anchor,0x00133EA0,sceDevVif1Continue,devvif1.c,sdk,15,1.000,1,0,0,sceDevVif1Continue,,1
+0x0046A3E0,sceDevVif1PutErr,sce_scanner,0.99,anchor,0x00133EE0,sceDevVif1PutErr,devvif1.c,sdk,8,1.000,0,0,0,sceDevVif1PutErr,,1
+0x0046A400,sceDevVif1GetErr,short_window,0.89,short_window,0x00133F00,sceDevVif1GetErr,devvif1.c,sdk,4,1.000,0,0,0,sceDevVif1GetErr,unique in window 0x0046A290-0x0046A778 of devvif1.c; layout offset confirmed,1
+0x0046A410,sceDevVif1Sync,sce_scanner,0.99,anchor,0x00133F10,sceDevVif1Sync,devvif1.c,sdk,20,1.000,3,0,3,sceDevVif1Sync,,1
+0x0046A460,sceDevVif1GetCnd,sce_scanner,0.99,anchor,0x00133F60,sceDevVif1GetCnd,devvif1.c,sdk,118,1.000,1,0,0,sceDevVif1GetCnd,,1
+0x0046A638,sceDevVif1PutFifo,sce_scanner,0.99,anchor,0x00134138,sceDevVif1PutFifo,devvif1.c,sdk,23,1.000,0,0,0,sceDevVif1PutFifo,,1
+0x0046A698,sceDevVif1GetFifo,sce_scanner,0.99,anchor,0x00134198,sceDevVif1GetFifo,devvif1.c,sdk,24,1.000,0,0,0,sceDevVif1GetFifo,,1
+0x0046A770,sceVif1PkSize,short_window,0.85,short_window,0x001346B0,sceVif1PkSize,libvifpk.c,sdk,5,1.000,0,0,2,sceVif1PkSize,unique in window 0x0046A760-0x0046AA68 of libvifpk.c,1
+0x0046A7E0,sceVif1PkOpenDirectCode,sce_scanner,0.99,anchor,0x001348D8,sceVif1PkOpenDirectCode,libvifpk.c,sdk,22,1.000,1,0,1,sceVif1PkOpenDirectCode,,1
+0x0046A868,sceVif1PkOpenGifTag,signature,0.83,exact,0x00134960,sceVif1PkOpenGifTag,libvifpk.c,sdk,6,1.000,0,0,5,sceVif1PkOpenGifTag,,1
+0x0046A880,sceVif1PkCloseGifTag,sce_scanner,0.99,anchor,0x00134978,sceVif1PkCloseGifTag,libvifpk.c,sdk,39,1.000,0,0,5,sceVif1PkCloseGifTag,,1
+0x0046A920,sceVif1PkAlign,callgraph,0.92,callgraph,0x00134A30,sceVif1PkAlign,libvifpk.c,sdk,31,1.000,1,0,4,sceVif1PkAlign,callers=1 sim=1.00,1
+0x0046A9B8,sceVif1PkAddGsAD,sce_scanner,0.99,anchor,0x00134B58,sceVif1PkAddGsAD,libvifpk.c,sdk,12,1.000,0,0,10,sceVif1PkAddGsAD,,1
+0x0046A9E8,sceVif1PkOpenDirectHLCode,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,sceVif1PkOpenDirectHLCode,,1
+0x0046AA88,sceVu0ApplyMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,9,sceVu0ApplyMatrix,,1
+0x0046AAB8,sceVu0MulMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,8,sceVu0MulMatrix,,1
+0x0046AB20,sceVu0InnerProduct,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0InnerProduct,,1
+0x0046AB48,sceVu0Normalize,sce_scanner,0.97,anchor,,,,,,1.000,0,0,5,sceVu0Normalize,,1
+0x0046AB80,sceVu0TransposeMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,sceVu0TransposeMatrix,,1
+0x0046ABC8,sceVu0InversMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,sceVu0InversMatrix,,1
+0x0046AC38,sceVu0DivVector,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0DivVector,,1
+0x0046AC58,sceVu0DivVectorXYZ,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0DivVectorXYZ,,1
+0x0046AC78,sceVu0InterVector,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,sceVu0InterVector,,1
+0x0046AD00,sceVu0TransMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,sceVu0TransMatrix,,1
+0x0046AD40,sceVu0CopyMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0CopyMatrix,,1
+0x0046ADA8,sceVu0UnitMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,9,sceVu0UnitMatrix,,1
+0x0046ADD0,_sceVu0ecossin,sce_scanner,0.97,anchor,,,,,,1.000,0,0,3,_sceVu0ecossin,,1
+0x0046AE48,sceVu0RotMatrixZ,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,sceVu0RotMatrixZ,,1
+0x0046AEF0,sceVu0RotMatrixX,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0RotMatrixX,,1
+0x0046AF98,sceVu0RotMatrixY,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,sceVu0RotMatrixY,,1
+0x0046B040,sceVu0RotMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0RotMatrix,,1
+0x0046B090,sceVu0ClampVector,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0ClampVector,,1
+0x0046B0B8,sceVu0CameraMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0CameraMatrix,,1
+0x0046B168,sceVu0NormalLightMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0NormalLightMatrix,,1
+0x0046B228,sceVu0LightColorMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0LightColorMatrix,,1
+0x0046B290,sceVu0ViewScreenMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0ViewScreenMatrix,,1
+0x0046B398,sceVu0DropShadowMatrix,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0DropShadowMatrix,,1
+0x0046B528,sceVu0RotTransPersN,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0RotTransPersN,,1
+0x0046B580,sceVu0RotTransPers,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0RotTransPers,,1
+0x0046B5E8,sceVu0InterVectorXYZ,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,sceVu0InterVectorXYZ,,1
+0x0046B630,sceVu0ClipScreen,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0ClipScreen,,1
+0x0046B678,sceVu0ClipScreen3,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0ClipScreen3,,1
+0x0046B6D8,sceVu0ClipAll,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVu0ClipAll,,1
+0x0046B768,sceVpu0Reset,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,sceVpu0Reset,,1
+0x0046B7C8,sceIpuStopDMA,sce_scanner,0.99,anchor,0x00140C98,sceIpuStopDMA,libipu.c,sdk,95,1.000,0,0,1,sceIpuStopDMA,,1
+0x0046B948,sceIpuRestartDMA,sce_scanner,0.99,anchor,0x00140E18,sceIpuRestartDMA,libipu.c,sdk,116,1.000,0,0,1,sceIpuRestartDMA,,1
+0x0046BB18,sceIpuSync,sce_scanner,0.99,anchor,0x00140FE8,sceIpuSync,libipu.c,sdk,26,1.000,1,0,0,sceIpuSync,,1
+0x0046BB80,sceCdCallback,sce_scanner,0.99,anchor,0x0013D7B0,sceCdCallback,../eecdvd.c,sdk,15,1.000,1,0,0,sceCdCallback,,1
+0x0046BBC0,cd_callback,sce_scanner,0.99,anchor,0x0013D7F0,cd_callback,../eecdvd.c,sdk,44,1.000,3,0,0,cd_callback,,1
+0x0046BC70,_Cdvd_cbLoop,sce_scanner,0.99,anchor,0x0013D8A0,_Cdvd_cbLoop,../eecdvd.c,sdk,47,1.000,3,0,0,_Cdvd_cbLoop,,1
+0x0046BD30,sceCdInitEeCB,sce_scanner,0.99,anchor,0x0013D960,sceCdInitEeCB,../eecdvd.c,sdk,53,1.000,5,0,0,sceCdInitEeCB,,1
+0x0046BE08,cd_read_intr,signature,0.96,exact,0x0013DA38,cd_read_intr,../eecdvd.c,sdk,40,1.000,1,0,0,cd_read_intr,,1
+0x0046BEA8,cmd_sem_init,sce_scanner,0.99,anchor,0x0013DAD8,cmd_sem_init,../eecdvd.c,sdk,37,1.000,8,0,5,cmd_sem_init,,1
+0x0046BF40,cdvd_exit,sce_scanner,0.99,anchor,0x0013DB70,cdvd_exit,../eecdvd.c,sdk,26,1.000,5,0,1,cdvd_exit,,1
+0x0046BFA8,sceCdIntToPos,sce_scanner,0.99,anchor,0x0013DBD8,sceCdIntToPos,../eecdvd.c,sdk,50,1.000,0,0,0,sceCdIntToPos,,1
+0x0046C070,sceCdPosToInt,sce_scanner,0.99,anchor,0x0013DCA0,sceCdPosToInt,../eecdvd.c,sdk,24,1.000,0,0,0,sceCdPosToInt,,1
+0x0046C0D0,PowerOffCB,sce_scanner,0.99,anchor,0x0013DD00,PowerOffCB,../eecdvd.c,sdk,82,1.000,5,0,2,PowerOffCB,,1
+0x0046C218,sceCdSearchFile,sce_scanner,0.99,anchor,0x0013DE48,sceCdSearchFile,../eecdvd.c,sdk,187,1.000,10,0,0,sceCdSearchFile,,1
+0x0046C508,ncmd_prechk,signature,0.99,exact,0x0013E138,ncmd_prechk,../eecdvd.c,sdk,92,1.000,17,0,10,ncmd_prechk,,1
+0x0046C678,sceCdNcmdDiskReady,sce_scanner,0.99,anchor,0x0013E2A8,sceCdNcmdDiskReady,../eecdvd.c,sdk,38,0.947,11,0,7,sceCdNcmdDiskReady,,1
+0x0046C710,sceCdGetReadPos,sce_scanner,0.99,anchor,0x0013E340,sceCdGetReadPos,../eecdvd.c,sdk,12,1.000,0,0,0,sceCdGetReadPos,,1
+0x0046C740,sceCdReadChain,sce_scanner,0.99,anchor,0x0013E370,sceCdReadChain,../eecdvd.c,sdk,188,1.000,8,0,0,sceCdReadChain,,1
+0x0046CA30,sceCdRead,sce_scanner,0.99,anchor,0x0013E660,sceCdRead,../eecdvd.c,sdk,115,1.000,9,0,0,sceCdRead,,1
+0x0046CC00,sceCdReadIOPm,sce_scanner,0.99,anchor,0x0013E830,sceCdReadIOPm,../eecdvd.c,sdk,82,0.988,6,0,0,sceCdReadIOPm,,1
+0x0046CD48,sceCdGetToc,sce_scanner,0.99,anchor,0x0013E978,sceCdGetToc,../eecdvd.c,sdk,164,0.994,6,0,0,sceCdGetToc,,1
+0x0046CFD8,sceCdSeek,sce_scanner,0.99,anchor,0x0013EC08,sceCdSeek,../eecdvd.c,sdk,57,0.982,6,0,0,sceCdSeek,,1
+0x0046D0C0,sceCdStandby,sce_scanner,0.99,anchor,0x0013ECF0,sceCdStandby,../eecdvd.c,sdk,48,0.979,5,0,0,sceCdStandby,,1
+0x0046D180,sceCdStop,sce_scanner,0.99,anchor,0x0013EDB0,sceCdStop,../eecdvd.c,sdk,49,0.980,5,0,0,sceCdStop,,1
+0x0046D248,sceCdPause,sce_scanner,0.99,anchor,0x0013EE78,sceCdPause,../eecdvd.c,sdk,48,0.979,5,0,0,sceCdPause,,1
+0x0046D308,sceCdSync,sce_scanner,0.99,anchor,0x0013EF38,sceCdSync,../eecdvd.c,sdk,42,1.000,5,0,3,sceCdSync,,1
+0x0046D3B0,sceCdSyncS,sce_scanner,0.99,anchor,0x0013EFE0,sceCdSyncS,../eecdvd.c,sdk,25,1.000,5,0,3,sceCdSyncS,,1
+0x0046D418,scmd_prechk,signature,0.99,exact,0x0013F048,scmd_prechk,../eecdvd.c,sdk,92,1.000,17,0,10,scmd_prechk,,1
+0x0046D588,sceCdInit,sce_scanner,0.99,anchor,0x0013F1B8,sceCdInit,../eecdvd.c,sdk,186,1.000,9,0,2,sceCdInit,,1
+0x0046D870,sceCdDiskReady,sce_scanner,0.99,anchor,0x0013F4A0,sceCdDiskReady,../eecdvd.c,sdk,126,1.000,9,0,0,sceCdDiskReady,,1
+0x0046DA68,sceCdBreak,sce_scanner,0.99,anchor,0x0013F698,sceCdBreak,../eecdvd.c,sdk,45,0.978,4,0,0,sceCdBreak,,1
+0x0046DB20,sceCdGetDiskType,sce_scanner,0.99,anchor,0x0013F750,sceCdGetDiskType,../eecdvd.c,sdk,38,0.947,4,0,0,sceCdGetDiskType,,1
+0x0046DBB8,sceCdStatus,sce_scanner,0.99,anchor,0x0013F7E8,sceCdStatus,../eecdvd.c,sdk,46,0.978,4,0,0,sceCdStatus,,1
+0x0046DC70,sceCdGetError,sce_scanner,0.99,anchor,0x0013F8A0,sceCdGetError,../eecdvd.c,sdk,38,0.947,4,0,0,sceCdGetError,,1
+0x0046DD08,_sceCdRI,sce_scanner,0.99,anchor,0x0013F938,_sceCdRI,../eecdvd.c,sdk,54,0.981,4,0,0,_sceCdRI,,1
+0x0046DDE0,_sceCdRM,sce_scanner,0.99,anchor,0x0013FA10,_sceCdRM,../eecdvd.c,sdk,58,0.983,4,0,0,_sceCdRM,,1
+0x0046DEC8,sceCdMmode,sce_scanner,0.99,anchor,0x0013FAF8,sceCdMmode,../eecdvd.c,sdk,47,0.957,5,0,2,sceCdMmode,,1
+0x0046DF88,sceCdChangeThreadPriority,sce_scanner,0.99,anchor,0x0013FBB8,sceCdChangeThreadPriority,../eecdvd.c,sdk,47,0.957,5,0,0,sceCdChangeThreadPriority,,1
+0x0046E048,sceCdReadClock,sce_scanner,0.99,anchor,0x0013FC78,sceCdReadClock,../eecdvd.c,sdk,62,1.000,4,0,1,sceCdReadClock,,1
+0x0046E140,sceCdTrayReq,sce_scanner,0.99,anchor,0x0013FD70,sceCdTrayReq,../eecdvd.c,sdk,57,0.965,5,0,0,sceCdTrayReq,,1
+0x0046E228,sceCdStInit,sce_scanner,0.99,anchor,0x0013FE58,sceCdStInit,../eecdvd.c,sdk,11,1.000,1,0,0,sceCdStInit,,1
+0x0046E258,sceCdStStart,sce_scanner,0.99,anchor,0x0013FE88,sceCdStStart,../eecdvd.c,sdk,13,1.000,1,0,0,sceCdStStart,,1
+0x0046E290,sceCdStSeek,sce_scanner,0.99,anchor,0x0013FEC0,sceCdStSeek,../eecdvd.c,sdk,11,1.000,1,0,0,sceCdStSeek,,1
+0x0046E2C0,sceCdStStop,sce_scanner,0.99,anchor,0x0013FEF0,sceCdStStop,../eecdvd.c,sdk,14,1.000,1,0,0,sceCdStStop,,1
+0x0046E2F8,sceCdStRead,sce_scanner,0.99,anchor,0x0013FF28,sceCdStRead,../eecdvd.c,sdk,92,1.000,3,0,0,sceCdStRead,,1
+0x0046E468,sceCdStPause,sce_scanner,0.99,anchor,0x00140098,sceCdStPause,../eecdvd.c,sdk,20,1.000,1,0,0,sceCdStPause,,1
+0x0046E4B8,sceCdStResume,sce_scanner,0.99,anchor,0x001400E8,sceCdStResume,../eecdvd.c,sdk,21,1.000,1,0,0,sceCdStResume,,1
+0x0046E510,sceCdStStat,sce_scanner,0.99,anchor,0x00140140,sceCdStStat,../eecdvd.c,sdk,18,1.000,1,0,0,sceCdStStat,,1
+0x0046E558,sceCdStream,sce_scanner,0.99,anchor,0x00140188,sceCdStream,../eecdvd.c,sdk,88,1.000,14,0,9,sceCdStream,,1
+0x0046E6B8,GetRomName,sce_scanner,0.99,anchor,0x001402E8,GetRomName,libscf.c,sdk,39,1.000,4,0,1,GetRomName,,1
+0x0046E758,IsT10K,sce_scanner,0.99,anchor,0x00140388,IsT10K,libscf.c,sdk,16,1.000,8,0,7,IsT10K,,1
+0x0046E798,sceScfGetLanguage,sce_scanner,0.99,anchor,0x001403C8,sceScfGetLanguage,libscf.c,sdk,24,1.000,3,0,0,sceScfGetLanguage,,1
+0x0046E7F8,sceScfSetT10kConfig,signature,0.66,exact,0x00140428,sceScfSetT10kConfig,libscf.c,sdk,7,1.000,0,0,0,sceScfSetT10kConfig,,1
+0x0046E818,sceScfGetAspect,sce_scanner,0.99,anchor,0x00140448,sceScfGetAspect,libscf.c,sdk,16,1.000,2,0,0,sceScfGetAspect,,1
+0x0046E858,sceScfGetSpdif,sce_scanner,0.99,anchor,0x00140488,sceScfGetSpdif,libscf.c,sdk,15,1.000,2,0,0,sceScfGetSpdif,,1
+0x0046E898,sceScfGetTimeZone,sce_scanner,0.99,anchor,0x001404C8,sceScfGetTimeZone,libscf.c,sdk,25,1.000,3,0,1,sceScfGetTimeZone,,1
+0x0046E900,sceScfGetDateNotation,sce_scanner,0.99,anchor,0x00140530,sceScfGetDateNotation,libscf.c,sdk,31,1.000,3,0,0,sceScfGetDateNotation,,1
+0x0046E980,sceScfGetSummerTime,sce_scanner,0.99,anchor,0x001405B0,sceScfGetSummerTime,libscf.c,sdk,32,1.000,4,0,1,sceScfGetSummerTime,,1
+0x0046EA00,sceScfGetTimeNotation,sce_scanner,0.99,anchor,0x00140630,sceScfGetTimeNotation,libscf.c,sdk,32,1.000,3,0,0,sceScfGetTimeNotation,,1
+0x0046EA80,tobcd,sce_scanner,0.99,anchor,0x001406B0,tobcd,libscf.c,sdk,25,1.000,7,0,6,tobcd,,1
+0x0046EAE8,frombcd,sce_scanner,0.99,anchor,0x00140718,frombcd,libscf.c,sdk,22,1.000,7,0,6,frombcd,,1
+0x0046EB40,convertfrombcd,sce_scanner,0.99,anchor,0x00140770,convertfrombcd,libscf.c,sdk,33,1.000,8,0,1,convertfrombcd,,1
+0x0046EBC8,converttobcd,sce_scanner,0.99,anchor,0x001407F8,converttobcd,libscf.c,sdk,33,1.000,8,0,0,converttobcd,,1
+0x0046EC50,adddate,sce_scanner,0.99,anchor,0x00140880,adddate,libscf.c,sdk,57,1.000,2,0,0,adddate,,1
+0x0046ED38,subdate,sce_scanner,0.99,anchor,0x00140968,subdate,libscf.c,sdk,53,1.000,2,0,0,subdate,,1
+0x0046EE10,addhour,sce_scanner,0.99,anchor,0x00140A40,addhour,libscf.c,sdk,27,1.000,3,0,1,addhour,,1
+0x0046EE80,subhour,sce_scanner,0.99,anchor,0x00140AB0,subhour,libscf.c,sdk,26,1.000,3,0,1,subhour,,1
+0x0046EEE8,AdjustTime,sce_scanner,0.99,anchor,0x00140B18,AdjustTime,libscf.c,sdk,51,1.000,8,0,0,AdjustTime,,1
+0x0046EFB8,sceScfGetGMTfromRTC,sce_scanner,0.99,anchor,0x00140BE8,sceScfGetGMTfromRTC,libscf.c,sdk,17,1.000,2,0,0,sceScfGetGMTfromRTC,,1
+0x0046F000,sceScfGetLocalTimefromRTC,sce_scanner,0.99,anchor,0x00140C30,sceScfGetLocalTimefromRTC,libscf.c,sdk,26,1.000,4,0,5,sceScfGetLocalTimefromRTC,,1
+0x0046F068,_type2id,sce_scanner,0.99,anchor,0x00134C00,_type2id,pack.c,sdk,34,1.000,1,0,1,_type2id,,1
+0x0046F0F0,_id2type,signature,0.97,exact,0x00134C88,_id2type,pack.c,sdk,127,1.000,0,0,0,_id2type,,1
+0x0046F2F0,sceMpegDemuxPssRing,sce_scanner,0.99,anchor,0x00134E88,sceMpegDemuxPssRing,pack.c,sdk,188,1.000,13,0,2,sceMpegDemuxPssRing,,1
+0x0046F5E0,sceMpegDemuxPss,signature,0.85,exact,0x00135178,sceMpegDemuxPss,pack.c,sdk,8,1.000,1,0,0,sceMpegDemuxPss,,1
+0x0046F600,sceMpegAddStrCallback,sce_scanner,0.99,anchor,0x00135198,sceMpegAddStrCallback,pack.c,sdk,61,1.000,1,0,2,sceMpegAddStrCallback,,1
+0x0046F6F8,_pack_header,sce_scanner,0.99,anchor,0x00135290,_pack_header,pack.c,sdk,84,1.000,14,0,1,_pack_header,,1
+0x0046F848,_system_header,sce_scanner,0.99,anchor,0x001353E0,_system_header,pack.c,sdk,27,1.000,5,0,1,_system_header,,1
+0x0046F8B8,_PES_packet,sce_scanner,0.99,anchor,0x00135450,_PES_packet,pack.c,sdk,354,1.000,49,0,1,_PES_packet,,1
+0x0046FE40,sceMpegInit,sce_scanner,0.99,anchor,0x001359D8,sceMpegInit,mpeg.c,sdk,42,1.000,1,0,1,sceMpegInit,,1
+0x0046FEE8,sceMpegCreate,sce_scanner,0.99,anchor,0x00135A80,sceMpegCreate,mpeg.c,sdk,143,1.000,7,0,2,sceMpegCreate,,1
+0x00470128,sceMpegDelete,short_window,0.90,short_window,0x00135CC0,sceMpegDelete,mpeg.c,sdk,2,1.000,0,0,1,sceMpegDelete,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470130,sceMpegAddBs,sce_scanner,0.99,anchor,0x00135CC8,sceMpegAddBs,mpeg.c,sdk,14,1.000,1,0,1,sceMpegAddBs,,1
+0x00470168,sceMpegGetPicture,sce_scanner,0.99,anchor,0x00135D00,sceMpegGetPicture,mpeg.c,sdk,18,1.000,1,0,1,sceMpegGetPicture,,1
+0x004701B0,sceMpegGetPictureRAW8,sce_scanner,0.99,anchor,0x00135D48,sceMpegGetPictureRAW8,mpeg.c,sdk,17,1.000,1,0,0,sceMpegGetPictureRAW8,,1
+0x004701F8,sceMpegGetPictureRAW8xy,sce_scanner,0.99,anchor,0x00135D90,sceMpegGetPictureRAW8xy,mpeg.c,sdk,20,1.000,1,0,0,sceMpegGetPictureRAW8xy,,1
+0x00470248,sceMpegSetDecodeMode,short_window,0.90,short_window,0x00135DE0,sceMpegSetDecodeMode,mpeg.c,sdk,5,1.000,0,0,0,sceMpegSetDecodeMode,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470260,sceMpegGetDecodeMode,sce_scanner,0.99,anchor,0x00135DF8,sceMpegGetDecodeMode,mpeg.c,sdk,8,1.000,0,0,0,sceMpegGetDecodeMode,,1
+0x00470280,sceMpegIsEnd,short_window,0.90,short_window,0x00135E18,sceMpegIsEnd,mpeg.c,sdk,3,1.000,0,0,1,sceMpegIsEnd,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470290,sceMpegIsRefBuffEmpty,short_window,0.89,short_window,0x00135E28,sceMpegIsRefBuffEmpty,mpeg.c,sdk,4,1.000,0,0,0,sceMpegIsRefBuffEmpty,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x004702A0,sceMpegReset,sce_scanner,0.99,anchor,0x00135E38,sceMpegReset,mpeg.c,sdk,16,1.000,3,0,1,sceMpegReset,,1
+0x004702E0,sceMpegClearRefBuff,sce_scanner,0.99,anchor,0x00135E78,sceMpegClearRefBuff,mpeg.c,sdk,26,1.000,1,0,1,sceMpegClearRefBuff,,1
+0x00470348,sceMpegAddCallback,sce_scanner,0.99,anchor,0x00135EE0,sceMpegAddCallback,mpeg.c,sdk,9,1.000,0,0,4,sceMpegAddCallback,,1
+0x00470370,_dispatchMpegCallback,sce_scanner,0.99,anchor,0x00135F08,_dispatchMpegCallback,mpeg.c,sdk,20,1.000,12,0,12,_dispatchMpegCallback,,1
+0x004703C0,_dispatchMpegCbNodata,sce_scanner,0.99,anchor,0x00135F58,_dispatchMpegCbNodata,mpeg.c,sdk,9,1.000,10,0,9,_dispatchMpegCbNodata,,1
+0x004703E8,sceMpegSetDefaultPtsGap,short_window,0.90,short_window,0x00135F80,sceMpegSetDefaultPtsGap,mpeg.c,sdk,5,1.000,0,0,0,sceMpegSetDefaultPtsGap,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470400,sceMpegResetDefaultPtsGap,short_window,0.89,short_window,0x00135F98,sceMpegResetDefaultPtsGap,mpeg.c,sdk,4,1.000,0,0,0,sceMpegResetDefaultPtsGap,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470410,sceMpegSetImageBuff,short_window,0.89,short_window,0x00135FA8,sceMpegSetImageBuff,mpeg.c,sdk,5,1.000,0,0,0,sceMpegSetImageBuff,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470428,sceMpegDispWidth,short_window,0.87,short_window,0x00135FC0,sceMpegDispWidth,mpeg.c,sdk,3,1.000,0,0,0,sceMpegDispWidth,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470438,sceMpegDispHeight,short_window,0.87,short_window,0x00135FD0,sceMpegDispHeight,mpeg.c,sdk,3,1.000,0,0,0,sceMpegDispHeight,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470448,sceMpegDispCenterOffX,short_window,0.87,short_window,0x00135FE0,sceMpegDispCenterOffX,mpeg.c,sdk,3,1.000,0,0,0,sceMpegDispCenterOffX,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470458,sceMpegDispCenterOffY,short_window,0.87,short_window,0x00135FF0,sceMpegDispCenterOffY,mpeg.c,sdk,3,1.000,0,0,0,sceMpegDispCenterOffY,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470468,sceSetBrokenLink,short_window,0.89,short_window,0x00136000,sceSetBrokenLink,mpeg.c,sdk,4,1.000,0,0,0,sceSetBrokenLink,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470478,sceSetPtm,short_window,0.90,short_window,0x00136010,sceSetPtm,mpeg.c,sdk,5,1.000,0,0,0,sceSetPtm,unique in window 0x0046FDC0-0x00470A80 of mpeg.c; layout offset confirmed,1
+0x00470490,_alalcInit,callgraph,0.92,callgraph,0x00136028,_alalcInit,mpeg.c,sdk,5,1.000,1,0,1,_alalcInit,callers=1 sim=1.00,1
+0x004704A8,_alalcSetDynamic,callgraph,0.92,callgraph,0x00136040,_alalcSetDynamic,mpeg.c,sdk,3,1.000,1,0,0,_alalcSetDynamic,callers=1 sim=1.00,1
+0x004704B8,_alalcFree,callgraph,0.92,callgraph,0x00136050,_alalcFree,mpeg.c,sdk,3,1.000,1,0,1,_alalcFree,callers=1 sim=1.00,1
+0x004704C8,_alalcAlloc,sce_scanner,0.99,anchor,0x00136060,_alalcAlloc,mpeg.c,sdk,26,1.000,5,0,4,_alalcAlloc,,1
+0x00470530,_alalcRest,signature,0.66,exact,0x001360C8,_alalcRest,mpeg.c,sdk,6,1.000,0,0,0,_alalcRest,,1
+0x00470548,_getpic,sce_scanner,0.99,anchor,0x001360E0,_getpic,mpeg.c,sdk,92,1.000,9,0,3,_getpic,,1
+0x004706B8,_decodeOrSkipFrame,sce_scanner,0.99,anchor,0x00136250,_decodeOrSkipFrame,mpeg.c,sdk,73,1.000,6,0,1,_decodeOrSkipFrame,,1
+0x004707E0,_decodeOrSkip,sce_scanner,0.99,anchor,0x00136378,_decodeOrSkip,mpeg.c,sdk,15,1.000,5,0,3,_decodeOrSkip,,1
+0x00470820,_decodeOrSkipField,sce_scanner,0.99,anchor,0x001363B8,_decodeOrSkipField,mpeg.c,sdk,92,1.000,9,0,1,_decodeOrSkipField,,1
+0x00470990,_sceMpegFlush,sce_scanner,0.99,anchor,0x00136528,_sceMpegFlush,mpeg.c,sdk,28,1.000,3,0,2,_sceMpegFlush,,1
+0x00470A00,_initSeqAgain,callgraph,0.95,callgraph,0x00136598,_initSeqAgain,init.c,sdk,4,1.000,2,0,0,_initSeqAgain,callers=1 sim=1.00,1
+0x00470A10,_lastFrame,sce_scanner,0.99,anchor,0x001365A8,_lastFrame,init.c,sdk,33,1.000,4,0,1,_lastFrame,,1
+0x00470A98,_clearOnce,sce_scanner,0.99,anchor,0x00136630,_clearOnce,init.c,sdk,19,1.000,2,0,1,_clearOnce,,1
+0x00470AE8,_clearEach,sce_scanner,0.99,anchor,0x00136680,_clearEach,init.c,sdk,52,1.000,2,0,1,_clearEach,,1
+0x00470BB8,_ErrMessage,callgraph,0.92,callgraph,0x00136750,_ErrMessage,init.c,sdk,4,1.000,1,0,1,_ErrMessage,callers=1 sim=1.00,1
+0x00470BC8,_Error1,sce_scanner,0.99,anchor,0x00136760,_Error1,init.c,sdk,11,1.000,9,0,7,_Error1,,1
+0x00470BF8,_Error,sce_scanner,0.99,anchor,0x00136790,_Error,init.c,sdk,22,1.000,23,0,20,_Error,,1
+0x00470C50,_sendDataToIPU,sce_scanner,0.99,anchor,0x001367E8,_sendDataToIPU,init.c,sdk,53,1.000,1,0,0,_sendDataToIPU,,1
+0x00470D28,_RefImageInit,sce_scanner,0.99,anchor,0x001368C0,_RefImageInit,init.c,sdk,8,1.000,9,0,8,_RefImageInit,,1
+0x00470D48,_sequenceHeader,sce_scanner,0.99,anchor,0x001368E0,_sequenceHeader,init.c,sdk,85,1.000,16,0,1,_sequenceHeader,,1
+0x00470EA0,_initSeq,sce_scanner,0.99,anchor,0x00136A38,_initSeq,init.c,sdk,209,1.000,15,0,0,_initSeq,,1
+0x004711E8,_initRefImages,sce_scanner,0.99,anchor,0x00136D80,_initRefImages,init.c,sdk,58,1.000,1,0,1,_initRefImages,,1
+0x004712D0,_setDefaultQM,sce_scanner,0.99,anchor,0x00136E68,_setDefaultQM,init.c,sdk,48,1.000,8,0,2,_setDefaultQM,,1
+0x00471390,_sequenceExtension,sce_scanner,0.99,anchor,0x00136F28,_sequenceExtension,init.c,sdk,89,1.000,5,0,0,_sequenceExtension,,1
+0x004714F8,_sequenceDisplayExtension,sce_scanner,0.99,anchor,0x00137090,_sequenceDisplayExtension,init.c,sdk,40,1.000,8,0,0,_sequenceDisplayExtension,,1
+0x00471600,_motionComp0,sce_scanner,0.99,anchor,0x00137190,_motionComp0,mpc.c,sdk,205,0.995,3,0,1,_motionComp0,,1
+0x00471938,_getAllRefs,sce_scanner,0.99,anchor,0x001374C8,_getAllRefs,mpc.c,sdk,428,0.991,19,0,1,_getAllRefs,,1
+0x00471FE8,_getRef0,sce_scanner,0.99,anchor,0x00137B78,_getRef0,mpc.c,sdk,264,1.000,13,0,13,_getRef0,,1
+0x00472408,_doMC,sce_scanner,0.99,anchor,0x00137F98,_doMC,mpc.c,sdk,99,1.000,6,0,2,_doMC,,1
+0x00472598,_rix_000,sce_scanner,0.99,anchor,0x00138128,_rix_000,mpc.c,sdk,29,1.000,0,0,0,_rix_000,,1
+0x00472610,_ri0_000,sce_scanner,0.99,anchor,0x001381A0,_ri0_000,mpc.c,sdk,37,1.000,0,0,0,_ri0_000,,1
+0x004726A8,_rix_001,sce_scanner,0.99,anchor,0x00138238,_rix_001,mpc.c,sdk,45,1.000,0,0,0,_rix_001,,1
+0x00472760,_ri0_001,sce_scanner,0.99,anchor,0x001382F0,_ri0_001,mpc.c,sdk,51,1.000,0,0,0,_ri0_001,,1
+0x00472830,_rix_010,sce_scanner,0.99,anchor,0x001383C0,_rix_010,mpc.c,sdk,43,1.000,0,0,0,_rix_010,,1
+0x004728E0,_ri0_010,sce_scanner,0.99,anchor,0x00138470,_ri0_010,mpc.c,sdk,46,1.000,0,0,0,_ri0_010,,1
+0x00472998,_rix_011,sce_scanner,0.99,anchor,0x00138528,_rix_011,mpc.c,sdk,62,1.000,0,0,0,_rix_011,,1
+0x00472A90,_ri0_011,sce_scanner,0.99,anchor,0x00138620,_ri0_011,mpc.c,sdk,63,1.000,0,0,0,_ri0_011,,1
+0x00472B90,_rix_100,sce_scanner,0.99,anchor,0x00138720,_rix_100,mpc.c,sdk,41,1.000,0,0,0,_rix_100,,1
+0x00472C38,_ri0_100,sce_scanner,0.99,anchor,0x001387C8,_ri0_100,mpc.c,sdk,43,1.000,0,0,0,_ri0_100,,1
+0x00472CE8,_rix_101,sce_scanner,0.99,anchor,0x00138878,_rix_101,mpc.c,sdk,57,1.000,0,0,0,_rix_101,,1
+0x00472DD0,_ri0_101,sce_scanner,0.99,anchor,0x00138960,_ri0_101,mpc.c,sdk,57,1.000,0,0,0,_ri0_101,,1
+0x00472EB8,_rix_110,sce_scanner,0.99,anchor,0x00138A48,_rix_110,mpc.c,sdk,55,1.000,0,0,0,_rix_110,,1
+0x00472F98,_ri0_110,sce_scanner,0.99,anchor,0x00138B28,_ri0_110,mpc.c,sdk,52,1.000,0,0,0,_ri0_110,,1
+0x00473068,_rix_111,sce_scanner,0.99,anchor,0x00138BF8,_rix_111,mpc.c,sdk,74,1.000,0,0,0,_rix_111,,1
+0x00473190,_ri0_111,sce_scanner,0.99,anchor,0x00138D20,_ri0_111,mpc.c,sdk,69,1.000,0,0,0,_ri0_111,,1
+0x004732A8,_copyAddRefImage,sce_scanner,0.99,anchor,0x00138E38,_copyAddRefImage,mpc.c,sdk,23,1.000,1,0,0,_copyAddRefImage,,1
+0x00473308,_copyRefImage,sce_scanner,0.99,anchor,0x00138E98,_copyRefImage,mpc.c,sdk,24,1.000,2,0,0,_copyRefImage,,1
+0x00473368,_ipuSetMPEG1,sce_scanner,0.99,anchor,0x00138EF8,_ipuSetMPEG1,mpc.c,sdk,10,1.000,3,0,2,_ipuSetMPEG1,,1
+0x00473390,_waitBdecOut,sce_scanner,0.99,anchor,0x00138F20,_waitBdecOut,mpc.c,sdk,127,1.000,7,0,2,_waitBdecOut,,1
+0x00473590,_dmVector,signature,0.98,exact,0x00139120,_dmVector,mpc.c,sdk,7,1.000,3,0,2,_dmVector,,1
+0x004735B0,_dualPrimeVector,sce_scanner,0.99,anchor,0x00139140,_dualPrimeVector,mpc.c,sdk,98,1.000,2,0,2,_dualPrimeVector,,1
+0x00473738,_mbAddressIncrement,sce_scanner,0.99,anchor,0x001392C8,_mbAddressIncrement,mpc.c,sdk,68,1.000,6,0,2,_mbAddressIncrement,,1
+0x00473848,_pictureData0,sce_scanner,0.99,anchor,0x001393D8,_pictureData0,mpc.c,sdk,73,1.000,6,0,1,_pictureData0,,1
+0x00473970,_sliceA0,sce_scanner,0.99,anchor,0x00139500,_sliceA0,mpc.c,sdk,73,1.000,8,0,1,_sliceA0,,1
+0x00473A98,_slice0,sce_scanner,0.99,anchor,0x00139628,_slice0,mpc.c,sdk,128,1.000,10,0,1,_slice0,,1
+0x00473C98,_skipMB0,sce_scanner,0.99,anchor,0x00139828,_skipMB0,mpc.c,sdk,51,1.000,2,0,1,_skipMB0,,1
+0x00473D68,_decMB0,sce_scanner,0.99,anchor,0x001398F8,_decMB0,mpc.c,sdk,329,1.000,13,0,1,_decMB0,,1
+0x00474290,decode_motion_vector,signature,0.99,exact,0x00139E20,decode_motion_vector,mpc.c,sdk,34,1.000,2,0,2,decode_motion_vector,,1
+0x00474318,_motionVectors,sce_scanner,0.99,anchor,0x00139EA8,_motionVectors,mpc.c,sdk,95,1.000,8,0,2,_motionVectors,,1
+0x00474498,_motionVector,sce_scanner,0.99,anchor,0x0013A028,_motionVector,mpc.c,sdk,79,1.000,13,0,4,_motionVector,,1
+0x004745D8,_sendIpuCommand,sce_scanner,0.99,anchor,0x0013A168,_sendIpuCommand,mpc.c,sdk,12,1.000,8,0,8,_sendIpuCommand,,1
+0x00474608,_waitIpuIdle,sce_scanner,0.99,anchor,0x0013A198,_waitIpuIdle,mpc.c,sdk,41,1.000,16,0,15,_waitIpuIdle,,1
+0x004746B0,_waitIpuIdle64,sce_scanner,0.99,anchor,0x0013A240,_waitIpuIdle64,mpc.c,sdk,44,1.000,5,0,4,_waitIpuIdle64,,1
+0x00474760,_ipuVdec,sce_scanner,0.99,anchor,0x0013A2F0,_ipuVdec,mpc.c,sdk,109,1.000,7,0,5,_ipuVdec,,1
+0x00474918,_peepBit,sce_scanner,0.99,anchor,0x0013A4A8,_peepBit,mpc.c,sdk,77,1.000,7,0,5,_peepBit,,1
+0x00474A50,_flushBuf,sce_scanner,0.99,anchor,0x0013A5E0,_flushBuf,mpc.c,sdk,69,1.000,11,0,9,_flushBuf,,1
+0x00474B68,_nextBit,sce_scanner,0.99,anchor,0x0013A6F8,_nextBit,mpc.c,sdk,90,1.000,85,0,82,_nextBit,,1
+0x00474CD0,_nextStartCode,sce_scanner,0.99,anchor,0x0013A860,_nextStartCode,mpc.c,sdk,26,1.000,9,0,5,_nextStartCode,,1
+0x00474D38,_sliceB,sce_scanner,0.99,anchor,0x0013A8C8,_sliceB,mpc.c,sdk,27,1.000,6,0,1,_sliceB,,1
+0x00474DA8,_nextHeader,sce_scanner,0.99,anchor,0x0013A938,_nextHeader,mpc.c,sdk,73,1.000,8,0,2,_nextHeader,,1
+0x00474ED0,_pictureHeader,sce_scanner,0.99,anchor,0x0013AA60,_pictureHeader,mpc.c,sdk,51,1.000,11,0,1,_pictureHeader,,1
+0x00474FA0,_extensionAndUserData,sce_scanner,0.99,anchor,0x0013AB30,_extensionAndUserData,mpc.c,sdk,44,1.000,10,0,2,_extensionAndUserData,,1
+0x00475050,_pictureCodingExtension,sce_scanner,0.99,anchor,0x0013ABE0,_pictureCodingExtension,mpc.c,sdk,139,1.000,21,0,0,_pictureCodingExtension,,1
+0x00475280,_extrainfo,sce_scanner,0.99,anchor,0x0013AE10,_extrainfo,mpc.c,sdk,13,1.000,4,0,2,_extrainfo,,1
+0x004752B8,_updateTempTackData,sce_scanner,0.99,anchor,0x0013AE48,_updateTempTackData,mpc.c,sdk,56,1.000,1,0,0,_updateTempTackData,,1
+0x00475398,_groupOfPicturesHeader,sce_scanner,0.99,anchor,0x0013AF28,_groupOfPicturesHeader,mpc.c,sdk,57,1.000,10,0,1,_groupOfPicturesHeader,,1
+0x00475480,_quantMatrixExtension,sce_scanner,0.99,anchor,0x0013B010,_quantMatrixExtension,mpc.c,sdk,43,1.000,12,0,0,_quantMatrixExtension,,1
+0x00475530,_pictureDisplayExtension,sce_scanner,0.99,anchor,0x0013B0C0,_pictureDisplayExtension,mpc.c,sdk,60,1.000,4,0,0,_pictureDisplayExtension,,1
+0x00475620,_copyrightExtension,sce_scanner,0.99,anchor,0x0013B1B0,_copyrightExtension,mpc.c,sdk,43,1.000,10,0,0,_copyrightExtension,,1
+0x004756D0,_decPicture,sce_scanner,0.99,anchor,0x0013B260,_decPicture,mpc.c,sdk,56,1.000,6,0,3,_decPicture,,1
+0x004757B0,_outputFrame,sce_scanner,0.99,anchor,0x0013B340,_outputFrame,mpc.c,sdk,46,1.000,4,0,2,_outputFrame,,1
+0x00475868,_updateRefImage,sce_scanner,0.99,anchor,0x0013B3F8,_updateRefImage,mpc.c,sdk,247,1.000,4,0,4,_updateRefImage,,1
+0x00475C48,_isOutSizeOK,sce_scanner,0.99,anchor,0x0013B7D8,_isOutSizeOK,mpc.c,sdk,39,1.000,4,0,2,_isOutSizeOK,,1
+0x00475CE8,_cpr8,sce_scanner,0.99,anchor,0x0013B878,_cpr8,mpc.c,sdk,123,1.000,2,0,2,_cpr8,,1
+0x00475ED8,_markOutput,sce_scanner,0.99,anchor,0x0013BA68,_markOutput,mpc.c,sdk,14,1.000,2,0,0,_markOutput,,1
+0x00475F10,_getPtsDtsFlags,sce_scanner,0.99,anchor,0x0013BAA0,_getPtsDtsFlags,mpc.c,sdk,101,1.000,7,0,3,_getPtsDtsFlags,,1
+0x004760A8,_dispRefImage,sce_scanner,0.99,anchor,0x0013BC38,_dispRefImage,mpc.c,sdk,70,1.000,7,0,2,_dispRefImage,,1
+0x004761C0,_dispRefImageField,sce_scanner,0.99,anchor,0x0013BD50,_dispRefImageField,mpc.c,sdk,112,1.000,8,0,2,_dispRefImageField,,1
+0x00476380,_doCSC,sce_scanner,0.99,anchor,0x0013BF10,_doCSC,csc.c,sdk,58,1.000,3,0,1,_doCSC,,1
+0x00476468,_ch3dmaCSC,sce_scanner,0.99,anchor,0x0013BFF8,_ch3dmaCSC,csc.c,sdk,46,1.000,0,0,0,_ch3dmaCSC,,1
+0x00476520,_doCSC2,sce_scanner,0.99,anchor,0x0013C0B0,_doCSC2,csc.c,sdk,108,1.000,7,0,1,_doCSC2,,1
+0x004766D0,_csc_storeRefImage,sce_scanner,0.99,anchor,0x0013C260,_csc_storeRefImage,csc.c,sdk,85,1.000,7,0,2,_csc_storeRefImage,,1
+0x00476828,_sysbitInit,sce_scanner,0.99,anchor,0x0013C3B8,_sysbitInit,bit.c,sdk,13,1.000,2,0,1,_sysbitInit,,1
+0x00476860,_sysbitNext,signature,0.99,exact,0x0013C3F0,_sysbitNext,bit.c,sdk,7,1.000,9,0,9,_sysbitNext,,1
+0x00476880,_sysbitFlush,sce_scanner,0.99,anchor,0x0013C410,_sysbitFlush,bit.c,sdk,38,1.000,4,0,2,_sysbitFlush,,1
+0x00476918,_sysbitGet,sce_scanner,0.99,anchor,0x0013C4A8,_sysbitGet,bit.c,sdk,19,1.000,49,0,47,_sysbitGet,,1
+0x00476968,_sysbitMarker,sce_scanner,0.99,anchor,0x0013C4F8,_sysbitMarker,bit.c,sdk,17,1.000,12,0,10,_sysbitMarker,,1
+0x004769B0,_sysbitJump,sce_scanner,0.99,anchor,0x0013C540,_sysbitJump,bit.c,sdk,21,1.000,5,0,4,_sysbitJump,,1
+0x00476A08,_sysbitPtr,sce_scanner,0.99,anchor,0x0013C598,_sysbitPtr,bit.c,sdk,11,1.000,4,0,4,_sysbitPtr,,1
+0x00476A38,sceIpuInit,sce_scanner,0.99,anchor,0x00141050,sceIpuInit,ipuinit.c,sdk,165,1.000,1,0,0,sceIpuInit,,1
+0x00476CD0,sceMcInit,sce_scanner,0.99,anchor,0x0013C5C8,sceMcInit,../libmc.c,sdk,86,1.000,3,0,1,sceMcInit,,1
+0x00476E28,_lmcGetClientPtr,signature,0.66,exact,0x0013C720,_lmcGetClientPtr,../libmc.c,sdk,9,1.000,0,0,0,_lmcGetClientPtr,,1
+0x00476E50,sceMcChangeThreadPriority,sce_scanner,0.99,anchor,0x0013C748,sceMcChangeThreadPriority,../libmc.c,sdk,35,1.000,1,0,0,sceMcChangeThreadPriority,,1
+0x00476EE0,sceMcGetSlotMax,sce_scanner,0.99,anchor,0x0013C7D8,sceMcGetSlotMax,../libmc.c,sdk,34,1.000,1,0,0,sceMcGetSlotMax,,1
+0x00476F68,sceMcOpen,sce_scanner,0.99,anchor,0x0013C860,sceMcOpen,../libmc.c,sdk,57,1.000,3,0,4,sceMcOpen,,1
+0x00477050,sceMcMkdir,sce_scanner,0.99,anchor,0x0013C948,sceMcMkdir,../libmc.c,sdk,13,1.000,1,0,1,sceMcMkdir,,1
+0x00477088,sceMcClose,sce_scanner,0.99,anchor,0x0013C980,sceMcClose,../libmc.c,sdk,35,1.000,1,0,3,sceMcClose,,1
+0x00477118,sceMcSeek,sce_scanner,0.99,anchor,0x0013CA10,sceMcSeek,../libmc.c,sdk,36,1.000,1,0,0,sceMcSeek,,1
+0x004771A8,mceIntrReadFixAlign,sce_scanner,0.99,anchor,0x0013CAA0,mceIntrReadFixAlign,../libmc.c,sdk,36,1.000,0,0,0,mceIntrReadFixAlign,,1
+0x00477238,sceMcRead,sce_scanner,0.99,anchor,0x0013CB30,sceMcRead,../libmc.c,sdk,54,1.000,3,0,1,sceMcRead,,1
+0x00477310,sceMcWrite,sce_scanner,0.99,anchor,0x0013CC08,sceMcWrite,../libmc.c,sdk,80,1.000,2,0,2,sceMcWrite,,1
+0x00477450,sceMcSync,sce_scanner,0.99,anchor,0x0013CD48,sceMcSync,../libmc.c,sdk,58,1.000,2,0,16,sceMcSync,,1
+0x00477538,mceGetInfoApdx,sce_scanner,0.99,anchor,0x0013CE30,mceGetInfoApdx,../libmc.c,sdk,21,1.000,0,0,0,mceGetInfoApdx,,1
+0x00477590,sceMcGetInfo,sce_scanner,0.99,anchor,0x0013CE88,sceMcGetInfo,../libmc.c,sdk,77,1.000,2,0,3,sceMcGetInfo,,1
+0x004776C8,sceMcGetDir,sce_scanner,0.99,anchor,0x0013CFC0,sceMcGetDir,../libmc.c,sdk,58,1.000,3,0,1,sceMcGetDir,,1
+0x004777B0,mceStorePwd,sce_scanner,0.99,anchor,0x0013D0A8,mceStorePwd,../libmc.c,sdk,33,1.000,3,0,0,mceStorePwd,,1
+0x00477838,sceMcChdir,sce_scanner,0.99,anchor,0x0013D130,sceMcChdir,../libmc.c,sdk,58,1.000,3,0,0,sceMcChdir,,1
+0x00477920,sceMcFormat,sce_scanner,0.99,anchor,0x0013D218,sceMcFormat,../libmc.c,sdk,36,1.000,1,0,1,sceMcFormat,,1
+0x004779B0,sceMcDelete,sce_scanner,0.99,anchor,0x0013D2A8,sceMcDelete,../libmc.c,sdk,54,1.000,2,0,1,sceMcDelete,,1
+0x00477A88,sceMcFlush,sce_scanner,0.99,anchor,0x0013D380,sceMcFlush,../libmc.c,sdk,35,1.000,1,0,0,sceMcFlush,,1
+0x00477B18,sceMcSetFileInfo,sce_scanner,0.99,anchor,0x0013D410,sceMcSetFileInfo,../libmc.c,sdk,85,1.000,3,0,0,sceMcSetFileInfo,,1
+0x00477C70,sceMcRename,sce_scanner,0.99,anchor,0x0013D568,sceMcRename,../libmc.c,sdk,63,1.000,4,0,0,sceMcRename,,1
+0x00477D70,sceMcUnformat,sce_scanner,0.99,anchor,0x0013D668,sceMcUnformat,../libmc.c,sdk,36,1.000,1,0,0,sceMcUnformat,,1
+0x00477E00,sceMcGetEntSpace,sce_scanner,0.99,anchor,0x0013D6F8,sceMcGetEntSpace,../libmc.c,sdk,46,1.000,2,0,0,sceMcGetEntSpace,,1
+0x00477EB8,cos,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,cos,,1
+0x00477FC0,sin,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,sin,,1
+0x004780B8,floorf,sce_scanner,0.97,anchor,,,,,,1.000,0,0,18,floorf,,1
+0x004782D8,__ieee754_rem_pio2,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,__ieee754_rem_pio2,,1
+0x004789E8,__ieee754_sqrtf,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,__ieee754_sqrtf,,1
+0x00478B20,__kernel_cos,sce_scanner,0.97,anchor,,,,,,1.000,0,0,5,__kernel_cos,,1
+0x00478D70,__kernel_rem_pio2,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__kernel_rem_pio2,,1
+0x004798D8,__kernel_sin,sce_scanner,0.97,anchor,,,,,,1.000,0,0,5,__kernel_sin,,1
+0x00479AB0,fabs,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,fabs,,1
+0x00479AE8,floor,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,floor,,1
+0x00479CC0,matherr,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,matherr,,1
+0x00479F10,_send_to_iop,sce_scanner,0.99,anchor,0x001412E8,_send_to_iop,libpad.c,sdk,33,1.000,1,0,0,_send_to_iop,,1
+0x00479F98,scePadInit,sce_scanner,0.99,anchor,0x00141370,scePadInit,libpad.c,sdk,77,1.000,4,0,1,scePadInit,,1
+0x0047A0D0,scePadInit2,sce_scanner,0.99,anchor,0x001414A8,scePadInit2,libpad.c,sdk,39,1.000,2,0,1,scePadInit2,,1
+0x0047A170,scePadEnd,sce_scanner,0.99,anchor,0x00141548,scePadEnd,libpad.c,sdk,32,1.000,1,0,0,scePadEnd,,1
+0x0047A1F0,scePadPortOpen,sce_scanner,0.99,anchor,0x001415C8,scePadPortOpen,libpad.c,sdk,85,1.000,2,0,1,scePadPortOpen,,1
+0x0047A348,scePadPortClose,sce_scanner,0.99,anchor,0x00141720,scePadPortClose,libpad.c,sdk,29,1.000,1,0,0,scePadPortClose,,1
+0x0047A3C0,scePadGetDmaStr,sce_scanner,0.99,anchor,0x00141798,scePadGetDmaStr,libpad.c,sdk,24,1.000,9,0,8,scePadGetDmaStr,,1
+0x0047A420,scePadGetFrameCount,signature,0.83,exact,0x001417F8,scePadGetFrameCount,libpad.c,sdk,8,1.000,1,0,0,scePadGetFrameCount,,1
+0x0047A440,scePadRead,sce_scanner,0.99,anchor,0x00141818,scePadRead,libpad.c,sdk,17,1.000,2,0,1,scePadRead,,1
+0x0047A488,scePadGetState,sce_scanner,0.99,anchor,0x00141860,scePadGetState,libpad.c,sdk,16,1.000,1,0,1,scePadGetState,,1
+0x0047A4C8,scePadStateIntToStr,sce_scanner,0.99,anchor,0x001418A0,scePadStateIntToStr,libpad.c,sdk,13,0.923,1,0,0,scePadStateIntToStr,,1
+0x0047A500,scePadSetReqState,sce_scanner,0.99,anchor,0x001418D8,scePadSetReqState,libpad.c,sdk,11,1.000,5,0,4,scePadSetReqState,,1
+0x0047A530,scePadGetReqState,signature,0.83,exact,0x00141908,scePadGetReqState,libpad.c,sdk,8,1.000,1,0,0,scePadGetReqState,,1
+0x0047A550,scePadReqIntToStr,signature,0.83,fuzzy,0x00141928,scePadReqIntToStr,libpad.c,sdk,13,0.923,1,0,0,scePadReqIntToStr,sim=0.923,1
+0x0047A588,scePadInfoAct,sce_scanner,0.99,anchor,0x00141960,scePadInfoAct,libpad.c,sdk,60,1.000,1,0,0,scePadInfoAct,,1
+0x0047A678,scePadInfoComb,sce_scanner,0.99,anchor,0x00141A50,scePadInfoComb,libpad.c,sdk,57,1.000,1,0,0,scePadInfoComb,,1
+0x0047A760,scePadInfoMode,sce_scanner,0.99,anchor,0x00141B38,scePadInfoMode,libpad.c,sdk,66,1.000,1,0,3,scePadInfoMode,,1
+0x0047A868,scePadSetMainMode,sce_scanner,0.99,anchor,0x00141C40,scePadSetMainMode,libpad.c,sdk,45,1.000,2,0,1,scePadSetMainMode,,1
+0x0047A920,scePadSetActDirect,sce_scanner,0.99,anchor,0x00141CF8,scePadSetActDirect,libpad.c,sdk,38,1.000,1,0,2,scePadSetActDirect,,1
+0x0047A9B8,scePadSetActAlign,sce_scanner,0.99,anchor,0x00141D90,scePadSetActAlign,libpad.c,sdk,54,1.000,2,0,1,scePadSetActAlign,,1
+0x0047AA90,scePadGetButtonMask,sce_scanner,0.99,anchor,0x00141E68,scePadGetButtonMask,libpad.c,sdk,27,1.000,2,0,1,scePadGetButtonMask,,1
+0x0047AB00,scePadSetButtonInfo,sce_scanner,0.99,anchor,0x00141ED8,scePadSetButtonInfo,libpad.c,sdk,44,1.000,3,0,2,scePadSetButtonInfo,,1
+0x0047ABB0,scePadInfoPressMode,sce_scanner,0.99,anchor,0x00141F88,scePadInfoPressMode,libpad.c,sdk,11,1.000,1,0,1,scePadInfoPressMode,,1
+0x0047ABE0,scePadEnterPressMode,signature,0.92,exact,0x00141FB8,scePadEnterPressMode,libpad.c,sdk,7,1.000,1,0,1,scePadEnterPressMode,,1
+0x0047AC20,scePadSetVrefParam,sce_scanner,0.99,anchor,0x00141FF8,scePadSetVrefParam,libpad.c,sdk,51,1.000,2,0,0,scePadSetVrefParam,,1
+0x0047ACF0,scePadGetPortMax,sce_scanner,0.99,anchor,0x001420C8,scePadGetPortMax,libpad.c,sdk,25,1.000,1,0,0,scePadGetPortMax,,1
+0x0047AD58,scePadGetSlotMax,sce_scanner,0.99,anchor,0x00142130,scePadGetSlotMax,libpad.c,sdk,26,1.000,1,0,0,scePadGetSlotMax,,1
+0x0047ADC0,scePadGetModVersion,sce_scanner,0.99,anchor,0x00142198,scePadGetModVersion,libpad.c,sdk,25,1.000,2,0,1,scePadGetModVersion,,1
+0x0047AE28,scePadChangeThreadPriority,sce_scanner,0.99,anchor,0x00142200,scePadChangeThreadPriority,libpad.c,sdk,27,1.000,1,0,0,scePadChangeThreadPriority,,1
+0x0047AE98,__assert,sce_scanner,0.99,anchor,0x00144210,__assert,../../../../../src/newlib/libc/stdlib/assert.c,libc,13,1.000,14,0,12,__assert,,1
+0x0047AED0,atexit,sce_scanner,0.97,anchor,,,,,,1.000,0,0,12,atexit,,1
+0x0047AF68,__errno,callgraph,0.92,callgraph,0x00151FF8,__errno,../../../../../src/newlib/libc/errno/errno.c,libc,3,1.000,1,0,6,__errno,callers=1 sim=1.00,1
+0x0047AF78,exit,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,exit,,1
+0x0047B028,fiprintf,signature,0.97,exact,0x00144248,fiprintf,../../../../../src/newlib/libc/stdio/fiprintf.c,libc,13,1.000,2,0,1,fiprintf,,1
+0x0047B098,malloc_extend_top,sce_scanner,0.99,anchor,0x001492F8,malloc_extend_top,../../../../../src/newlib/libc/stdlib/mallocr.c,libc,149,1.000,4,0,1,malloc_extend_top,,1
+0x0047B2F0,_malloc_r,sce_scanner,0.99,anchor,0x00149550,_malloc_r,../../../../../src/newlib/libc/stdlib/mallocr.c,libc,478,1.000,11,0,5,_malloc_r,,1
+0x0047BA68,memcpy,sce_scanner,0.99,anchor,0x0014427C,memcpy,../../../../../../src/newlib/libc/machine/r5900/memcpy.S,libc,44,1.000,6,0,27,memcpy,,1
+0x0047BB18,memset,sce_scanner,0.99,anchor,0x0014432C,memset,../../../../../../src/newlib/libc/machine/r5900/memset.S,libc,48,1.000,5,0,36,memset,,1
+0x0047BBD8,__malloc_lock,callgraph,0.95,callgraph,0x00149EE8,__malloc_lock,../../../../../src/newlib/libc/stdlib/mlock.c,libc,2,1.000,3,0,3,__malloc_lock,callers=3 sim=1.00,1
+0x0047BBE0,__malloc_unlock,callgraph,0.95,callgraph,0x00149EF0,__malloc_unlock,../../../../../src/newlib/libc/stdlib/mlock.c,libc,2,1.000,9,0,7,__malloc_unlock,callers=3 sim=1.00,1
+0x0047BBF8,rand,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2137,rand,,1
+0x0047BC48,_sbrk_r,sce_scanner,0.99,anchor,0x0014AF98,_sbrk_r,../../../../../src/newlib/libc/reent/sbrkr.c,libc,23,1.000,6,0,5,_sbrk_r,,1
+0x0047BCA8,_sprintf_r,sce_scanner,0.99,anchor,0x001443F0,_sprintf_r,../../../../../src/newlib/libc/stdio/sprintf.c,libc,26,1.000,1,0,0,_sprintf_r,,1
+0x0047BD10,sprintf,sce_scanner,0.99,anchor,0x00144458,sprintf,../../../../../src/newlib/libc/stdio/sprintf.c,libc,28,1.000,3,0,10,sprintf,,1
+0x0047BD80,strcat,sce_scanner,0.97,anchor,,,,,,1.000,0,0,7,strcat,,1
+0x0047BEAC,strcmp,sce_scanner,0.99,anchor,0x0014B538,strcmp,../../../../../../src/newlib/libc/machine/r5900/strcmp.S,libc,81,1.000,2,0,105,strcmp,,1
+0x0047BFF0,strcpy,sce_scanner,0.99,anchor,0x001444C8,strcpy,../../../../../../src/newlib/libc/machine/r5900/strcpy.S,libc,69,1.000,2,0,43,strcpy,,1
+0x0047C104,strlen,sce_scanner,0.99,anchor,0x001445DC,strlen,../../../../../../src/newlib/libc/machine/r5900/strlen.S,libc,78,1.000,6,0,12,strlen,,1
+0x0047C240,strncmp,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,strncmp,,1
+0x0047C3F8,strncpy,sce_scanner,0.99,anchor,0x00144718,strncpy,../../../../../../src/newlib/libc/machine/r5900/strncpy.S,libc,111,1.000,11,0,12,strncpy,,1
+0x0047C5B8,strrchr,sce_scanner,0.97,anchor,,,,,,1.000,0,0,4,strrchr,,1
+0x0047C608,strstr,sce_scanner,0.97,anchor,,,,,,1.000,0,0,4,strstr,,1
+0x0047C678,__sprint,sce_scanner,0.99,anchor,,,,,,1.000,13,0,13,__sprint,,1
+0x0047C6C0,__sbprintf,sce_scanner,0.99,anchor,,,,,,1.000,1,0,1,__sbprintf,,1
+0x0047C778,vfiprintf,signature,0.97,exact,0x001449D8,vfiprintf,../../../../../src/newlib/libc/stdio/vfprintf.c,libc,30,1.000,3,0,2,vfiprintf,shared/ambiguous signature resolved by callee names,1
+0x0047C7F0,_vfiprintf_r,sce_scanner,0.99,anchor,0x00144A50,_vfiprintf_r,../../../../../src/newlib/libc/stdio/vfprintf.c,libc,755,0.996,22,0,1,_vfiprintf_r,,1
+0x0047D3C0,__sprint,sce_scanner,0.99,anchor,,,,,,1.000,28,0,28,__sprint,,1
+0x0047D408,__sbprintf,sce_scanner,0.99,anchor,,,,,,1.000,1,0,1,__sbprintf,,1
+0x0047D4C0,vfprintf,signature,0.98,exact,0x00145720,vfprintf,../../../../../src/newlib/libc/stdio/vfprintf.c,libc,30,1.000,4,0,3,vfprintf,shared/ambiguous signature resolved by callee names,1
+0x0047D538,_vfprintf_r,sce_scanner,0.99,anchor,0x00145798,_vfprintf_r,../../../../../src/newlib/libc/stdio/vfprintf.c,libc,1350,0.998,45,0,1,_vfprintf_r,,1
+0x0047EA50,cvt,sce_scanner,0.99,anchor,0x00146CB0,cvt,../../../../../src/newlib/libc/stdio/vfprintf.c,libc,108,1.000,5,0,1,cvt,,1
+0x0047EC00,exponent,sce_scanner,0.99,anchor,0x00146E60,exponent,../../../../../src/newlib/libc/stdio/vfprintf.c,libc,56,1.000,1,0,1,exponent,,1
+0x0047ECE0,__swsetup,sce_scanner,0.99,anchor,0x00146F40,__swsetup,../../../../../src/newlib/libc/stdio/wsetup.c,libc,67,1.000,6,0,3,__swsetup,,1
+0x0047EDF0,abort,signature,0.98,exact,0x00147050,abort,../../../../../src/newlib/libc/stdlib/abort.c,libc,8,1.000,3,0,5,abort,,1
+0x0047EE10,quorem,sce_scanner,0.99,anchor,0x00147070,quorem,../../../../../src/newlib/libc/stdlib/dtoa.c,libc,133,1.000,3,0,2,quorem,,1
+0x0047F028,_dtoa_r,sce_scanner,0.99,anchor,0x00147288,_dtoa_r,../../../../../src/newlib/libc/stdlib/dtoa.c,libc,1139,1.000,102,0,1,_dtoa_r,,1
+0x004801F8,fflush,sce_scanner,0.99,anchor,0x00148458,fflush,../../../../../src/newlib/libc/stdio/fflush.c,libc,65,1.000,5,0,5,fflush,,1
+0x00480300,std,sce_scanner,0.99,anchor,0x00148560,std,../../../../../src/newlib/libc/stdio/findfp.c,libc,22,1.000,3,0,3,std,,1
+0x00480358,__sfmoreglue,sce_scanner,0.99,anchor,0x001485B8,__sfmoreglue,../../../../../src/newlib/libc/stdio/findfp.c,libc,28,1.000,3,0,1,__sfmoreglue,,1
+0x004803C8,__sfp,sce_scanner,0.99,anchor,0x00148628,__sfp,../../../../../src/newlib/libc/stdio/findfp.c,libc,56,1.000,2,0,0,__sfp,,1
+0x004804A8,_cleanup_r,short_window,0.96,short_window,0x00148708,_cleanup_r,../../../../../src/newlib/libc/stdio/findfp.c,libc,3,1.000,2,0,0,_cleanup_r,unique in window 0x00480280-0x004805D4 of findfp.c; layout offset confirmed,1
+0x004804B8,_cleanup,short_window,0.91,short_window,0x00148718,_cleanup,../../../../../src/newlib/libc/stdio/findfp.c,libc,3,1.000,1,0,0,_cleanup,unique in window 0x00480280-0x004805D4 of findfp.c; layout offset confirmed,1
+0x004804C8,__sinit,sce_scanner,0.99,anchor,0x00148728,__sinit,../../../../../src/newlib/libc/stdio/findfp.c,libc,35,1.000,8,0,5,__sinit,,1
+0x00480558,_free_r,sce_scanner,0.99,anchor,0x001487B8,_free_r,../../../../../src/newlib/libc/stdlib/mallocr.c,libc,199,1.000,6,0,2,_free_r,,1
+0x00480878,_malloc_trim_r,sce_scanner,0.99,anchor,0x00148AD8,_malloc_trim_r,../../../../../src/newlib/libc/stdlib/mallocr.c,libc,91,1.000,9,0,1,_malloc_trim_r,,1
+0x004809E8,__sfvwrite,sce_scanner,0.99,anchor,0x00148C48,__sfvwrite,../../../../../src/newlib/libc/stdio/fvwrite.c,libc,246,1.000,10,0,2,__sfvwrite,,1
+0x00480DC0,_fwalk,sce_scanner,0.99,anchor,0x00149020,_fwalk,../../../../../src/newlib/libc/stdio/fwalk.c,libc,37,1.000,2,0,1,_fwalk,,1
+0x00480E58,_setlocale_r,sce_scanner,0.99,anchor,0x001490B8,_setlocale_r,../../../../../src/newlib/libc/locale/locale.c,libc,33,1.000,3,0,1,_setlocale_r,,1
+0x00480EE0,_localeconv_r,callgraph,0.87,callgraph,0x00149140,_localeconv_r,../../../../../src/newlib/libc/locale/locale.c,libc,3,1.000,1,0,1,_localeconv_r,callers=1 sim=1.00,1
+0x00480EF0,setlocale,signature,0.82,exact,0x00149150,setlocale,../../../../../src/newlib/libc/locale/locale.c,libc,11,1.000,1,0,0,setlocale,shared/ambiguous signature resolved by callee names,1
+0x00480F20,localeconv,callgraph,0.95,callgraph,0x00149180,localeconv,../../../../../src/newlib/libc/locale/locale.c,libc,9,1.000,2,0,1,localeconv,callers=1 sim=1.00,1
+0x00480F48,__smakebuf,sce_scanner,0.99,anchor,0x001491A8,__smakebuf,../../../../../src/newlib/libc/stdio/makebuf.c,libc,84,1.000,4,0,1,__smakebuf,,1
+0x00481098,_mbtowc_r,sce_scanner,0.99,anchor,0x00149CC8,_mbtowc_r,../../../../../src/newlib/libc/stdlib/mbtowc_r.c,libc,15,1.000,2,0,2,_mbtowc_r,,1
+0x004810D4,memchr,sce_scanner,0.99,anchor,0x00149D04,memchr,../../../../../../src/newlib/libc/machine/r5900/memchr.S,libc,56,1.000,3,0,3,memchr,,1
+0x004811B4,memmove,sce_scanner,0.99,anchor,0x00149DE4,memmove,../../../../../../src/newlib/libc/machine/r5900/memmove.S,libc,65,1.000,5,0,5,memmove,,1
+0x004812B8,_Balloc,sce_scanner,0.99,anchor,0x00149EF8,_Balloc,../../../../../src/newlib/libc/stdlib/mprec.c,libc,42,1.000,12,0,10,_Balloc,,1
+0x00481360,_Bfree,sce_scanner,0.99,anchor,0x00149FA0,_Bfree,../../../../../src/newlib/libc/stdlib/mprec.c,libc,11,1.000,10,0,10,_Bfree,,1
+0x00481390,_multadd,sce_scanner,0.99,anchor,0x00149FD0,_multadd,../../../../../src/newlib/libc/stdlib/mprec.c,libc,69,1.000,14,0,11,_multadd,,1
+0x004814A8,_s2b,sce_scanner,0.99,anchor,0x0014A0E8,_s2b,../../../../../src/newlib/libc/stdlib/mprec.c,libc,82,1.000,3,0,0,_s2b,,1
+0x004815F0,_hi0bits,sce_scanner,0.99,anchor,0x0014A230,_hi0bits,../../../../../src/newlib/libc/stdlib/mprec.c,libc,33,1.000,3,0,3,_hi0bits,,1
+0x00481678,_lo0bits,sce_scanner,0.99,anchor,0x0014A2B8,_lo0bits,../../../../../src/newlib/libc/stdlib/mprec.c,libc,48,1.000,2,0,2,_lo0bits,,1
+0x00481738,_i2b,sce_scanner,0.99,anchor,0x0014A378,_i2b,../../../../../src/newlib/libc/stdlib/mprec.c,libc,14,1.000,4,0,3,_i2b,,1
+0x00481770,_multiply,sce_scanner,0.99,anchor,0x0014A3B0,_multiply,../../../../../src/newlib/libc/stdlib/mprec.c,libc,139,1.000,4,0,3,_multiply,,1
+0x004819A0,_pow5mult,sce_scanner,0.99,anchor,0x0014A5E0,_pow5mult,../../../../../src/newlib/libc/stdlib/mprec.c,libc,64,1.000,9,0,4,_pow5mult,,1
+0x00481AA0,_lshift,sce_scanner,0.99,anchor,0x0014A6E0,_lshift,../../../../../src/newlib/libc/stdlib/mprec.c,libc,94,1.000,8,0,6,_lshift,,1
+0x00481C18,__mcmp,sce_scanner,0.99,anchor,0x0014A858,__mcmp,../../../../../src/newlib/libc/stdlib/mprec.c,libc,26,1.000,8,0,8,__mcmp,,1
+0x00481C80,__mdiff,sce_scanner,0.99,anchor,0x0014A8C0,__mdiff,../../../../../src/newlib/libc/stdlib/mprec.c,libc,100,1.000,4,0,1,__mdiff,,1
+0x00481E10,_ulp,sce_scanner,0.99,anchor,0x0014AA50,_ulp,../../../../../src/newlib/libc/stdlib/mprec.c,libc,38,1.000,0,0,0,_ulp,,1
+0x00481EA8,_b2d,sce_scanner,0.99,anchor,0x0014AAE8,_b2d,../../../../../src/newlib/libc/stdlib/mprec.c,libc,95,1.000,3,0,2,_b2d,,1
+0x00482028,_d2b,sce_scanner,0.99,anchor,0x0014AC68,_d2b,../../../../../src/newlib/libc/stdlib/mprec.c,libc,95,1.000,5,0,1,_d2b,,1
+0x004821A8,_ratio,sce_scanner,0.99,anchor,0x0014ADE8,_ratio,../../../../../src/newlib/libc/stdlib/mprec.c,libc,48,1.000,3,0,0,_ratio,,1
+0x00482268,_mprec_log10,sce_scanner,0.99,anchor,0x0014AEA8,_mprec_log10,../../../../../src/newlib/libc/stdlib/mprec.c,libc,27,1.000,1,0,0,_mprec_log10,,1
+0x004822D8,isinf,signature,0.96,exact,0x0014AF18,isinf,../../../../../src/newlib/libm/math/s_isinf.c,libm,18,1.000,1,0,1,isinf,,1
+0x00482320,isnan,signature,0.95,exact,0x0014AF60,isnan,../../../../../src/newlib/libm/math/s_isnan.c,libm,14,1.000,1,0,1,isnan,,1
+0x00482358,_init_signal_r,sce_scanner,0.99,anchor,0x0014AFF8,_init_signal_r,../../../../../src/newlib/libc/signal/signal.c,libc,28,1.000,5,0,4,_init_signal_r,,1
+0x004823C8,_signal_r,sce_scanner,0.99,anchor,0x0014B068,_signal_r,../../../../../src/newlib/libc/signal/signal.c,libc,35,1.000,2,0,1,_signal_r,,1
+0x00482458,_raise_r,sce_scanner,0.99,anchor,0x0014B0F8,_raise_r,../../../../../src/newlib/libc/signal/signal.c,libc,60,1.000,4,0,1,_raise_r,,1
+0x00482548,__sigtramp_r,sce_scanner,0.99,anchor,0x0014B1E8,__sigtramp_r,../../../../../src/newlib/libc/signal/signal.c,libc,46,1.000,2,0,1,__sigtramp_r,,1
+0x00482600,raise,signature,0.90,exact,0x0014B2A0,raise,../../../../../src/newlib/libc/signal/signal.c,libc,10,1.000,2,0,1,raise,shared/ambiguous signature resolved by callee names,1
+0x00482628,signal,signature,0.82,exact,0x0014B2C8,signal,../../../../../src/newlib/libc/signal/signal.c,libc,11,1.000,1,0,0,signal,shared/ambiguous signature resolved by callee names,1
+0x00482658,_init_signal,signature,0.78,exact,0x0014B2F8,_init_signal,../../../../../src/newlib/libc/signal/signal.c,libc,9,1.000,1,0,0,_init_signal,shared/ambiguous signature resolved by callee names,1
+0x00482680,__sigtramp,signature,0.80,exact,0x0014B320,__sigtramp,../../../../../src/newlib/libc/signal/signal.c,libc,10,1.000,1,0,0,__sigtramp,shared/ambiguous signature resolved by callee names,1
+0x004826A8,_kill_r,signature,0.93,exact,0x0014B348,_kill_r,../../../../../src/newlib/libc/reent/signalr.c,libc,23,1.000,2,0,1,_kill_r,shared/ambiguous signature resolved by callee names,1
+0x00482708,_getpid_r,callgraph,0.95,callgraph,0x0014B3A8,_getpid_r,../../../../../src/newlib/libc/reent/signalr.c,libc,7,1.000,2,0,1,_getpid_r,callers=1 sim=1.00,1
+0x00482728,__sread,sce_scanner,0.99,anchor,0x0014B3C8,__sread,../../../../../src/newlib/libc/stdio/stdio.c,libc,25,1.000,1,0,0,__sread,,1
+0x00482790,__swrite,sce_scanner,0.99,anchor,0x0014B430,__swrite,../../../../../src/newlib/libc/stdio/stdio.c,libc,32,1.000,2,0,0,__swrite,,1
+0x00482810,__sseek,sce_scanner,0.99,anchor,0x0014B4B0,__sseek,../../../../../src/newlib/libc/stdio/stdio.c,libc,26,1.000,1,0,0,__sseek,,1
+0x00482878,__sclose,signature,0.85,exact,0x0014B518,__sclose,../../../../../src/newlib/libc/stdio/stdio.c,libc,8,1.000,1,0,0,__sclose,,1
+0x00482898,_write_r,signature,0.94,exact,0x0014B680,_write_r,../../../../../src/newlib/libc/reent/writer.c,libc,24,1.000,2,0,1,_write_r,shared/ambiguous signature resolved by callee names,1
+0x004828F8,_calloc_r,sce_scanner,0.99,anchor,0x0014B6E0,_calloc_r,../../../../../src/newlib/libc/stdlib/mallocr.c,libc,47,1.000,4,0,2,_calloc_r,,1
+0x004829B8,_close_r,sce_scanner,0.99,anchor,0x0014B7A0,_close_r,../../../../../src/newlib/libc/reent/closer.c,libc,22,1.000,2,0,1,_close_r,,1
+0x00482A10,_fstat_r,signature,0.88,exact,0x0014B7F8,_fstat_r,../../../../../src/newlib/libc/reent/fstatr.c,libc,23,1.000,2,0,1,_fstat_r,resolved by elimination within a shared-signature group,1
+0x00482A70,_lseek_r,signature,0.94,exact,0x0014B858,_lseek_r,../../../../../src/newlib/libc/reent/lseekr.c,libc,24,1.000,3,0,2,_lseek_r,resolved by elimination within a shared-signature group,1
+0x00482AD0,_read_r,signature,0.94,exact,0x0014B8B8,_read_r,../../../../../src/newlib/libc/reent/readr.c,libc,24,1.000,2,0,1,_read_r,shared/ambiguous signature resolved by callee names,1
+0x00482B30,__do_global_dtors,signature,0.86,exact,0x00142270,__do_global_dtors,../../src/gcc/libgcc2.c,libgcc,21,1.000,0,0,0,__do_global_dtors,,1
+0x00482B88,__do_global_ctors,signature,0.96,exact,0x001422C8,__do_global_ctors,../../src/gcc/libgcc2.c,libgcc,44,1.000,1,0,0,__do_global_ctors,,1
+0x00482C38,__main,signature,0.90,exact,0x00142378,__main,../../src/gcc/libgcc2.c,libgcc,8,1.000,1,0,1,__main,,1
+0x00482C68,__terminate,sce_scanner,0.97,anchor,,,,,,1.000,0,0,8,__terminate,,1
+0x00482C90,__throw_type_match,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__throw_type_match,,1
+0x00482CC8,new_eh_context,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,new_eh_context,,1
+0x00482D48,__get_eh_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,9,__get_eh_info,,1
+0x00482D70,eh_context_initialize,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,eh_context_initialize,,1
+0x00482D98,eh_context_static,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,eh_context_static,,1
+0x00482E00,__get_dynamic_handler_chain,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__get_dynamic_handler_chain,,1
+0x00482E28,__sjthrow,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__sjthrow,,1
+0x00482FA0,__sjpopnthrow,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__sjpopnthrow,,1
+0x004830B8,__eh_rtime_match,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__eh_rtime_match,,1
+0x00483110,old_find_exception_handler,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,old_find_exception_handler,,1
+0x004831E8,find_exception_handler,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,find_exception_handler,,1
+0x00483330,get_reg_addr,sce_scanner,0.97,anchor,,,,,,1.000,0,0,5,get_reg_addr,,1
+0x004833B8,copy_reg,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,copy_reg,,1
+0x00483438,next_stack_level,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,next_stack_level,,1
+0x004834D0,throw_helper,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,throw_helper,,1
+0x00483800,__throw,sce_scanner,0.97,anchor,,,,,,1.000,0,0,10,__throw,,1
+0x004839E0,__rethrow,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__rethrow,,1
+0x00483BC8,__fixunssfdi,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__fixunssfdi,,1
+0x00483CC0,__floatdidf,sce_scanner,0.99,anchor,0x00151328,__floatdidf,../../src/gcc/libgcc2.c,libgcc,38,1.000,10,0,6,__floatdidf,,1
+0x00483D58,__floatdisf,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__floatdisf,,1
+0x00483E38,__muldi3,sce_scanner,0.99,anchor,0x00142398,__muldi3,../../src/gcc/libgcc2.c,libgcc,24,1.000,9,0,13,__muldi3,,1
+0x00483EA0,__udivdi3,sce_scanner,0.99,anchor,0x00151A28,__udivdi3,../../src/gcc/libgcc2.c,libgcc,372,1.000,4,0,4,__udivdi3,,1
+0x00484470,__umoddi3,sce_scanner,0.99,anchor,0x001423F8,__umoddi3,../../src/gcc/libgcc2.c,libgcc,336,1.000,3,0,3,__umoddi3,,1
+0x004849B0,__pack_d,sce_scanner,0.99,anchor,0x00143518,__pack_d,dp-bit.c,libgcc,75,1.000,7,0,7,__pack_d,,1
+0x00484AE0,__unpack_d,sce_scanner,0.99,anchor,0x00143648,__unpack_d,dp-bit.c,libgcc,39,1.000,14,0,14,__unpack_d,,1
+0x00484B80,_fpadd_parts,sce_scanner,0.99,anchor,,,,,,1.000,2,0,2,_fpadd_parts,,1
+0x00484DC0,dpadd,sce_scanner,0.99,anchor,0x00143928,dpadd,dp-bit.c,libgcc,22,1.000,14,0,49,dpadd,,1
+0x00484E18,dpsub,sce_scanner,0.99,anchor,0x00143980,dpsub,dp-bit.c,libgcc,25,1.000,17,0,122,dpsub,,1
+0x00484E80,dpmul,sce_scanner,0.99,anchor,0x001439E8,dpmul,dp-bit.c,libgcc,170,1.000,27,0,78,dpmul,,1
+0x00485128,dpdiv,sce_scanner,0.99,anchor,0x00143C90,dpdiv,dp-bit.c,libgcc,90,1.000,9,0,8,dpdiv,,1
+0x00485290,__fpcmp_parts_d,sce_scanner,0.99,anchor,0x00143DF8,__fpcmp_parts_d,dp-bit.c,libgcc,69,1.000,1,0,1,__fpcmp_parts_d,,1
+0x004853A8,dpcmp,sce_scanner,0.99,anchor,0x00143F10,dpcmp,dp-bit.c,libgcc,19,1.000,30,0,165,dpcmp,,1
+0x004853F8,litodp,sce_scanner,0.99,anchor,0x00143F60,litodp,dp-bit.c,libgcc,46,1.000,10,0,19,litodp,,1
+0x004854B0,dptoli,sce_scanner,0.99,anchor,0x00144018,dptoli,dp-bit.c,libgcc,37,1.000,5,0,14,dptoli,,1
+0x00485548,dptoul,sce_scanner,0.99,anchor,0x001440B0,dptoul,dp-bit.c,libgcc,40,1.000,4,0,6,dptoul,,1
+0x004855E8,__negdf2,sce_scanner,0.99,anchor,0x00144150,__negdf2,dp-bit.c,libgcc,14,1.000,2,0,0,__negdf2,,1
+0x00485620,__make_dp,sce_scanner,0.99,anchor,0x00144188,__make_dp,dp-bit.c,libgcc,11,1.000,2,0,1,__make_dp,,1
+0x00485650,dptofp,sce_scanner,0.99,anchor,0x001441B8,dptofp,dp-bit.c,libgcc,21,1.000,2,0,19,dptofp,,1
+0x00485708,__cp_exception_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__cp_exception_info,,1
+0x00485750,__start_cp_handler,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__start_cp_handler,,1
+0x00485788,__eh_alloc,sce_scanner,0.97,anchor,,,,,,1.000,0,0,4,__eh_alloc,,1
+0x004857D0,__cplus_type_matcher,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__cplus_type_matcher,,1
+0x00485840,__cp_push_exception,sce_scanner,0.97,anchor,,,,,,1.000,0,0,3,__cp_push_exception,,1
+0x004858D0,__cp_pop_exception,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__cp_pop_exception,,1
+0x00485998,__uncatch_exception,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,__uncatch_exception,,1
+0x004859C8,__check_eh_spec,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__check_eh_spec,,1
+0x00485C80,uncaught_exception__Fv,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,uncaught_exception__Fv,,1
+0x00485CB8,what__C9exception,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,what__C9exception,,1
+0x00485E00,__pack_f,sce_scanner,0.99,anchor,0x00142938,__pack_f,fp-bit.c,libgcc,67,1.000,7,0,7,__pack_f,,1
+0x00485F10,__unpack_f,sce_scanner,0.99,anchor,0x00142A48,__unpack_f,fp-bit.c,libgcc,36,1.000,14,0,14,__unpack_f,,1
+0x00485FA0,_fpadd_parts,sce_scanner,0.99,anchor,,,,,,1.000,2,0,2,_fpadd_parts,,1
+0x004861D8,fpadd,sce_scanner,0.99,anchor,0x00142D10,fpadd,fp-bit.c,libgcc,22,1.000,4,0,0,fpadd,,1
+0x00486230,fpsub,sce_scanner,0.99,anchor,0x00142D68,fpsub,fp-bit.c,libgcc,25,1.000,4,0,0,fpsub,,1
+0x00486298,fpmul,sce_scanner,0.99,anchor,0x00142DD0,fpmul,fp-bit.c,libgcc,125,1.000,3,0,0,fpmul,,1
+0x00486490,fpdiv,sce_scanner,0.99,anchor,0x00142FC8,fpdiv,fp-bit.c,libgcc,88,1.000,3,0,0,fpdiv,,1
+0x004865F0,__fpcmp_parts_f,sce_scanner,0.99,anchor,0x00143128,__fpcmp_parts_f,fp-bit.c,libgcc,69,1.000,1,0,1,__fpcmp_parts_f,,1
+0x00486708,fpcmp,sce_scanner,0.99,anchor,0x00143240,fpcmp,fp-bit.c,libgcc,19,1.000,3,0,0,fpcmp,,1
+0x00486758,sitofp,sce_scanner,0.99,anchor,0x00143290,sitofp,fp-bit.c,libgcc,46,1.000,1,0,0,sitofp,,1
+0x00486810,fptosi,sce_scanner,0.99,anchor,0x00143348,fptosi,fp-bit.c,libgcc,35,1.000,1,0,0,fptosi,,1
+0x004868A0,fptoui,sce_scanner,0.99,anchor,0x001433D8,fptoui,fp-bit.c,libgcc,38,1.000,1,0,48,fptoui,,1
+0x00486938,__negsf2,sce_scanner,0.99,anchor,0x00143470,__negsf2,fp-bit.c,libgcc,14,1.000,2,0,0,__negsf2,,1
+0x00486970,__make_fp,sce_scanner,0.99,anchor,0x001434A8,__make_fp,fp-bit.c,libgcc,11,1.000,2,0,1,__make_fp,,1
+0x004869A0,fptodp,sce_scanner,0.99,anchor,0x001434D8,fptodp,fp-bit.c,libgcc,16,1.000,3,0,220,fptodp,,1
+0x004869E0,decode_uleb128,sce_scanner,0.97,anchor,,,,,,1.000,0,0,13,decode_uleb128,,1
+0x00486A28,decode_sleb128,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,decode_sleb128,,1
+0x00486A78,fde_merge,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,fde_merge,,1
+0x00486B78,end_fde_sort,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,end_fde_sort,,1
+0x00486DE0,count_fdes,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,count_fdes,,1
+0x00486E28,add_fdes,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,add_fdes,,1
+0x00486EB0,frame_init,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,frame_init,,1
+0x00486FF0,find_fde,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,find_fde,,1
+0x004870D8,extract_cie_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,extract_cie_info,,1
+0x004871E0,execute_cfa_insn,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,execute_cfa_insn,,1
+0x00487578,__register_frame_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__register_frame_info,,1
+0x004875D0,__register_frame_info_table,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__register_frame_info_table,,1
+0x00487628,__deregister_frame_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,2,__deregister_frame_info,,1
+0x004876C0,__frame_state_for,sce_scanner,0.97,anchor,,,,,,1.000,0,0,3,__frame_state_for,,1
+0x00487898,fde_split,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,fde_split,,1
+0x00487A10,_$_9type_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,10,_$_9type_info,,1
+0x00487A40,__eq__C9type_infoRC9type_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,8,__eq__C9type_infoRC9type_info,,1
+0x00487A80,__rtti_class,sce_scanner,0.97,anchor,,,,,,1.000,0,0,8,__rtti_class,,1
+0x00487AE8,dcast__C16__user_type_infoRC9type_infoiPvPC9type_infoT3,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,dcast__C16__user_type_infoRC9type_infoiPvPC9type_infoT3,,1
+0x00487B18,dcast__C14__si_type_infoRC9type_infoiPvPC9type_infoT3,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,dcast__C14__si_type_infoRC9type_infoiPvPC9type_infoT3,,1
+0x00487BB0,dcast__C17__class_type_infoRC9type_infoiPvPC9type_infoT3,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,dcast__C17__class_type_infoRC9type_infoiPvPC9type_infoT3,,1
+0x004880E0,before__C9type_infoRC9type_info,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,before__C9type_infoRC9type_info,,1
+0x00488108,__throw_type_match_rtti,sce_scanner,0.97,anchor,,,,,,1.000,0,0,4,__throw_type_match_rtti,,1
+0x004885D0,__is_pointer__FPv,sce_scanner,0.97,anchor,,,,,,1.000,0,0,1,__is_pointer__FPv,,1
+0x00488640,__rtti_attr,sce_scanner,0.97,anchor,,,,,,1.000,0,0,0,__rtti_attr,,1
+0x004886E8,__dynamic_cast,sce_scanner,0.97,anchor,,,,,,1.000,0,0,14,__dynamic_cast,,1
+0x00488E80,RFU000_FullReset,signature,0.93,exact,0x0014B940,RFU000_FullReset,klib.s,sdk,4,1.000,0,0,0,RFU000_FullReset,kernel syscall stub (number match),1
+0x00488E90,ResetEE,signature,0.93,exact,0x0014B950,ResetEE,klib.s,sdk,4,1.000,0,0,0,ResetEE,kernel syscall stub (number match),1
+0x00488EA0,SetGsCrt,signature,0.97,exact,0x0014B960,SetGsCrt,klib.s,sdk,4,1.000,1,0,0,SetGsCrt,kernel syscall stub (number match),1
+0x00488EB0,RFU003,signature,0.93,exact,0x0014B970,RFU003,klib.s,sdk,4,1.000,0,0,0,RFU003,kernel syscall stub (number match),1
+0x00488EC0,Exit,signature,0.99,exact,0x0014B980,Exit,klib.s,sdk,4,1.000,3,0,1,Exit,kernel syscall stub (number match),1
+0x00488ED0,RFU005,signature,0.93,exact,0x0014B990,RFU005,klib.s,sdk,4,1.000,0,0,0,RFU005,kernel syscall stub (number match),1
+0x00488EE0,LoadExecPS2,signature,0.93,exact,0x0014B9A0,LoadExecPS2,klib.s,sdk,4,1.000,0,0,0,LoadExecPS2,kernel syscall stub (number match),1
+0x00488EF0,ExecPS2,signature,0.93,exact,0x0014B9B0,ExecPS2,klib.s,sdk,4,1.000,0,0,0,ExecPS2,kernel syscall stub (number match),1
+0x00488F00,RFU008,signature,0.93,exact,0x0014B9C0,RFU008,klib.s,sdk,4,1.000,0,0,0,RFU008,kernel syscall stub (number match),1
+0x00488F10,RFU009,signature,0.93,exact,0x0014B9D0,RFU009,klib.s,sdk,4,1.000,0,0,0,RFU009,kernel syscall stub (number match),1
+0x00488F20,AddSbusIntcHandler,signature,0.93,exact,0x0014B9E0,AddSbusIntcHandler,klib.s,sdk,4,1.000,0,0,0,AddSbusIntcHandler,kernel syscall stub (number match),1
+0x00488F30,RemoveSbusIntcHandler,signature,0.93,exact,0x0014B9F0,RemoveSbusIntcHandler,klib.s,sdk,4,1.000,0,0,0,RemoveSbusIntcHandler,kernel syscall stub (number match),1
+0x00488F40,Interrupt2Iop,signature,0.93,exact,0x0014BA00,Interrupt2Iop,klib.s,sdk,4,1.000,0,0,0,Interrupt2Iop,kernel syscall stub (number match),1
+0x00488F50,SetVTLBRefillHandler,signature,0.93,exact,0x0014BA10,SetVTLBRefillHandler,klib.s,sdk,4,1.000,0,0,0,SetVTLBRefillHandler,kernel syscall stub (number match),1
+0x00488F60,SetVCommonHandler,signature,0.93,exact,0x0014BA20,SetVCommonHandler,klib.s,sdk,4,1.000,0,0,0,SetVCommonHandler,kernel syscall stub (number match),1
+0x00488F70,SetVInterruptHandler,signature,0.93,exact,0x0014BA30,SetVInterruptHandler,klib.s,sdk,4,1.000,0,0,0,SetVInterruptHandler,kernel syscall stub (number match),1
+0x00488F80,AddIntcHandler,short_window,0.90,short_window,0x0014BA40,AddIntcHandler,klib.s,sdk,4,1.000,0,0,2,AddIntcHandler,unique in window 0x00488E00-0x00489790 of klib.s; layout offset confirmed,1
+0x00488F90,AddIntcHandler2,short_window,0.87,short_window,0x0014BA50,AddIntcHandler2,klib.s,sdk,4,1.000,0,0,0,AddIntcHandler2,unique in window 0x00488E00-0x00489790 of klib.s; layout offset confirmed,1
+0x00488FA0,RemoveIntcHandler,signature,0.97,exact,0x0014BA60,RemoveIntcHandler,klib.s,sdk,4,1.000,1,0,2,RemoveIntcHandler,kernel syscall stub (number match),1
+0x00488FB0,AddDmacHandler,callgraph,0.95,callgraph,0x0014BA70,AddDmacHandler,klib.s,sdk,4,1.000,2,0,5,AddDmacHandler,callers=2 sim=1.00,1
+0x00488FC0,AddDmacHandler2,short_window,0.87,short_window,0x0014BA80,AddDmacHandler2,klib.s,sdk,4,1.000,0,0,0,AddDmacHandler2,unique in window 0x00488E00-0x00489790 of klib.s; layout offset confirmed,1
+0x00488FD0,RemoveDmacHandler,signature,0.98,exact,0x0014BA90,RemoveDmacHandler,klib.s,sdk,4,1.000,2,0,2,RemoveDmacHandler,kernel syscall stub (number match),1
+0x00488FE0,_EnableIntc,signature,0.97,exact,0x0014BAA0,_EnableIntc,klib.s,sdk,4,1.000,1,0,1,_EnableIntc,kernel syscall stub (number match),1
+0x00488FF0,_DisableIntc,signature,0.97,exact,0x0014BAB0,_DisableIntc,klib.s,sdk,4,1.000,1,0,1,_DisableIntc,kernel syscall stub (number match),1
+0x00489000,_EnableDmac,signature,0.97,exact,0x0014BAC0,_EnableDmac,klib.s,sdk,4,1.000,1,0,1,_EnableDmac,kernel syscall stub (number match),1
+0x00489010,_DisableDmac,signature,0.97,exact,0x0014BAD0,_DisableDmac,klib.s,sdk,4,1.000,1,0,1,_DisableDmac,kernel syscall stub (number match),1
+0x00489020,_SetAlarm,signature,0.97,exact,0x0014BAE0,_SetAlarm,klib.s,sdk,4,1.000,1,0,1,_SetAlarm,kernel syscall stub (number match),1
+0x00489030,_ReleaseAlarm,signature,0.97,exact,0x0014BAF0,_ReleaseAlarm,klib.s,sdk,4,1.000,1,0,1,_ReleaseAlarm,kernel syscall stub (number match),1
+0x00489040,_iEnableIntc,signature,0.97,exact,0x0014BB00,_iEnableIntc,klib.s,sdk,4,1.000,1,0,1,_iEnableIntc,kernel syscall stub (number match),1
+0x00489050,_iDisableIntc,signature,0.97,exact,0x0014BB10,_iDisableIntc,klib.s,sdk,4,1.000,1,0,1,_iDisableIntc,kernel syscall stub (number match),1
+0x00489060,_iEnableDmac,signature,0.97,exact,0x0014BB20,_iEnableDmac,klib.s,sdk,4,1.000,1,0,1,_iEnableDmac,kernel syscall stub (number match),1
+0x00489070,_iDisableDmac,signature,0.97,exact,0x0014BB30,_iDisableDmac,klib.s,sdk,4,1.000,1,0,1,_iDisableDmac,kernel syscall stub (number match),1
+0x00489080,_iSetAlarm,signature,0.97,exact,0x0014BB40,_iSetAlarm,klib.s,sdk,4,1.000,1,0,1,_iSetAlarm,kernel syscall stub (number match),1
+0x00489090,_iReleaseAlarm,signature,0.97,exact,0x0014BB50,_iReleaseAlarm,klib.s,sdk,4,1.000,1,0,1,_iReleaseAlarm,kernel syscall stub (number match),1
+0x004890A0,CreateThread,signature,0.98,exact,0x0014BB60,CreateThread,klib.s,sdk,4,1.000,2,0,6,CreateThread,kernel syscall stub (number match),1
+0x004890B0,DeleteThread,signature,0.93,exact,0x0014BB70,DeleteThread,klib.s,sdk,4,1.000,0,0,2,DeleteThread,kernel syscall stub (number match),1
+0x004890C0,StartThread,signature,0.98,exact,0x0014BB80,StartThread,klib.s,sdk,4,1.000,2,0,6,StartThread,kernel syscall stub (number match),1
+0x004890D0,ExitThread,signature,0.97,exact,0x0014BB90,ExitThread,klib.s,sdk,4,1.000,1,0,1,ExitThread,kernel syscall stub (number match),1
+0x004890E0,ExitDeleteThread,signature,0.93,exact,0x0014BBA0,ExitDeleteThread,klib.s,sdk,4,1.000,0,0,0,ExitDeleteThread,kernel syscall stub (number match),1
+0x004890F0,TerminateThread,signature,0.93,exact,0x0014BBB0,TerminateThread,klib.s,sdk,4,1.000,0,0,2,TerminateThread,kernel syscall stub (number match),1
+0x00489100,iTerminateThread,signature,0.93,exact,0x0014BBC0,iTerminateThread,klib.s,sdk,4,1.000,0,0,0,iTerminateThread,kernel syscall stub (number match),1
+0x00489110,DisableDispatchThread,signature,0.93,exact,0x0014BBD0,DisableDispatchThread,klib.s,sdk,4,1.000,0,0,0,DisableDispatchThread,kernel syscall stub (number match),1
+0x00489120,EnableDispatchThread,signature,0.93,exact,0x0014BBE0,EnableDispatchThread,klib.s,sdk,4,1.000,0,0,0,EnableDispatchThread,kernel syscall stub (number match),1
+0x00489130,ChangeThreadPriority,signature,0.98,exact,0x0014BBF0,ChangeThreadPriority,klib.s,sdk,4,1.000,2,0,3,ChangeThreadPriority,kernel syscall stub (number match),1
+0x00489140,iChangeThreadPriority,signature,0.93,exact,0x0014BC00,iChangeThreadPriority,klib.s,sdk,4,1.000,0,0,0,iChangeThreadPriority,kernel syscall stub (number match),1
+0x00489150,RotateThreadReadyQueue,signature,0.97,exact,0x0014BC10,RotateThreadReadyQueue,klib.s,sdk,4,1.000,1,0,1,RotateThreadReadyQueue,kernel syscall stub (number match),1
+0x00489160,_iRotateThreadReadyQueue,signature,0.93,exact,0x0014BC20,_iRotateThreadReadyQueue,klib.s,sdk,4,1.000,0,0,0,_iRotateThreadReadyQueue,kernel syscall stub (number match),1
+0x00489170,ReleaseWaitThread,signature,0.93,exact,0x0014BC30,ReleaseWaitThread,klib.s,sdk,4,1.000,0,0,0,ReleaseWaitThread,kernel syscall stub (number match),1
+0x00489180,iReleaseWaitThread,signature,0.93,exact,0x0014BC40,iReleaseWaitThread,klib.s,sdk,4,1.000,0,0,0,iReleaseWaitThread,kernel syscall stub (number match),1
+0x00489190,GetThreadId,signature,0.99,exact,0x0014BC50,GetThreadId,klib.s,sdk,4,1.000,3,0,4,GetThreadId,kernel syscall stub (number match),1
+0x004891A0,ReferThreadStatus,signature,0.99,exact,0x0014BC60,ReferThreadStatus,klib.s,sdk,4,1.000,4,0,4,ReferThreadStatus,kernel syscall stub (number match),1
+0x004891B0,iReferThreadStatus,signature,0.93,exact,0x0014BC70,iReferThreadStatus,klib.s,sdk,4,1.000,0,0,0,iReferThreadStatus,kernel syscall stub (number match),1
+0x004891C0,SleepThread,signature,0.97,exact,0x0014BC80,SleepThread,klib.s,sdk,4,1.000,1,0,4,SleepThread,kernel syscall stub (number match),1
+0x004891D0,WakeupThread,signature,0.97,exact,0x0014BC90,WakeupThread,klib.s,sdk,4,1.000,1,0,1,WakeupThread,kernel syscall stub (number match),1
+0x004891E0,_iWakeupThread,signature,0.97,exact,0x0014BCA0,_iWakeupThread,klib.s,sdk,4,1.000,1,0,1,_iWakeupThread,kernel syscall stub (number match),1
+0x004891F0,CancelWakeupThread,signature,0.93,exact,0x0014BCB0,CancelWakeupThread,klib.s,sdk,4,1.000,0,0,1,CancelWakeupThread,kernel syscall stub (number match),1
+0x00489200,iCancelWakeupThread,signature,0.93,exact,0x0014BCC0,iCancelWakeupThread,klib.s,sdk,4,1.000,0,0,1,iCancelWakeupThread,kernel syscall stub (number match),1
+0x00489210,SuspendThread,signature,0.93,exact,0x0014BCD0,SuspendThread,klib.s,sdk,4,1.000,0,0,0,SuspendThread,kernel syscall stub (number match),1
+0x00489220,iSuspendThread,signature,0.93,exact,0x0014BCE0,iSuspendThread,klib.s,sdk,4,1.000,0,0,0,iSuspendThread,kernel syscall stub (number match),1
+0x00489230,ResumeThread,signature,0.93,exact,0x0014BCF0,ResumeThread,klib.s,sdk,4,1.000,0,0,0,ResumeThread,kernel syscall stub (number match),1
+0x00489240,iResumeThread,signature,0.93,exact,0x0014BD00,iResumeThread,klib.s,sdk,4,1.000,0,0,0,iResumeThread,kernel syscall stub (number match),1
+0x00489250,JoinThread,signature,0.93,exact,0x0014BD10,JoinThread,klib.s,sdk,4,1.000,0,0,0,JoinThread,kernel syscall stub (number match),1
+0x00489260,RFU060,signature,0.93,exact,0x0014BD20,RFU060,klib.s,sdk,4,1.000,0,0,0,RFU060,kernel syscall stub (number match),1
+0x00489270,RFU061,signature,0.93,exact,0x0014BD30,RFU061,klib.s,sdk,4,1.000,0,0,0,RFU061,kernel syscall stub (number match),1
+0x00489280,EndOfHeap,signature,0.97,exact,0x0014BD40,EndOfHeap,klib.s,sdk,4,1.000,1,0,1,EndOfHeap,kernel syscall stub (number match),1
+0x00489290,RFU063,signature,0.93,exact,0x0014BD50,RFU063,klib.s,sdk,4,1.000,0,0,0,RFU063,kernel syscall stub (number match),1
+0x004892A0,CreateSema,signature,0.99,exact,0x0014BD60,CreateSema,klib.s,sdk,4,1.000,7,0,9,CreateSema,kernel syscall stub (number match),1
+0x004892B0,DeleteSema,signature,0.99,exact,0x0014BD70,DeleteSema,klib.s,sdk,4,1.000,7,0,6,DeleteSema,kernel syscall stub (number match),1
+0x004892C0,SignalSema,signature,0.99,exact,0x0014BD80,SignalSema,klib.s,sdk,4,1.000,47,0,49,SignalSema,kernel syscall stub (number match),1
+0x004892D0,iSignalSema,signature,0.99,exact,0x0014BD90,iSignalSema,klib.s,sdk,4,1.000,5,0,6,iSignalSema,kernel syscall stub (number match),1
+0x004892E0,WaitSema,signature,0.99,exact,0x0014BDA0,WaitSema,klib.s,sdk,4,1.000,5,0,8,WaitSema,kernel syscall stub (number match),1
+0x004892F0,PollSema,signature,0.99,exact,0x0014BDB0,PollSema,klib.s,sdk,4,1.000,4,0,4,PollSema,kernel syscall stub (number match),1
+0x00489300,iPollSema,signature,0.93,exact,0x0014BDC0,iPollSema,klib.s,sdk,4,1.000,0,0,0,iPollSema,kernel syscall stub (number match),1
+0x00489310,ReferSemaStatus,signature,0.93,exact,0x0014BDD0,ReferSemaStatus,klib.s,sdk,4,1.000,0,0,0,ReferSemaStatus,kernel syscall stub (number match),1
+0x00489320,iReferSemaStatus,signature,0.93,exact,0x0014BDE0,iReferSemaStatus,klib.s,sdk,4,1.000,0,0,0,iReferSemaStatus,kernel syscall stub (number match),1
+0x00489330,RFU073,signature,0.93,exact,0x0014BDF0,RFU073,klib.s,sdk,4,1.000,0,0,0,RFU073,kernel syscall stub (number match),1
+0x00489340,SetOsdConfigParam,signature,0.93,exact,0x0014BE00,SetOsdConfigParam,klib.s,sdk,4,1.000,0,0,0,SetOsdConfigParam,kernel syscall stub (number match),1
+0x00489350,GetOsdConfigParam,signature,0.99,exact,0x0014BE10,GetOsdConfigParam,klib.s,sdk,4,1.000,8,0,8,GetOsdConfigParam,kernel syscall stub (number match),1
+0x00489360,GetGsHParam,signature,0.93,exact,0x0014BE20,GetGsHParam,klib.s,sdk,4,1.000,0,0,0,GetGsHParam,kernel syscall stub (number match),1
+0x00489370,GetGsVParam,signature,0.93,exact,0x0014BE30,GetGsVParam,klib.s,sdk,4,1.000,0,0,0,GetGsVParam,kernel syscall stub (number match),1
+0x00489380,SetGsHParam,signature,0.93,exact,0x0014BE40,SetGsHParam,klib.s,sdk,4,1.000,0,0,0,SetGsHParam,kernel syscall stub (number match),1
+0x00489390,SetGsVParam,signature,0.93,exact,0x0014BE50,SetGsVParam,klib.s,sdk,4,1.000,0,0,0,SetGsVParam,kernel syscall stub (number match),1
+0x004893A0,RFU080_CreateEventFlag,signature,0.93,exact,0x0014BE60,RFU080_CreateEventFlag,klib.s,sdk,4,1.000,0,0,0,RFU080_CreateEventFlag,kernel syscall stub (number match),1
+0x004893B0,RFU081_DeleteEventFlag,signature,0.93,exact,0x0014BE70,RFU081_DeleteEventFlag,klib.s,sdk,4,1.000,0,0,0,RFU081_DeleteEventFlag,kernel syscall stub (number match),1
+0x004893C0,RFU082_SetEventFlag,signature,0.93,exact,0x0014BE80,RFU082_SetEventFlag,klib.s,sdk,4,1.000,0,0,0,RFU082_SetEventFlag,kernel syscall stub (number match),1
+0x004893D0,RFU083_iSetEventFlag,signature,0.93,exact,0x0014BE90,RFU083_iSetEventFlag,klib.s,sdk,4,1.000,0,0,0,RFU083_iSetEventFlag,kernel syscall stub (number match),1
+0x004893E0,RFU084_ClearEventFlag,signature,0.93,exact,0x0014BEA0,RFU084_ClearEventFlag,klib.s,sdk,4,1.000,0,0,0,RFU084_ClearEventFlag,kernel syscall stub (number match),1
+0x004893F0,RFU085_iClearEventFlag,signature,0.93,exact,0x0014BEB0,RFU085_iClearEventFlag,klib.s,sdk,4,1.000,0,0,0,RFU085_iClearEventFlag,kernel syscall stub (number match),1
+0x00489400,RFU086_WaitEvnetFlag,signature,0.93,exact,0x0014BEC0,RFU086_WaitEvnetFlag,klib.s,sdk,4,1.000,0,0,0,RFU086_WaitEvnetFlag,kernel syscall stub (number match),1
+0x00489410,RFU087_PollEvnetFlag,signature,0.93,exact,0x0014BED0,RFU087_PollEvnetFlag,klib.s,sdk,4,1.000,0,0,0,RFU087_PollEvnetFlag,kernel syscall stub (number match),1
+0x00489420,RFU088_iPollEvnetFlag,signature,0.93,exact,0x0014BEE0,RFU088_iPollEvnetFlag,klib.s,sdk,4,1.000,0,0,0,RFU088_iPollEvnetFlag,kernel syscall stub (number match),1
+0x00489430,RFU089_ReferEventFlagStatus,signature,0.93,exact,0x0014BEF0,RFU089_ReferEventFlagStatus,klib.s,sdk,4,1.000,0,0,0,RFU089_ReferEventFlagStatus,kernel syscall stub (number match),1
+0x00489440,RFU090_iReferEventFlagStatus,signature,0.93,exact,0x0014BF00,RFU090_iReferEventFlagStatus,klib.s,sdk,4,1.000,0,0,0,RFU090_iReferEventFlagStatus,kernel syscall stub (number match),1
+0x00489450,RFU091,signature,0.93,exact,0x0014BF10,RFU091,klib.s,sdk,4,1.000,0,0,0,RFU091,kernel syscall stub (number match),1
+0x00489460,EnableIntcHandler,signature,0.93,exact,0x0014BF20,EnableIntcHandler,klib.s,sdk,4,1.000,0,0,0,EnableIntcHandler,kernel syscall stub (number match),1
+0x00489470,iEnableIntcHandler,signature,0.93,exact,0x0014BF30,iEnableIntcHandler,klib.s,sdk,4,1.000,0,0,0,iEnableIntcHandler,kernel syscall stub (number match),1
+0x00489480,DisableIntcHandler,signature,0.93,exact,0x0014BF40,DisableIntcHandler,klib.s,sdk,4,1.000,0,0,0,DisableIntcHandler,kernel syscall stub (number match),1
+0x00489490,iDisableIntcHandler,signature,0.93,exact,0x0014BF50,iDisableIntcHandler,klib.s,sdk,4,1.000,0,0,0,iDisableIntcHandler,kernel syscall stub (number match),1
+0x004894A0,EnableDmacHandler,signature,0.93,exact,0x0014BF60,EnableDmacHandler,klib.s,sdk,4,1.000,0,0,0,EnableDmacHandler,kernel syscall stub (number match),1
+0x004894B0,iEnableDmacHandler,signature,0.93,exact,0x0014BF70,iEnableDmacHandler,klib.s,sdk,4,1.000,0,0,0,iEnableDmacHandler,kernel syscall stub (number match),1
+0x004894C0,DisableDmacHandler,signature,0.93,exact,0x0014BF80,DisableDmacHandler,klib.s,sdk,4,1.000,0,0,0,DisableDmacHandler,kernel syscall stub (number match),1
+0x004894D0,iDisableDmacHandler,signature,0.93,exact,0x0014BF90,iDisableDmacHandler,klib.s,sdk,4,1.000,0,0,0,iDisableDmacHandler,kernel syscall stub (number match),1
+0x004894E0,KSeg0,signature,0.93,exact,0x0014BFA0,KSeg0,klib.s,sdk,4,1.000,0,0,0,KSeg0,kernel syscall stub (number match),1
+0x004894F0,EnableCache,signature,0.93,exact,0x0014BFB0,EnableCache,klib.s,sdk,4,1.000,0,0,1,EnableCache,kernel syscall stub (number match),1
+0x00489500,DisableCache,signature,0.93,exact,0x0014BFC0,DisableCache,klib.s,sdk,4,1.000,0,0,0,DisableCache,kernel syscall stub (number match),1
+0x00489510,GetCop0,signature,0.93,exact,0x0014BFD0,GetCop0,klib.s,sdk,4,1.000,0,0,0,GetCop0,kernel syscall stub (number match),1
+0x00489520,FlushCache,signature,0.99,exact,0x0014BFE0,FlushCache,klib.s,sdk,4,1.000,6,0,19,FlushCache,kernel syscall stub (number match),1
+0x00489530,CpuConfig,signature,0.93,exact,0x0014BFF0,CpuConfig,klib.s,sdk,4,1.000,0,0,0,CpuConfig,kernel syscall stub (number match),1
+0x00489540,iGetCop0,signature,0.93,exact,0x0014C000,iGetCop0,klib.s,sdk,4,1.000,0,0,0,iGetCop0,kernel syscall stub (number match),1
+0x00489550,iFlushCache,signature,0.93,exact,0x0014C010,iFlushCache,klib.s,sdk,4,1.000,0,0,0,iFlushCache,kernel syscall stub (number match),1
+0x00489560,iCpuConfig,signature,0.93,exact,0x0014C020,iCpuConfig,klib.s,sdk,4,1.000,0,0,0,iCpuConfig,kernel syscall stub (number match),1
+0x00489570,sceSifStopDma,signature,0.97,exact,0x0014C030,sceSifStopDma,klib.s,sdk,4,1.000,1,0,1,sceSifStopDma,kernel syscall stub (number match),1
+0x00489580,SetCPUTimerHandler,signature,0.93,exact,0x0014C040,SetCPUTimerHandler,klib.s,sdk,4,1.000,0,0,0,SetCPUTimerHandler,kernel syscall stub (number match),1
+0x00489590,SetCPUTimer,signature,0.93,exact,0x0014C050,SetCPUTimer,klib.s,sdk,4,1.000,0,0,0,SetCPUTimer,kernel syscall stub (number match),1
+0x004895A0,SetOsdConfigParam2,signature,0.93,exact,0x0014C060,SetOsdConfigParam2,klib.s,sdk,4,1.000,0,0,0,SetOsdConfigParam2,kernel syscall stub (number match),1
+0x004895B0,GetOsdConfigParam2,signature,0.99,exact,0x0014C070,GetOsdConfigParam2,klib.s,sdk,4,1.000,3,0,3,GetOsdConfigParam2,kernel syscall stub (number match),1
+0x004895C0,GsGetIMR,signature,0.93,exact,0x0014C080,GsGetIMR,klib.s,sdk,4,1.000,0,0,0,GsGetIMR,kernel syscall stub (number match),1
+0x004895D0,iGsGetIMR,signature,0.93,exact,0x0014C090,iGsGetIMR,klib.s,sdk,4,1.000,0,0,0,iGsGetIMR,kernel syscall stub (number match),1
+0x004895E0,GsPutIMR,signature,0.97,exact,0x0014C0A0,GsPutIMR,klib.s,sdk,4,1.000,1,0,1,GsPutIMR,kernel syscall stub (number match),1
+0x004895F0,iGsPutIMR,signature,0.93,exact,0x0014C0B0,iGsPutIMR,klib.s,sdk,4,1.000,0,0,0,iGsPutIMR,kernel syscall stub (number match),1
+0x00489600,SetPgifHandler,signature,0.93,exact,0x0014C0C0,SetPgifHandler,klib.s,sdk,4,1.000,0,0,0,SetPgifHandler,kernel syscall stub (number match),1
+0x00489610,SetVSyncFlag,signature,0.97,exact,0x0014C0D0,SetVSyncFlag,klib.s,sdk,4,1.000,1,0,1,SetVSyncFlag,kernel syscall stub (number match),1
+0x00489620,RFU116,signature,0.93,exact,0x0014C0E0,RFU116,klib.s,sdk,4,1.000,0,0,0,RFU116,kernel syscall stub (number match),1
+0x00489630,print,signature,0.97,exact,0x0014C0F0,print,klib.s,sdk,4,1.000,1,0,1,print,kernel syscall stub (number match),1
+0x00489640,sceSifDmaStat,signature,0.93,exact,0x0014C100,sceSifDmaStat,klib.s,sdk,4,1.000,0,0,2,sceSifDmaStat,kernel syscall stub (number match),1
+0x00489650,isceSifDmaStat,signature,0.93,exact,0x0014C110,isceSifDmaStat,klib.s,sdk,4,1.000,0,0,0,isceSifDmaStat,kernel syscall stub (number match),1
+0x00489660,sceSifSetDma,signature,0.99,exact,0x0014C120,sceSifSetDma,klib.s,sdk,4,1.000,4,0,5,sceSifSetDma,kernel syscall stub (number match),1
+0x00489670,isceSifSetDma,signature,0.97,exact,0x0014C130,isceSifSetDma,klib.s,sdk,4,1.000,1,0,2,isceSifSetDma,kernel syscall stub (number match),1
+0x00489680,sceSifSetDChain,signature,0.97,exact,0x0014C140,sceSifSetDChain,klib.s,sdk,4,1.000,1,0,1,sceSifSetDChain,kernel syscall stub (number match),1
+0x00489690,isceSifSetDChain,signature,0.97,exact,0x0014C150,isceSifSetDChain,klib.s,sdk,4,1.000,1,0,1,isceSifSetDChain,kernel syscall stub (number match),1
+0x004896A0,sceSifSetReg,signature,0.99,exact,0x0014C160,sceSifSetReg,klib.s,sdk,4,1.000,8,0,7,sceSifSetReg,kernel syscall stub (number match),1
+0x004896B0,sceSifGetReg,signature,0.99,exact,0x0014C170,sceSifGetReg,klib.s,sdk,4,1.000,7,0,7,sceSifGetReg,kernel syscall stub (number match),1
+0x004896C0,ExecOSD,signature,0.93,exact,0x0014C180,ExecOSD,klib.s,sdk,4,1.000,0,0,0,ExecOSD,kernel syscall stub (number match),1
+0x004896D0,Deci2Call,signature,0.99,exact,0x0014C190,Deci2Call,klib.s,sdk,4,1.000,10,0,10,Deci2Call,kernel syscall stub (number match),1
+0x004896E0,PSMode,signature,0.93,exact,0x0014C1A0,PSMode,klib.s,sdk,4,1.000,0,0,0,PSMode,kernel syscall stub (number match),1
+0x004896F0,MachineType,signature,0.93,exact,0x0014C1B0,MachineType,klib.s,sdk,4,1.000,0,0,0,MachineType,kernel syscall stub (number match),1
+0x00489700,GetMemorySize,signature,0.93,exact,0x0014C1C0,GetMemorySize,klib.s,sdk,4,1.000,0,0,0,GetMemorySize,kernel syscall stub (number match),1
+0x00489710,VSync,sce_scanner,0.99,anchor,0x0014C1D0,VSync,glue.c,sdk,16,1.000,1,0,1,VSync,,1
+0x00489750,VSync2,sce_scanner,0.99,anchor,0x0014C210,VSync2,glue.c,sdk,24,1.000,2,0,1,VSync2,,1
+0x004897B0,write,sce_scanner,0.99,anchor,0x0014C270,write,glue.c,sdk,31,1.000,3,0,1,write,,1
+0x00489830,read,sce_scanner,0.99,anchor,0x0014C2F0,read,glue.c,sdk,29,1.000,3,0,1,read,,1
+0x004898D0,close,callgraph,0.92,callgraph,0x0014C390,close,glue.c,sdk,2,1.000,1,0,1,close,callers=1 sim=1.00,1
+0x004898D8,ioctl,short_window,0.85,short_window,0x0014C398,ioctl,glue.c,sdk,2,1.000,0,0,0,ioctl,unique in window 0x00489690-0x00489B04 of glue.c; layout offset confirmed,1
+0x004898E0,lseek,callgraph,0.88,callgraph,0x0014C3A0,lseek,glue.c,sdk,2,1.000,1,0,1,lseek,callers=1 sim=1.00,1
+0x004898E8,sbrk,sce_scanner,0.99,anchor,0x0014C3A8,sbrk,glue.c,sdk,42,1.000,3,0,1,sbrk,,1
+0x00489990,isatty,callgraph,0.92,callgraph,0x0014C450,isatty,glue.c,sdk,2,1.000,1,0,1,isatty,callers=1 sim=1.00,1
+0x00489998,fstat,callgraph,0.81,callgraph,0x0014C458,fstat,glue.c,sdk,5,1.000,1,0,1,fstat,callers=1 sim=1.00,1
+0x004899B0,getpid,callgraph,0.87,callgraph,0x0014C470,getpid,glue.c,sdk,2,1.000,1,0,1,getpid,callers=1 sim=1.00,1
+0x004899B8,kill,sce_scanner,0.99,anchor,0x0014C478,kill,glue.c,sdk,10,1.000,2,0,1,kill,,1
+0x00489A30,putnum,sce_scanner,0.99,anchor,0x0014C4F0,putnum,glue.c,sdk,21,1.000,1,0,0,putnum,,1
+0x00489A88,get_mem_info,short_window,0.80,short_window,0x0014C548,get_mem_info,glue.c,sdk,5,1.000,0,0,0,get_mem_info,unique in window 0x00489690-0x00489B04 of glue.c,1
+0x00489AA0,_sceSDC,sce_scanner,0.99,anchor,0x0014C560,_sceSDC,cache.c,sdk,41,1.000,2,0,1,_sceSDC,,1
+0x00489B48,SyncDCache,signature,0.94,exact,0x0014C608,SyncDCache,cache.c,sdk,29,1.000,2,0,10,SyncDCache,shared/ambiguous signature resolved by callee names,1
+0x00489BC0,iSyncDCache,short_window,0.95,short_window,0x0014C680,iSyncDCache,cache.c,sdk,5,1.000,1,0,0,iSyncDCache,unique in window 0x00489A20-0x00489D74 of cache.c; layout offset confirmed,1
+0x00489BD8,_sceIDC,sce_scanner,0.99,anchor,0x0014C698,_sceIDC,cache.c,sdk,41,1.000,2,0,1,_sceIDC,,1
+0x00489C80,InvalidDCache,signature,0.88,exact,0x0014C740,InvalidDCache,cache.c,sdk,29,1.000,1,0,0,InvalidDCache,shared/ambiguous signature resolved by callee names,1
+0x00489CF8,iInvalidDCache,short_window,0.89,short_window,0x0014C7B8,iInvalidDCache,cache.c,sdk,5,1.000,1,0,0,iInvalidDCache,unique in window 0x00489A20-0x00489D74 of cache.c,1
+0x00489D10,DisableIntc,signature,0.93,exact,0x0014C7D0,DisableIntc,intr.c,sdk,25,1.000,2,0,1,DisableIntc,shared/ambiguous signature resolved by callee names,1
+0x00489D78,EnableIntc,signature,0.87,exact,0x0014C838,EnableIntc,intr.c,sdk,25,1.000,1,0,1,EnableIntc,shared/ambiguous signature resolved by callee names,1
+0x00489DE0,DisableDmac,signature,0.97,exact,0x0014C8A0,DisableDmac,intr.c,sdk,25,1.000,3,0,2,DisableDmac,shared/ambiguous signature resolved by callee names,1
+0x00489E48,EnableDmac,signature,0.97,exact,0x0014C908,EnableDmac,intr.c,sdk,25,1.000,3,0,4,EnableDmac,shared/ambiguous signature resolved by callee names,1
+0x00489EB0,SetAlarm,sce_scanner,0.99,anchor,0x0014C970,SetAlarm,intr.c,sdk,27,1.000,1,0,0,SetAlarm,,1
+0x00489F20,ReleaseAlarm,signature,0.87,exact,0x0014C9E0,ReleaseAlarm,intr.c,sdk,25,1.000,1,0,0,ReleaseAlarm,shared/ambiguous signature resolved by callee names,1
+0x00489F88,iEnableIntc,signature,0.78,exact,0x0014CA48,iEnableIntc,intr.c,sdk,8,1.000,1,0,0,iEnableIntc,shared/ambiguous signature resolved by callee names,1
+0x00489FA8,iDisableIntc,signature,0.78,exact,0x0014CA68,iDisableIntc,intr.c,sdk,8,1.000,1,0,0,iDisableIntc,shared/ambiguous signature resolved by callee names,1
+0x00489FC8,iEnableDmac,signature,0.78,exact,0x0014CA88,iEnableDmac,intr.c,sdk,8,1.000,1,0,0,iEnableDmac,shared/ambiguous signature resolved by callee names,1
+0x00489FE8,iDisableDmac,signature,0.78,exact,0x0014CAA8,iDisableDmac,intr.c,sdk,8,1.000,1,0,0,iDisableDmac,shared/ambiguous signature resolved by callee names,1
+0x0048A008,iSetAlarm,signature,0.85,exact,0x0014CAC8,iSetAlarm,intr.c,sdk,8,1.000,1,0,0,iSetAlarm,,1
+0x0048A028,iReleaseAlarm,signature,0.78,exact,0x0014CAE8,iReleaseAlarm,intr.c,sdk,8,1.000,1,0,0,iReleaseAlarm,shared/ambiguous signature resolved by callee names,1
+0x0048A048,topThread,sce_scanner,0.99,anchor,0x00150748,topThread,thread.c,sdk,31,1.000,4,0,0,topThread,,1
+0x0048A0C8,InitThread,signature,0.99,exact,0x001507C8,InitThread,thread.c,sdk,50,1.000,6,0,0,InitThread,,1
+0x0048A190,iWakeupThread,sce_scanner,0.99,anchor,0x00150890,iWakeupThread,thread.c,sdk,30,0.933,3,0,2,iWakeupThread,,1
+0x0048A208,iRotateThreadReadyQueue,sce_scanner,0.99,anchor,0x00150908,iRotateThreadReadyQueue,thread.c,sdk,24,1.000,1,0,0,iRotateThreadReadyQueue,,1
+0x0048A268,QueueInit,signature,0.93,exact,0x0014CB08,QueueInit,tty.c,sdk,9,1.000,1,0,1,QueueInit,,1
+0x0048A290,QueuePeekWriteDone,sce_scanner,0.99,anchor,0x0014CB30,QueuePeekWriteDone,tty.c,sdk,15,1.000,1,0,1,QueuePeekWriteDone,,1
+0x0048A2D0,QueuePeekReadDone,sce_scanner,0.99,anchor,0x0014CB70,QueuePeekReadDone,tty.c,sdk,15,1.000,1,0,1,QueuePeekReadDone,,1
+0x0048A310,sceTtyHandler,sce_scanner,0.99,anchor,0x0014CBB0,sceTtyHandler,tty.c,sdk,101,1.000,7,0,0,sceTtyHandler,,1
+0x0048A4A8,sceTtyWrite,sce_scanner,0.99,anchor,0x0014CD48,sceTtyWrite,tty.c,sdk,84,1.000,3,0,1,sceTtyWrite,,1
+0x0048A5F8,sceTtyRead,sce_scanner,0.99,anchor,0x0014CE98,sceTtyRead,tty.c,sdk,52,1.000,2,0,1,sceTtyRead,,1
+0x0048A6C8,sceTtyInit,sce_scanner,0.99,anchor,0x0014CF68,sceTtyInit,tty.c,sdk,47,1.000,6,0,3,sceTtyInit,,1
+0x0048A788,kputchar,sce_scanner,0.99,anchor,0x0014D028,kputchar,kprintf.c,sdk,14,1.000,3,0,1,kputchar,,1
+0x0048A7C0,deci2Putchar,sce_scanner,0.99,anchor,0x0014D060,deci2Putchar,kprintf.c,sdk,44,0.977,2,0,0,deci2Putchar,,1
+0x0048A870,serialPutchar,sce_scanner,0.99,anchor,0x0014D110,serialPutchar,kprintf.c,sdk,13,1.000,3,0,0,serialPutchar,,1
+0x0048A8A8,ftoi,sce_scanner,0.99,anchor,0x0014D148,ftoi,kprintf.c,sdk,36,1.000,1,0,1,ftoi,,1
+0x0048A938,itof,sce_scanner,0.99,anchor,0x0014D1D8,itof,kprintf.c,sdk,50,1.000,3,0,0,itof,,1
+0x0048AA00,printfloat,sce_scanner,0.99,anchor,0x0014D2A0,printfloat,kprintf.c,sdk,90,1.000,15,0,1,printfloat,,1
+0x0048AB68,_printf,sce_scanner,0.99,anchor,0x0014D408,_printf,kprintf.c,sdk,370,1.000,8,0,2,_printf,,1
+0x0048B130,kprintf,sce_scanner,0.99,anchor,0x0014D9D0,kprintf,kprintf.c,sdk,14,1.000,9,0,6,kprintf,,1
+0x0048B168,scePrintf,sce_scanner,0.99,anchor,0x0014DA08,scePrintf,kprintf.c,sdk,24,1.000,1,0,2,scePrintf,,1
+0x0048B1C8,_set_sreg,signature,0.69,exact,0x0014DA68,_set_sreg,sifcmd.c,sdk,7,1.000,0,0,0,_set_sreg,,1
+0x0048B1E8,_change_addr,short_window,0.87,short_window,0x0014DA88,_change_addr,sifcmd.c,sdk,3,1.000,0,0,0,_change_addr,unique in window 0x0048B148-0x0048B9A8 of sifcmd.c; layout offset confirmed,1
+0x0048B1F8,sceSifGetSreg,signature,0.90,exact,0x0014DA98,sceSifGetSreg,sifcmd.c,sdk,6,1.000,1,0,3,sceSifGetSreg,,1
+0x0048B210,sceSifSetSreg,signature,0.66,exact,0x0014DAB0,sceSifSetSreg,sifcmd.c,sdk,7,1.000,0,0,0,sceSifSetSreg,,1
+0x0048B230,sceSifGetDataTable,short_window,0.85,short_window,0x0014DAD0,sceSifGetDataTable,sifcmd.c,sdk,3,1.000,0,0,0,sceSifGetDataTable,unique in window 0x0048B148-0x0048B9A8 of sifcmd.c; layout offset confirmed,1
+0x0048B240,sceSifInitCmd,sce_scanner,0.99,anchor,0x0014DAE0,sceSifInitCmd,sifcmd.c,sdk,167,0.982,12,0,1,sceSifInitCmd,,1
+0x0048B4E0,sceSifExitCmd,sce_scanner,0.99,anchor,0x0014DD80,sceSifExitCmd,sifcmd.c,sdk,13,1.000,3,0,1,sceSifExitCmd,,1
+0x0048B518,sceSifSetCmdBuffer,signature,0.81,exact,0x0014DDB8,sceSifSetCmdBuffer,sifcmd.c,sdk,6,1.000,0,0,1,sceSifSetCmdBuffer,,1
+0x0048B530,sceSifSetSysCmdBuffer,signature,0.62,exact,0x0014DDD0,sceSifSetSysCmdBuffer,sifcmd.c,sdk,6,1.000,0,0,0,sceSifSetSysCmdBuffer,,1
+0x0048B548,sceSifAddCmdHandler,sce_scanner,0.99,anchor,0x0014DDE8,sceSifAddCmdHandler,sifcmd.c,sdk,11,1.000,4,0,5,sceSifAddCmdHandler,,1
+0x0048B578,sceSifRemoveCmdHandler,sce_scanner,0.99,anchor,0x0014DE18,sceSifRemoveCmdHandler,sifcmd.c,sdk,10,1.000,0,0,0,sceSifRemoveCmdHandler,,1
+0x0048B5A0,_sceSifSendCmd,sce_scanner,0.99,anchor,0x0014DE40,_sceSifSendCmd,sifcmd.c,sdk,77,1.000,6,0,2,_sceSifSendCmd,,1
+0x0048B6D8,sceSifSendCmd,sce_scanner,0.99,anchor,0x0014DF78,sceSifSendCmd,sifcmd.c,sdk,15,1.000,11,0,11,sceSifSendCmd,,1
+0x0048B718,isceSifSendCmd,sce_scanner,0.99,anchor,0x0014DFB8,isceSifSendCmd,sifcmd.c,sdk,15,1.000,3,0,2,isceSifSendCmd,,1
+0x0048B758,_sceSifCmdIntrHdlr,sce_scanner,0.99,anchor,0x0014DFF8,_sceSifCmdIntrHdlr,sifcmd.c,sdk,72,1.000,1,0,0,_sceSifCmdIntrHdlr,,1
+0x0048B878,sceSifWriteBackDCache,sce_scanner,0.99,anchor,0x0014E118,sceSifWriteBackDCache,sifcmd.c,sdk,44,1.000,36,0,36,sceSifWriteBackDCache,,1
+0x0048B928,sceSifInitRpc,sce_scanner,0.99,anchor,0x0014E1C8,sceSifInitRpc,sifrpc.c,sdk,111,1.000,18,0,13,sceSifInitRpc,,1
+0x0048BAE8,sceSifExitRpc,signature,0.96,exact,0x0014E388,sceSifExitRpc,sifrpc.c,sdk,9,1.000,2,0,1,sceSifExitRpc,,1
+0x0048BB10,_sceRpcGetPacket,sce_scanner,0.99,anchor,0x0014E3B0,_sceRpcGetPacket,sifrpc.c,sdk,41,1.000,3,0,3,_sceRpcGetPacket,,1
+0x0048BBB8,_sceRpcFreePacket,signature,0.92,exact,0x0014E458,_sceRpcFreePacket,sifrpc.c,sdk,7,1.000,1,0,1,_sceRpcFreePacket,,1
+0x0048BBD8,_sceRpcGetFPacket,sce_scanner,0.99,anchor,0x0014E478,_sceRpcGetFPacket,sifrpc.c,sdk,12,1.000,4,0,4,_sceRpcGetFPacket,,1
+0x0048BC08,_sceRpcGetFPacket2,sce_scanner,0.99,anchor,0x0014E4A8,_sceRpcGetFPacket2,sifrpc.c,sdk,16,1.000,2,0,1,_sceRpcGetFPacket2,,1
+0x0048BC48,_request_end,sce_scanner,0.99,anchor,0x0014E4E8,_request_end,sifrpc.c,sdk,45,1.000,2,0,0,_request_end,,1
+0x0048BD00,_request_rdata,sce_scanner,0.99,anchor,0x0014E5A0,_request_rdata,sifrpc.c,sdk,24,1.000,2,0,0,_request_rdata,,1
+0x0048BD60,sceSifGetOtherData,sce_scanner,0.99,anchor,0x0014E600,sceSifGetOtherData,sifrpc.c,sdk,77,1.000,6,0,0,sceSifGetOtherData,,1
+0x0048BE98,_search_svdata,sce_scanner,0.99,anchor,0x0014E738,_search_svdata,sifrpc.c,sdk,19,1.000,1,0,1,_search_svdata,,1
+0x0048BEE8,_request_bind,sce_scanner,0.99,anchor,0x0014E788,_request_bind,sifrpc.c,sdk,44,1.000,3,0,0,_request_bind,,1
+0x0048BF98,sceSifBindRpc,sce_scanner,0.99,anchor,0x0014E838,sceSifBindRpc,sifrpc.c,sdk,71,1.000,17,0,11,sceSifBindRpc,,1
+0x0048C0B8,_request_call,sce_scanner,0.99,anchor,0x0014E958,_request_call,sifrpc.c,sdk,35,1.000,1,0,0,_request_call,,1
+0x0048C148,sceSifCallRpc,sce_scanner,0.99,anchor,0x0014E9E8,sceSifCallRpc,sifrpc.c,sdk,109,1.000,76,0,68,sceSifCallRpc,,1
+0x0048C300,sceSifCheckStatRpc,sce_scanner,0.99,anchor,0x0014EBA0,sceSifCheckStatRpc,sifrpc.c,sdk,15,1.000,7,0,7,sceSifCheckStatRpc,,1
+0x0048C340,sceSifSetRpcQueue,sce_scanner,0.99,anchor,0x0014EBE0,sceSifSetRpcQueue,sifrpc.c,sdk,36,1.000,0,0,0,sceSifSetRpcQueue,,1
+0x0048C3D0,sceSifRegisterRpc,sce_scanner,0.99,anchor,0x0014EC70,sceSifRegisterRpc,sifrpc.c,sdk,36,1.000,0,0,0,sceSifRegisterRpc,,1
+0x0048C460,sceSifRemoveRpc,sce_scanner,0.99,anchor,0x0014ED00,sceSifRemoveRpc,sifrpc.c,sdk,31,1.000,0,0,0,sceSifRemoveRpc,,1
+0x0048C4E0,sceSifRemoveRpcQueue,sce_scanner,0.99,anchor,0x0014ED80,sceSifRemoveRpcQueue,sifrpc.c,sdk,33,1.000,0,0,0,sceSifRemoveRpcQueue,,1
+0x0048C568,sceSifGetNextRequest,sce_scanner,0.99,anchor,0x0014EE08,sceSifGetNextRequest,sifrpc.c,sdk,19,1.000,1,0,1,sceSifGetNextRequest,,1
+0x0048C5B8,sceSifExecRequest,sce_scanner,0.99,anchor,0x0014EE58,sceSifExecRequest,sifrpc.c,sdk,119,0.992,7,0,1,sceSifExecRequest,,1
+0x0048C798,sceSifRpcLoop,sce_scanner,0.99,anchor,0x0014F038,sceSifRpcLoop,sifrpc.c,sdk,16,1.000,3,0,0,sceSifRpcLoop,,1
+0x0048C7D8,new_iob,sce_scanner,0.99,anchor,0x0014F078,new_iob,filestub.c,sdk,28,1.000,1,0,1,new_iob,,1
+0x0048C848,get_iob,sce_scanner,0.99,anchor,0x0014F0E8,get_iob,filestub.c,sdk,9,0.889,5,0,5,get_iob,,1
+0x0048C870,sceFsInit,sce_scanner,0.99,anchor,0x0014F110,sceFsInit,filestub.c,sdk,80,0.988,5,0,1,sceFsInit,,1
+0x0048C9B0,_fs_version,callgraph,0.95,callgraph,0x0014F250,_fs_version,filestub.c,sdk,11,1.000,2,0,1,_fs_version,callers=1 sim=1.00,1
+0x0048C9E0,sceFsReset,sce_scanner,0.99,anchor,0x0014F280,sceFsReset,filestub.c,sdk,13,1.000,1,0,0,sceFsReset,,1
+0x0048CA18,sceOpen,sce_scanner,0.99,anchor,0x0014F2B8,sceOpen,filestub.c,sdk,96,1.000,5,0,1,sceOpen,,1
+0x0048CB98,sceClose,sce_scanner,0.99,anchor,0x0014F438,sceClose,filestub.c,sdk,46,1.000,3,0,1,sceClose,,1
+0x0048CC50,sceLseek,sce_scanner,0.99,anchor,0x0014F4F0,sceLseek,filestub.c,sdk,56,1.000,2,0,0,sceLseek,,1
+0x0048CD30,fs_read_intr,sce_scanner,0.99,anchor,0x0014F5D0,fs_read_intr,filestub.c,sdk,36,1.000,0,0,0,fs_read_intr,,1
+0x0048CDC0,sceRead,sce_scanner,0.99,anchor,0x0014F660,sceRead,filestub.c,sdk,76,1.000,6,0,1,sceRead,,1
+0x0048CEF0,sceWrite,sce_scanner,0.99,anchor,0x0014F790,sceWrite,filestub.c,sdk,97,1.000,3,0,0,sceWrite,,1
+0x0048D078,sceIoctl,sce_scanner,0.99,anchor,0x0014F918,sceIoctl,filestub.c,sdk,38,1.000,2,0,0,sceIoctl,,1
+0x0048D110,_lf_bind,sce_scanner,0.99,anchor,0x0014FC10,_lf_bind,eeloadfile.c,sdk,64,1.000,7,0,5,_lf_bind,,1
+0x0048D210,_lf_version,callgraph,0.95,callgraph,0x0014FD10,_lf_version,eeloadfile.c,sdk,11,1.000,4,0,3,_lf_version,callers=3 sim=1.00,1
+0x0048D240,sceSifLoadFileReset,sce_scanner,0.99,anchor,0x0014FD40,sceSifLoadFileReset,eeloadfile.c,sdk,14,1.000,1,0,0,sceSifLoadFileReset,,1
+0x0048D278,sceSifLoadModuleBuffer,sce_scanner,0.99,anchor,0x0014FD78,sceSifLoadModuleBuffer,eeloadfile.c,sdk,123,1.000,4,0,0,sceSifLoadModuleBuffer,,1
+0x0048D468,_sceSifLoadModule,sce_scanner,0.99,anchor,0x0014FF68,_sceSifLoadModule,eeloadfile.c,sdk,128,0.992,6,0,1,_sceSifLoadModule,,1
+0x0048D668,sceSifLoadModule,signature,0.92,exact,0x00150168,sceSifLoadModule,eeloadfile.c,sdk,7,1.000,1,0,1,sceSifLoadModule,,1
+0x0048D688,_sceSifLoadElfPart,sce_scanner,0.99,anchor,0x00150188,_sceSifLoadElfPart,eeloadfile.c,sdk,65,0.985,7,0,2,_sceSifLoadElfPart,,1
+0x0048D790,sceSifLoadElfPart,signature,0.83,exact,0x00150290,sceSifLoadElfPart,eeloadfile.c,sdk,7,1.000,1,0,0,sceSifLoadElfPart,,1
+0x0048D7B0,sceSifLoadElf,sce_scanner,0.99,anchor,0x001502B0,sceSifLoadElf,eeloadfile.c,sdk,10,1.000,1,0,0,sceSifLoadElf,,1
+0x0048D7D8,sceSifGetIopAddr,sce_scanner,0.99,anchor,0x001502D8,sceSifGetIopAddr,eeloadfile.c,sdk,59,1.000,2,0,0,sceSifGetIopAddr,,1
+0x0048D8C8,sceSifSetIopAddr,sce_scanner,0.99,anchor,0x001503C8,sceSifSetIopAddr,eeloadfile.c,sdk,55,1.000,2,0,0,sceSifSetIopAddr,,1
+0x0048D9A8,sceSifResetIop,sce_scanner,0.99,anchor,0x001504A8,sceSifResetIop,iopreset.c,sdk,76,1.000,9,0,1,sceSifResetIop,,1
+0x0048DAD8,sceSifIsAliveIop,sce_scanner,0.99,anchor,0x001505D8,sceSifIsAliveIop,iopreset.c,sdk,10,1.000,1,0,0,sceSifIsAliveIop,,1
+0x0048DB00,sceSifSyncIop,sce_scanner,0.99,anchor,0x00150600,sceSifSyncIop,iopreset.c,sdk,18,1.000,3,0,1,sceSifSyncIop,,1
+0x0048DB48,sceSifRebootIop,sce_scanner,0.99,anchor,0x00150648,sceSifRebootIop,iopreset.c,sdk,64,1.000,3,0,1,sceSifRebootIop,,1
+0x0048DC48,sceDeci2Open,sce_scanner,0.99,anchor,0x00150968,sceDeci2Open,deci2.c,sdk,17,1.000,2,0,1,sceDeci2Open,,1
+0x0048DC90,sceDeci2Close,sce_scanner,0.99,anchor,0x001509B0,sceDeci2Close,deci2.c,sdk,9,1.000,1,0,0,sceDeci2Close,,1
+0x0048DCB8,sceDeci2ReqSend,sce_scanner,0.99,anchor,0x001509D8,sceDeci2ReqSend,deci2.c,sdk,12,1.000,2,0,1,sceDeci2ReqSend,,1
+0x0048DCE8,sceDeci2Poll,sce_scanner,0.99,anchor,0x00150A08,sceDeci2Poll,deci2.c,sdk,9,1.000,2,0,1,sceDeci2Poll,,1
+0x0048DD10,sceDeci2ExRecv,sce_scanner,0.99,anchor,0x00150A30,sceDeci2ExRecv,deci2.c,sdk,13,1.000,2,0,1,sceDeci2ExRecv,,1
+0x0048DD48,sceDeci2ExSend,sce_scanner,0.99,anchor,0x00150A68,sceDeci2ExSend,deci2.c,sdk,13,1.000,2,0,1,sceDeci2ExSend,,1
+0x0048DD80,sceDeci2ExReqSend,sce_scanner,0.99,anchor,0x00150AA0,sceDeci2ExReqSend,deci2.c,sdk,12,1.000,1,0,0,sceDeci2ExReqSend,,1
+0x0048DDB0,sceDeci2ExLock,sce_scanner,0.99,anchor,0x00150AD0,sceDeci2ExLock,deci2.c,sdk,9,1.000,1,0,0,sceDeci2ExLock,,1
+0x0048DDD8,sceDeci2ExUnLock,sce_scanner,0.99,anchor,0x00150AF8,sceDeci2ExUnLock,deci2.c,sdk,9,1.000,1,0,0,sceDeci2ExUnLock,,1
+0x0048DE00,kputs,sce_scanner,0.99,anchor,0x00150B20,kputs,deci2.c,sdk,9,1.000,3,0,1,kputs,,1
+0x0048DE28,__divdi3,sce_scanner,0.99,anchor,0x00150B48,__divdi3,../../src/gcc/libgcc2.c,libgcc,443,1.000,1,0,1,__divdi3,,1
+0x0048E518,__fixunsdfdi,sce_scanner,0.99,anchor,0x00151238,__fixunsdfdi,../../src/gcc/libgcc2.c,libgcc,59,1.000,12,0,1,__fixunsdfdi,,1
+0x0048E608,__moddi3,sce_scanner,0.99,anchor,0x001513C0,__moddi3,../../src/gcc/libgcc2.c,libgcc,410,1.000,1,0,1,__moddi3,,1
+0x0048EC70,memcmp,sce_scanner,0.99,anchor,0x00152004,memcmp,../../../../../../src/newlib/libc/machine/r5900/memcmp.S,libc,37,1.000,2,0,2,memcmp,,1

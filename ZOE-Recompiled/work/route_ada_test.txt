@@ -1,0 +1,1 @@
+start@2100.0,down@2101.0,down@2101.6,down@2102.2,circle@2103.2,circle@2104.2

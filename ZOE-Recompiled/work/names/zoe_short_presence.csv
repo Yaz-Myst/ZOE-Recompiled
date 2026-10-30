@@ -1,0 +1,302 @@
+ref_name,ref_addr,nwords,ref_srcfile,category,status,raw_hits_in_text,entry_like_hits,entry_like_addresses,source_window,layout_prediction,identical_body_refs,priority,note
+_exit,0x001000B0,2,/usr/local/sce/ee/lib/crt0.s,sdk,named,0,0,,0x001FFF88-0x00200138,,,,"_exit 0x002000B0 (callgraph, conf 0.95)"
+_root,0x001000B8,2,/usr/local/sce/ee/lib/crt0.s,sdk,named,0,0,,0x001FFF88-0x00200138,,,,"_root 0x002000B8 (short_window, conf 0.70)"
+PerSetRandom,0x00100990,3,src/periph.c,game,present_unnamed_unique,1,1,0x0035FD80,,,mtWegaMode,,
+CdGetErrCount,0x00101A00,3,src/file.c,game,absent,0,0,,,,,,
+McInit,0x00101A10,2,src/memcard.c,game,present_ambiguous,255,224,0x002009B8 0x00200A70 0x00200A78 0x00206510 0x00207C20 0x002084A8 0x0020BA68 0x0020F650 ...,,,,,
+mtPrintSize,0x001033C0,4,src/mtdebug.c,game,absent,0,0,,,,,,
+mtSetAscii,0x001033D0,2,src/mtdebug.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtIn,,
+mtPrintC,0x001033D8,2,src/mtdebug.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtIn,,
+mtPrintB,0x00103430,2,src/mtdebug.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtIn,,
+mtPrint,0x00103520,2,src/mtdebug.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtIn,,
+mtCosec,0x00104720,2,src/mtmath.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtInvertSqrt,,
+mtCot,0x00104728,2,src/mtmath.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtInvertSq,,
+mtFraction,0x00104730,2,src/mtmath.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtImageLocalToHost;mtImageLocalToLocal;mtInvertSqrt;mt,,
+mtInvertSqrt,0x00104738,2,src/mtmath.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtPr,,
+mtRoundOff,0x00104740,2,src/mtmath.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtIn,,
+mtRoundUp,0x00104748,2,src/mtmath.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtIn,,
+mtSec,0x00104750,2,src/mtmath.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtIn,,
+mtRandomSeed,0x001047B0,5,src/mtmath.c,game,absent,0,0,,,,,,
+mtGetRandomSeed,0x001047C8,3,src/mtmath.c,game,present_ambiguous,22,22,0x00208A68 0x00209928 0x0021DD20 0x0021DD30 0x00325DF0 0x0035FF40 0x0035FF50 0x0035FF60 ...,,,__errno;mtGetControl3D;mtGetFrameRate;mtGetRandomCnt;mtMemGetLeak,,
+mtGetRandomCnt,0x001047D8,3,src/mtmath.c,game,present_ambiguous,22,22,0x00208A68 0x00209928 0x0021DD20 0x0021DD30 0x00325DF0 0x0035FF40 0x0035FF50 0x0035FF60 ...,,,__errno;mtGetControl3D;mtGetFrameRate;mtGetRandomSeed;mtMemGetLeak,,
+mtGetMatrix,0x00104CA0,5,src/mtmatrix.c,game,absent,0,0,,,,,,
+mtRotateX,0x00105988,3,src/mtmatrix.c,game,absent,0,0,,,,mtRotateY;mtRotateZ,,
+mtRotateY,0x00105998,3,src/mtmatrix.c,game,absent,0,0,,,,mtRotateX;mtRotateZ,,
+mtRotateZ,0x001059A8,3,src/mtmatrix.c,game,absent,0,0,,,,mtRotateX;mtRotateY,,
+mtScaleV,0x001060F8,4,src/mtmatrix.c,game,absent,0,0,,,,,,
+mtAddVector,0x001066E8,5,src/mtmatrix.c,game,absent,0,0,,,,,,
+mtSubVector,0x00106700,5,src/mtmatrix.c,game,absent,0,0,,,,,,
+mtControl3D,0x001071C0,3,src/mtmodel.c,game,present_ambiguous,11,9,0x0035FD90 0x00360580 0x003A5B78 0x003A7030 0x00437328 0x00437B70 0x0043C8D8 0x0044F060 ...,,,mtSetTexture;mtSetTextureNum,,
+mtGetControl3D,0x001071D0,3,src/mtmodel.c,game,present_ambiguous,22,22,0x00208A68 0x00209928 0x0021DD20 0x0021DD30 0x00325DF0 0x0035FF40 0x0035FF50 0x0035FF60 ...,,,__errno;mtGetFrameRate;mtGetRandomCnt;mtGetRandomSeed;mtMemGetLeak,,
+mtSetConstantAttr,0x00108588,5,src/mtmodel.c,game,absent,0,0,,,,,,
+mtAction,0x00109BF8,3,src/mtmotion.c,game,absent,0,0,,,,mtCameraAction,,
+mtCameraAction,0x0010A668,3,src/mtmotion.c,game,absent,0,0,,,,mtAction,,
+VbOut,0x0010B9B0,5,src/mtsystem.c,game,absent,0,0,,,,,,
+mtWegaMode,0x0010B9C8,3,src/mtsystem.c,game,present_unnamed_unique,1,1,0x0035FD80,,,PerSetRandom,,
+mtChangeFrameRate,0x0010C220,5,src/mtsystem.c,game,absent,0,0,,,,,,
+mtGetFrameRate,0x0010C238,3,src/mtsystem.c,game,present_ambiguous,22,22,0x00208A68 0x00209928 0x0021DD20 0x0021DD30 0x00325DF0 0x0035FF40 0x0035FF50 0x0035FF60 ...,,,__errno;mtGetControl3D;mtGetRandomCnt;mtGetRandomSeed;mtMemGetLeak,,
+mtImageLocalToLocal,0x0010CD40,2,src/mttex.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtInvertSqrt;mtPrint;mtP,,
+mtImageLocalToHost,0x0010CD48,2,src/mttex.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToLocal;mtInvertSqrt;mtPrint;mt,,
+mtSetTexture,0x0010DD10,3,src/mttex.c,game,present_ambiguous,11,9,0x0035FD90 0x00360580 0x003A5B78 0x003A7030 0x00437328 0x00437B70 0x0043C8D8 0x0044F060 ...,,,mtControl3D;mtSetTextureNum,,
+mtSetTextureNum,0x0010DD20,3,src/mttex.c,game,present_ambiguous,11,9,0x0035FD90 0x00360580 0x003A5B78 0x003A7030 0x00437328 0x00437B70 0x0043C8D8 0x0044F060 ...,,,mtControl3D;mtSetTexture,,
+mtSetPaletteInfo,0x0010DD30,3,src/mttex.c,game,absent,0,0,,,,,,
+mtSetTextureFilter,0x0010DE08,5,src/mttex.c,game,absent,0,0,,,,,,
+TaskRecordEnd,0x0010EE00,3,src/task.c,game,present_ambiguous,20,20,0x00200B80 0x00200BA0 0x00200C48 0x00200C68 0x00200CA8 0x00208A28 0x00208A38 0x00209970 ...,,,,,
+TaskRecordClear,0x0010EE48,3,src/task.c,game,present_ambiguous,27,13,0x0020F410 0x0028CB08 0x0038A578 0x003B4BF0 0x0042E618 0x00438EB0 0x00439EF8 0x00445AB8 ...,,,_cleanup,,
+mtSetAspect,0x001107A8,5,src/mtcamera.c,game,absent,0,0,,,,,,
+mtSetCameraAngle,0x001107C0,2,src/mtcamera.c,game,absent,0,0,,,,,,
+mtSetScreenDist,0x00110F68,3,src/mtcamera.c,game,present_unnamed_unique,1,1,0x00384C40,,,,,
+mtCalcScreen,0x00111008,2,src/mtcamera.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtInvertSqrt;mtPr,,
+mtClip2D,0x00111010,2,src/mtcamera.c,game,present_ambiguous,478,85,0x002016D8 0x00201A60 0x00208730 0x0020D868 0x00210DE8 0x00213468 0x0021B940 0x0021C010 ...,,,__malloc_lock;__malloc_unlock;mtCalcScreen;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtInvertSqrt;,,
+mtMemGetLeak,0x00111590,3,src/mtmemory.c,game,present_ambiguous,22,22,0x00208A68 0x00209928 0x0021DD20 0x0021DD30 0x00325DF0 0x0035FF40 0x0035FF50 0x0035FF60 ...,,,__errno;mtGetControl3D;mtGetFrameRate;mtGetRandomCnt;mtGetRandomSeed,,
+sceGsGetGParam,0x001310E0,3,graphdev.c,sdk,named,0,0,,0x00467A40-0x00468BD8,,_localeconv_r;sceSifGetDataTable,,"sceGsGetGParam 0x00467BD0 (callgraph, conf 0.95)"
+sceGsPutDispEnv,0x00131158,47,graphdev.c,sdk,absent,0,0,,0x00467A40-0x00468BD8,,,priority,
+sceGsSetDefDBuff,0x00131218,166,graphdev.c,sdk,absent,0,0,,0x00467A40-0x00468BD8,,,priority,
+sceGsSetDefStoreImage,0x00131860,80,graphdev.c,sdk,absent,0,0,,0x00467A40-0x00468BD8,,,priority,
+sceGsExecStoreImage,0x001319A0,419,graphdev.c,sdk,absent,0,0,,0x00467A40-0x00468BD8,,,priority,
+sceDmaGetChan,0x00132690,10,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaGetChan 0x00468B90 (anchor, conf 0.97)"
+sceDmaReset,0x001326B8,55,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaReset 0x00468BB8 (anchor, conf 0.99)"
+sceDmaDebug,0x00132798,4,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaDebug 0x00468C98 (short_window, conf 0.86)"
+sceDmaPutEnv,0x001327A8,118,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaPutEnv 0x00468CA8 (anchor, conf 0.98)"
+sceDmaGetEnv,0x00132980,14,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaGetEnv 0x00468E80 (anchor, conf 0.97)"
+sceDmaPutStallAddr,0x001329B8,10,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaPutStallAddr 0x00468EB8 (anchor, conf 0.97)"
+sceDmaSend,0x001329E0,54,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaSend 0x00468EE0 (anchor, conf 0.97)"
+sceDmaSendN,0x00132AB8,57,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaSendN 0x00468FB8 (anchor, conf 0.97)"
+sceDmaSendI,0x00132BA0,57,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaSendI 0x004690A0 (anchor, conf 0.97)"
+sceDmaRecv,0x00132C88,49,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaRecv 0x00469188 (anchor, conf 0.97)"
+sceDmaRecvN,0x00132D50,59,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaRecvN 0x00469250 (anchor, conf 0.97)"
+sceDmaRecvI,0x00132E40,60,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaRecvI 0x00469340 (anchor, conf 0.97)"
+sceDmaSendM,0x00132F30,3,libdma.c,sdk,present_ambiguous,10,8,0x0045AA88 0x0045EB58 0x00469430 0x00469600 0x00471598 0x004715A8 0x004715B8 0x004715C8,0x00468AD8-0x00469658,0x00469430 bytes match (not applied),_pictureSpatialScalableExtension;_pictureTemporalScalableExtension;_sequenceScalableExtension;_unknown_extension;sceDmaL,priority,
+sceDmaSync,0x00132F40,49,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaSync 0x00469440 (anchor, conf 0.97)"
+sceDmaWatch,0x00133008,52,libdma.c,sdk,named,0,0,,0x00468AD8-0x00469658,,,priority,"sceDmaWatch 0x00469508 (anchor, conf 0.97)"
+sceDmaSyncN,0x001330D8,9,libdma.c,sdk,present_ambiguous,3,3,0x0044E268 0x004695D8 0x00469650,0x00468AD8-0x00469658,,sceDmaCallback,priority,
+sceDmaLastSyncTime,0x00133100,3,libdma.c,sdk,present_ambiguous,10,8,0x0045AA88 0x0045EB58 0x00469430 0x00469600 0x00471598 0x004715A8 0x004715B8 0x004715C8,0x00468AD8-0x00469658,,_pictureSpatialScalableExtension;_pictureTemporalScalableExtension;_sequenceScalableExtension;_unknown_extension;sceDmaS,priority,
+sceDmaPause,0x00133110,7,libdma.c,sdk,present_ambiguous,2,2,0x00469610 0x00469630,0x00468AD8-0x00469658,,sceDmaRestart,priority,
+sceDmaRestart,0x00133130,7,libdma.c,sdk,present_ambiguous,2,2,0x00469610 0x00469630,0x00468AD8-0x00469658,,sceDmaPause,priority,
+sceDmaCallback,0x00133150,9,libdma.c,sdk,present_ambiguous,3,3,0x0044E268 0x004695D8 0x00469650,0x00468AD8-0x00469658,,sceDmaSyncN,priority,
+sceDevVu0CheckBusy,0x00133178,5,devvu0.c,sdk,named,0,0,,0x004695F8-0x00469B04,,,,"sceDevVu0CheckBusy 0x00469678 (callgraph, conf 0.95)"
+sceDevVu0Reset,0x00133190,5,devvu0.c,sdk,named,0,0,,0x004695F8-0x00469B04,,,,"sceDevVu0Reset 0x00469690 (short_window, conf 0.90)"
+sceDevVu0GetDBit,0x001332B8,4,devvu0.c,sdk,named,0,0,,0x004695F8-0x00469B04,,,,"sceDevVu0GetDBit 0x004697B8 (short_window, conf 0.89)"
+sceDevVu0GetTBit,0x001332C8,4,devvu0.c,sdk,named,0,0,,0x004695F8-0x00469B04,,,,"sceDevVu0GetTBit 0x004697C8 (short_window, conf 0.89)"
+sceDevVu0Exec,0x00133318,4,devvu0.c,sdk,named,0,0,,0x004695F8-0x00469B04,,,,"sceDevVu0Exec 0x00469818 (callgraph, conf 0.86)"
+sceDevVu0GetTpc,0x00133328,3,devvu0.c,sdk,named,0,0,,0x004695F8-0x00469B04,,,,"sceDevVu0GetTpc 0x00469828 (callgraph, conf 0.86)"
+sceDevVu1Reset,0x00133640,5,devvu1.c,sdk,named,0,0,,0x00469A08-0x0046A060,,,,"sceDevVu1Reset 0x00469B40 (short_window, conf 0.90)"
+sceDevVu1GetDBit,0x00133768,4,devvu1.c,sdk,named,0,0,,0x00469A08-0x0046A060,,,,"sceDevVu1GetDBit 0x00469C68 (short_window, conf 0.89)"
+sceDevVu1GetTBit,0x00133778,4,devvu1.c,sdk,named,0,0,,0x00469A08-0x0046A060,,,,"sceDevVu1GetTBit 0x00469C78 (short_window, conf 0.89)"
+sceDevVu1Exec,0x001337D0,4,devvu1.c,sdk,named,0,0,,0x00469A08-0x0046A060,,,,"sceDevVu1Exec 0x00469CD0 (callgraph, conf 0.90)"
+sceDevVif0GetErr,0x00133BD0,4,devvif0.c,sdk,named,0,0,,0x00469F60-0x0046A38C,,,,"sceDevVif0GetErr 0x0046A0D0 (short_window, conf 0.89)"
+sceDevVif1GetErr,0x00133F00,4,devvif1.c,sdk,named,0,0,,0x0046A290-0x0046A778,,,,"sceDevVif1GetErr 0x0046A400 (short_window, conf 0.89)"
+sceDmaPkInit,0x001341F8,4,libdmapk.c,sdk,present_unnamed_unique,1,1,0x0046A6F8,,,sceVif0PkInit;sceVif1PkInit,priority,
+sceDmaPkTerminate,0x00134208,22,libdmapk.c,sdk,present_unnamed_unique,1,1,0x0046A718,,,sceVif0PkTerminate;sceVif1PkTerminate,priority,
+sceDmaPkNext,0x00134260,35,libdmapk.c,sdk,absent,0,0,,,,,priority,
+sceDmaPkRef,0x001342F0,38,libdmapk.c,sdk,absent,0,0,,,,sceVif0PkRef;sceVif1PkRef,priority,
+sceDmaPkEnd,0x00134388,29,libdmapk.c,sdk,absent,0,0,,,,,priority,
+sceVif0PkInit,0x00134400,4,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A6F8,0x0046A760-0x0046AA68,,sceDmaPkInit;sceVif1PkInit,priority,
+sceVif0PkTerminate,0x00134410,22,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A718,0x0046A760-0x0046AA68,,sceDmaPkTerminate;sceVif1PkTerminate,priority,
+sceVif0PkCnt,0x00134468,22,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A788,0x0046A760-0x0046AA68,,sceVif1PkCnt,priority,
+sceVif0PkRef,0x001344C0,38,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,sceDmaPkRef;sceVif1PkRef,priority,
+sceVif0PkEnd,0x00134558,22,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,sceVif1PkEnd,priority,
+sceVif0PkAlign,0x001345B0,31,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A920,0x0046A760-0x0046AA68,,sceVif1PkAlign,priority,
+sceVif0PkAddCode,0x00134630,5,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A9A0,0x0046A760-0x0046AA68,,sceVif1PkAddCode;sceVif1PkAddUpkData32,priority,
+sceVif1PkInit,0x00134648,4,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A6F8,0x0046A760-0x0046AA68,,sceDmaPkInit;sceVif0PkInit,priority,
+sceVif1PkTerminate,0x00134658,22,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A718,0x0046A760-0x0046AA68,,sceDmaPkTerminate;sceVif0PkTerminate,priority,
+sceVif1PkSize,0x001346B0,5,libvifpk.c,sdk,named,0,0,,0x0046A760-0x0046AA68,,,priority,"sceVif1PkSize 0x0046A770 (short_window, conf 0.85)"
+sceVif1PkCnt,0x001346C8,22,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A788,0x0046A760-0x0046AA68,,sceVif0PkCnt,priority,
+sceVif1PkRef,0x00134720,38,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,sceDmaPkRef;sceVif0PkRef,priority,
+sceVif1PkCall,0x001347B8,28,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,,priority,
+sceVif1PkRet,0x00134828,22,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,,priority,
+sceVif1PkEnd,0x00134880,22,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,sceVif0PkEnd,priority,
+sceVif1PkOpenDirectCode,0x001348D8,22,libvifpk.c,sdk,named,0,0,,0x0046A760-0x0046AA68,,,priority,"sceVif1PkOpenDirectCode 0x0046A7E0 (anchor, conf 0.98)"
+sceVif1PkCloseDirectCode,0x00134930,11,libvifpk.c,sdk,present_ambiguous,2,2,0x0046A838 0x0046AA40,0x0046A760-0x0046AA68,0x0046A838 bytes match (not applied),,priority,
+sceVif1PkOpenGifTag,0x00134960,6,libvifpk.c,sdk,named,0,0,,0x0046A760-0x0046AA68,,,priority,"sceVif1PkOpenGifTag 0x0046A868 (exact, conf 0.83)"
+sceVif1PkCloseGifTag,0x00134978,39,libvifpk.c,sdk,named,0,0,,0x0046A760-0x0046AA68,,,priority,"sceVif1PkCloseGifTag 0x0046A880 (anchor, conf 0.97)"
+sceVif1PkReserve,0x00134A18,5,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,,priority,
+sceVif1PkAlign,0x00134A30,31,libvifpk.c,sdk,named,0,0,,0x0046A760-0x0046AA68,,sceVif0PkAlign,priority,"sceVif1PkAlign 0x0046A920 (callgraph, conf 0.92)"
+sceVif1PkAddCode,0x00134AB0,5,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A9A0,0x0046A760-0x0046AA68,,sceVif0PkAddCode;sceVif1PkAddUpkData32,priority,
+sceVif1PkAddUpkData32,0x00134AC8,5,libvifpk.c,sdk,present_unnamed_unique,1,1,0x0046A9A0,0x0046A760-0x0046AA68,,sceVif0PkAddCode;sceVif1PkAddCode,priority,
+sceVif1PkAddUpkData64,0x00134AE0,10,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,,priority,
+sceVif1PkAddUpkData128,0x00134B08,20,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,,priority,
+sceVif1PkAddGsAD,0x00134B58,12,libvifpk.c,sdk,named,0,0,,0x0046A760-0x0046AA68,,,priority,"sceVif1PkAddGsAD 0x0046A9B8 (anchor, conf 0.97)"
+sceVif1PkAddUpkData128N,0x00134B88,29,libvifpk.c,sdk,absent,0,0,,0x0046A760-0x0046AA68,,,priority,
+sceMpegDelete,0x00135CC0,2,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,getpid;isatty,priority,"sceMpegDelete 0x00470128 (short_window, conf 0.90)"
+sceMpegSetDecodeMode,0x00135DE0,5,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegSetDecodeMode 0x00470248 (short_window, conf 0.90)"
+sceMpegIsEnd,0x00135E18,3,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegIsEnd 0x00470280 (short_window, conf 0.90)"
+sceMpegIsRefBuffEmpty,0x00135E28,4,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegIsRefBuffEmpty 0x00470290 (short_window, conf 0.89)"
+sceMpegSetDefaultPtsGap,0x00135F80,5,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegSetDefaultPtsGap 0x004703E8 (short_window, conf 0.90)"
+sceMpegResetDefaultPtsGap,0x00135F98,4,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegResetDefaultPtsGap 0x00470400 (short_window, conf 0.89)"
+sceMpegSetImageBuff,0x00135FA8,5,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegSetImageBuff 0x00470410 (short_window, conf 0.89)"
+sceMpegDispWidth,0x00135FC0,3,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegDispWidth 0x00470428 (short_window, conf 0.87)"
+sceMpegDispHeight,0x00135FD0,3,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,priority,"sceMpegDispHeight 0x00470438 (short_window, conf 0.87)"
+sceMpegDispCenterOffX,0x00135FE0,3,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,sceMpegDispCenterOffY,priority,"sceMpegDispCenterOffX 0x00470448 (short_window, conf 0.87)"
+sceMpegDispCenterOffY,0x00135FF0,3,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,sceMpegDispCenterOffX,priority,"sceMpegDispCenterOffY 0x00470458 (short_window, conf 0.87)"
+sceSetBrokenLink,0x00136000,4,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,,"sceSetBrokenLink 0x00470468 (short_window, conf 0.89)"
+sceSetPtm,0x00136010,5,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,,"sceSetPtm 0x00470478 (short_window, conf 0.90)"
+_alalcInit,0x00136028,5,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,,"_alalcInit 0x00470490 (callgraph, conf 0.92)"
+_alalcSetDynamic,0x00136040,3,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,,"_alalcSetDynamic 0x004704A8 (callgraph, conf 0.92)"
+_alalcFree,0x00136050,3,mpeg.c,sdk,named,0,0,,0x0046FDC0-0x00470A80,,,,"_alalcFree 0x004704B8 (callgraph, conf 0.92)"
+_initSeqAgain,0x00136598,4,init.c,sdk,named,0,0,,0x00470980-0x00471618,,,,"_initSeqAgain 0x00470A00 (callgraph, conf 0.95)"
+_ErrMessage,0x00136750,4,init.c,sdk,named,0,0,,0x00470980-0x00471618,,,,"_ErrMessage 0x00470BB8 (callgraph, conf 0.92)"
+_sequenceScalableExtension,0x00137130,3,init.c,sdk,present_ambiguous,10,8,0x0045AA88 0x0045EB58 0x00469430 0x00469600 0x00471598 0x004715A8 0x004715B8 0x004715C8,0x00470980-0x00471618,,_pictureSpatialScalableExtension;_pictureTemporalScalableExtension;_unknown_extension;sceDmaLastSyncTime;sceDmaSendM,,
+_unknown_extension,0x00137140,3,init.c,sdk,present_ambiguous,10,8,0x0045AA88 0x0045EB58 0x00469430 0x00469600 0x00471598 0x004715A8 0x004715B8 0x004715C8,0x00470980-0x00471618,,_pictureSpatialScalableExtension;_pictureTemporalScalableExtension;_sequenceScalableExtension;sceDmaLastSyncTime;sceDmaS,,
+_pictureSpatialScalableExtension,0x00137150,3,init.c,sdk,present_ambiguous,10,8,0x0045AA88 0x0045EB58 0x00469430 0x00469600 0x00471598 0x004715A8 0x004715B8 0x004715C8,0x00470980-0x00471618,,_pictureTemporalScalableExtension;_sequenceScalableExtension;_unknown_extension;sceDmaLastSyncTime;sceDmaSendM,,
+_pictureTemporalScalableExtension,0x00137160,3,init.c,sdk,present_ambiguous,10,8,0x0045AA88 0x0045EB58 0x00469430 0x00469600 0x00471598 0x004715A8 0x004715B8 0x004715C8,0x00470980-0x00471618,,_pictureSpatialScalableExtension;_sequenceScalableExtension;_unknown_extension;sceDmaLastSyncTime;sceDmaSendM,,
+_defStopDMA,0x00137170,3,defhandler.c,sdk,present_ambiguous,2,2,0x004715D8 0x004715E8,,,_defRestartDMA,,
+_defRestartDMA,0x00137180,3,defhandler.c,sdk,present_ambiguous,2,2,0x004715D8 0x004715E8,,,_defStopDMA,,
+_cleanup_r,0x00148708,3,../../../../../src/newlib/libc/stdio/findfp.c,libc,named,0,0,,0x00480280-0x004805D4,,,,"_cleanup_r 0x004804A8 (short_window, conf 0.96)"
+_cleanup,0x00148718,3,../../../../../src/newlib/libc/stdio/findfp.c,libc,named,0,0,,0x00480280-0x004805D4,,TaskRecordClear,,"_cleanup 0x004804B8 (short_window, conf 0.91)"
+_localeconv_r,0x00149140,3,../../../../../src/newlib/libc/locale/locale.c,libc,named,0,0,,0x00480DD8-0x00480FC4,,sceGsGetGParam;sceSifGetDataTable,,"_localeconv_r 0x00480EE0 (callgraph, conf 0.87)"
+__malloc_lock,0x00149EE8,2,../../../../../src/newlib/libc/stdlib/mlock.c,libc,named,0,0,,0x0047BB58-0x0047BC68,,__malloc_unlock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtInvertSqrt;mtPri,,"__malloc_lock 0x0047BBD8 (callgraph, conf 0.95)"
+__malloc_unlock,0x00149EF0,2,../../../../../src/newlib/libc/stdlib/mlock.c,libc,named,0,0,,0x0047BB58-0x0047BC68,,__malloc_lock;mtCalcScreen;mtClip2D;mtCosec;mtCot;mtFraction;mtImageLocalToHost;mtImageLocalToLocal;mtInvertSqrt;mtPrint,,"__malloc_unlock 0x0047BBE0 (callgraph, conf 0.95)"
+RFU000_FullReset,0x0014B940,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU000_FullReset 0x00488E80 (exact, conf 0.93)"
+ResetEE,0x0014B950,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ResetEE 0x00488E90 (exact, conf 0.93)"
+SetGsCrt,0x0014B960,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetGsCrt 0x00488EA0 (exact, conf 0.97)"
+RFU003,0x0014B970,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU003 0x00488EB0 (exact, conf 0.93)"
+Exit,0x0014B980,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"Exit 0x00488EC0 (exact, conf 0.99)"
+RFU005,0x0014B990,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU005 0x00488ED0 (exact, conf 0.93)"
+LoadExecPS2,0x0014B9A0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"LoadExecPS2 0x00488EE0 (exact, conf 0.93)"
+ExecPS2,0x0014B9B0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ExecPS2 0x00488EF0 (exact, conf 0.93)"
+RFU008,0x0014B9C0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU008 0x00488F00 (exact, conf 0.93)"
+RFU009,0x0014B9D0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU009 0x00488F10 (exact, conf 0.93)"
+AddSbusIntcHandler,0x0014B9E0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"AddSbusIntcHandler 0x00488F20 (exact, conf 0.93)"
+RemoveSbusIntcHandler,0x0014B9F0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RemoveSbusIntcHandler 0x00488F30 (exact, conf 0.93)"
+Interrupt2Iop,0x0014BA00,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"Interrupt2Iop 0x00488F40 (exact, conf 0.93)"
+SetVTLBRefillHandler,0x0014BA10,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetVTLBRefillHandler 0x00488F50 (exact, conf 0.93)"
+SetVCommonHandler,0x0014BA20,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetVCommonHandler 0x00488F60 (exact, conf 0.93)"
+SetVInterruptHandler,0x0014BA30,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetVInterruptHandler 0x00488F70 (exact, conf 0.93)"
+AddIntcHandler,0x0014BA40,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,AddIntcHandler2,,"AddIntcHandler 0x00488F80 (short_window, conf 0.90)"
+AddIntcHandler2,0x0014BA50,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,AddIntcHandler,,"AddIntcHandler2 0x00488F90 (short_window, conf 0.87)"
+RemoveIntcHandler,0x0014BA60,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RemoveIntcHandler 0x00488FA0 (exact, conf 0.97)"
+AddDmacHandler,0x0014BA70,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,AddDmacHandler2,,"AddDmacHandler 0x00488FB0 (callgraph, conf 0.95)"
+AddDmacHandler2,0x0014BA80,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,AddDmacHandler,,"AddDmacHandler2 0x00488FC0 (short_window, conf 0.87)"
+RemoveDmacHandler,0x0014BA90,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RemoveDmacHandler 0x00488FD0 (exact, conf 0.98)"
+_EnableIntc,0x0014BAA0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_EnableIntc 0x00488FE0 (exact, conf 0.97)"
+_DisableIntc,0x0014BAB0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_DisableIntc 0x00488FF0 (exact, conf 0.97)"
+_EnableDmac,0x0014BAC0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_EnableDmac 0x00489000 (exact, conf 0.97)"
+_DisableDmac,0x0014BAD0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_DisableDmac 0x00489010 (exact, conf 0.97)"
+_SetAlarm,0x0014BAE0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_SetAlarm 0x00489020 (exact, conf 0.97)"
+_ReleaseAlarm,0x0014BAF0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_ReleaseAlarm 0x00489030 (exact, conf 0.97)"
+_iEnableIntc,0x0014BB00,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iEnableIntc 0x00489040 (exact, conf 0.97)"
+_iDisableIntc,0x0014BB10,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iDisableIntc 0x00489050 (exact, conf 0.97)"
+_iEnableDmac,0x0014BB20,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iEnableDmac 0x00489060 (exact, conf 0.97)"
+_iDisableDmac,0x0014BB30,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iDisableDmac 0x00489070 (exact, conf 0.97)"
+_iSetAlarm,0x0014BB40,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iSetAlarm 0x00489080 (exact, conf 0.97)"
+_iReleaseAlarm,0x0014BB50,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iReleaseAlarm 0x00489090 (exact, conf 0.97)"
+CreateThread,0x0014BB60,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"CreateThread 0x004890A0 (exact, conf 0.98)"
+DeleteThread,0x0014BB70,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"DeleteThread 0x004890B0 (exact, conf 0.93)"
+StartThread,0x0014BB80,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"StartThread 0x004890C0 (exact, conf 0.98)"
+ExitThread,0x0014BB90,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ExitThread 0x004890D0 (exact, conf 0.97)"
+ExitDeleteThread,0x0014BBA0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ExitDeleteThread 0x004890E0 (exact, conf 0.93)"
+TerminateThread,0x0014BBB0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"TerminateThread 0x004890F0 (exact, conf 0.93)"
+iTerminateThread,0x0014BBC0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iTerminateThread 0x00489100 (exact, conf 0.93)"
+DisableDispatchThread,0x0014BBD0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"DisableDispatchThread 0x00489110 (exact, conf 0.93)"
+EnableDispatchThread,0x0014BBE0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"EnableDispatchThread 0x00489120 (exact, conf 0.93)"
+ChangeThreadPriority,0x0014BBF0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ChangeThreadPriority 0x00489130 (exact, conf 0.98)"
+iChangeThreadPriority,0x0014BC00,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iChangeThreadPriority 0x00489140 (exact, conf 0.93)"
+RotateThreadReadyQueue,0x0014BC10,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RotateThreadReadyQueue 0x00489150 (exact, conf 0.97)"
+_iRotateThreadReadyQueue,0x0014BC20,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iRotateThreadReadyQueue 0x00489160 (exact, conf 0.93)"
+ReleaseWaitThread,0x0014BC30,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ReleaseWaitThread 0x00489170 (exact, conf 0.93)"
+iReleaseWaitThread,0x0014BC40,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iReleaseWaitThread 0x00489180 (exact, conf 0.93)"
+GetThreadId,0x0014BC50,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GetThreadId 0x00489190 (exact, conf 0.99)"
+ReferThreadStatus,0x0014BC60,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ReferThreadStatus 0x004891A0 (exact, conf 0.99)"
+iReferThreadStatus,0x0014BC70,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iReferThreadStatus 0x004891B0 (exact, conf 0.93)"
+SleepThread,0x0014BC80,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SleepThread 0x004891C0 (exact, conf 0.97)"
+WakeupThread,0x0014BC90,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"WakeupThread 0x004891D0 (exact, conf 0.97)"
+_iWakeupThread,0x0014BCA0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"_iWakeupThread 0x004891E0 (exact, conf 0.97)"
+CancelWakeupThread,0x0014BCB0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"CancelWakeupThread 0x004891F0 (exact, conf 0.93)"
+iCancelWakeupThread,0x0014BCC0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iCancelWakeupThread 0x00489200 (exact, conf 0.93)"
+SuspendThread,0x0014BCD0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SuspendThread 0x00489210 (exact, conf 0.93)"
+iSuspendThread,0x0014BCE0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iSuspendThread 0x00489220 (exact, conf 0.93)"
+ResumeThread,0x0014BCF0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ResumeThread 0x00489230 (exact, conf 0.93)"
+iResumeThread,0x0014BD00,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iResumeThread 0x00489240 (exact, conf 0.93)"
+JoinThread,0x0014BD10,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"JoinThread 0x00489250 (exact, conf 0.93)"
+RFU060,0x0014BD20,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU060 0x00489260 (exact, conf 0.93)"
+RFU061,0x0014BD30,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU061 0x00489270 (exact, conf 0.93)"
+EndOfHeap,0x0014BD40,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"EndOfHeap 0x00489280 (exact, conf 0.97)"
+RFU063,0x0014BD50,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU063 0x00489290 (exact, conf 0.93)"
+CreateSema,0x0014BD60,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"CreateSema 0x004892A0 (exact, conf 0.99)"
+DeleteSema,0x0014BD70,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"DeleteSema 0x004892B0 (exact, conf 0.99)"
+SignalSema,0x0014BD80,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SignalSema 0x004892C0 (exact, conf 0.99)"
+iSignalSema,0x0014BD90,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iSignalSema 0x004892D0 (exact, conf 0.99)"
+WaitSema,0x0014BDA0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"WaitSema 0x004892E0 (exact, conf 0.99)"
+PollSema,0x0014BDB0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"PollSema 0x004892F0 (exact, conf 0.99)"
+iPollSema,0x0014BDC0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iPollSema 0x00489300 (exact, conf 0.93)"
+ReferSemaStatus,0x0014BDD0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ReferSemaStatus 0x00489310 (exact, conf 0.93)"
+iReferSemaStatus,0x0014BDE0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iReferSemaStatus 0x00489320 (exact, conf 0.93)"
+RFU073,0x0014BDF0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU073 0x00489330 (exact, conf 0.93)"
+SetOsdConfigParam,0x0014BE00,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetOsdConfigParam 0x00489340 (exact, conf 0.93)"
+GetOsdConfigParam,0x0014BE10,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GetOsdConfigParam 0x00489350 (exact, conf 0.99)"
+GetGsHParam,0x0014BE20,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GetGsHParam 0x00489360 (exact, conf 0.93)"
+GetGsVParam,0x0014BE30,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GetGsVParam 0x00489370 (exact, conf 0.93)"
+SetGsHParam,0x0014BE40,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetGsHParam 0x00489380 (exact, conf 0.93)"
+SetGsVParam,0x0014BE50,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetGsVParam 0x00489390 (exact, conf 0.93)"
+RFU080_CreateEventFlag,0x0014BE60,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU080_CreateEventFlag 0x004893A0 (exact, conf 0.93)"
+RFU081_DeleteEventFlag,0x0014BE70,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU081_DeleteEventFlag 0x004893B0 (exact, conf 0.93)"
+RFU082_SetEventFlag,0x0014BE80,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU082_SetEventFlag 0x004893C0 (exact, conf 0.93)"
+RFU083_iSetEventFlag,0x0014BE90,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU083_iSetEventFlag 0x004893D0 (exact, conf 0.93)"
+RFU084_ClearEventFlag,0x0014BEA0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU084_ClearEventFlag 0x004893E0 (exact, conf 0.93)"
+RFU085_iClearEventFlag,0x0014BEB0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU085_iClearEventFlag 0x004893F0 (exact, conf 0.93)"
+RFU086_WaitEvnetFlag,0x0014BEC0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU086_WaitEvnetFlag 0x00489400 (exact, conf 0.93)"
+RFU087_PollEvnetFlag,0x0014BED0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU087_PollEvnetFlag 0x00489410 (exact, conf 0.93)"
+RFU088_iPollEvnetFlag,0x0014BEE0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU088_iPollEvnetFlag 0x00489420 (exact, conf 0.93)"
+RFU089_ReferEventFlagStatus,0x0014BEF0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU089_ReferEventFlagStatus 0x00489430 (exact, conf 0.93)"
+RFU090_iReferEventFlagStatus,0x0014BF00,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU090_iReferEventFlagStatus 0x00489440 (exact, conf 0.93)"
+RFU091,0x0014BF10,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU091 0x00489450 (exact, conf 0.93)"
+EnableIntcHandler,0x0014BF20,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"EnableIntcHandler 0x00489460 (exact, conf 0.93)"
+iEnableIntcHandler,0x0014BF30,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iEnableIntcHandler 0x00489470 (exact, conf 0.93)"
+DisableIntcHandler,0x0014BF40,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"DisableIntcHandler 0x00489480 (exact, conf 0.93)"
+iDisableIntcHandler,0x0014BF50,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iDisableIntcHandler 0x00489490 (exact, conf 0.93)"
+EnableDmacHandler,0x0014BF60,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"EnableDmacHandler 0x004894A0 (exact, conf 0.93)"
+iEnableDmacHandler,0x0014BF70,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iEnableDmacHandler 0x004894B0 (exact, conf 0.93)"
+DisableDmacHandler,0x0014BF80,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"DisableDmacHandler 0x004894C0 (exact, conf 0.93)"
+iDisableDmacHandler,0x0014BF90,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iDisableDmacHandler 0x004894D0 (exact, conf 0.93)"
+KSeg0,0x0014BFA0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"KSeg0 0x004894E0 (exact, conf 0.93)"
+EnableCache,0x0014BFB0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"EnableCache 0x004894F0 (exact, conf 0.93)"
+DisableCache,0x0014BFC0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"DisableCache 0x00489500 (exact, conf 0.93)"
+GetCop0,0x0014BFD0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GetCop0 0x00489510 (exact, conf 0.93)"
+FlushCache,0x0014BFE0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"FlushCache 0x00489520 (exact, conf 0.99)"
+CpuConfig,0x0014BFF0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"CpuConfig 0x00489530 (exact, conf 0.93)"
+iGetCop0,0x0014C000,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iGetCop0 0x00489540 (exact, conf 0.93)"
+iFlushCache,0x0014C010,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iFlushCache 0x00489550 (exact, conf 0.93)"
+iCpuConfig,0x0014C020,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iCpuConfig 0x00489560 (exact, conf 0.93)"
+sceSifStopDma,0x0014C030,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"sceSifStopDma 0x00489570 (exact, conf 0.97)"
+SetCPUTimerHandler,0x0014C040,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetCPUTimerHandler 0x00489580 (exact, conf 0.93)"
+SetCPUTimer,0x0014C050,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetCPUTimer 0x00489590 (exact, conf 0.93)"
+SetOsdConfigParam2,0x0014C060,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetOsdConfigParam2 0x004895A0 (exact, conf 0.93)"
+GetOsdConfigParam2,0x0014C070,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GetOsdConfigParam2 0x004895B0 (exact, conf 0.99)"
+GsGetIMR,0x0014C080,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GsGetIMR 0x004895C0 (exact, conf 0.93)"
+iGsGetIMR,0x0014C090,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iGsGetIMR 0x004895D0 (exact, conf 0.93)"
+GsPutIMR,0x0014C0A0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GsPutIMR 0x004895E0 (exact, conf 0.97)"
+iGsPutIMR,0x0014C0B0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"iGsPutIMR 0x004895F0 (exact, conf 0.93)"
+SetPgifHandler,0x0014C0C0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetPgifHandler 0x00489600 (exact, conf 0.93)"
+SetVSyncFlag,0x0014C0D0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"SetVSyncFlag 0x00489610 (exact, conf 0.97)"
+RFU116,0x0014C0E0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"RFU116 0x00489620 (exact, conf 0.93)"
+print,0x0014C0F0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"print 0x00489630 (exact, conf 0.97)"
+sceSifDmaStat,0x0014C100,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"sceSifDmaStat 0x00489640 (exact, conf 0.93)"
+isceSifDmaStat,0x0014C110,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"isceSifDmaStat 0x00489650 (exact, conf 0.93)"
+sceSifSetDma,0x0014C120,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"sceSifSetDma 0x00489660 (exact, conf 0.99)"
+isceSifSetDma,0x0014C130,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"isceSifSetDma 0x00489670 (exact, conf 0.97)"
+sceSifSetDChain,0x0014C140,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"sceSifSetDChain 0x00489680 (exact, conf 0.97)"
+isceSifSetDChain,0x0014C150,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"isceSifSetDChain 0x00489690 (exact, conf 0.97)"
+sceSifSetReg,0x0014C160,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"sceSifSetReg 0x004896A0 (exact, conf 0.99)"
+sceSifGetReg,0x0014C170,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"sceSifGetReg 0x004896B0 (exact, conf 0.99)"
+ExecOSD,0x0014C180,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"ExecOSD 0x004896C0 (exact, conf 0.93)"
+Deci2Call,0x0014C190,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"Deci2Call 0x004896D0 (exact, conf 0.99)"
+PSMode,0x0014C1A0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"PSMode 0x004896E0 (exact, conf 0.93)"
+MachineType,0x0014C1B0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"MachineType 0x004896F0 (exact, conf 0.93)"
+GetMemorySize,0x0014C1C0,4,klib.s,sdk,named,0,0,,0x00488E00-0x00489790,,,,"GetMemorySize 0x00489700 (exact, conf 0.93)"
+close,0x0014C390,2,glue.c,sdk,named,0,0,,0x00489690-0x00489B04,,ioctl;lseek,,"close 0x004898D0 (callgraph, conf 0.92)"
+ioctl,0x0014C398,2,glue.c,sdk,named,0,0,,0x00489690-0x00489B04,,close;lseek,,"ioctl 0x004898D8 (short_window, conf 0.85)"
+lseek,0x0014C3A0,2,glue.c,sdk,named,0,0,,0x00489690-0x00489B04,,close;ioctl,,"lseek 0x004898E0 (callgraph, conf 0.88)"
+isatty,0x0014C450,2,glue.c,sdk,named,0,0,,0x00489690-0x00489B04,,getpid;sceMpegDelete,,"isatty 0x00489990 (callgraph, conf 0.92)"
+fstat,0x0014C458,5,glue.c,sdk,named,0,0,,0x00489690-0x00489B04,,,,"fstat 0x00489998 (callgraph, conf 0.81)"
+getpid,0x0014C470,2,glue.c,sdk,named,0,0,,0x00489690-0x00489B04,,isatty;sceMpegDelete,,"getpid 0x004899B0 (callgraph, conf 0.87)"
+get_mem_info,0x0014C548,5,glue.c,sdk,named,0,0,,0x00489690-0x00489B04,,,,"get_mem_info 0x00489A88 (short_window, conf 0.80)"
+iSyncDCache,0x0014C680,5,cache.c,sdk,named,0,0,,0x00489A20-0x00489D74,,iInvalidDCache,,"iSyncDCache 0x00489BC0 (short_window, conf 0.95)"
+iInvalidDCache,0x0014C7B8,5,cache.c,sdk,named,0,0,,0x00489A20-0x00489D74,,iSyncDCache,,"iInvalidDCache 0x00489CF8 (short_window, conf 0.89)"
+_change_addr,0x0014DA88,3,sifcmd.c,sdk,named,0,0,,0x0048B148-0x0048B9A8,,,,"_change_addr 0x0048B1E8 (short_window, conf 0.87)"
+sceSifGetDataTable,0x0014DAD0,3,sifcmd.c,sdk,named,0,0,,0x0048B148-0x0048B9A8,,_localeconv_r;sceGsGetGParam,priority,"sceSifGetDataTable 0x0048B230 (short_window, conf 0.85)"
+sceSifInitIopHeap,0x0014F9B0,34,iopheap.c,sdk,absent,0,0,,,,,priority,
+sceSifAllocIopHeap,0x0014FA38,28,iopheap.c,sdk,absent,0,0,,,,,priority,
+sceSifFreeIopHeap,0x0014FAA8,30,iopheap.c,sdk,absent,0,0,,,,,priority,
+sceSifLoadIopHeap,0x0014FB20,60,iopheap.c,sdk,absent,0,0,,,,,priority,
+__errno,0x00151FF8,3,../../../../../src/newlib/libc/errno/errno.c,libc,named,0,0,,0x0047AEE8-0x0047AFF4,,mtGetControl3D;mtGetFrameRate;mtGetRandomCnt;mtGetRandomSeed;mtMemGetLeak,,"__errno 0x0047AF68 (callgraph, conf 0.92)"
