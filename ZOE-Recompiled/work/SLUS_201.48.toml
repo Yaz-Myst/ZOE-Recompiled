@@ -7,9 +7,11 @@
 # - no SCE symbol database is used by this Ghidra script
 
 [general]
-input = "A:/PS2Recomp/ZOE-Recompiled/game/SLUS_201.48"
-output = "A:/PS2Recomp/ZOE-Recompiled/work/output"
-ghidra_output = "A:\\PS2Recomp\\ZOE-Recompiled\\work\\SLUS_201.48_map.csv"
+# Rewritten by work/regen.sh from zoe.cfg; these defaults are relative to the repository root
+# and contain no machine-specific drive letters.
+input = "ZOE-Recompiled/game/SLUS_201.48"
+output = "ZOE-Recompiled/work/output"
+ghidra_output = "ZOE-Recompiled/work/SLUS_201.48_map.csv"
 single_file_output = false
 patch_syscalls = false
 patch_cop0 = true

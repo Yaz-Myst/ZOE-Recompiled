@@ -4,15 +4,17 @@
 # usage: regen.sh [-g GAME] [MAIN] [OVERLAY ...]   (default game: zoe; default: main + all overlays)
 # Per-game paths and the overlay list come from games/<game>.cfg.
 set -e
+PYTHON=${PYTHON:-$(command -v python3 || command -v python)}
+[ -n "$PYTHON" ] || { echo "python3 not found"; exit 1; }
 . "$(dirname "${BASH_SOURCE[0]}")/../games/lib.sh"
 game_pick_arg "$@"; shift $GAME_SHIFT
 game_load "$GAME"
 W=$G_WORK
 RECOMP=$G_RECOMP
-SCRATCH=$W/regen_tmp
+SCRATCH=${PS2X_SCRATCH_DIR:-$W/regen_tmp}
 
 sync_dir() {  # $1 = new dir, $2 = live dir (python: fast byte compare, copy only changed)
-  python - "$1" "$2" <<'PY'
+  "$PYTHON" - "$1" "$2" <<'PY'
 import os,sys,shutil
 new,live=sys.argv[1:3]; changed=0
 for name in os.listdir(new):
@@ -35,15 +37,23 @@ PY
 
 regen() {  # $1 = toml, $2 = live output dir
   local tmp=$SCRATCH/$(basename "$2")
+  local tmp_native=$(_m "$tmp")
   rm -rf "$tmp"; mkdir -p "$tmp"
-  python - "$1" "$tmp" "$SCRATCH/cfg.toml" <<'PY'
+  # Rewrite the three machine-specific paths in the shipped TOML from the game cfg, so the
+  # repository carries no developer's drive letters and the same file works on Windows and Linux.
+  "$PYTHON" - "$1" "$tmp_native" "$SCRATCH/cfg.toml" "$G_ELF_M" "$G_GHIDRA_MAP_M" <<'PY'
 import sys,re
-src,out,dst=sys.argv[1:4]
+src,out,dst,inp,ghidra=sys.argv[1:6]
 s=open(src).read()
-s=re.sub(r'(?m)^output = .*$', 'output = "%s"' % out.replace('\\','/'), s, count=1)
+for key,value in (("input", inp), ("output", out), ("ghidra_output", ghidra)):
+    value=value.replace('\\','/')
+    s,n=re.subn(r'(?m)^%s = .*$' % key, '%s = "%s"' % (key, value), s, count=1)
+    if not n:
+        s += '\n%s = "%s"\n' % (key, value)
 open(dst,'w').write(s)
 PY
-  "$RECOMP" "$SCRATCH/cfg.toml" > "$tmp.log" 2>&1 || { echo "recomp failed: $1"; tail -5 "$tmp.log"; exit 1; }
+  [ -x "$RECOMP" ] || { echo "recompiler not found or not executable: $RECOMP"; exit 1; }
+  "$RECOMP" "$SCRATCH/cfg.toml" > "$tmp.log" 2>&1 || { echo "recomp failed: $1"; tail -20 "$tmp.log"; exit 1; }
   mkdir -p "$2"
   sync_dir "$tmp" "$2"
 }
