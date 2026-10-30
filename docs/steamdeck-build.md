@@ -187,11 +187,13 @@ chmod +x dist/ZOE-Recompiled-SteamDeck-x86_64.AppImage
 
 ## 8. Known issues
 
-- **Physical Steam Deck validation is still pending.** The Linux executable boots, extracts,
-  renders, plays audio and reaches the game under Mesa llvmpipe, but FPS/frame pacing on the
-  Deck's AMD GPU and the Gaming Mode/Steam Input path must be measured on hardware.
-- Software rendering reached ~31 FPS in the intro and ~55 presented FPS in a menu scene; do not
+- **Physical Steam Deck validation is still pending.** The Linux executable and the AppImage
+  boot, extract, render, play audio and reach the game under Mesa llvmpipe, but FPS/frame pacing
+  on the Deck's AMD GPU and the Gaming Mode/Steam Input path must be measured on hardware.
+- Software rendering reached ~31 FPS in the intro and up to ~60 vblank/s in a menu scene; do not
   treat those as Deck numbers. 60 FPS is the target, not yet a verified Deck result.
+- The AppImage was built and launched in a separate process under Xvfb with a fresh HOME, but
+  not yet from Steam Gaming Mode or on a clean SteamOS machine.
 - The in-game disc picker, boot screen, settings, memory cards and save states are implemented;
   movie playback/audio sync, two-controller Versus mode and long-session stability still need
   hardware testing.

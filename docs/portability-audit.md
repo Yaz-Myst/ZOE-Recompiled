@@ -69,3 +69,10 @@ the Linux build/runtime described in `docs/steamdeck-build.md`.
   `~/.local/share/PS2Recomp/SLUS-20148/`; a second run loaded them and skipped extraction.
 - Disc picker: selected a symlinked ISO through the in-game browser and reached the game.
 - Stub review: 329 stand-ins, 329 reviewed, 0 problems.
+- Movie path: FFmpeg's MPEG-2 decoder opened and `[display] movie decoder ... playing` appeared;
+  no FFmpeg link/API errors under the distribution's FFmpeg 4.4. The software rasteriser's
+  frame pacing during the movie is not representative of the Deck GPU.
+- AppImage: `dist/ZOE-Recompiled-SteamDeck-x86_64.AppImage` (82,602,488 bytes) was built with
+  linuxdeploy/appimagetool and run from a fresh HOME with `APPIMAGE_EXTRACT_AND_RUN=1` under
+  Xvfb. It extracted `SLUS_201.48` + modules, initialized OpenGL/audio, loaded the ELF and
+  displayed the Konami logo. This is an independent-process test, not a physical Deck test.
