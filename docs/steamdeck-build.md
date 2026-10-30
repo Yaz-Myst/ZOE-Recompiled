@@ -172,7 +172,36 @@ chmod +x dist/ZOE-Recompiled-SteamDeck-x86_64.AppImage
 ./dist/ZOE-Recompiled-SteamDeck-x86_64.AppImage
 ```
 
-## 7. Troubleshooting
+## 7. Collecting Steam Deck test evidence
+
+Physical Deck testing is the remaining milestone. From Desktop Mode's Konsole (or an SSH
+session), run the artifact with logging so failures can be diagnosed:
+
+```bash
+chmod +x ZOE-Recompiled-SteamDeck-x86_64.AppImage
+cd ~/Downloads
+./ZOE-Recompiled-SteamDeck-x86_64.AppImage > ~/zoe-run.log 2>&1
+```
+
+Useful switches (set before launching):
+
+```bash
+# per-frame timeline for FPS/frame-pacing analysis
+PS2X_FRAME_LOG="$HOME/zoe-frames.csv" ./ZOE-Recompiled-SteamDeck-x86_64.AppImage > ~/zoe-run.log 2>&1
+
+# graphics diagnostic capture (also F9 in game) into a writable folder
+PS2X_DIAG_DIR="$HOME/zoe-diag" ./ZOE-Recompiled-SteamDeck-x86_64.AppImage > ~/zoe-run.log 2>&1
+
+# force the CPU GS renderer for a correctness comparison
+PS2X_GPU=0 ./ZOE-Recompiled-SteamDeck-x86_64.AppImage > ~/zoe-cpu.log 2>&1
+```
+
+For a Gaming Mode run, add the AppImage as a non-Steam game, launch it once, then use
+**Steam → Settings → System → Developer → Open logs** or `journalctl --user -b` for the
+Steam-side log. Include `~/zoe-run.log`, the model (LCD/OLED), SteamOS version, and whether
+Steam Input was on.
+
+## 8. Troubleshooting
 
 | Symptom | Fix |
 |---|---|
@@ -185,7 +214,7 @@ chmod +x dist/ZOE-Recompiled-SteamDeck-x86_64.AppImage
 | `ps2EntryRunner` link runs out of memory | Lower `--jobs` (e.g. 3–4) and close other apps. Generated code is compiled in unity batches. |
 | Full rebuild after editing a runtime header | Expected: generated files include the runtime headers. Runtime-only edits are quick; header edits rebuild the game. |
 
-## 8. Known issues
+## 9. Known issues
 
 - **Physical Steam Deck validation is still pending.** The Linux executable and the AppImage
   boot, extract, render, play audio and reach the game under Mesa llvmpipe, but FPS/frame pacing
@@ -201,7 +230,7 @@ chmod +x dist/ZOE-Recompiled-SteamDeck-x86_64.AppImage
   should be run before upstreaming.
 - `steamdeck-linux-port` is intentionally separate from `main` until hardware testing is done.
 
-## 9. Licensing and attribution
+## 10. Licensing and attribution
 
 ZOE-Recompiled and PS2Recomp are GPL-3.0. The SPU2 core is PCSX2's GPL-3.0+ code; see
 `PS2Recomp/ps2xIOP/src/emulator/spu2/README.md`. *Zone of the Enders* is © Konami. This
