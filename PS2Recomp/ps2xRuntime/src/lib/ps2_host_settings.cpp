@@ -114,15 +114,17 @@ namespace
 #if defined(_WIN32)
         if (const char *appData = std::getenv("LOCALAPPDATA"); appData && *appData)
             return std::filesystem::path(appData) / "PS2Recomp";
+        // Keep the old Windows fallback exactly as it was.
+        return std::filesystem::current_path();
 #else
         if (const char *dataHome = std::getenv("XDG_DATA_HOME"); dataHome && *dataHome)
             return std::filesystem::path(dataHome) / "PS2Recomp";
         if (const char *home = std::getenv("HOME"); home && *home)
             return std::filesystem::path(home) / ".local" / "share" / "PS2Recomp";
-#endif
         // Last resort: the current directory (portable/USB runs). Never assume the executable's
         // own folder is writable: AppImage mounts it read-only.
         return std::filesystem::current_path() / "PS2Recomp";
+#endif
     }
 }
 
