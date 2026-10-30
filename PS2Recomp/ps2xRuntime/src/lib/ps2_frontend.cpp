@@ -237,6 +237,7 @@ namespace
     // conversion. Empty = fine; otherwise the reason for the player.
     std::string narrowPathProblem(const std::filesystem::path &path)
     {
+#if defined(_WIN32)
         try
         {
             if (std::filesystem::path(path.string()) == path)
@@ -247,6 +248,12 @@ namespace
         }
         return "The game cannot open a disc image whose folder or file name has these characters yet. Move the image to "
                "a folder with a plain name (for example C:\\Games) and pick it again.";
+#else
+        // Linux paths are bytes and are passed to the runtime unchanged, including spaces and
+        // non-ASCII characters. Nothing to reject here.
+        (void)path;
+        return {};
+#endif
     }
 
     // The boot file SYSTEM.CNF names ("BOOT2 = cdrom0:\SLUS_201.48;1" -> "SLUS_201.48"); empty if none.
@@ -813,7 +820,9 @@ namespace
             if (focus)
                 ImGui::SetKeyboardFocusHere();
             const bool idle = noCursor();
-            const bool pressed = ImGui::InvisibleButton(label, size);
+            // EnableNav: ImGui skips invisible buttons in keyboard/gamepad navigation by default,
+            // which is why the boot menu needed a mouse or the keyboard's direct focus.
+            const bool pressed = ImGui::InvisibleButton(label, size, ImGuiButtonFlags_EnableNav);
             const bool hot = ImGui::IsItemHovered() || ImGui::IsItemFocused() || (isDefault && idle);
             ImDrawList *dl = ImGui::GetWindowDrawList();
             const ImVec2 b(a.x + size.x, a.y + size.y);
@@ -858,7 +867,7 @@ namespace
             if (focus)
                 ImGui::SetKeyboardFocusHere();
             const bool idle = noCursor();
-            const bool pressed = ImGui::InvisibleButton(label, box);
+            const bool pressed = ImGui::InvisibleButton(label, box, ImGuiButtonFlags_EnableNav);
             const bool hot = ImGui::IsItemHovered() || ImGui::IsItemFocused() || (isDefault && idle);
             ImDrawList *dl = ImGui::GetWindowDrawList();
             const ImVec2 b(a.x + box.x, a.y + box.y);
