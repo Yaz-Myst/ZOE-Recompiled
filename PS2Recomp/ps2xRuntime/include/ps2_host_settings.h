@@ -10,7 +10,8 @@
 #include <string>
 
 // Player-facing settings (the in-game menu edits these). Saved per game in
-// %LOCALAPPDATA%\PS2Recomp\<game id>\settings.ini.
+// %LOCALAPPDATA%\PS2Recomp\<game id>\settings.ini on Windows, and under
+// $XDG_DATA_HOME/PS2Recomp/<game id>/settings.ini (~/.local/share/...) on Linux.
 struct PS2HostSettings
 {
     // Performance overlay
@@ -65,7 +66,7 @@ void ps2DefaultControls(PS2HostSettings &settings);
 PS2HostSettings &ps2Settings();
 void ps2LoadSettings(const std::string &gameId);
 bool ps2SaveSettings(); // false = settings.ini could not be written (the reason is on stderr)
-// Folder that holds settings.ini (%LOCALAPPDATA%\PS2Recomp\<game id>); empty before ps2LoadSettings.
+// Folder that holds settings.ini (see above); empty before ps2LoadSettings.
 std::filesystem::path ps2SettingsDirectory();
 
 // Counters the performance overlay samples. Written by the EE scheduler at every vblank.

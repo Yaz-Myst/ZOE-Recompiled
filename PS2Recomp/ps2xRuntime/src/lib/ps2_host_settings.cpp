@@ -103,11 +103,32 @@ PS2HostSettings &ps2Settings()
     return g_settings;
 }
 
+namespace
+{
+    // Where per-game settings, extracted game files, memory cards and save states live.
+    // Windows keeps the existing %LOCALAPPDATA%\PS2Recomp layout. Linux follows the XDG base
+    // directory spec: $XDG_DATA_HOME/PS2Recomp (default ~/.local/share/PS2Recomp), so an AppImage
+    // and a native install share the same persistent data even though the AppDir is read-only.
+    std::filesystem::path settingsBaseDirectory()
+    {
+#if defined(_WIN32)
+        if (const char *appData = std::getenv("LOCALAPPDATA"); appData && *appData)
+            return std::filesystem::path(appData) / "PS2Recomp";
+#else
+        if (const char *dataHome = std::getenv("XDG_DATA_HOME"); dataHome && *dataHome)
+            return std::filesystem::path(dataHome) / "PS2Recomp";
+        if (const char *home = std::getenv("HOME"); home && *home)
+            return std::filesystem::path(home) / ".local" / "share" / "PS2Recomp";
+#endif
+        // Last resort: the current directory (portable/USB runs). Never assume the executable's
+        // own folder is writable: AppImage mounts it read-only.
+        return std::filesystem::current_path() / "PS2Recomp";
+    }
+}
+
 void ps2LoadSettings(const std::string &gameId)
 {
-    std::filesystem::path base = std::filesystem::current_path();
-    if (const char *appData = std::getenv("LOCALAPPDATA"); appData && *appData)
-        base = std::filesystem::path(appData) / "PS2Recomp";
+    const std::filesystem::path base = settingsBaseDirectory();
     g_settingsPath = base / (gameId.empty() ? std::string("default") : gameId) / "settings.ini";
 
     ps2DefaultControls(g_settings);

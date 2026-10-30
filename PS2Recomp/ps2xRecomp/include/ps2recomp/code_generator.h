@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include "ps2recomp/control_flow_analyzer.h"
+#include "ps2recomp/types.h" // Symbol is stored by value below; libstdc++ needs the complete type
 
 namespace ps2recomp
 {
