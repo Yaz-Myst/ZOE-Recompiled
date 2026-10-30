@@ -560,6 +560,12 @@ target_include_directories(ps2_runtime PUBLIC
 target_link_libraries(ps2_runtime PUBLIC ps2_host_backend ffmpeg ps2_iop)
 if(WIN32)
     target_link_libraries(ps2_runtime PUBLIC opengl32)
+elseif(UNIX AND NOT APPLE)
+    # The OpenGL 3.3 loader in gs_gpu_backend.cpp resolves entry points through GLX/libdl;
+    # raylib creates the context. Link them explicitly so the runtime does not rely on a
+    # transitive dependency of raylib.
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(ps2_runtime PUBLIC OpenGL::GL ${CMAKE_DL_LIBS})
 endif()
 target_link_libraries(ps2EntryRunner
     PRIVATE

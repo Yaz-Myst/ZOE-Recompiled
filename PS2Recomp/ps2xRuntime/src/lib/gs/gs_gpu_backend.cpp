@@ -10,6 +10,11 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <windows.h>
+#elif defined(__linux__)
+#include <dlfcn.h>
+// GLX is provided by libGL, which raylib already links. Declared here instead of including
+// <GL/glx.h> so the file keeps building with headers that only expose OpenGL core.
+extern "C" void *glXGetProcAddressARB(const unsigned char *name);
 #endif
 
 #ifndef APIENTRY
@@ -169,6 +174,29 @@ namespace gl
             if (p == nullptr || p == reinterpret_cast<void *>(1) || p == reinterpret_cast<void *>(2) ||
                 p == reinterpret_cast<void *>(3) || p == reinterpret_cast<void *>(-1))
                 p = opengl ? reinterpret_cast<void *>(GetProcAddress(opengl, name)) : nullptr;
+            return p;
+        };
+        bool ok = true;
+#define PS2X_GL_LOAD(ret, name, args)                                        \
+    name = reinterpret_cast<PFN_##name>(get("gl" #name));                    \
+    if (!name)                                                               \
+    {                                                                        \
+        std::cerr << "[gpu] missing GL function gl" #name << std::endl;      \
+        ok = false;                                                          \
+    }
+        PS2X_GL_FUNCS(PS2X_GL_LOAD)
+#undef PS2X_GL_LOAD
+        g_loaded = ok;
+        return ok;
+#elif defined(__linux__)
+        auto get = [](const char *name) -> void *
+        {
+            // glXGetProcAddressARB also resolves core 1.x entry points on Mesa/EGL contexts;
+            // dlsym covers a driver that only exports them from libGL.
+            void *p = reinterpret_cast<void *>(glXGetProcAddressARB(reinterpret_cast<const unsigned char *>(name)));
+            if (p == nullptr || p == reinterpret_cast<void *>(1) || p == reinterpret_cast<void *>(2) ||
+                p == reinterpret_cast<void *>(3) || p == reinterpret_cast<void *>(-1))
+                p = dlsym(RTLD_DEFAULT, name);
             return p;
         };
         bool ok = true;

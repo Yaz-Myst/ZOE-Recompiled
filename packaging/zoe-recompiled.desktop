@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=ZOE-Recompiled
+GenericName=Zone of the Enders
+Comment=Native Linux/Steam Deck port of Zone of the Enders (PS2) via PS2Recomp
+Exec=zoe-recompiled
+Icon=zoe-recompiled
+Categories=Game;ActionGame;
+Terminal=false
+StartupNotify=true

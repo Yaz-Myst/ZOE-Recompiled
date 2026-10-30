@@ -15,6 +15,9 @@ ZOE-Recompiled/work/scripts/ExportPS2Functions.properties
 # Build output
 ZOE-Recompiled/build/
 PS2Recomp/out/
+build-linux/
+dist/
+*.AppImage
 __pycache__/
 # Local approval for a full rebuild (written by the developer, never committed)
 games/edit-approved.txt

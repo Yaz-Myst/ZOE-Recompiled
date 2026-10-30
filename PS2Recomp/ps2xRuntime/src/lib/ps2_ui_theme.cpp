@@ -8,6 +8,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <filesystem>
+#include <initializer_list>
 #include <iterator>
 #include <string>
 
@@ -18,18 +19,47 @@ namespace ps2_ui
         static Fonts loaded = []
         {
             Fonts f;
-            if (const char *windows = std::getenv("WINDIR"))
+            ImGuiIO &io = ImGui::GetIO();
+            const auto load = [&](const std::string &path) -> ImFont *
             {
-                ImGuiIO &io = ImGui::GetIO();
-                const auto load = [&](const char *file) -> ImFont *
-                {
-                    const std::string path = std::string(windows) + "\\Fonts\\" + file;
-                    return std::filesystem::exists(path) ? io.Fonts->AddFontFromFileTTF(path.c_str(), 18.0f) : nullptr;
-                };
-                f.plain = load("segoeui.ttf");
-                f.ui = load("bahnschrift.ttf");
-                f.mono = load("consola.ttf");
+                return std::filesystem::exists(path) ? io.Fonts->AddFontFromFileTTF(path.c_str(), 18.0f) : nullptr;
+            };
+            if (const char *windows = std::getenv("WINDIR")) // Windows keeps its original look
+            {
+                const std::string dir = std::string(windows) + "\\Fonts\\";
+                f.plain = load(dir + "segoeui.ttf");
+                f.ui = load(dir + "bahnschrift.ttf");
+                f.mono = load(dir + "consola.ttf");
             }
+#if !defined(_WIN32)
+            // SteamOS/Arch and Debian/Ubuntu font locations. ImGui's built-in font is the final
+            // fallback, so a missing font never stops the front-end from opening.
+            const auto firstOf = [&](std::initializer_list<const char *> paths) -> ImFont *
+            {
+                for (const char *path : paths)
+                    if (ImFont *font = load(path))
+                        return font;
+                return nullptr;
+            };
+            if (!f.plain)
+                f.plain = firstOf({"/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+                                   "/usr/share/fonts/TTF/DejaVuSans.ttf",
+                                   "/usr/share/fonts/dejavu/DejaVuSans.ttf",
+                                   "/usr/share/fonts/noto/NotoSans-Regular.ttf",
+                                   "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf"});
+            if (!f.ui)
+                if (const char *env = std::getenv("PS2X_FONT_UI"); env && *env)
+                    f.ui = load(env);
+            if (!f.mono)
+                if (const char *env = std::getenv("PS2X_FONT_MONO"); env && *env)
+                    f.mono = load(env);
+            if (!f.mono)
+                f.mono = firstOf({"/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+                                  "/usr/share/fonts/TTF/DejaVuSansMono.ttf",
+                                  "/usr/share/fonts/dejavu/DejaVuSansMono.ttf",
+                                  "/usr/share/fonts/noto/NotoSansMono-Regular.ttf",
+                                  "/usr/share/fonts/truetype/noto/NotoSansMono-Regular.ttf"});
+#endif
             if (!f.ui)
                 f.ui = f.plain;
             if (!f.mono)

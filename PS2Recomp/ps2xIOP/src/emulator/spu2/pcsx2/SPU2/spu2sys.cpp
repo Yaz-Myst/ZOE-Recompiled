@@ -62,7 +62,10 @@ void SetIrqCallDMA(int core)
 	has_to_call_irq_dma[core] = true;
 }
 
-__forceinline s16* GetMemPtr(u32 addr)
+// Not inline: Dma.cpp, Mixer.cpp, ReadInput.cpp and spu2_device.cpp call this through the
+// extern declaration in defs.h. MSVC emits inline copies on demand; GCC/Clang emit one weak
+// definition only when the definition is visible, so make the cross-TU entry points real.
+s16* GetMemPtr(u32 addr)
 {
 #ifndef DEBUG_FAST
 	// In case you're wondering, this assert is the reason SPU2
@@ -237,7 +240,7 @@ void V_Voice::Stop()
 	ADSR.Phase = V_ADSR::PHASE_STOPPED;
 }
 
-__forceinline void CounterUpdate(u32 DMAICounter)
+void CounterUpdate(u32 DMAICounter)
 {
 	if (((psxCounters[6].startCycle + psxCounters[6].deltaCycles) - psxRegs.cycle) > (u32)DMAICounter)
 	{
@@ -318,7 +321,7 @@ __forceinline void CheckDMAProgress(int cid)
 static constexpr uint TickInterval = 768;
 static constexpr int SanityInterval = 4800;
 
-__forceinline void TimeUpdate(u64 cClocks)
+void TimeUpdate(u64 cClocks)
 {
 	u32 dClocks = cClocks - lClocks;
 
