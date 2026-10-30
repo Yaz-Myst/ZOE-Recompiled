@@ -28,7 +28,8 @@ read from there while you play.
 
 ## Requirements
 
-- Windows 10/11, 64-bit, a GPU with OpenGL 3.3 (anything from the last ten years).
+- Windows 10/11 or Linux x86-64 (SteamOS 3 / Steam Deck, Arch, Ubuntu 22.04+), 64-bit, a GPU
+  with OpenGL 3.3 (anything from the last ten years).
 - Your own retail USA disc image of Zone of the Enders as an `.iso` with 2048-byte sectors (the undub release
   carries the same program and works too). The check expects `SLUS_201.48`, 3,001,304 bytes, CRC-32 `A0A48DD1`.
 - To build: Visual Studio 2022 (C++ desktop workload, which includes CMake), Python 3, and Git for Windows
@@ -50,7 +51,47 @@ Shift = L2/R2, Tab = Select. **Esc** opens the menu (display, sound, controls, o
 picked up live; the first one is player 1 together with the keyboard, the second is player 2 for Versus; Esc >
 Controls shows who is who and has a **Swap players** button.
 
-Settings and memory cards live in `%LOCALAPPDATA%\PS2Recomp\SLUS-20148\` (`settings.ini`, `game\mc0`, `states\`).
+Settings and memory cards live in `%LOCALAPPDATA%\PS2Recomp\SLUS-20148\` on Windows
+(`settings.ini`, `game\mc0`, `states\`); on Linux the same files live under
+`$XDG_DATA_HOME/PS2Recomp/SLUS-20148/`.
+
+## Linux / Steam Deck
+
+The runtime and translator now build natively on Linux x86-64. The same OpenGL 3.3 renderer,
+VU engines, SPU2 audio, SDL2 controllers, memory cards and save states are used; the Windows
+build is unchanged.
+
+```bash
+# Debian/Ubuntu or a Ubuntu 22.04 Distrobox container on SteamOS
+sudo apt-get install build-essential cmake ninja-build python3 pkg-config \
+  libgl1-mesa-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev \
+  libasound2-dev libpulse-dev libavcodec-dev libavformat-dev libavutil-dev \
+  libswresample-dev libswscale-dev
+
+./build-linux.sh --iso "/path/to/your/Zone of the Enders.iso"
+```
+
+`build-linux.sh` builds the translator, validates your `SLUS_201.48`, regenerates the game C++,
+runs the stub review and links `build-linux/game/ps2xRuntime/ps2EntryRunner`. Pass `--elf` if
+you already extracted the executable, `--jobs N` to limit parallelism, and `--skip-regen` for
+incremental rebuilds.
+
+On Linux, settings and extracted game data live in
+`$XDG_DATA_HOME/PS2Recomp/SLUS-20148/` (default `~/.local/share/...`), never inside the
+application folder. The boot front-end has a built-in disc-image picker that works with
+keyboard, mouse and controller, so first-run setup does not need a terminal or a desktop file
+dialog.
+
+AppImage packaging is available after the native executable works:
+
+```bash
+./build-appimage.sh   # dist/ZOE-Recompiled-SteamDeck-x86_64.AppImage
+```
+
+Full prerequisites, Distrobox setup, Gaming Mode notes, troubleshooting and the portability
+audit: [docs/steamdeck-build.md](docs/steamdeck-build.md) and
+[docs/portability-audit.md](docs/portability-audit.md). Physical Steam Deck performance and
+controller testing are still pending; see the known-issues section there.
 
 ## Building it yourself
 
