@@ -33,11 +33,14 @@ jobs:
             -DPS2X_BUILD_ANALYZER=OFF -DPS2X_BUILD_TEST=OFF -DPS2X_BUILD_STUDIO=OFF \
             -DPS2X_ENABLE_AGRESSIVE_LOGS=OFF
 
-      - name: Build translator and runtime
-        run: cmake --build build --target ps2_recomp ps2EntryRunner -j 4
+      # ps2EntryRunner is deliberately not linked: its generated game code and function
+      # table come from the user's own SLUS_201.48 and are absent from CI. Building the
+      # runtime library still compiles every platform-specific runtime source.
+      - name: Build translator and runtime library
+        run: cmake --build build --target ps2_recomp ps2_runtime -j 4
 
-      - name: Check the linked binaries
+      - name: Check the built binaries
         run: |
           test -x build/ps2xRecomp/ps2_recomp
-          test -x build/ps2xRuntime/ps2EntryRunner
-          file build/ps2xRecomp/ps2_recomp build/ps2xRuntime/ps2EntryRunner
+          test -f build/ps2xRuntime/libps2_runtime.a
+          file build/ps2xRecomp/ps2_recomp build/ps2xRuntime/libps2_runtime.a
