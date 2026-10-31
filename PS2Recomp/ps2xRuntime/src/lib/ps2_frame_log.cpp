@@ -16,13 +16,24 @@ namespace ps2_frame_log
     {
         FILE *open()
         {
+#if defined(_WIN32)
+            // Wide on Windows: the player's performance log lives under %LOCALAPPDATA%, and a user name outside the
+            // ANSI code page turns into '?' in a narrow path.
+            const wchar_t *path = _wgetenv(L"PS2X_FRAME_LOG");
+            if (!path || !*path)
+                return nullptr;
+            FILE *f = _wfopen(path, L"w");
+#define PS2X_FRAME_LOG_PATH_FMT "%ls"
+#else
             const char *path = std::getenv("PS2X_FRAME_LOG");
             if (!path || !*path)
                 return nullptr;
             FILE *f = std::fopen(path, "w");
+#define PS2X_FRAME_LOG_PATH_FMT "%s"
+#endif
             if (!f)
             {
-                std::fprintf(stderr, "[framelog] cannot write %s\n", path);
+                std::fprintf(stderr, "[framelog] cannot write " PS2X_FRAME_LOG_PATH_FMT "\n", path);
                 return nullptr;
             }
             // hostMs: real time since the previous vblank (16.7 = on time). newFrame: the game showed a new frame.
@@ -35,7 +46,7 @@ namespace ps2_frame_log
             // uploadMs/uploadKB: image uploads into GS memory; mirrorKpx: upload pixels copied into GPU render targets.
             std::fprintf(f, "tick,hostMs,newFrame,eeMcycles,pacingMs,idleMs,busyMs,gameWaitMs,vu1Programs,workerMs,drawMs,vu1Ms,"
                             "vu1Aot,vu1Fallback,vu1KickMs,texMs,decodes,decodeKpx,uploadMs,uploadKB,mirrorKpx\n");
-            std::fprintf(stderr, "[framelog] writing %s\n", path);
+            std::fprintf(stderr, "[framelog] writing " PS2X_FRAME_LOG_PATH_FMT "\n", path);
             return f;
         }
 

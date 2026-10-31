@@ -1,5 +1,6 @@
 #include "ps2_host_settings.h"
 #include "ps2_game_clock.h"
+#include "ps2_session_log.h"
 
 #include <algorithm>
 #include <cstdlib>
@@ -43,6 +44,7 @@ namespace
             {"overlay_frame_time", &s.overlayFrameTime, nullptr, 0, 0},
             {"overlay_audio", &s.overlayAudio, nullptr, 0, 0},
             {"overlay_corner", nullptr, &s.overlayCorner, 0, 3},
+            {"perf_log", &s.perfLog, nullptr, 0, 0},
             {"fullscreen", &s.fullscreen, nullptr, 0, 0},
             {"stretch", &s.stretch, nullptr, 0, 0},
             {"widescreen", &s.widescreen, nullptr, 0, 0},
@@ -141,6 +143,8 @@ void ps2LoadSettings(const std::string &gameId)
     }
     ps2ProgressiveDisplay().store(g_settings.progressive, std::memory_order_relaxed);
     ps2WidescreenOn().store(g_settings.widescreen, std::memory_order_relaxed);
+    // First thing after the settings are known, so the log holds everything from here on (raylib's GPU lines too).
+    ps2StartSessionLog(g_settingsPath.parent_path() / "logs", g_settings.perfLog);
     std::cout << "[settings] " << (in.is_open() ? "loaded " : "defaults; will save to ") << g_settingsPath.string() << std::endl;
 }
 

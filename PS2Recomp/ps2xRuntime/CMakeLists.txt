@@ -423,6 +423,7 @@ add_library(ps2_runtime STATIC
     src/lib/games_database.cpp
     src/lib/ps2_profiler.cpp
     src/lib/ps2_host_settings.cpp
+    src/lib/ps2_session_log.cpp
     src/lib/ps2_input.cpp
 )
 
@@ -655,18 +656,21 @@ endif()
 if(CMAKE_BUILD_TYPE STREQUAL "Release" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
     EnableFastReleaseMode(ps2_runtime)
     EnableFastReleaseMode(ps2EntryRunner)
+endif()
 
-    if(WIN32 AND NOT PS2X_SHOW_WINDOWS_CONSOLE)
-        if(MSVC)
-            target_link_options(ps2EntryRunner PRIVATE
-                $<$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>>:/SUBSYSTEM:WINDOWS>
-                $<$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>>:/ENTRY:mainCRTStartup>
-            )
-        elseif(MINGW)
-            target_link_options(ps2EntryRunner PRIVATE
-                $<$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>>:-mwindows>
-            )
-        endif()
+# Release builds are window programs (no console window beside the game). Outside the CMAKE_BUILD_TYPE check above:
+# multi-config generators (Visual Studio, used by build.ps1) leave CMAKE_BUILD_TYPE empty, so inside it this never
+# applied and every exe, ZOE 1.0.0 included, was a console program. The generator expressions pick the config.
+if(WIN32 AND NOT PS2X_SHOW_WINDOWS_CONSOLE)
+    if(MSVC)
+        target_link_options(ps2EntryRunner PRIVATE
+            $<$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>>:/SUBSYSTEM:WINDOWS>
+            $<$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>>:/ENTRY:mainCRTStartup>
+        )
+    elseif(MINGW)
+        target_link_options(ps2EntryRunner PRIVATE
+            $<$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>>:-mwindows>
+        )
     endif()
 endif()
 

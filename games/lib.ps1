@@ -63,5 +63,8 @@ function Get-GameConfig {
         LibStart         = $(if ($kv.ContainsKey('LIB_START')) { $kv['LIB_START'] } else { '' })
         # Optional: this game's own copy of the runtime/translator source tree (default <repo root>\PS2Recomp)
         SourceDir        = $(if ($kv.ContainsKey('SOURCE_DIR')) { & $path $kv['SOURCE_DIR'] } else { '' })
+        # Optional: ON/OFF for PS2X_SHOW_WINDOWS_CONSOLE (Release exe as a console or a window program); default: the
+        # runtime's own default (ON)
+        WindowsConsole   = $(if ($kv.ContainsKey('WINDOWS_CONSOLE')) { $kv['WINDOWS_CONSOLE'].Trim().ToUpper() } else { '' })
     }
 }

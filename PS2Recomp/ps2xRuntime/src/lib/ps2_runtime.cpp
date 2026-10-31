@@ -1172,11 +1172,18 @@ bool PS2Runtime::initialize(const char *title)
         // PS2X_HIDE_WINDOW=1: unattended test runs (frame dumps, routes) without a window on the desktop.
         // PS2X_WINDOW_UNFOCUSED=1: the window opens visible but does not take the keyboard focus (test runs beside a
         // game someone is playing).
+        // The window loop keeps running while the window is minimized (PS2X_MINIMIZED_RUN=0: raylib's own behaviour).
+        // Otherwise raylib waits in glfwWaitEvents until the window is restored while the game runs on: nothing is
+        // presented, so the GPU renderer's recorded commands grow without limit (~200 MB/s in Tempest), the draw
+        // thread stalls 60-500 ms each time those vectors reallocate, and the first present after restoring replays
+        // all of it (2.2 s after 37 s minimized).
         const char *hideWindow = std::getenv("PS2X_HIDE_WINDOW");
         const char *unfocused = std::getenv("PS2X_WINDOW_UNFOCUSED");
+        const char *minimizedRun = std::getenv("PS2X_MINIMIZED_RUN");
         SetConfigFlags(FLAG_WINDOW_RESIZABLE |
                        ((hideWindow != nullptr && *hideWindow != 0 && *hideWindow != '0') ? FLAG_WINDOW_HIDDEN : 0u) |
-                       ((unfocused != nullptr && *unfocused != 0 && *unfocused != '0') ? FLAG_WINDOW_UNFOCUSED : 0u));
+                       ((unfocused != nullptr && *unfocused != 0 && *unfocused != '0') ? FLAG_WINDOW_UNFOCUSED : 0u) |
+                       ((minimizedRun != nullptr && *minimizedRun == '0') ? 0u : FLAG_WINDOW_ALWAYS_RUN));
         InitWindow(HOST_WINDOW_WIDTH, HOST_WINDOW_HEIGHT, title);
         InitAudioDevice();
         m_audioBackend.setAudioReady(IsAudioDeviceReady());

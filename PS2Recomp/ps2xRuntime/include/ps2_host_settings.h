@@ -20,6 +20,9 @@ struct PS2HostSettings
     bool overlayFrameTime = false;
     bool overlayAudio = false;
     int overlayCorner = 0; // 0 top left, 1 top right, 2 bottom left, 3 bottom right
+    // Performance log: per-vblank timing CSV in the logs folder, for slowdown reports (ps2_session_log.h). Read once
+    // at start, so a change applies from the next start.
+    bool perfLog = false;
 
     // Graphics
     bool fullscreen = false;

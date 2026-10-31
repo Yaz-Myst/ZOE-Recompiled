@@ -156,6 +156,12 @@ $cmakeVars = @(
     '-DPS2X_ENABLE_AGRESSIVE_LOGS:BOOL=OFF'
 )
 $watched = 'PS2X_RUNNER_GENERATED_DIR', 'PS2X_RUNNER_OVERLAY_DIRS', 'PS2X_RUNNER_EXTRA_SOURCES', 'PS2X_ENABLE_AGRESSIVE_LOGS'
+if ($g.WindowsConsole -in 'ON', 'OFF') {   # cfg WINDOWS_CONSOLE: a link option only, so a change relinks, no recompile
+    $cmakeVars += "-DPS2X_SHOW_WINDOWS_CONSOLE:BOOL=$($g.WindowsConsole)"
+    $watched += 'PS2X_SHOW_WINDOWS_CONSOLE'
+} elseif ($g.WindowsConsole) {
+    Fail "$($g.Name).cfg: WINDOWS_CONSOLE must be ON or OFF, not '$($g.WindowsConsole)'"
+}
 
 function Read-CacheValues {
     $h = @{}

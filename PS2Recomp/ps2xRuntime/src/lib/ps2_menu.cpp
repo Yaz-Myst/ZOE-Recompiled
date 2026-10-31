@@ -421,6 +421,7 @@ void PS2Menu::drawMenu(PS2Runtime &runtime)
                     ImGui::Checkbox("Sound buffer and dropouts", &s.overlayAudio);
                     ImGui::SetNextItemWidth(220.0f * scale);
                     ImGui::Combo("Corner", &s.overlayCorner, "Top left\0Top right\0Bottom left\0Bottom right\0");
+                    ImGui::Checkbox("Performance log (logs\\frames.csv, from the next start)", &s.perfLog);
                     ImGui::Separator();
                     ImGui::TextDisabled("Now: %.1f FPS, %.1f VPS, %.0f%% speed", m_fps, m_vps, m_speed);
                     ImGui::EndTabItem();
@@ -1104,6 +1105,9 @@ void PS2Menu::drawOverlayPage()
     toggleRow(r, "##audio", "Sound buffer", s.overlayAudio, "Sound buffer length and dropouts.");
     static constexpr const char *kCorners[] = {"TOP LEFT", "TOP RIGHT", "BOTTOM LEFT", "BOTTOM RIGHT"};
     choiceRow(r, "##corner", "Corner", s.overlayCorner, kCorners, 4, "Where the readout sits while you play.");
+    toggleRow(r, "##perflog", "Performance log", s.perfLog,
+              "From the next start, records frame timings to logs\\frames.csv in the settings folder (about 20 MB per hour of "
+              "play). Attach it to a slowdown report, then turn it off.");
 }
 
 void PS2Menu::drawExtrasPage()
