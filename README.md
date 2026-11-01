@@ -4,8 +4,9 @@ By **Yz**.
 
 A native Windows port of **Zone of the Enders** (PlayStation 2, USA, `SLUS_201.48`), made by statically
 recompiling the game's MIPS code to C++ with [PS2Recomp](PS2Recomp/) and running it on a PC runtime (OpenGL
-renderer, compiled vector-unit programs, IOP and sound emulation). The game runs at a steady 60 frames per second
-(measured at up to three times the PS2's internal resolution), with widescreen, progressive output, save states,
+renderer, compiled vector-unit programs, IOP and sound emulation). On a fast desktop CPU the game runs at a steady
+60 frames per second (measured at up to three times the PS2's internal resolution); **slower and laptop CPUs drop
+below full speed in heavy scenes**, see [Requirements](#requirements). It has widescreen, progressive output, save states,
 remappable keyboard and controller input, DualShock 2 pressure buttons, rumble, and two controllers for Versus mode.
 
 **You need your own copy of the game.** This repository and its releases contain no game assets: no disc image, no
@@ -28,6 +29,25 @@ read from there while you play.
 
 ## Requirements
 
+**This is an early release, and it needs a strong CPU.** Static recompilation makes the game's own code native, but
+the rest of the PS2 (its vector units, sound processor, sound chip and graphics chip) is still modelled in software,
+on a few busy threads. What limits speed is how fast one CPU core is, not the graphics card, and lowering the
+internal resolution hardly helps.
+
+| Machine | Result |
+|---|---|
+| Ryzen 7 7700X (desktop), RTX 5060 Ti | Full speed everywhere tested, including the heaviest boss fight |
+| Intel i7-1165G7 (laptop), Iris Xe graphics | Full speed in the first battle; about 70% speed in the heaviest boss fight (Tempest) |
+| Intel i7-9750H (laptop), Quadro T1000 (player report) | Drops into the 30s (frames per second) in places |
+| Intel Xeon, GTX 1050 Ti (player report) | Slows down in places |
+
+- **CPU:** must support AVX2 (Intel Core 4th generation / 2013 or newer, any AMD Ryzen; many older Pentium and
+  Celeron chips lack it). Without AVX2 the program closes at start. For full speed everywhere, a recent desktop CPU
+  with high single-core speed; we have only measured the machines above, so reports with your CPU and the
+  performance overlay (Esc menu) are very welcome.
+- Laptops: plug in and use the "Best performance" power mode; thin laptops lower their CPU clock under load, and
+  integrated graphics share that power budget.
+- Making the game fast on a wider range of PCs is the main open problem. There is no date for it yet.
 - Windows 10/11, 64-bit, a GPU with OpenGL 3.3 (anything from the last ten years).
 - Your own retail USA disc image of Zone of the Enders as an `.iso` with 2048-byte sectors (the undub release
   carries the same program and works too). The check expects `SLUS_201.48`, 3,001,304 bytes, CRC-32 `A0A48DD1`.
