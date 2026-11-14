@@ -5,8 +5,9 @@ By **Yz**.
 A native Windows port of **Zone of the Enders** (PlayStation 2, USA, `SLUS_201.48`), made by statically
 recompiling the game's MIPS code to C++ with [PS2Recomp](PS2Recomp/) and running it on a PC runtime (OpenGL
 renderer, compiled vector-unit programs, IOP and sound emulation). On a fast desktop CPU the game runs at a steady
-60 frames per second (measured at up to three times the PS2's internal resolution); **slower and laptop CPUs drop
-below full speed in heavy scenes**, see [Requirements](#requirements). It has widescreen, progressive output, save states,
+60 frames per second (measured at up to three times the PS2's internal resolution). Since 1.1.0 **slower and laptop
+CPUs keep the game and its sound at full speed and show fewer frames in heavy scenes**, see
+[Requirements](#requirements). It has widescreen, progressive output, save states,
 remappable keyboard and controller input, DualShock 2 pressure buttons, rumble, and two controllers for Versus mode.
 
 **You need your own copy of the game.** This repository and its releases contain no game assets: no disc image, no
@@ -18,6 +19,15 @@ read from there while you play.
 > DualSense, Xbox and similar). Keyboard controls exist but are not tuned yet. For now the options menu (Esc) needs
 > the keyboard: Q/E switch sections, arrow keys move and change values, Enter selects, Esc closes.
 
+## What's new in 1.1.0
+
+- **No more slow motion on slower PCs.** When a frame is late the game skips drawing the next one and catches up, the
+  way the original does on a PS2. Controls, physics and music keep their normal speed, and the crackling sound that
+  came with the slowdown is gone.
+- **Less CPU work per frame.** The game's sound driver now runs as native code, and the timing code was trimmed.
+- Each change can be switched off if it causes trouble: see the
+  [release notes](https://github.com/Yaz-Myst/ZOE-Recompiled/releases).
+
 ## What works, what does not
 
 - The whole game is playable from the intro to the final area, including in-engine cutscenes, movies with sound,
@@ -25,11 +35,13 @@ read from there while you play.
 - Known issues you may meet: the Esc menu and the boot screen do not follow a controller reliably yet (use the keyboard
   there: Q/E sections, arrows, Enter, Esc; in game controllers work normally), a rare freeze when the warehouse
   before the second Neith fight loads (a stream chunk goes missing; reload your save), a freeze reported once after
-  the long lift movie to the final area, and small HUD details in the cockpit view.
+  the long lift movie to the final area, small HUD details in the cockpit view, and one report of a wrong area map
+  that we could not reproduce.
 
 ## Requirements
 
-**This is an early release, and it needs a strong CPU.** Static recompilation makes the game's own code native, but
+**This is an early release, and a strong CPU still gives the best picture.** Since 1.1.0 a slower CPU no longer
+slows the game down: it shows fewer frames in heavy scenes while the game and sound stay at full speed. Static recompilation makes the game's own code native, but
 the rest of the PS2 (its vector units, sound processor, sound chip and graphics chip) is still modelled in software,
 on a few busy threads. What limits speed is how fast one CPU core is, not the graphics card, and lowering the
 internal resolution hardly helps.
@@ -37,9 +49,9 @@ internal resolution hardly helps.
 | Machine | Result |
 |---|---|
 | Ryzen 7 7700X (desktop), RTX 5060 Ti | Full speed everywhere tested, including the heaviest boss fight |
-| Intel i7-1165G7 (laptop), Iris Xe graphics | Full speed in the first battle; about 70% speed in the heaviest boss fight (Tempest) |
-| Intel i7-9750H (laptop), Quadro T1000 (player report) | Drops into the 30s (frames per second) in places |
-| Intel Xeon, GTX 1050 Ti (player report) | Slows down in places |
+| Intel i7-1165G7 (laptop), Iris Xe graphics, 1.1.0 | Full game speed everywhere tested. Shows 50-59 frames per second in normal fights and 30-37 in the heaviest boss fight (Tempest); the lower figures when the laptop is hot |
+| Intel i7-9750H (laptop), Quadro T1000 (player report, 1.0) | Dropped into the 30s (frames per second) in places; not yet re-tested on 1.1.0 |
+| Intel Xeon, GTX 1050 Ti (player report, 1.0) | Slowed down in places; not yet re-tested on 1.1.0 |
 
 - **CPU:** must support AVX2 (Intel Core 4th generation / 2013 or newer, any AMD Ryzen; many older Pentium and
   Celeron chips lack it). Without AVX2 the program closes at start. For full speed everywhere, a recent desktop CPU
@@ -47,7 +59,7 @@ internal resolution hardly helps.
   performance overlay (Esc menu) are very welcome.
 - Laptops: plug in and use the "Best performance" power mode; thin laptops lower their CPU clock under load, and
   integrated graphics share that power budget.
-- Making the game fast on a wider range of PCs is the main open problem. There is no date for it yet.
+- Showing a full 60 frames per second on a wider range of PCs is still the main open problem.
 - Windows 10/11, 64-bit, a GPU with OpenGL 3.3 (anything from the last ten years).
 - Your own retail USA disc image of Zone of the Enders as an `.iso` with 2048-byte sectors (the undub release
   carries the same program and works too). The check expects `SLUS_201.48`, 3,001,304 bytes, CRC-32 `A0A48DD1`.

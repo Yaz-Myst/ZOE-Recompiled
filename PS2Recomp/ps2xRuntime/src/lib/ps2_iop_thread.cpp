@@ -150,17 +150,23 @@ namespace ps2_iop_thread
         }
     }
 
+    // Read once at load: a function-local static paid a thread-safe-init guard check on every call, and this is called
+    // on every EE cycle-accounting step (~4% of Neo Contra's busy game thread, 9 Nov).
+    static const bool g_iopThreadOn = []
+    {
+        const char *env = std::getenv("PS2X_IOP_THREAD");
+        return env != nullptr && *env != 0 && *env != '0';
+    }();
+
     bool enabled()
     {
-        static const bool on = []
+        static bool s_logged = false; // single game thread asks first; a race only doubles the log line
+        if (g_iopThreadOn && !s_logged)
         {
-            const char *env = std::getenv("PS2X_IOP_THREAD");
-            const bool value = env != nullptr && *env != 0 && *env != '0';
-            if (value)
-                std::cout << "[iopt] IOP thread enabled (runs the IOP while the game thread sleeps)" << std::endl;
-            return value;
-        }();
-        return on;
+            s_logged = true;
+            std::cout << "[iopt] IOP thread enabled (runs the IOP while the game thread sleeps)" << std::endl;
+        }
+        return g_iopThreadOn;
     }
 
     bool onIopThread()

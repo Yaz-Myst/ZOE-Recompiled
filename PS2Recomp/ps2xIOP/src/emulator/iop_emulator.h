@@ -36,6 +36,8 @@ namespace ps2x::iop::detail
         [[nodiscard]] ModuleLoadResult loadModuleBuffer(uint32_t guestAddress, const void *arguments, uint32_t argumentSize);
         [[nodiscard]] bool stopModule(int32_t moduleId, int32_t *result);
         void runEeCycles(uint64_t eeCycles) noexcept;
+        // EE cycles runEeCycles still only adds up before it runs the IOP (callers may bank fewer than this).
+        [[nodiscard]] uint64_t eeCyclesUntilBatch() const noexcept;
         [[nodiscard]] RpcResult handleRpc(const RpcRequest &request);
         [[nodiscard]] bool hasRpcServer(uint32_t sid) const noexcept;
         void onSifTransfer(const SifTransfer &transfer);

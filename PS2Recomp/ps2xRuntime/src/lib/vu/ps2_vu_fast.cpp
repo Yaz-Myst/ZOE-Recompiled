@@ -22,6 +22,7 @@
 #include <cstring>
 #include <iostream>
 #include <limits>
+#include <string>
 #include <vector>
 
 #if defined(_MSC_VER)
@@ -125,13 +126,31 @@ namespace
 
 void VuFastEngine::registerAot(const AotImage &image) { aotRegistry().push_back(image); }
 
+// Image tag: what follows "vu1_c0_" in the image name (bench option aottag=), empty for the default images.
+// PS2X_VU_AOT_IMAGE=<tag> prefers the images with that tag (experimental code generated beside the shipped one);
+// micro memory that no tagged image matches still uses a default image.
+static const char *aotImageTag(const char *name)
+{
+    const char *p = name ? std::strchr(name, '_') : nullptr;
+    p = p ? std::strchr(p + 1, '_') : nullptr;
+    return p ? p + 1 : "";
+}
+
 VuFastEngine::AotRunFn VuFastEngine::findAot(bool vu0, const uint8_t *code, uint32_t codeSize)
 {
     if (!aotEnabled() || code == nullptr)
         return nullptr;
+    static const std::string wantedTag = []
+    {
+        const char *e = std::getenv("PS2X_VU_AOT_IMAGE");
+        return std::string(e ? e : "sc"); // "sc" by default since 12 Nov 2026; any other value (e.g. 0) = untagged images
+    }();
+    for (int pass = wantedTag.empty() ? 1 : 0; pass < 2; ++pass)
     for (const AotImage &img : aotRegistry())
     {
         if (img.vu0 != vu0)
+            continue;
+        if ((pass == 0 ? wantedTag : std::string()) != aotImageTag(img.name))
             continue;
         bool match = true;
         for (uint32_t i = 0; i < img.pairCount && match; ++i)
@@ -147,7 +166,17 @@ VuFastEngine::AotRunFn VuFastEngine::findAot(bool vu0, const uint8_t *code, uint
             match = words[0] == img.pairs[i * 3u + 1u] && words[1] == img.pairs[i * 3u + 2u];
         }
         if (match)
+        {
+            // with a tag requested, say once per image which one runs (a mistyped tag would silently run the default)
+            static std::vector<const char *> s_reported;
+            if (!wantedTag.empty() && std::find(s_reported.begin(), s_reported.end(), img.name) == s_reported.end())
+            {
+                s_reported.push_back(img.name);
+                std::cerr << "[vu:aot] PS2X_VU_AOT_IMAGE=" << wantedTag << ": " << (vu0 ? "VU0" : "VU1") << " runs image "
+                          << img.name << (pass == 0 ? "" : " (no image with that tag matches this code)") << std::endl;
+            }
             return img.run;
+        }
     }
     return nullptr;
 }

@@ -145,3 +145,45 @@ All 29 `libvu0` functions (`sceVpu0Reset`, `sceVu0*`), `_sceVu0ecossin` / `sceVu
 - Stage load lists at `0x48F420` (pak, motion sets, bin, scx per stage): every story stage loads `jehuty.mts`, plus the `.mts` of the enemies it uses (e.g. fa2: jehuty, mummy, raptor, cyclops, neith1). `.mts` files are 0.6-2 KB; models are inside the paks.
 - Versus loads separate `<stage>_vs.pak` files (1-3 MB larger than the story pak in most stages; fb1, gl1, ra1, rb1, sh1, ta1, vr1 have none). Neith has her own paks (`neith1.pak` 1.25 MB, `neith2.pak` 1.30 MB) in most stage folders.
 - Zero-filled RAM above `0x500000` (rough headroom, not a heap measurement): battle1 10.1 MB, hub bomb 5.3 MB, Viola 2.6 MB, Tempest fight 0.3 MB, Versus screen 6.4 MB.
+
+## Frame loop (phase B of `../07-native-engine-plan.md`, 9 Nov 2026)
+
+Found from Ghidra decompiles (`work/ghidra.sh -g zoe`) and save states read with `tools/zoe_actors.py` (lists the
+actors per level with class names where gcc 2 type info gives one). Static reading only: nothing below was checked
+in a run yet.
+
+- `_start` -> `FUN_00200370` (main): library and engine init, loads `font.pak`, then `for (;;) FUN_00460350();`.
+- **`FUN_00460350` is the whole frame**: the actor system of KCEJ's engine (`GV_ACTOR`, the same design as MGS1's
+  `GV_ExecActorSystem`). 9 priority levels, table at `0x4aa290` (12 bytes per level: pause mask byte, list head at
+  `+4`). Actor: state byte `+3` (1 = dead, freed by `FUN_004605f0`), next `+8`, vtable `+0xc`; the update is the
+  vtable entry at `+0x10` (this-adjust short) / `+0x14` (function). Pause flags `0x4aa28c` (set/cleared via
+  `0x4aa28d` / `0x4aa28e` at the top of the loop); a level whose mask matches the flags only frees dead actors.
+- Levels seen (Tempest `tempest.p2s` / first battle `battle1_t4740.p2s`):
+
+| Level | Pause mask | Contents |
+|---|---|---|
+| 0 | - | System: `FUN_00460a28` (frame counter `0x4aa288`++, pad/input `FUN_00461610` when not paused, `FUN_00461c20`), **frame pacing `FUN_0044c7d0`**, two `EV_JOB`s (`0x45f328`, `0x4396f0`), memory card state machine `FUN_004630f8`, collision pass `0x4451b8` (thunk to `FUN_004441b8`) |
+| 2 | - | `FUN_00456138` (one actor, resets two fields) |
+| 3-7 | 03 / 02 | Gameplay: stage script `FUN_0021cdd0`, frames (player `0x236e08`), enemies, effects. Tempest: 134 actors on level 4 (68 + 58 of two kinds), 50 on level 6 |
+| 8 | - | **`DG_DAEMON1` (`FUN_0044c980`) = the draw pass**, and `FUN_00462140` (memory card) |
+
+- **Frame pacing `FUN_0044c7d0` (level 0) and draw `FUN_0044c980` (level 8) already skip drawing when late**, like
+  MGS1's "undraw frame count":
+  - A vblank thread `FUN_0044c720` (created by `FUN_0044ca58`) wakes on every vblank, increments `0x49df70`
+    (vblanks since the last frame) and wakes the main thread.
+  - Pacing: if `0x49df70` is 0 (no vblank passed yet) it `SleepThread`s until the next one; if 1 or more vblanks
+    already passed (the frame ran late) it does **not** wait and sets `0x49df74` = that count. While `0x49df74` is
+    non-zero, `DG_DAEMON1` skips the render (`FUN_0044d668` -> `FUN_0044ee90`, both screens' packets) and only runs
+    `FUN_00451978` (camera matrix bookkeeping) per screen; no flip that frame (the front/back swap of `0x4a65d8` /
+    `0x4a65dc` sits in the same branch). While skipping, more than 4 new vblanks end the skip (loads); each skipped frame lowers the count by one.
+  - A second skip: after the wait, `0x4a65e0` = 1 when the back screen's state (`0x4d88d0`, copied by the vblank
+    thread from `*(0x4a65dc + 8)`) is not 4, i.e. the previous frame's packets are not sent yet.
+- **Why this never helps on a slow PC today:** the runtime fires a vblank only when the guest's executed cycles
+  reach it AND its wall-clock time has passed (`EeScheduler.cpp` `processDueDeadlines`, ~line 2064). On a slow host a
+  frame's work takes more wall time but not more guest cycles, so the guest sees no late vblank, `0x49df70` stays 0,
+  the game waits and draws every frame, and the whole game slows (laptop Tempest ~70%). On the PS2 the vblank comes
+  at a fixed rate whatever the CPU did, so the game would skip draws instead.
+- Consequence for phase C: ZOE may need no draw-skipping override at all. Delivering vblanks on time when the host is
+  behind (Neo Contra's `EeScheduler::creditOverdueVBlank`, called from the pacing actor) should let the game's own
+  skip run. Unchecked: that all VU1/GS work sits inside the `DG_DAEMON1` render (effects may draw elsewhere), and
+  that update-only frames leave game state as a normal frame would.

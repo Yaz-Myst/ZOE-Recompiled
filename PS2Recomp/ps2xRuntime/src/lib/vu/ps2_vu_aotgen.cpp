@@ -138,7 +138,11 @@ namespace
             }
             if (stickyRead)
                 return;
-            constexpr uint32_t kUnknown = 0xFFFFFFFFu;
+            constexpr uint32_t kUnknown = 0xFFFFFFFFu; // JR/JALR target
+            constexpr uint32_t kEndOfProgram = 0xFFFFFFFEu;
+            // Sources of "everything may be read": bit 1 unknown JR target, 2 program end, 4 unreached pair, 8 bail
+            constexpr uint8_t kSrcAll = 0xFu;
+            const bool opt = flagsOptEnabled();
             std::vector<std::vector<uint32_t>> succ(n);
             for (uint32_t i = 0; i < n; ++i)
             {
@@ -153,50 +157,102 @@ namespace
                     const uint8_t bop = pp.lowerOpHi;
                     succ[i].push_back((bop == 0x24u || bop == 0x25u) ? kUnknown : (staticTarget(pv) >> 3));
                 }
-                succ[i].push_back(next(pc) >> 3); // not taken / not after an E-bit / plain fall-through
+                // PS2X_VU_AOTGEN_FLAGS: the pair after an E-bit pair ends the program: whatever runs next (another
+                // microprogram continuing with MSCNT, EE code reading the flags) may read them, so everything is kept.
+                // Without the option this fell through to the next pair's mask, and where that pair was other code the
+                // final flags were skipped (Neo Contra VU0: 154 of 5,178 replayed runs ended with stale MAC/status).
+                const bool prevE = opt && reach[pv >> 3] && !bail[pv >> 3] && pp.eBit;
+                succ[i].push_back(prevE ? kEndOfProgram : (next(pc) >> 3)); // not taken / plain fall-through
             }
-            std::vector<uint8_t> in(n, 0);
-            for (uint32_t i = 0; i < n; ++i)
-                if (reach[i] && bail[i])
-                    in[i] = 0x1Fu; // the interpreter may read anything
-            auto outOf = [&](uint32_t k)
+            // Backward flow of "distance to the nearest reader" (bits 0..3 = exactly that many pairs, bit 4 = 4 or more)
+            // with the given sources of "unknown" enabled. Returns the per-pair `out` (what the successors need).
+            auto solve = [&](uint8_t srcMask)
             {
-                uint8_t out = 0;
-                for (uint32_t t : succ[k])
-                    out |= (t == kUnknown || !reach[t]) ? 0x1Fu : in[t];
-                return out;
-            };
-            bool changed = true;
-            while (changed)
-            {
-                changed = false;
-                for (uint32_t k = n; k-- > 0;)
+                std::vector<uint8_t> in(n, 0);
+                if (srcMask & 8u)
+                    for (uint32_t i = 0; i < n; ++i)
+                        if (reach[i] && bail[i])
+                            in[i] = 0x1Fu; // the interpreter may read anything
+                auto outOf = [&](uint32_t k)
                 {
-                    if (!reach[k] || bail[k])
-                        continue;
-                    const uint8_t out = outOf(k);
-                    // one pair further away: distances 0..3 move up by one, ">= 4" (bit 4) stays
-                    uint8_t shifted = static_cast<uint8_t>(((out << 1) & 0x1Eu) | (out & 0x10u));
-                    if (writesMacStatus(pairs[k]))
-                        shifted &= 0x0Fu; // reads >= 4 pairs away see this writer (or a newer one), nothing older
-                    const uint8_t v = static_cast<uint8_t>(shifted | (readsMacStatus(pairs[k]) ? 0x01u : 0x00u));
-                    if (v != in[k])
+                    uint8_t out = 0;
+                    for (uint32_t t : succ[k])
                     {
-                        in[k] = v;
-                        changed = true;
+                        if (t == kUnknown)
+                            out |= (srcMask & 1u) ? 0x1Fu : 0u;
+                        else if (t == kEndOfProgram)
+                            out |= (srcMask & 2u) ? 0x1Fu : 0u;
+                        else
+                            out |= !reach[t] ? ((srcMask & 4u) ? 0x1Fu : 0u) : in[t];
+                    }
+                    return out;
+                };
+                bool changed = true;
+                while (changed)
+                {
+                    changed = false;
+                    for (uint32_t k = n; k-- > 0;)
+                    {
+                        if (!reach[k] || bail[k])
+                            continue;
+                        const uint8_t out = outOf(k);
+                        // one pair further away: distances 0..3 move up by one, ">= 4" (bit 4) stays
+                        uint8_t shifted = static_cast<uint8_t>(((out << 1) & 0x1Eu) | (out & 0x10u));
+                        if (writesMacStatus(pairs[k]))
+                            shifted &= 0x0Fu; // reads >= 4 pairs away see this writer (or a newer one), nothing older
+                        const uint8_t v = static_cast<uint8_t>(shifted | (readsMacStatus(pairs[k]) ? 0x01u : 0x00u));
+                        if (v != in[k])
+                        {
+                            in[k] = v;
+                            changed = true;
+                        }
                     }
                 }
-            }
+                std::vector<uint8_t> outs(n, 0);
+                for (uint32_t k = 0; k < n; ++k)
+                    if (reach[k] && !bail[k])
+                        outs[k] = outOf(k);
+                return outs;
+            };
+            const std::vector<uint8_t> full = solve(kSrcAll);
             uint32_t kept = 0, skipped = 0;
             for (uint32_t k = 0; k < n; ++k)
             {
                 if (!reach[k] || bail[k] || !writesMacStatus(pairs[k]))
                     continue;
-                flagsNeeded[k] = outOf(k) != 0u;
+                flagsNeeded[k] = full[k] != 0u;
                 (flagsNeeded[k] ? kept : skipped)++;
             }
             std::cerr << "[vu:aotgen] " << src.name << ": MAC/status flags kept for " << kept << " FMAC ops, skipped for "
                       << skipped << std::endl;
+            // Why each kept op is kept: a real later read (nothing "unknown" needed), else the first single source that
+            // alone keeps it, else a combination.
+            const std::vector<uint8_t> real = solve(0);
+            const char *names[4] = {"unknown JR target", "program end", "unreached pair", "interpreter bail"};
+            uint32_t byReason[6] = {0, 0, 0, 0, 0, 0}; // 0..3 sources, 4 combination, 5 real read
+            for (uint32_t k = 0; k < n; ++k)
+            {
+                if (!flagsNeeded[k] || !reach[k] || bail[k] || !writesMacStatus(pairs[k]))
+                    continue;
+                if (real[k])
+                {
+                    ++byReason[5];
+                    continue;
+                }
+                bool found = false;
+                for (uint32_t s = 0; s < 4 && !found; ++s)
+                    if (solve(static_cast<uint8_t>(1u << s))[k])
+                    {
+                        ++byReason[s];
+                        found = true;
+                    }
+                if (!found)
+                    ++byReason[4];
+            }
+            std::cerr << "[vu:aotgen] " << src.name << ": kept because: real later read " << byReason[5];
+            for (uint32_t s = 0; s < 4; ++s)
+                std::cerr << ", " << names[s] << " " << byReason[s];
+            std::cerr << ", combination " << byReason[4] << std::endl;
         }
 
         void explore()
@@ -599,6 +655,30 @@ namespace
                         o << "            " << vi(it) << " = static_cast<int16_t>(" << vi(is) << " + (" << imm5 << "));\n";
                     break;
                 }
+                if (inlineLowerEnabled() && (p.lowerSpecial == 0x38u || p.lowerSpecial == 0x39u || p.lowerSpecial == 0x3Au))
+                {
+                    // DIV / SQRT / RSQRT as Impl::execLower computes them
+                    const std::string num = "normalize1(s.vf[" + std::to_string(fs) + "][" + std::to_string((in >> 21) & 3u) + "])";
+                    const std::string den = "normalize1(s.vf[" + std::to_string(ft) + "][" + std::to_string((in >> 23) & 3u) + "])";
+                    if (p.lowerSpecial == 0x38u)
+                        o << "            { const float num = " << num << "; const float den = " << den
+                          << "; uint32_t di = 0u; float res;\n"
+                          << "              if (den == 0.0f) { di = num == 0.0f ? 0x10u : 0x20u; res = std::signbit(num) != "
+                             "std::signbit(den) ? -std::numeric_limits<float>::max() : std::numeric_limits<float>::max(); }\n"
+                          << "              else res = num / den;\n              m.queueQ(res, 7u, di); }\n";
+                    else if (p.lowerSpecial == 0x39u)
+                        o << "            { const float val = " << den << ";\n"
+                          << "              m.queueQ(std::sqrt(std::fabs(val)), 7u, val < 0.0f ? 0x10u : 0u); }\n";
+                    else
+                        o << "            { const float num = " << num << "; const float rad = " << den
+                          << "; const float den = std::sqrt(std::fabs(rad));\n"
+                          << "              uint32_t di = rad < 0.0f ? 0x10u : 0u; float res;\n"
+                          << "              if (den != 0.0f) res = num / den;\n"
+                          << "              else { di = num == 0.0f ? 0x10u : 0x20u; res = std::signbit(num) ? "
+                             "-std::numeric_limits<float>::max() : std::numeric_limits<float>::max(); }\n"
+                          << "              m.queueQ(res, 13u, di); }\n";
+                    break;
+                }
                 switch (p.lowerSpecial)
                 {
                 case 0x30: // MOVE
@@ -710,6 +790,27 @@ namespace
                 }
                 break;
             }
+            case 0x10: // FCEQ
+            case 0x12: // FCAND
+            case 0x13: // FCOR
+            case 0x1C: // FCGET
+                if (inlineLowerEnabled())
+                {
+                    // as Impl::execLower: the clip flag read sees the FIFO entries due by this cycle
+                    const std::string imm = hx(in & 0xFFFFFFu);
+                    o << "            m.commitFlags(m.cycle);\n";
+                    if (op == 0x10)
+                        o << "            " << vi(1) << " = ((s.clip & 0xFFFFFFu) == " << imm << ") ? 1 : 0;\n";
+                    else if (op == 0x12)
+                        o << "            " << vi(1) << " = ((s.clip & " << imm << ") != 0u) ? 1 : 0;\n";
+                    else if (op == 0x13)
+                        o << "            " << vi(1) << " = ((s.clip | " << imm << ") == 0xFFFFFFu) ? 1 : 0;\n";
+                    else if (it != 0u)
+                        o << "            " << vi(it) << " = static_cast<int32_t>(s.clip & 0x0FFFu);\n";
+                    break;
+                }
+                o << "            m.execLower(" << hx(in) << ", K[" << fallbackSlot(idx) << "]);\n";
+                break;
             default:
                 o << "            m.execLower(" << hx(in) << ", K[" << fallbackSlot(idx) << "]);\n";
                 break;
@@ -804,6 +905,8 @@ namespace
         // cycle is stored only where a helper reads it (flags, clip, decoded fallbacks, XGKICK progress before a store)
         // and the ready times of what the block wrote are stored once on the way out. The state after the block is the
         // same as after the per-pair version (the replay bench checks this). Anything else runs the per-pair version.
+        // With PS2X_VU_AOTGEN_SCALAR=1, FDIV/EFU/WAITQ/WAITP pairs qualify too and Q/P results may land inside the block
+        // (see scalarFastEnabled).
         // PS2X_VU_AOTGEN_FAST=0 at generation time: per-pair versions only (for comparison).
         static bool fastEnabled()
         {
@@ -844,14 +947,60 @@ namespace
             return "s.vi[" + std::to_string(reg) + "]";
         }
 
+        // PS2X_VU_AOTGEN_SCALAR=1 at generation time: blocks with DIV/SQRT/RSQRT, EFU ops, WAITQ or WAITP get the fast
+        // version too (in Tempest these blocks are ~45% of the executed pairs). Their Q/P timing is static once nothing
+        // queued before the block can stall it: the entry check requires a Q/P result from earlier blocks to land no
+        // later than the first pair that would wait for it, the schedule stalls on the block's own results, and each
+        // pair commits due Q/P results at the same cycles as the per-pair version (start of the pair, then its issue
+        // cycle after a stall), so Q, P and the D/I status bits change at the same points.
+        static bool scalarFastEnabled()
+        {
+            static const bool on = []
+            {
+                const char *e = std::getenv("PS2X_VU_AOTGEN_SCALAR");
+                return e && *e == '1';
+            }();
+            return on;
+        }
+        static bool isScalarPair(const Pair &p) { return !p.iBit && !p.isNop && p.scalarWait; }
+        // PS2X_VU_AOTGEN_INLINE=1 at generation time: DIV/SQRT/RSQRT and FCEQ/FCAND/FCOR/FCGET are written out in the
+        // compiled code (same operations as Impl::execLower) instead of calling execLower's decoder.
+        static bool inlineLowerEnabled()
+        {
+            static const bool on = []
+            {
+                const char *e = std::getenv("PS2X_VU_AOTGEN_INLINE");
+                return e && *e == '1';
+            }();
+            return on;
+        }
+        // PS2X_VU_AOTGEN_FLAGS=1 at generation time: MAC/status flag liveness changes (see computeFlagLiveness).
+        static bool flagsOptEnabled()
+        {
+            static const bool on = []
+            {
+                const char *e = std::getenv("PS2X_VU_AOTGEN_FLAGS");
+                return e && *e == '1';
+            }();
+            return on;
+        }
+
         bool fastPairOk(uint32_t idx) const
         {
             const Pair &p = pairs[idx];
-            if (bail[idx] || p.scalarWait)
+            if (bail[idx])
                 return false;
             if (p.iBit || p.isNop)
                 return true;
             const Usage &lo = p.lowerUsage;
+            if (p.scalarWait && scalarFastEnabled())
+            {
+                // a Q/P result needs a known latency (the one execLower queues it with)
+                const bool issues = (lo.pipe == Pipe::Fdiv && !lo.waitQ) || (lo.pipe == Pipe::Efu && !lo.waitP);
+                return lo.pipe != Pipe::Xgkick && (!issues || lo.latency != 0u);
+            }
+            if (p.scalarWait)
+                return false;
             return lo.pipe != Pipe::Xgkick && lo.pipe != Pipe::Fdiv && lo.pipe != Pipe::Efu && !lo.waitQ && !lo.waitP;
         }
 
@@ -980,6 +1129,13 @@ namespace
                 if (it == ext.end() || at < it->second)
                     ext[{kind, reg}] = at;
             };
+            // Q/P queued inside the block (ready cycles after entry, -1 = none) and the first pair that would wait for a
+            // result queued before the block (-1 = no such pair).
+            bool scalarBlock = false;
+            for (uint32_t pc : pcs)
+                scalarBlock = scalarBlock || isScalarPair(pairs[pc >> 3]);
+            int64_t qRel = -1, efuRel = -1, extQAt = -1, extPAt = -1;
+            std::vector<int64_t> pRel;
             for (size_t i = 0; i < pcs.size(); ++i)
             {
                 const Pair &p = pairs[pcs[i] >> 3];
@@ -1016,7 +1172,39 @@ namespace
                             else
                                 exts.push_back({2, 0u});
                         }
+                // Q/P stalls as Impl::pairReadyCycle: a result already landed was committed at the pair start, so the
+                // maximum over the block's own results is exact.
+                const bool scalar = isScalarPair(p);
+                const Usage &lo = p.lowerUsage;
+                const bool qUse = scalar && (lo.pipe == Pipe::Fdiv || lo.waitQ);
+                const bool pUse = scalar && lo.pipe == Pipe::Efu;
+                if (qUse && qRel >= 0)
+                    ready = std::max(ready, qRel);
+                if (pUse && efuRel >= 0)
+                    ready = std::max(ready, efuRel);
+                if (pUse && lo.waitP)
+                    for (int64_t r : pRel)
+                        ready = std::max(ready, r);
                 t[i] = ready;
+                if (qUse && qRel < 0 && extQAt < 0)
+                    extQAt = ready;
+                if (pUse && efuRel < 0 && extPAt < 0)
+                    extPAt = ready;
+                if (qUse && !lo.waitQ)
+                    qRel = ready + lo.latency;
+                if (pUse && !lo.waitP)
+                {
+                    size_t inFlight = 0;
+                    for (int64_t r : pRel)
+                        inFlight += r > ready ? 1u : 0u;
+                    if (inFlight >= 2u)
+                    {
+                        slowReason = "p slots@" + tag(pcs[i]);
+                        return false; // queueP would overwrite a slot; keep the per-pair version
+                    }
+                    pRel.push_back(ready + lo.latency);
+                    efuRel = ready + lo.latency - 1;
+                }
                 for (const auto &e : exts)
                     needExt(e.first, e.second, ready);
                 auto writeVf = [&](uint32_t reg, uint32_t lanes, int64_t at)
@@ -1043,8 +1231,14 @@ namespace
                 after[i] = sc;
             }
             const int64_t last = t.back();
-            o << "    {\n        const uint64_t c0 = m.cycle;\n        if (c0 + " << last << "u < a.budgetEnd && m.nextScalarCycle > c0 + "
-              << last << "u";
+            o << "    {\n        const uint64_t c0 = m.cycle;\n        if (c0 + " << last << "u < a.budgetEnd";
+            if (!scalarBlock)
+                o << " && m.nextScalarCycle > c0 + " << last << "u";
+            if (extQAt >= 0)
+                o << "\n            && (!m.qPending || m.qReady <= c0 + " << extQAt << "u)";
+            if (extPAt >= 0)
+                o << "\n            && m.efuResourceReady <= c0 + " << extPAt << "u && (!m.p[0].valid || m.p[0].ready <= c0 + " << extPAt
+                  << "u) && (!m.p[1].valid || m.p[1].ready <= c0 + " << extPAt << "u)";
             for (const auto &e : ext)
             {
                 if (e.first.first == 0)
@@ -1069,13 +1263,24 @@ namespace
                 const int myBackup = backupReg(p);
                 const std::string myVar = "oldVi_" + tag(pc);
                 o << "        // fast " << hx(pc, 4) << " at +" << t[i] << "\n";
+                if (scalarBlock)
+                {
+                    // the per-pair version commits due Q/P at the pair start and again at the issue cycle after a stall
+                    const int64_t startAt = i == 0 ? 0 : t[i - 1] + 1;
+                    o << "        if (m.nextScalarCycle <= c0 + " << startAt << "u)\n        {\n            m.cycle = c0 + " << startAt
+                      << "u;\n            m.aotCommitScalars();\n        }\n";
+                    if (t[i] > startAt)
+                        o << "        if (m.nextScalarCycle <= c0 + " << t[i] << "u)\n        {\n            m.cycle = c0 + " << t[i]
+                          << "u;\n            m.aotCommitScalars();\n        }\n";
+                }
                 if (myBackup > 0)
                     o << "        const int32_t " << myVar << " = s.vi[" << myBackup << "];\n";
                 const std::string ops = capture([&] { emitOps(p, idx, pc); });
                 updateKnown(p);
                 const bool usesCycle = ops.find("m.exec") != std::string::npos || ops.find("m.aotProgressXgkick") != std::string::npos ||
                                        ops.find("m.aotFmacFlags") != std::string::npos || ops.find("m.opClip") != std::string::npos ||
-                                       ops.find("m.startXgkick") != std::string::npos;
+                                       ops.find("m.startXgkick") != std::string::npos || ops.find("m.queueQ") != std::string::npos ||
+                                       ops.find("m.commitFlags") != std::string::npos;
                 o << "        {\n";
                 if (usesCycle)
                     o << "        m.cycle = c0 + " << t[i] << "u;\n";
@@ -1274,6 +1479,10 @@ namespace ps2_vu_aotgen
     bool generate(const std::vector<Source> &sources, const std::string &path)
     {
         std::ostringstream out;
+        if (Gen::scalarFastEnabled() || Gen::inlineLowerEnabled() || Gen::flagsOptEnabled()) // generation options that change the code (none by default)
+            out << "// Generated with" << (Gen::scalarFastEnabled() ? " PS2X_VU_AOTGEN_SCALAR=1" : "")
+                << (Gen::inlineLowerEnabled() ? " PS2X_VU_AOTGEN_INLINE=1" : "")
+                << (Gen::flagsOptEnabled() ? " PS2X_VU_AOTGEN_FLAGS=1" : "") << ".\n";
         out << "// GENERATED by ps2_vu_aotgen.cpp (PS2X_VU_BENCH ...,aotgen=) from captured VU micro memory. Do not edit.\n"
             << "// Each image registers itself with VuFastEngine::registerAot and is used while its pairs match micro memory.\n"
             << "#include \"runtime/ps2_vu_fast_impl.h\"\n#include <algorithm>\n#include <cstdio>\n#include <vector>\n\n"

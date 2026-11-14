@@ -29,8 +29,60 @@
 #include <cstring>
 #endif
 
+#if defined(_WIN32)
+#include <cstdio>
+#include <fcntl.h>
+#include <io.h>
+#include <thread>
+#endif
+
 namespace
 {
+#if defined(_WIN32)
+    // PS2X_LOG_ASYNC=1 (ported from Neo Contra): stdout and stderr each go through a pipe, and a thread per pipe writes
+    // them to the real log file. A log write that blocks (about 13 ms on the laptop, twice every 5 s from the game
+    // thread's stats lines) then cannot stall the game. Off by default: after a hard crash or a kill the last lines
+    // still in a pipe are lost.
+    std::thread g_logThreads[2];
+
+    void redirectStdioThroughPipes()
+    {
+        const char *e = std::getenv("PS2X_LOG_ASYNC");
+        if (e == nullptr || *e != '1')
+            return;
+        for (int fd = 1; fd <= 2; ++fd)
+        {
+            int ends[2];
+            const int real = _dup(fd);
+            if (real < 0 || _pipe(ends, 1 << 20, _O_BINARY) != 0)
+                continue;
+            std::fflush(fd == 1 ? stdout : stderr);
+            _dup2(ends[1], fd);
+            _close(ends[1]);
+            g_logThreads[fd - 1] = std::thread([in = ends[0], real]
+                                               {
+                                                   char buf[4096];
+                                                   for (int n; (n = _read(in, buf, sizeof(buf))) > 0;)
+                                                       _write(real, buf, static_cast<unsigned>(n));
+                                               });
+        }
+    }
+
+    // Before every exit (main leaves through _Exit and the terminate handler through abort: neither runs atexit).
+    void finishStdioPipes()
+    {
+        std::fflush(stdout);
+        std::fflush(stderr);
+        for (int fd = 1; fd <= 2; ++fd)
+            if (g_logThreads[fd - 1].joinable())
+            {
+                _close(fd); // end of file for the pipe reader, which then writes out what is left
+                g_logThreads[fd - 1].join();
+            }
+    }
+#else
+    void finishStdioPipes() {}
+#endif
 #if defined(__ANDROID__)
     int g_logcatPipeFds[2]{-1, -1};
     std::thread g_logcatThread;
@@ -125,6 +177,7 @@ namespace
                                        std::cerr << "[terminate] non-std exception" << std::endl;
                                    }
                                }
+                               finishStdioPipes();
                                std::abort(); });
     }
 
@@ -174,6 +227,9 @@ int main(int argc, char *argv[])
 {
 #if defined(__ANDROID__)
     redirectStdioToLogcat();
+#endif
+#if defined(_WIN32)
+    redirectStdioThroughPipes();
 #endif
     setupTerminateLogger();
 
@@ -297,6 +353,7 @@ int main(int argc, char *argv[])
                 std::cout << "[frontend] quit" << std::endl;
                 std::cout.flush();
                 std::cerr.flush();
+                finishStdioPipes();
                 std::_Exit(0);
             }
         }
@@ -319,6 +376,7 @@ int main(int argc, char *argv[])
 #endif
         std::cout.flush();
         std::cerr.flush();
+        finishStdioPipes();
         std::_Exit(0);
     }
     catch (const std::exception &e)
@@ -332,5 +390,6 @@ int main(int argc, char *argv[])
 
     std::cout.flush();
     std::cerr.flush();
+    finishStdioPipes();
     std::_Exit(1);
 }

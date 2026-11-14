@@ -23,6 +23,8 @@
 #include <immintrin.h>
 #endif
 
+void ps2TransferBufferGive(std::vector<uint8_t> &&buf); // ps2_memory.cpp
+
 namespace ps2_gs_worker
 {
     std::atomic<uint32_t> g_pending{0u};
@@ -214,6 +216,9 @@ namespace ps2_gs_worker
                         notePrivWrite(w);
                 }
             }
+            for (auto *list : {&job.gif, &job.vif1}) // processed: the copies go back to the game thread's pool
+                for (PS2Memory::PendingTransfer &t : *list)
+                    ps2TransferBufferGive(std::move(t.chainData));
             if (g_split && !g_segment.empty())
             {
                 g_segmentMem = &mem;

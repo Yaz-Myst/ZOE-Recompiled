@@ -170,6 +170,11 @@ namespace ps2x::iop
         m_impl->emulator.runEeCycles(eeCycles);
     }
 
+    uint64_t IopSubsystem::eeCyclesUntilBatch() const noexcept
+    {
+        return m_impl->emulator.eeCyclesUntilBatch();
+    }
+
     RpcAbi IopSubsystem::selectRpcAbi(const RpcAbiRequest &request) const
     {
         for (const auto &service : m_impl->coreServices)

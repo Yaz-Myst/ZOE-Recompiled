@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <algorithm>
+#include <cctype>
 #include <iostream>
 #include <map>
 #include <memory>
@@ -172,7 +173,7 @@ namespace
 
     struct BenchOptions
     {
-        std::string capture, writeSums, checkSums, writeRelaxed, checkRelaxed, profileDir, aotgen, deps;
+        std::string capture, writeSums, checkSums, writeRelaxed, checkRelaxed, profileDir, aotgen, aottag, deps;
         size_t maxCalls = ~size_t(0);
         uint32_t iterations = 5;
         int unitFilter = -1;
@@ -204,6 +205,8 @@ namespace
                 o.checkRelaxed = item.substr(7);
             else if (item.rfind("aotgen=", 0) == 0)
                 o.aotgen = item.substr(7);
+            else if (item.rfind("aottag=", 0) == 0)
+                o.aottag = item.substr(7);
             else if (item.rfind("deps=", 0) == 0)
                 o.deps = item.substr(5);
             else if (item.rfind("prof=", 0) == 0)
@@ -827,6 +830,13 @@ namespace ps2_vu_bench
 
         if (!opt.aotgen.empty())
         {
+            // the tag becomes part of C++ identifiers in the generated file
+            for (const char ch : opt.aottag)
+                if (!std::isalnum(static_cast<unsigned char>(ch)))
+                {
+                    std::cerr << "[vu:bench] aottag must be letters and digits only: " << opt.aottag << std::endl;
+                    std::exit(1);
+                }
             // One source per captured code image, entries = every program start seen with it.
             std::vector<std::set<uint32_t>> entrySets(codes.size());
             std::vector<int> unitOf(codes.size(), -1);
@@ -845,6 +855,8 @@ namespace ps2_vu_bench
                 src.code = codes[c];
                 src.entries.assign(entrySets[c].begin(), entrySets[c].end());
                 src.name = std::string(src.vu0 ? "vu0" : "vu1") + "_c" + std::to_string(c);
+                if (!opt.aottag.empty()) // tagged image ("vu1_c0_<tag>"): used only with PS2X_VU_AOT_IMAGE=<tag>
+                    src.name += "_" + opt.aottag;
                 used.push_back(std::move(src));
             }
             const bool ok = ps2_vu_aotgen::generate(used, opt.aotgen);

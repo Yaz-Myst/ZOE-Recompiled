@@ -24,6 +24,12 @@ namespace ps2_stubs
     std::function<void(R5900Context &)> makeCdStReadCompletionForState(uint8_t *rdram, PS2Runtime *runtime, const uint32_t *args);
 }
 
+// Defined in ps2_memory.cpp: forgets pointers into PS2Memory::m_ioRegisters after the map is cleared.
+void ps2MemoryIoRegistersCleared();
+uint64_t ps2IopBankTake() noexcept; // ps2_runtime.cpp: PS2X_IOP_BANK's banked EE cycles
+void ps2IopBankDrop() noexcept;
+void ps2MemoryEeTimersReplaced();   // ps2_memory.cpp: drops PS2X_EE_LAZY_TIMERS' banked cycles
+
 namespace ps2_state
 {
     namespace
@@ -167,6 +173,7 @@ namespace ps2_state
                 std::lock_guard<std::mutex> lock(m.m_completedDmacMutex);
                 w.podVector(m.m_completedDmacCauses);
             }
+            m.advanceEeTimers(0u); // PS2X_EE_LAZY_TIMERS: save the timers with the banked cycles applied
             for (const auto &t : m.m_eeTimers)
             {
                 w.u32(t.count);
@@ -190,6 +197,7 @@ namespace ps2_state
             r.blob(m.m_vu1Data, PS2_VU1_DATA_SIZE);
             r.blob(m.m_gsVRAM, PS2_GS_VRAM_SIZE);
             m.m_ioRegisters.clear();
+            ps2MemoryIoRegistersCleared();
             const uint64_t ioCount = r.u64();
             for (uint64_t i = 0; i < ioCount && r.ok(); ++i)
             {
@@ -260,6 +268,7 @@ namespace ps2_state
                 t.hold = r.u32();
                 t.clockRemainder = r.u64();
             }
+            ps2MemoryEeTimersReplaced();
             // Derived caches keyed on code memory: the VU engines re-decode when the generation changes.
             m.markVU0CodeModified();
             m.markVU1CodeModified();
@@ -945,6 +954,8 @@ namespace ps2_state
             if (rt.m_iopSubsystem)
             {
                 auto lock = rt.m_iopHost->lockIop();
+                if (const uint64_t banked = ps2IopBankTake(); banked != 0u)
+                    rt.m_iopSubsystem->runEeCycles(banked);
                 rt.m_iopSubsystem->saveState(w);
             }
             saveParts(w);
@@ -987,6 +998,7 @@ namespace ps2_state
             loadGs(r, rt.m_gs);
             if (rt.m_iopSubsystem)
             {
+                ps2IopBankDrop();
                 auto lock = rt.m_iopHost->lockIop();
                 rt.m_iopSubsystem->loadState(r);
             }

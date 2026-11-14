@@ -306,6 +306,9 @@ public:
     void postEvent(EeEvent event);
     [[nodiscard]] bool checkpointDue(uint32_t cycles = kGeneratedCheckpointCycles) noexcept;
     void accountCycles(uint32_t cycles) noexcept;
+    // Credits the guest cycles up to a vblank whose wall-clock time has passed (max one frame, stops at the next EE
+    // timer interrupt). PS2X_VBLANK_WALLCLOCK=1 calls it from checkpointDue; games may also call it from hooks.
+    void creditOverdueVBlank();
     void checkMemoryWatch(const char *where) noexcept;
     [[nodiscard]] bool isExecutingGuest() const noexcept;
 
@@ -497,6 +500,8 @@ private:
     uint32_t m_gsVSyncCallbackSp = 0;
     std::unordered_map<uint64_t, uint32_t> m_invocationStackTops;
     std::atomic<uint64_t> m_nextDeadlineCycle{0};
+    std::atomic<int64_t> m_nextVBlankHostNs{0}; // steady_clock ticks of the pending VBlankStart (PS2X_VBLANK_WALLCLOCK)
+    uint32_t m_wallclockPoll = 0;
 
     mutable std::mutex m_snapshotMutex;
     EeKernelSnapshot m_snapshot;

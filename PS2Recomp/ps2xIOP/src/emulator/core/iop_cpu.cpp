@@ -54,8 +54,13 @@ namespace ps2x::iop::detail
 
     bool IopCpuCore::executeInstruction(IopCpuState &cpu)
     {
+        return executeWord(cpu, m_memory.fetch32(cpu.pc));
+    }
+
+    // The instruction at cpu.pc, already fetched (PS2X_IOP_FAST_LOOP fetches once to inspect it).
+    bool IopCpuCore::executeWord(IopCpuState &cpu, uint32_t instruction)
+    {
         const uint32_t pc = cpu.pc;
-        const uint32_t instruction = m_memory.fetch32(pc);
         const bool wasDelaySlot = cpu.branchPending;
         const uint32_t priorBranchTarget = cpu.branchTarget;
 

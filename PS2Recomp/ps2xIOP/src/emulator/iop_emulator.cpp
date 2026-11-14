@@ -19,9 +19,11 @@
 #include "iop_emulator_const.h"
 #include "../iop_module_manager.h"
 #include "ps2x/state_io.h"
+#include "ps2x/iop/iop_aot.h"
 
 #include <algorithm>
 #include <cctype>
+#include <chrono>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -34,6 +36,24 @@
 
 // DIAGNOSTIC (PS2X_IOP_DIAG): vsync tick for the IOP thread / timer dump.
 uint64_t ps2CurrentVsyncTick();
+
+static const ps2x::iop::aot::Block *g_aotBlocks = nullptr;
+static size_t g_aotBlockCount = 0u;
+void ps2x::iop::aot::registerBlocks(const Block *blocks, size_t count) noexcept
+{
+    g_aotBlocks = blocks;
+    g_aotBlockCount = count;
+}
+
+// PS2X_IOP_PCHIST=<ms> (diagnostic): for every IOP batch that takes at least <ms> of host time, print how many
+// instructions it ran and the twelve most executed IOP addresses. <ms> = 0: no per-batch print; about every 5 s of
+// host time one block with the 24 most executed addresses over the window.
+static const double g_pcHistMs = []
+{
+    const char *e = std::getenv("PS2X_IOP_PCHIST");
+    return e ? std::atof(e) : -1.0;
+}();
+static uint32_t *const g_pcHist = g_pcHistMs >= 0.0 ? new uint32_t[0x80000]() : nullptr;
 
 namespace ps2x::iop::detail
 {
@@ -449,6 +469,88 @@ namespace ps2x::iop::detail
             return ImportDisposition::Missing;
         }
 
+        // PS2X_IOP_FAST_COPY=1: the unoptimised word-copy loop of Konami's SDSTR3 (24 instructions per word, 32 KB per
+        // stream block: ~200,000 interpreted instructions in one frame) runs as a host copy and charges one cycle per
+        // word. Same bytes copied; the stream thread finishes sooner than on a PS2.
+        // shortcut: one loop address, upgrade to a list when another module carries the same loop.
+        uint32_t copyLoopPc = 0xFFFFFFFFu;
+
+        void findCopyLoop()
+        {
+            static const bool s_on = []
+            {
+                const char *e = std::getenv("PS2X_IOP_FAST_COPY");
+                return e != nullptr && *e == '1';
+            }();
+            static const uint32_t kLoop[24] = {
+                0x8FC20008u, 0x8FC30020u, 0x00000000u, 0x0043102Au, 0x14400003u, 0x00000000u, 0u /* j exit */, 0x00000000u,
+                0x27C20004u, 0x8C430000u, 0x8FC40000u, 0x00000000u, 0x8C850000u, 0x00000000u, 0xAC650000u, 0x24840004u,
+                0xAFC40000u, 0x24630004u, 0xAC430000u, 0x8FC20008u, 0x00000000u, 0x24430004u, 0u /* j head */, 0xAFC30008u};
+            const uint32_t before = copyLoopPc;
+            copyLoopPc = 0xFFFFFFFFu;
+            if (!s_on)
+                return;
+            const uint8_t *const ram = memory.ramData();
+            for (uint32_t at = 0u; at + sizeof(kLoop) <= kRamSize; at += 4u)
+            {
+                uint32_t words[24];
+                std::memcpy(words, ram + at, sizeof(words));
+                bool same = (words[6] >> 26u) == 2u && (words[22] >> 26u) == 2u;
+                for (uint32_t i = 0u; same && i < 24u; ++i)
+                    same = i == 6u || i == 22u || words[i] == kLoop[i];
+                if (same)
+                {
+                    copyLoopPc = at;
+                    break;
+                }
+            }
+            if (copyLoopPc != before)
+            {
+                if (copyLoopPc != 0xFFFFFFFFu)
+                    std::fprintf(stderr, "[iop] PS2X_IOP_FAST_COPY: copy loop at 0x%x\n", static_cast<unsigned>(copyLoopPc));
+                else
+                    std::fprintf(stderr, "[iop] PS2X_IOP_FAST_COPY: copy loop not found\n");
+            }
+        }
+
+        // At the loop head: frame holds src (+0), dst (+4), bytes done (+8), byte count (+0x20). Leaves the pc at the
+        // head with the counters advanced, so the loop's own exit test runs next.
+        void runCopyLoop(CpuState &cpu)
+        {
+            uint8_t *const ram = memory.ramData();
+            const uint32_t frame = physicalAddress(cpu.gpr[30]);
+            if (frame + 0x24u > kRamSize)
+                return;
+            uint32_t src, dst;
+            int32_t done, count;
+            std::memcpy(&src, ram + frame, 4u);
+            std::memcpy(&dst, ram + frame + 4u, 4u);
+            std::memcpy(&done, ram + frame + 8u, 4u);
+            std::memcpy(&count, ram + frame + 0x20u, 4u);
+            // Unaligned pointers fault in the interpreter; leave those (and an empty or absurd count) to it.
+            if (done >= count || done < 0 || ((src | dst | cpu.gpr[30]) & 3u) != 0u)
+                return;
+            const uint32_t words = (static_cast<uint32_t>(count - done) + 3u) / 4u;
+            const uint32_t bytes = words * 4u;
+            const uint32_t from = physicalAddress(src), to = physicalAddress(dst);
+            // Anything but a plain RAM-to-RAM copy that stays clear of its own frame is left to the interpreter.
+            if (bytes > kRamSize || from > kRamSize - bytes || to > kRamSize - bytes ||
+                (to < frame + 0x24u && frame < to + bytes))
+                return;
+            for (uint32_t i = 0u; i < bytes; i += 4u) // forward, word by word, as the loop does (ranges may overlap)
+                std::memcpy(ram + to + i, ram + from + i, 4u);
+            src += bytes;
+            dst += bytes;
+            done += static_cast<int32_t>(bytes);
+            std::memcpy(ram + frame, &src, 4u);
+            std::memcpy(ram + frame + 4u, &dst, 4u);
+            std::memcpy(ram + frame + 8u, &done, 4u);
+            cpu.gpr[4] = src;
+            std::memcpy(&cpu.gpr[5], ram + to + bytes - 4u, 4u);
+            totalInstructions += words;
+            totalCycles += words;
+        }
+
         bool step(CpuState &cpu)
         {
             if (cpu.stopped)
@@ -483,6 +585,8 @@ namespace ps2x::iop::detail
                 return !cpu.stopped;
             }
 
+            if (cpu.pc == copyLoopPc)
+                runCopyLoop(cpu);
             const bool running = cpuCore.executeInstruction(cpu);
             schedulePendingDma();
             ++totalInstructions;
@@ -490,13 +594,291 @@ namespace ps2x::iop::detail
             return running;
         }
 
-        uint32_t runCpu(CpuState &cpu, uint32_t instructionBudget)
+        // PS2X_IOP_AOT=1: compiled blocks (ps2x/iop/iop_aot.h) run inside the burst loop below; implies the fast
+        // loop. =2 also prints how much ran compiled, one line per ~20 M compiled instructions.
+        static int aotMode()
+        {
+            static const int s_mode = []
+            {
+                const char *e = std::getenv("PS2X_IOP_AOT");
+                // on by default since 12 Nov 2026 (does nothing unless the game registered blocks); =0 turns it off
+                return e == nullptr ? 1 : (*e == '1' || *e == '2') ? *e - '0' : 0;
+            }();
+            return s_mode;
+        }
+
+        // Block index + 1 per RAM word, built on first use from the registered table (0: no block starts there).
+        // shortcut: one block per address (the first registered), upgrade when two code images share an address.
+        static const uint32_t *aotIndex()
+        {
+            static const uint32_t *const s_index = []() -> const uint32_t *
+            {
+                if (g_aotBlocks == nullptr || g_aotBlockCount == 0u)
+                    return nullptr;
+                uint32_t *index = new uint32_t[kRamSize / 4u]();
+                size_t used = 0u;
+                for (size_t i = 0u; i < g_aotBlockCount; ++i)
+                {
+                    const aot::Block &b = g_aotBlocks[i];
+                    if ((b.pc & 3u) != 0u || b.count == 0u || b.pc >= kRamSize || b.count > (kRamSize - b.pc) / 4u ||
+                        index[b.pc >> 2u] != 0u)
+                        continue;
+                    index[b.pc >> 2u] = static_cast<uint32_t>(i) + 1u;
+                    ++used;
+                }
+                std::fprintf(stderr, "[iop:aot] %zu compiled blocks registered, %zu indexed\n", g_aotBlockCount, used);
+                return index;
+            }();
+            return s_index;
+        }
+
+        static uint32_t aotSlowRead(void *mem, uint32_t address, uint32_t size)
+        {
+            IopMemory &m = *static_cast<IopMemory *>(mem);
+            return size == 4u ? m.read32(address) : size == 2u ? m.read16(address) : m.read8(address);
+        }
+        static void aotSlowWrite(void *mem, uint32_t address, uint32_t value, uint32_t size)
+        {
+            IopMemory &m = *static_cast<IopMemory *>(mem);
+            if (size == 4u)
+                m.write32(address, value);
+            else if (size == 2u)
+                m.write16(address, static_cast<uint16_t>(value));
+            else
+                m.write8(address, static_cast<uint8_t>(value));
+        }
+
+        uint64_t aotInstructions = 0u, aotBlocksRun = 0u, aotNextReport = 20000000u;
+
+        // PS2X_IOP_FAST_LOOP=1: runCpu runs straight-line instructions through runStraight() (below) and skips the
+        // per-instruction checks that provably cannot fire in between. =2: same, and every skipped check is also
+        // evaluated for real; a disagreement prints "[iop:fastloop] MISMATCH" (max 20 lines). 0/unset: the old loop.
+        // Off while PS2X_IOP_PCHIST, PS2X_IOP_WATCH or PS2X_IOP_DIAG is active (they hook the per-instruction path).
+        static int fastLoopMode()
+        {
+            static const int s_mode = []
+            {
+                const char *e = std::getenv("PS2X_IOP_FAST_LOOP");
+                const int mode = (e != nullptr && (*e == '1' || *e == '2')) ? *e - '0' : aotMode() != 0 ? 1 : 0;
+                if (mode != 0 && (g_pcHist != nullptr || g_iopWatchCount != 0u || kIopDiag))
+                {
+                    std::fprintf(stderr, "[iop:fastloop] off: PS2X_IOP_PCHIST / PS2X_IOP_WATCH / PS2X_IOP_DIAG is active\n");
+                    return 0;
+                }
+                if (mode != 0)
+                    std::fprintf(stderr, "[iop:fastloop] mode %d\n", mode);
+                return mode;
+            }();
+            return s_mode;
+        }
+
+        // Same test as checkInterrupt, without raising anything.
+        bool interruptWouldFire(const CpuState &cpu) const
+        {
+            const uint32_t status = cpu.cop0[12];
+            return (status & 1u) != 0u && (status & 0x2u) == 0u && memory.interruptControl() != 0u &&
+                   (memory.interruptStatus() & memory.interruptMask()) != 0u;
+        }
+
+        // First cycle at which the post-instruction services of runCpu have work: the SPU2 next event, the earliest
+        // queued device interrupt and the earliest queued guest callback (each only while its service is not
+        // already running further up the stack, as in runCpu guards).
+        uint64_t attentionCycle() const
+        {
+            static const uint64_t *const s_spu2Next = spu2::nextEventCyclePtr();
+            uint64_t at = *s_spu2Next;
+            if (!servicingDmaInterrupts)
+                for (const auto &entry : pendingDmaInterrupts)
+                    at = std::min(at, entry.second);
+            if (!servicingGuestCallbacks && !pendingGuestCallbacks.empty())
+                at = std::min(at, pendingGuestCallbacks.begin()->first);
+            return at;
+        }
+
+        static void fastLoopMismatch(const char *what, uint32_t pc, uint64_t cycle)
+        {
+            static uint32_t s_printed = 0u;
+            if (s_printed >= 20u)
+                return;
+            ++s_printed;
+            std::fprintf(stderr, "[iop:fastloop] MISMATCH %s pc=0x%x cyc=%llu\n", what, static_cast<unsigned>(pc),
+                         static_cast<unsigned long long>(cycle));
+        }
+
+        // Executes up to `limit` instructions in a row, each exactly as step() + the post-instruction services would,
+        // minus the checks that cannot fire between two plain instructions. Returns how many it executed (0: the
+        // caller must use the full step). Entry requires: no interrupt would fire, no DMA start / SPU2 IRQ waiting.
+        // Leaves the loop after an instruction that
+        //  - touched anything but plain RAM (SPU2, I/O registers, scratchpad: memory.ioTouched()): schedulePendingDma
+        //    runs here, as in step(), and the caller runs the services (the SPU2 deadline, interrupt registers and the
+        //    DMA queue may have changed),
+        //  - was a COP0 instruction (status / cause may have changed: interrupt test) or raised an exception,
+        //  - brought totalCycles to the attention cycle (a service is due),
+        // and before one that is outside aligned RAM (sentinel pcs, errors), at the copy-loop pc, or a "jr ra"
+        // (possible import stub: step() decodes it).
+        uint32_t runStraight(CpuState &cpu, uint32_t limit, bool check)
+        {
+            static const uint32_t *const s_spu2Irqs = spu2::pendingIrqsPtr();
+            if (interruptWouldFire(cpu) || memory.hasDmaStart() || *s_spu2Irqs != 0u)
+                return 0u;
+            const uint64_t attention = attentionCycle();
+            memory.clearIoTouched();
+            uint32_t done = 0u;
+            // not in check mode (PS2X_IOP_FAST_LOOP=2): its per-instruction checks cannot see inside a block
+            const uint32_t *const aotIdx = (aotMode() != 0 && !check) ? aotIndex() : nullptr;
+            aot::Ctx aotCtx{};
+            if (aotIdx != nullptr)
+            {
+                aotCtx.r = cpu.gpr.data();
+                aotCtx.hi = &cpu.hi;
+                aotCtx.lo = &cpu.lo;
+                aotCtx.ram = memory.ramData();
+                aotCtx.owned = memory.ownedData();
+                aotCtx.mem = &memory;
+                aotCtx.slowRead = &aotSlowRead;
+                aotCtx.slowWrite = &aotSlowWrite;
+                aotCtx.cycles = &totalCycles;
+                aotCtx.instructions = &totalInstructions;
+            }
+            while (done < limit)
+            {
+                const uint32_t pc = cpu.pc;
+                if ((pc & 3u) != 0u || physicalAddress(pc) >= kRamSize || pc == copyLoopPc)
+                    break;
+                // A compiled block for this address: only from a clean instruction boundary (no delay slot or
+                // delayed load in flight), with room for all of it before the budget and the attention cycle, and
+                // only while RAM still holds the code it was generated from.
+                if (aotIdx != nullptr && pc < kRamSize && aotIdx[pc >> 2u] != 0u && !cpu.branchPending && !cpu.pendingLoad)
+                {
+                    const aot::Block &b = g_aotBlocks[aotIdx[pc >> 2u] - 1u];
+                    if (b.count <= limit - done && totalCycles + b.count <= attention &&
+                        copyLoopPc - pc >= b.count * 4u &&
+                        std::memcmp(memory.ramData() + pc, b.words, b.count * 4u) == 0)
+                    {
+                        aotCtx.anyLoad = false;
+                        aotCtx.io = false;
+                        aotCtx.counted = 0u;
+                        const uint32_t ran = b.run(aotCtx);
+                        if (ran != 0u)
+                        {
+                            cpu.pc = aotCtx.pc;
+                            cpu.branchPending = aotCtx.branchPending;
+                            cpu.branchTarget = aotCtx.branchTarget;
+                            cpu.pendingLoad = aotCtx.pendingLoad;
+                            if (aotCtx.anyLoad)
+                            {
+                                cpu.pendingLoadReg = aotCtx.loadReg;
+                                cpu.pendingLoadValue = aotCtx.loadValue;
+                            }
+                            cpu.exception = false;
+                            done += ran;
+                            aotInstructions += ran;
+                            ++aotBlocksRun;
+                            if (aotCtx.io)
+                            {
+                                // the block counted the instructions before the device access itself (iop_aot.h)
+                                totalInstructions += ran - 1u - aotCtx.counted;
+                                totalCycles += ran - 1u - aotCtx.counted;
+                                schedulePendingDma(); // as below: before the last instruction is counted
+                                ++totalInstructions;
+                                ++totalCycles;
+                                break;
+                            }
+                            totalInstructions += ran;
+                            totalCycles += ran;
+                            if (totalCycles >= attention)
+                                break;
+                            continue;
+                        }
+                    }
+                }
+                const uint32_t word = memory.fetch32(pc);
+                if (word == 0x03E00008u)
+                    break;
+                if (check)
+                {
+                    if (cpu.stopped || cpu.yielded)
+                        fastLoopMismatch("stopped/yielded", pc, totalCycles);
+                    if (interruptWouldFire(cpu))
+                        fastLoopMismatch("interrupt pending", pc, totalCycles);
+                }
+                (void)cpuCore.executeWord(cpu, word);
+                ++done;
+                if (memory.ioTouched())
+                {
+                    schedulePendingDma(); // before the counters, as in step(): queued times use the pre-increment cycle
+                    ++totalInstructions;
+                    ++totalCycles;
+                    break;
+                }
+                ++totalInstructions;
+                ++totalCycles;
+                if (cpu.exception || (word >> 26u) == 0x10u || totalCycles >= attention)
+                    break;
+                if (check)
+                {
+                    if (memory.hasDmaStart() || *s_spu2Irqs != 0u)
+                        fastLoopMismatch("dma/spu2 irq pending", pc, totalCycles);
+                    if (attentionCycle() != attention)
+                        fastLoopMismatch("attention cycle changed", pc, totalCycles);
+                }
+            }
+            if (aotIdx != nullptr && aotMode() == 2 && aotInstructions >= aotNextReport)
+            {
+                aotNextReport = aotInstructions + 20000000u;
+                std::fprintf(stderr, "[iop:aot] compiled instructions=%llu in %llu blocks, of %llu total\n",
+                             static_cast<unsigned long long>(aotInstructions),
+                             static_cast<unsigned long long>(aotBlocksRun),
+                             static_cast<unsigned long long>(totalInstructions));
+            }
+            if (check)
+            {
+                // Proof that the bursts ran: one line per ~5 M burst instructions.
+                static uint64_t s_bursts = 0u, s_instructions = 0u, s_next = 5000000u;
+                ++s_bursts;
+                s_instructions += done;
+                if (s_instructions >= s_next)
+                {
+                    s_next += 5000000u;
+                    std::fprintf(stderr, "[iop:fastloop] bursts=%llu instructions=%llu of %llu total\n",
+                                 static_cast<unsigned long long>(s_bursts), static_cast<unsigned long long>(s_instructions),
+                                 static_cast<unsigned long long>(totalInstructions));
+                }
+            }
+            return done;
+        }
+
+        uint32_t runCpuFast(CpuState &cpu, uint32_t instructionBudget, bool check)
         {
             CpuState *previous = activeCpu;
             activeCpu = &cpu;
             const uint64_t start = totalInstructions;
             while (!cpu.stopped && !cpu.yielded && totalInstructions - start < instructionBudget)
             {
+                const uint32_t left = static_cast<uint32_t>(instructionBudget - (totalInstructions - start));
+                if (runStraight(cpu, left, check) == 0u && !step(cpu))
+                    break;
+                serviceSpu2();
+                if (!servicingDmaInterrupts && !pendingDmaInterrupts.empty())
+                    servicePendingDmaInterrupts();
+                if (!servicingGuestCallbacks && !pendingGuestCallbacks.empty())
+                    servicePendingGuestCallbacks();
+            }
+            activeCpu = previous;
+            return static_cast<uint32_t>(totalInstructions - start);
+        }
+
+        uint32_t runCpu(CpuState &cpu, uint32_t instructionBudget)
+        {
+            if (const int fastMode = fastLoopMode())
+                return runCpuFast(cpu, instructionBudget, fastMode == 2);
+            CpuState *previous = activeCpu;
+            activeCpu = &cpu;
+            const uint64_t start = totalInstructions;
+            while (!cpu.stopped && !cpu.yielded && totalInstructions - start < instructionBudget)
+            {
+                if (g_pcHist)
+                    ++g_pcHist[(cpu.pc >> 2u) & 0x7FFFFu];
                 if (!step(cpu))
                     break;
                 serviceSpu2();
@@ -833,6 +1215,7 @@ namespace ps2x::iop::detail
             if (args)
                 freeAllocation(args);
             module.resident = startResult == 0u || startResult == 2u;
+            findCopyLoop();
             result.moduleId = module.id;
             result.startResult = static_cast<int32_t>(startResult);
             modules[module.id] = std::move(module);
@@ -878,6 +1261,7 @@ namespace ps2x::iop::detail
             imports.eraseRange(it->second.base, it->second.size);
             (void)memory.freeAllocation(it->second.base);
             modules.erase(it);
+            copyLoopPc = 0xFFFFFFFFu; // the loop may have lived in this module; the next module load scans again
             kernel.cleanupDeadThreads();
             if (result)
                 *result = 0;
@@ -965,11 +1349,20 @@ namespace ps2x::iop::detail
         return m_impl->stopModule(moduleId, result);
     }
 
+    namespace
+    {
+        constexpr uint64_t kBatchEeCycles = 8192u;
+    }
+
+    uint64_t IopEmulator::eeCyclesUntilBatch() const noexcept
+    {
+        return m_impl->eeCycleCarry < kBatchEeCycles ? kBatchEeCycles - m_impl->eeCycleCarry : 1u;
+    }
+
     void IopEmulator::runEeCycles(uint64_t eeCycles) noexcept
     {
         // The EE reports cycles at every block checkpoint (often a few dozen). Running the IOP
         // scheduler that often costs far more than the IOP work itself, so batch ~28 us of EE time.
-        constexpr uint64_t kBatchEeCycles = 8192u;
         const uint64_t total = m_impl->eeCycleCarry + eeCycles;
         if (total < kBatchEeCycles)
         {
@@ -988,7 +1381,62 @@ namespace ps2x::iop::detail
         if (m_impl->totalCycles > m_impl->iopTimeTarget + kMaxIopLead)
             m_impl->iopTimeTarget = m_impl->totalCycles;
         if (m_impl->iopTimeTarget > m_impl->totalCycles)
+        {
+            if (!g_pcHist)
+            {
+                m_impl->runCycles(m_impl->iopTimeTarget - m_impl->totalCycles);
+                return;
+            }
+            const uint64_t instructions = m_impl->totalInstructions;
+            const auto t0 = std::chrono::steady_clock::now();
             m_impl->runCycles(m_impl->iopTimeTarget - m_impl->totalCycles);
+            const auto t1 = std::chrono::steady_clock::now();
+            const double ms = std::chrono::duration<double, std::milli>(t1 - t0).count();
+            if (g_pcHistMs == 0.0)
+            {
+                // Window mode: the histogram keeps accumulating until the 5 s block is printed.
+                static uint64_t s_winInstr = 0u, s_winBatches = 0u;
+                static double s_winMs = 0.0;
+                static auto s_winStart = t0;
+                s_winInstr += m_impl->totalInstructions - instructions;
+                ++s_winBatches;
+                s_winMs += ms;
+                if (t1 - s_winStart < std::chrono::seconds(5))
+                    return;
+                std::fprintf(stderr, "[iop:pchist] 5s: instructions=%llu batches=%llu hostMs=%.1f\n",
+                             static_cast<unsigned long long>(s_winInstr), static_cast<unsigned long long>(s_winBatches),
+                             s_winMs);
+                for (int n = 0; n < 24; ++n)
+                {
+                    uint32_t *best = std::max_element(g_pcHist, g_pcHist + 0x80000);
+                    if (*best == 0u)
+                        break;
+                    std::fprintf(stderr, "  0x%x %u %.2f%%\n", static_cast<unsigned>((best - g_pcHist) << 2), *best,
+                                 s_winInstr ? 100.0 * *best / static_cast<double>(s_winInstr) : 0.0);
+                    *best = 0u;
+                }
+                std::fill(g_pcHist, g_pcHist + 0x80000, 0u);
+                s_winInstr = s_winBatches = 0u;
+                s_winMs = 0.0;
+                s_winStart = t1;
+                return;
+            }
+            if (ms >= g_pcHistMs)
+            {
+                std::fprintf(stderr, "[iop:hot] batch %.2f ms, %llu instructions; top pcs:", ms,
+                             static_cast<unsigned long long>(m_impl->totalInstructions - instructions));
+                for (int n = 0; n < 12; ++n)
+                {
+                    uint32_t *best = std::max_element(g_pcHist, g_pcHist + 0x80000);
+                    if (*best == 0u)
+                        break;
+                    std::fprintf(stderr, " %x:%u", static_cast<unsigned>((best - g_pcHist) << 2), *best);
+                    *best = 0u;
+                }
+                std::fputc(10, stderr);
+            }
+            std::fill(g_pcHist, g_pcHist + 0x80000, 0u);
+        }
     }
 
     RpcResult IopEmulator::handleRpc(const RpcRequest &request)
@@ -1472,6 +1920,7 @@ namespace ps2x::iop::detail
         d.servicingDmaInterrupts = false;
         d.servicingGuestCallbacks = false;
         d.callDepth = 0u;
+        d.findCopyLoop();
         spu2::loadState(r);
     }
 

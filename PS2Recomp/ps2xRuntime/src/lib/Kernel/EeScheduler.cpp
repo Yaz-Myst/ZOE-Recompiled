@@ -65,6 +65,31 @@ namespace
 
     constexpr uint64_t kVBlankPeriodCycles = microsecondsToEeCycles(16667u);
 
+    // The kernel snapshot (threads, semaphores, event flags) is read only by the debug panel. Building it on every
+    // scheduler event took ~1/3 of the game thread on Neo Contra's Game Over screen (~500 blocks/s, NC-013 C), so it is
+    // built only while a reader asked within the last second. PS2X_SCHED_SNAPSHOT_ALWAYS=1: build it on every event.
+    std::atomic<int64_t> g_snapshotWantedUntilMs{0};
+    int64_t snapshotClockMs()
+    {
+        return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+    }
+    bool snapshotAlways()
+    {
+        static const bool always = []
+        {
+            const char *env = std::getenv("PS2X_SCHED_SNAPSHOT_ALWAYS");
+            return env != nullptr && env[0] == '1';
+        }();
+        return always;
+    }
+
+    // PS2X_VBLANK_WALLCLOCK=1: a vblank fires when its wall-clock time passes even if the guest has not executed a
+    // frame's worth of cycles (a slow host). On the PS2 the vblank comes at a fixed rate whatever the CPU did, so a game
+    // that runs late sees it and can skip drawing (ZOE: docs/notes/02_zoe_internals.md "Frame loop") instead of the
+    // whole game slowing down. Guest time then depends on the host clock (runs are not repeatable on a slow host).
+    // On by default since 12 Nov 2026; PS2X_VBLANK_WALLCLOCK=0 turns it off (repeatable runs need that).
+    const bool g_vblankWallclock = [] { const char *v = std::getenv("PS2X_VBLANK_WALLCLOCK"); return !(v && v[0] == '0'); }();
+
     // Pacing diagnostics, printed every 5 s of wall time: how far guest time advanced, and how long
     // the executor blocked waiting for the wall clock (pacing) or for any event (idle).
     struct PaceStats
@@ -78,6 +103,7 @@ namespace
         std::chrono::steady_clock::time_point lastVblank{};
         std::chrono::nanoseconds maxVblankGap{0};
         uint64_t slowVblanks = 0;
+        uint64_t wallclockCredits = 0; // PS2X_VBLANK_WALLCLOCK: vblanks brought forward because the host ran late
     };
     PaceStats g_pace;
 
@@ -122,6 +148,8 @@ namespace
                   << " idleWait=" << std::chrono::duration<double>(g_pace.idleWait).count() / secs * 100.0 << "%"
                   << " maxFrameMs=" << std::chrono::duration<double>(g_pace.maxVblankGap).count() * 1000.0
                   << " framesOver20ms=" << g_pace.slowVblanks;
+        if (g_vblankWallclock)
+            std::cout << " wallclockCredits=" << g_pace.wallclockCredits;
         static const char *names[8] = {"stop", "vblankStart", "vblankEnd", "dmac", "wake", "alarm", "timer", "none"};
         for (int i = 0; i < 8; ++i)
             if (g_pace.idleWaitsByType[i] != 0)
@@ -481,6 +509,11 @@ bool EeScheduler::checkpointDue(uint32_t cycles) noexcept
 {
     accountCycles(cycles);
 
+    // Polled every 512 checkpoints (~16K guest cycles): reading the clock at every checkpoint would cost too much.
+    if (g_vblankWallclock && (++m_wallclockPoll & 511u) == 0u &&
+        std::chrono::steady_clock::now().time_since_epoch().count() >= m_nextVBlankHostNs.load(std::memory_order_relaxed))
+        creditOverdueVBlank();
+
     if (m_checkpointPending.load(std::memory_order_acquire) ||
         m_stopRequested.load(std::memory_order_acquire))
     {
@@ -581,6 +614,44 @@ void EeScheduler::checkMemoryWatch(const char *where) noexcept
     w.snapshot.assign(now, now + w.length);
 }
 
+void EeScheduler::creditOverdueVBlank()
+{
+    // From Neo Contra's runtime copy (PS2Recomp-NeoContra, 8 Nov 2026).
+    uint64_t missing = 0u;
+    {
+        std::lock_guard lock(m_eventMutex);
+        const auto now = std::chrono::steady_clock::now();
+        for (const ScheduledEvent &item : m_deadlines)
+            if (item.event.type == EeEventType::VBlankStart && item.hostDeadline <= now && item.deadlineCycle > m_eeCycle)
+                missing = missing == 0u ? item.deadlineCycle - m_eeCycle : std::min(missing, item.deadlineCycle - m_eeCycle);
+    }
+    // Stop at the next EE timer interrupt, as the idle wait does, so a periodic timer is not jumped over.
+    missing = std::min({missing, kVBlankPeriodCycles, m_runtime.memory().cyclesUntilNextEeTimerInterrupt()});
+    if (missing == 0u)
+        return;
+    ++g_pace.wallclockCredits;
+    accountCycles(static_cast<uint32_t>(missing));
+    m_checkpointPending.store(true, std::memory_order_release);
+}
+
+// PS2X_EE_CHECKPOINT_FAST=1 (ported from Neo Contra): accountCycles does the common case of advanceEeTimers
+// (PS2X_EE_LAZY_TIMERS: clear the GIF_STAT FQC bits, bank the cycles) and of advanceIopEeCycles (PS2X_IOP_BANK: bank the
+// cycles) inline, and calls them only when a bank reaches its limit. Same arithmetic as the two functions, so guest
+// state is unchanged; it saves two calls per checkpoint. The banks live in ps2_memory.cpp / ps2_runtime.cpp.
+extern uint32_t *g_gifStatSlot;
+extern const PS2Memory *g_gifStatOwner, *g_timerOwner;
+extern uint64_t g_timerBank, g_timerHorizon, g_iopBank, g_iopBankLimit;
+namespace
+{
+    const bool g_checkpointFast = []
+    {
+        // all four are on by default since 12 Nov 2026; =0 turns one off
+        const auto on = [](const char *name) { const char *e = std::getenv(name); return !(e != nullptr && *e == '0'); };
+        return on("PS2X_EE_CHECKPOINT_FAST") && on("PS2X_EE_FAST") && on("PS2X_EE_LAZY_TIMERS") && on("PS2X_IOP_BANK") &&
+               std::getenv("PS2X_IOP_THREAD") == nullptr;
+    }();
+}
+
 void EeScheduler::accountCycles(uint32_t cycles) noexcept
 {
     // PS2X_WATCH debug aid: decided once here, so the hot path pays no call when it is off.
@@ -595,6 +666,20 @@ void EeScheduler::accountCycles(uint32_t cycles) noexcept
     }
     const uint64_t elapsed = std::max<uint64_t>(1u, cycles);
     m_eeCycle += elapsed;
+    if (g_checkpointFast)
+    {
+        const PS2Memory *const memory = &m_runtime.memory();
+        if (g_timerOwner == memory && g_gifStatOwner == memory && g_timerBank + elapsed < g_timerHorizon &&
+            g_iopBank + elapsed < g_iopBankLimit && !s_watch)
+        {
+            *g_gifStatSlot &= ~0x1F000000u; // GIF_STAT FQC, as advanceEeTimers does
+            g_timerBank += elapsed;
+            g_iopBank += elapsed;
+            if (m_pendingEeTimerInterrupts != 0u)
+                m_checkpointPending.store(true, std::memory_order_release);
+            return;
+        }
+    }
     m_pendingEeTimerInterrupts |= m_runtime.memory().advanceEeTimers(elapsed);
     if (s_watch)
         checkMemoryWatch("guest code");
@@ -1691,12 +1776,17 @@ void EeScheduler::bindMainContextForSyscall(R5900Context &ctx, uint8_t *rdram)
 
 EeKernelSnapshot EeScheduler::snapshot() const
 {
+    g_snapshotWantedUntilMs.store(snapshotClockMs() + 1000, std::memory_order_relaxed);
     std::lock_guard lock(m_snapshotMutex);
     return m_snapshot;
 }
 
 void EeScheduler::publishSnapshot()
 {
+    if (!snapshotAlways() && snapshotClockMs() > g_snapshotWantedUntilMs.load(std::memory_order_relaxed))
+    {
+        return;
+    }
     EeKernelSnapshot next{};
     next.sequence = ++m_snapshotSequence;
     next.eeCycle = m_eeCycle;
@@ -2369,6 +2459,8 @@ void EeScheduler::scheduleEvent(uint64_t deadlineCycle,
     {
         std::lock_guard lock(m_eventMutex);
         m_deadlines.push_back(ScheduledEvent{deadlineCycle, hostDeadline, event, ++m_eventSequence});
+        if (event.type == EeEventType::VBlankStart)
+            m_nextVBlankHostNs.store(hostDeadline.time_since_epoch().count(), std::memory_order_relaxed);
         updateNextDeadline();
     }
     m_eventCv.notify_one();

@@ -5,23 +5,135 @@
 #include "ps2_log.h"
 #include <atomic>
 #include <iostream>
+#include <cstdlib>
 #include <cstring>
 #include <limits>
 #include <stdexcept>
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <mutex>
 
 // Defined in ps2_vif1_interpreter.cpp: drops a VIF1 command held across DMA packets (VIF reset).
 void ps2Vif1ResetStreamState();
 
+// PS2X_EE_FAST=1 (experimental, 30 Oct): advanceEeTimers keeps a pointer to GIF_STAT's value instead of a hash
+// lookup per call (same results, less game-thread work).
+static const bool g_eeFast = []
+{
+    const char *e = std::getenv("PS2X_EE_FAST");
+    return !(e != nullptr && *e == '0'); // on by default since 12 Nov 2026; =0 turns it off
+}();
+// GIF_STAT's value in m_ioRegisters. Inserting never moves an unordered_map node and single entries are never erased,
+// so the pointer stays valid until the map is cleared (memory init here, save-state load in ps2_savestate.cpp), which
+// calls ps2MemoryIoRegistersCleared().
+uint32_t *g_gifStatSlot = nullptr; // not static: read inline by EeScheduler::accountCycles (PS2X_EE_CHECKPOINT_FAST)
+const PS2Memory *g_gifStatOwner = nullptr;
+void ps2MemoryIoRegistersCleared()
+{
+    g_gifStatSlot = nullptr;
+    g_gifStatOwner = nullptr;
+}
+// Recycled buffers for DMA transfer copies (game thread takes, render worker gives back; ported from Neo Contra). A
+// fresh vector per transfer meant ~3 MB of new, untouched memory per frame there (page faults plus cold copies: the top
+// single cost on the laptop's game thread). Contents are always overwritten by the taker.
+static std::mutex g_transferPoolMutex;
+static std::vector<std::vector<uint8_t>> g_transferPool;
+static size_t g_transferPoolBytes = 0u;
+std::vector<uint8_t> ps2TransferBufferTake(size_t bytes)
+{
+    std::vector<uint8_t> buf;
+    {
+        std::lock_guard<std::mutex> lock(g_transferPoolMutex);
+        size_t best = g_transferPool.size();
+        for (size_t i = 0; i < g_transferPool.size(); ++i)
+            if (g_transferPool[i].capacity() >= bytes &&
+                (best == g_transferPool.size() || g_transferPool[i].capacity() < g_transferPool[best].capacity()))
+                best = i;
+        if (best != g_transferPool.size())
+        {
+            buf = std::move(g_transferPool[best]);
+            g_transferPool[best] = std::move(g_transferPool.back());
+            g_transferPool.pop_back();
+            g_transferPoolBytes -= buf.capacity();
+        }
+    }
+    buf.reserve(bytes);
+    return buf;
+}
+void ps2TransferBufferGive(std::vector<uint8_t> &&buf)
+{
+    constexpr size_t kMaxBuffers = 256u, kMaxBytes = 64u << 20;
+    if (buf.capacity() == 0u)
+        return;
+    buf.clear();
+    std::lock_guard<std::mutex> lock(g_transferPoolMutex);
+    if (g_transferPool.size() < kMaxBuffers && g_transferPoolBytes + buf.capacity() <= kMaxBytes)
+    {
+        g_transferPoolBytes += buf.capacity();
+        g_transferPool.push_back(std::move(buf));
+    }
+}
+// PS2X_EE_LAZY_TIMERS=1 (ported from Neo Contra, 9 Nov): advanceEeTimers banks the cycles and steps the four timers only
+// when the bank reaches the next timer interrupt (in the same call that would have raised it), on a timer register read
+// or write, and before a save (advanceEeTimers(0)). Exact: stepping is additive and the interrupt horizon shrinks by
+// exactly the banked cycles (brute-force checked in Neo Contra, 20,000 random timer states). Single EE thread: only
+// the scheduler and guest IO on that thread touch the timers.
+static const bool g_lazyTimers = []
+{
+    const char *e = std::getenv("PS2X_EE_LAZY_TIMERS");
+    return !(e != nullptr && *e == '0'); // on by default since 12 Nov 2026; =0 turns it off
+}();
+const PS2Memory *g_timerOwner = nullptr; // whose timers the bank and horizon below describe
+uint64_t g_timerBank = 0u;               // cycles not yet applied to the timers
+uint64_t g_timerHorizon = 0u;            // cyclesUntilNextEeTimerInterrupt() when the bank was last empty
+static bool g_timerFlushing = false;     // inside advanceEeTimers(0)'s step of the banked cycles
+// The timers were replaced (save-state load) or reset: drop the bank, recompute the horizon on the next advance.
+void ps2MemoryEeTimersReplaced()
+{
+    g_timerOwner = nullptr;
+    g_timerBank = 0u;
+}
+// PS2X_GIF_DIRECT=1 (experimental, 30 Oct): a GIF packet submitted to an empty arbiter queue and drained right away
+// goes to the GS hand-off straight from the caller's buffer (same packet, same order; no copy or allocation).
+extern thread_local bool g_gifSubmitDrainsNow; // gs/ps2_gif_arbiter.cpp
+static const bool g_gifDirect = []
+{
+    const char *e = std::getenv("PS2X_GIF_DIRECT");
+    return !(e != nullptr && *e == '0'); // on by default since 12 Nov 2026; =0 turns it off
+}();
+// PS2X_TTE_NOPAD (see appendVifTagData), read once here instead of a guarded local static checked per DMA tag.
+static const bool g_tteNoPad = std::getenv("PS2X_TTE_NOPAD") != nullptr;
+// Out of line: building the message inside translateAddress gave every call a large stack frame and a security
+// cookie check (~2% of the game thread).
+#if defined(_MSC_VER)
+#define PS2_MEM_NOINLINE __declspec(noinline)
+#else
+#define PS2_MEM_NOINLINE __attribute__((noinline))
+#endif
+[[noreturn]] static PS2_MEM_NOINLINE void throwTlbMiss(uint32_t virtualAddress)
+{
+    throw std::runtime_error("TLB miss for address: 0x" + std::to_string(virtualAddress));
+}
+
 namespace
 {
+    // The message is built out of line so the check itself inlines (it was a ~0.8% call on the game thread).
+#if defined(_MSC_VER)
+    __declspec(noinline)
+#else
+    __attribute__((noinline))
+#endif
+    void throwOutOfBounds(const char *op, uint32_t address)
+    {
+        throw std::runtime_error(std::string(op) + " out-of-bounds at address: 0x" + std::to_string(address));
+    }
+
     inline void inRange(uint32_t offset, size_t bytes, size_t regionSize, const char *op, uint32_t address)
     {
         if (static_cast<uint64_t>(offset) + static_cast<uint64_t>(bytes) > static_cast<uint64_t>(regionSize))
         {
-            throw std::runtime_error(std::string(op) + " out-of-bounds at address: 0x" + std::to_string(address));
+            throwOutOfBounds(op, address);
         }
     }
 
@@ -370,6 +482,7 @@ bool PS2Memory::initialize(size_t ramSize)
 
         // Initialize I/O registers
         m_ioRegisters.clear();
+        ps2MemoryIoRegistersCleared();
 
         // Initialize GS registers
         memset(&gs_regs, 0, sizeof(gs_regs));
@@ -417,20 +530,77 @@ bool PS2Memory::initialize(size_t ramSize)
 void PS2Memory::resetEeTimers() noexcept
 {
     m_eeTimers = {};
+    ps2MemoryEeTimersReplaced();
 }
 
 uint32_t PS2Memory::advanceEeTimers(uint64_t eeCycles) noexcept
 {
     if (eeCycles == 0u)
     {
+        // PS2X_EE_LAZY_TIMERS: advanceEeTimers(0) applies the banked cycles (before the timers are read or written).
+        if (g_lazyTimers && g_timerOwner == this && g_timerBank != 0u)
+        {
+            const uint64_t banked = g_timerBank;
+            g_timerBank = 0u;
+            g_timerOwner = nullptr; // the step below recomputes the horizon
+            g_timerFlushing = true; // timers only: GIF_STAT was already handled when these cycles were banked
+            const uint32_t raised = advanceEeTimers(banked);
+            g_timerFlushing = false;
+            if (raised != 0u)
+            {
+                // Cannot happen: the bank is always below the horizon. Logged rather than lost silently.
+                static bool s_logged = false;
+                if (!s_logged)
+                {
+                    s_logged = true;
+                    std::cerr << "[ee:timers] lazy flush raised an interrupt (bank " << banked << ")" << std::endl;
+                }
+            }
+        }
         return 0u;
     }
 
     constexpr uint32_t kGifStat = 0x10003020u;
     constexpr uint32_t kGifFqcMask = 0x1F000000u;
-    auto gifStatIt = m_ioRegisters.find(kGifStat);
-    if (gifStatIt != m_ioRegisters.end())
-        gifStatIt->second &= ~kGifFqcMask;
+    if (g_timerFlushing)
+    {
+    }
+    else if (g_eeFast)
+    {
+        // a hash lookup on every timer advance was ~4% of the game thread on a laptop (Tempest)
+        if (g_gifStatOwner != this)
+        {
+            const auto it = m_ioRegisters.find(kGifStat);
+            if (it != m_ioRegisters.end())
+            {
+                g_gifStatSlot = &it->second;
+                g_gifStatOwner = this;
+            }
+        }
+        if (g_gifStatOwner == this)
+            *g_gifStatSlot &= ~kGifFqcMask;
+    }
+    else
+    {
+        auto gifStatIt = m_ioRegisters.find(kGifStat);
+        if (gifStatIt != m_ioRegisters.end())
+            gifStatIt->second &= ~kGifFqcMask;
+    }
+
+    if (g_lazyTimers)
+    {
+        if (g_timerOwner == this)
+        {
+            if (g_timerBank + eeCycles < g_timerHorizon)
+            {
+                g_timerBank += eeCycles;
+                return 0u;
+            }
+            eeCycles += g_timerBank; // reaches the next interrupt: step everything banked in this call, as before
+        }
+        g_timerBank = 0u;
+        g_timerOwner = nullptr; // cyclesUntilNextEeTimerInterrupt() below computes from the stepped timers
+    }
 
     uint32_t interruptMask = 0u;
     for (size_t index = 0; index < m_eeTimers.size(); ++index)
@@ -492,11 +662,23 @@ uint32_t PS2Memory::advanceEeTimers(uint64_t eeCycles) noexcept
             interruptMask |= 1u << index;
         }
     }
+    if (g_lazyTimers)
+    {
+        g_timerHorizon = cyclesUntilNextEeTimerInterrupt();
+        g_timerOwner = this;
+    }
     return interruptMask;
 }
 
 uint64_t PS2Memory::cyclesUntilNextEeTimerInterrupt() const noexcept
 {
+    if (g_lazyTimers && g_timerOwner == this)
+    {
+        // The horizon shrinks by exactly the banked cycles (no step happened since it was computed).
+        return g_timerHorizon == std::numeric_limits<uint64_t>::max()
+                   ? g_timerHorizon
+                   : std::max<uint64_t>(1u, g_timerHorizon - g_timerBank);
+    }
     uint64_t nearest = std::numeric_limits<uint64_t>::max();
     for (const EeTimer &timer : m_eeTimers)
     {
@@ -628,7 +810,7 @@ uint32_t PS2Memory::translateAddress(uint32_t virtualAddress)
                 }
             }
         }
-        throw std::runtime_error("TLB miss for address: 0x" + std::to_string(virtualAddress));
+        throwTlbMiss(virtualAddress);
     }
 
     return virtualAddress;
@@ -1170,6 +1352,8 @@ bool PS2Memory::writeIORegister(uint32_t address, uint32_t value)
     uint32_t timerOffset = 0u;
     if (decodeEeTimerRegister(address, timerIndex, timerOffset))
     {
+        advanceEeTimers(0u);    // PS2X_EE_LAZY_TIMERS: apply banked cycles before the write
+        g_timerOwner = nullptr; // the write may move the next interrupt: recompute on the next advance
         EeTimer &timer = m_eeTimers[timerIndex];
         switch (timerOffset)
         {
@@ -1401,7 +1585,11 @@ bool PS2Memory::writeIORegister(uint32_t address, uint32_t value)
                     // chainBuf by up to 1 MB per tag until the allocation fails. 64 MB is twice the EE's RAM.
                     constexpr size_t kMaxChainBytes = 64u << 20;
                     bool chainOverflow = false;
-                    std::vector<uint8_t> chainBuf;
+                    // Start at the largest chain this channel has sent, in a recycled buffer: growing from empty re-copied
+                    // the frame's VIF1 list several times (Neo Contra stage 1: ~10% of the game thread).
+                    static size_t s_chainHint[64] = {};
+                    size_t &chainHint = s_chainHint[(channelBase >> 10) & 0x3Fu];
+                    std::vector<uint8_t> chainBuf = ps2TransferBufferTake(chainHint);
 
                     auto appendData = [&](uint32_t srcAddr, uint32_t qwCount)
                     {
@@ -1461,8 +1649,7 @@ bool PS2Memory::writeIORegister(uint32_t address, uint32_t value)
                         // quadword-aligned.
                         // PS2X_TTE_NOPAD: PCSX2 behaviour - only the two tag words enter the VIF
                         // stream, also in the middle of a command spanning the tag (experiment).
-                        static const bool s_noPad = std::getenv("PS2X_TTE_NOPAD") != nullptr;
-                        if (!s_noPad)
+                        if (!g_tteNoPad)
                             chainBuf.insert(chainBuf.end(), 8u, uint8_t{0});
                         chainBuf.insert(chainBuf.end(), localBase + tagPhys + 8u, localBase + tagPhys + 16u);
                     };
@@ -1606,6 +1793,7 @@ bool PS2Memory::writeIORegister(uint32_t address, uint32_t value)
                     chcr = (chcr & 0x0000FFFFu) | (lastTagUpper << 16);
                     m_ioRegisters[channelBase + 0x00] = chcr;
 
+                    chainHint = std::min<size_t>(std::max(chainHint, chainBuf.size()), size_t{1} << 20); // cap: later chains reserve at most 1 MB up front
                     if (!chainBuf.empty())
                     {
                         PendingTransfer pt;
@@ -1957,7 +2145,7 @@ static void snapshotTransfer(PS2Memory &m, PS2Memory::PendingTransfer &p)
     const uint32_t size = p.fromScratchpad ? PS2_SCRATCHPAD_SIZE : PS2_RAM_SIZE;
     const uint64_t bytes64 = static_cast<uint64_t>(p.qwc) * 16ull;
     uint32_t bytesLeft = (bytes64 > 0xFFFFFFFFull) ? 0xFFFFFFFFu : static_cast<uint32_t>(bytes64);
-    p.chainData.reserve(bytesLeft);
+    p.chainData = ps2TransferBufferTake(bytesLeft);
     while (bytesLeft >= 16u)
     {
         if (srcPhys >= size)
@@ -2173,7 +2361,11 @@ void PS2Memory::submitGifPacket(GifPathId pathId, const uint8_t *data, uint32_t 
     }
 
     if (m_gifArbiter)
+    {
+        g_gifSubmitDrainsNow = g_gifDirect && drainImmediately;
         m_gifArbiter->submit(pathId, data, sizeBytes, path2DirectHl);
+        g_gifSubmitDrainsNow = false;
+    }
     else if (m_gifPacketCallback)
         m_gifPacketCallback(data, sizeBytes);
 
@@ -2501,6 +2693,7 @@ uint32_t PS2Memory::readIORegister(uint32_t address)
     uint32_t timerOffset = 0u;
     if (decodeEeTimerRegister(address, timerIndex, timerOffset))
     {
+        advanceEeTimers(0u); // PS2X_EE_LAZY_TIMERS: apply banked cycles before the read
         const EeTimer &timer = m_eeTimers[timerIndex];
         switch (timerOffset)
         {

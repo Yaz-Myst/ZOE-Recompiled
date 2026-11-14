@@ -5,6 +5,9 @@
 // Path (1-3) of the packet currently handed to the GS; the GS keeps an open packet per path.
 int g_gifCurrentPath = 3;
 
+// Set by PS2Memory::submitGifPacket (PS2X_GIF_DIRECT=1) around a submit that is drained right after.
+thread_local bool g_gifSubmitDrainsNow = false;
+
 GifArbiter::GifArbiter(ProcessPacketFn processFn)
     : m_processFn(std::move(processFn))
 {
@@ -26,6 +29,17 @@ void GifArbiter::submit(GifPathId pathId, const uint8_t *data, uint32_t sizeByte
     if (!data || sizeBytes < 16 || !m_processFn)
         return;
 
+    if (g_gifSubmitDrainsNow && m_queue.empty())
+    {
+        // The drain that follows would hand over exactly this packet: do it now, from the caller's buffer, without
+        // the copy and allocation (every VU1 XGKICK comes through here).
+        g_gifSubmitDrainsNow = false;
+        g_gifCurrentPath = static_cast<int>(pathId);
+        m_processFn(data, sizeBytes);
+        g_gifCurrentPath = 3;
+        return;
+    }
+
     GifArbiterPacket pkt;
     pkt.pathId = pathId;
     pkt.path2DirectHl = (pathId == GifPathId::Path2) && path2DirectHl;
@@ -37,7 +51,7 @@ void GifArbiter::submit(GifPathId pathId, const uint8_t *data, uint32_t sizeByte
 
 void GifArbiter::drain()
 {
-    if (!m_processFn)
+    if (!m_processFn || m_queue.empty())
         return;
 
     std::stable_sort(m_queue.begin(), m_queue.end(),

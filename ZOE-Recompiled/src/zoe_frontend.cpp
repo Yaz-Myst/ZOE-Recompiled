@@ -38,7 +38,7 @@ namespace
             kZoeCopyDirs,
             kZoeDefaultSwitches,
             wideOffered,
-            "Zone of the Enders Recompiled | ver. 1.0.1",
+            "Zone of the Enders Recompiled | ver. 1.1.0",
         };
     }
 

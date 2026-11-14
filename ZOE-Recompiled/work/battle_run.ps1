@@ -19,6 +19,10 @@ $env:PS2X_INPUT_RECORD = $null
 # The scripted title-menu routes assume the stock menu: the user's "Unlock Versus mode" setting adds an entry and
 # shifts them (29 Oct: the battle route then died ~50 s early). Off for scripted runs; -Env can override.
 $env:PS2X_ZOE_VERSUS_UNLOCK = "0"
+# Vblanks on game cycles, not on the wall clock (the default since 12 Nov): scripted routes are keyed to vsync ticks and
+# drift when a slow load lets wall-clock vblanks pass (12 Nov: the battle route then reached a different fight). Test
+# runs stay repeatable; -Env "PS2X_VBLANK_WALLCLOCK=1" tests the shipped timing.
+$env:PS2X_VBLANK_WALLCLOCK = "0"
 $env:PS2X_INPUT_SCRIPT = (Get-Content (Join-Path $PSScriptRoot $Route) -Raw).Trim().TrimEnd(',')
 $extra = @()
 foreach ($kv in ($Env -split ';')) { if ($kv -match '^([^=]+)=(.*)$') { Set-Item "env:$($Matches[1])" $Matches[2]; $extra += $Matches[1] } }

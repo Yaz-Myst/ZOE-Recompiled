@@ -977,8 +977,45 @@ void PS2Runtime::notifyIopSifTransfer(uint8_t *rdram, const ps2x::iop::SifTransf
     m_iopSubsystem->onSifTransfer(transfer);
 }
 
+// PS2X_IOP_BANK=1 (ported from Neo Contra, 9 Nov): EE cycles for the IOP are added up here and handed over only in
+// the call where the IOP's own 8192-cycle batch fills (it only added them up itself before that), so the IOP runs at
+// the same EE cycles as before without a call chain per checkpoint. Not with PS2X_IOP_THREAD (its prepaid accounting).
+static const bool g_iopBankOn = []
+{
+    const char *e = std::getenv("PS2X_IOP_BANK");
+    // on by default since 12 Nov 2026; =0 turns it off. Never with PS2X_IOP_THREAD (see above).
+    return !(e != nullptr && *e == '0') && std::getenv("PS2X_IOP_THREAD") == nullptr;
+}();
+uint64_t g_iopBank = 0u;      // EE cycles not yet handed to the IOP (EE thread only); read inline by EeScheduler::accountCycles
+uint64_t g_iopBankLimit = 0u; // hand over when the bank reaches this (0 = ask the IOP again)
+// Before a save: returns the banked cycles for the caller to hand to the IOP (below a batch, so it only adds them up).
+uint64_t ps2IopBankTake() noexcept
+{
+    const uint64_t banked = g_iopBank;
+    g_iopBank = 0u;
+    g_iopBankLimit = 0u;
+    return banked;
+}
+// After a load or an IOP reset: the old run's banked cycles are gone with its carry.
+void ps2IopBankDrop() noexcept
+{
+    g_iopBank = 0u;
+    g_iopBankLimit = 0u;
+}
+
 void PS2Runtime::advanceIopEeCycles(uint64_t eeCycles) noexcept
 {
+    if (g_iopBankOn && !ps2_iop_thread::enabled())
+    {
+        g_iopBank += eeCycles;
+        if (g_iopBank < g_iopBankLimit)
+            return;
+        eeCycles = g_iopBank;
+        g_iopBank = 0u;
+        m_iopSubsystem->runEeCycles(eeCycles);
+        g_iopBankLimit = m_iopSubsystem->eeCyclesUntilBatch();
+        return;
+    }
     if (ps2_iop_thread::enabled())
     {
         // Game thread: skip the time the IOP thread already ran during an idle wait.
@@ -993,6 +1030,7 @@ void PS2Runtime::advanceIopEeCycles(uint64_t eeCycles) noexcept
 
 void PS2Runtime::resetIop()
 {
+    ps2IopBankDrop();
     auto lock = lockIopHost(m_iopHost.get());
     m_iopSubsystem->reset();
 }

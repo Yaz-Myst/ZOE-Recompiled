@@ -77,6 +77,10 @@ namespace ps2x::iop::detail
 
         [[nodiscard]] std::optional<DmaStart> takeDmaStart() noexcept;
         [[nodiscard]] bool hasDmaStart() const noexcept { return m_dmaStart.has_value(); }
+        // PS2X_IOP_FAST_LOOP: set by any read or write that is not plain RAM (scratchpad, SPU2, I/O registers, byte-wise
+        // fallbacks), so the interpreter's fast loop knows an instruction may have changed interrupt/DMA/SPU2 state.
+        [[nodiscard]] bool ioTouched() const noexcept { return m_ioTouched; }
+        void clearIoTouched() noexcept { m_ioTouched = false; }
         // read32 for instruction fetches: aligned RAM words inline, everything else through read32.
         [[nodiscard]] uint32_t fetch32(uint32_t address) const
         {
@@ -93,6 +97,7 @@ namespace ps2x::iop::detail
 
         // For the SPU2's DMA engine: direct access to IOP RAM and to a hardware register's storage.
         [[nodiscard]] uint8_t *ramData() noexcept { return m_ram.data(); }
+        [[nodiscard]] uint8_t *ownedData() noexcept { return m_owned.data(); } // compiled blocks (iop_aot.h)
         [[nodiscard]] uint32_t &hardwareRef(uint32_t address) { return m_hardware[physicalAddress(address)]; }
 
         [[nodiscard]] static uint32_t physicalAddress(uint32_t address) noexcept;
@@ -112,5 +117,6 @@ namespace ps2x::iop::detail
         uint32_t m_interruptMask = 0;
         uint32_t m_interruptControl = 1;
         std::optional<DmaStart> m_dmaStart;
+        mutable bool m_ioTouched = false;
     };
 }

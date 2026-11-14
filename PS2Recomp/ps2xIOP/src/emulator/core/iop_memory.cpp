@@ -51,6 +51,7 @@ namespace ps2x::iop::detail
         const uint32_t phys = physicalAddress(address);
         if (phys < RamSize)
             return m_ram[phys];
+        m_ioTouched = true;
         if (phys >= ScratchBase && phys < ScratchBase + ScratchSize)
             return m_scratch[phys - ScratchBase];
         if (spu2::isRegister(phys))
@@ -68,6 +69,7 @@ namespace ps2x::iop::detail
             std::memcpy(&value, m_ram.data() + phys, sizeof(value));
             return value;
         }
+        m_ioTouched = true;
         if ((phys & 1u) == 0u && spu2::isRegister(phys))
             return spu2::read16(phys);
         return static_cast<uint16_t>(read8(address) | (static_cast<uint16_t>(read8(address + 1u)) << 8u));
@@ -82,6 +84,7 @@ namespace ps2x::iop::detail
             std::memcpy(&value, m_ram.data() + phys, sizeof(value));
             return value;
         }
+        m_ioTouched = true;
         if ((phys & 3u) == 0u && phys >= ScratchBase && phys + 3u < ScratchBase + ScratchSize)
         {
             uint32_t value;
@@ -108,6 +111,7 @@ namespace ps2x::iop::detail
             markOwned(phys, sizeof(value));
             return;
         }
+        m_ioTouched = true;
         if (phys >= ScratchBase && phys < ScratchBase + ScratchSize)
         {
             m_scratch[phys - ScratchBase] = value;
@@ -137,6 +141,7 @@ namespace ps2x::iop::detail
             markOwned(phys, sizeof(value));
             return;
         }
+        m_ioTouched = true;
         if ((phys & 1u) == 0u && spu2::isRegister(phys))
         {
             spu2::write16(phys, value);
@@ -155,6 +160,7 @@ namespace ps2x::iop::detail
             markOwned(phys, sizeof(value));
             return;
         }
+        m_ioTouched = true;
         if ((phys & 3u) == 0u && phys >= ScratchBase && phys + 3u < ScratchBase + ScratchSize)
         {
             std::memcpy(m_scratch.data() + (phys - ScratchBase), &value, sizeof(value));
